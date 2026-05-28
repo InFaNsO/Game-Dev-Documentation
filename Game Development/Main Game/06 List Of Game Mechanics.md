@@ -2,7 +2,14 @@
 [[Mechanics/]]
 # [[00 Looter Shooter|Looter Shooter]]
 
-- Inspired from Escape from duckov and Expedition 33
+- Inspired from **XCOM 2**, **Mario + Rabbids**, and **Expedition 33**
+- Turn-based tactics with **deterministic damage** (no hit% RNG)
+- **Movement-as-mechanic** — dash-through, traversal points, team-jump (party only)
+- **Reactive parry/dodge** layer on enemy turns (Expedition 33)
+- **Intent telegraphs** above every enemy (STS2 contract)
+- **Cover + flanking + overwatch** (XCOM)
+- **Status effect deck** — burn, freeze, push, honey, vamp, ink, suppressed (Mario + Rabbids), narratively tied to [[Mechanics/Looter Shooter/06 Element in Looter Shooter|Element]]
+- Combat runs inside **procedurally assembled rooms** — same procgen tech as the dungeon system
 
 # [[Procedural Level Generation]]
 

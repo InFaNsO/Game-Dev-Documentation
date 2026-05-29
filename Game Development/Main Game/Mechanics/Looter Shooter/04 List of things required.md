@@ -123,12 +123,17 @@
 - [ ] **Named Husks as Mini-Bosses (Topic 8 correction)**
     - [ ] 4 total named Husks across the campaign (3 mandatory + 1 optional)
     - [ ] Each is a mini-boss-tier combat encounter with unique abilities
+    - [ ] **Cannot be killed — forced purification only.** Player must defeat in combat and then transmute by force.
+    - [ ] **Knowledge transmission happens DURING the fight at critical state** — Husk weakens, teaches the Mani refinement as a dying-act knowledge beat, then forced-purification QTE
+    - [ ] Mani recipe is unlocked AS PART OF the encounter (not before, not after)
     - [ ] Each teaches one specific refined Mani:
         - [ ] Vats Husk 1 (entry hub, mandatory) → Jal-Mani
         - [ ] Vats Husk 2 (inner sanctum, mandatory) → Vayu-Mani + conspiracy reveal
         - [ ] Forge Husk 1 (entry hub, mandatory) → Agni-Mani
         - [ ] Forge Husk 4 (inner sanctum side area, optional, head researcher) → Akash refinement knowledge + bonus weapons for Sun-King
-    - [ ] Post-defeat choice: kill (basic recipe drops, minimal lore) or purify (full lore + ally recruit at Council Scene)
+    - [ ] After purification: Husk reverts to pre-Breach form, joins base as ally, full lore drop, present at endgame Council Scene with arc-aware dialogue
+    - [ ] All 3 mandatory Husks ALWAYS become allies at Council Scene (consistent baseline for every player)
+    - [ ] Optional Husk 4 = the only Council Scene variance from the Husk roster
     - [ ] No named Husks at Lithic Mow (Grinder-only biome; player wakes knowing Bhu-Mani)
 
 - [ ] **Mani System (lore-driven combat resource)**

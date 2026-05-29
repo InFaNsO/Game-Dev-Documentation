@@ -162,28 +162,31 @@ Passive cross-faction ambient threats. Wildlife touched by residual Bleed pools.
 | 3 | **Prism Forge — Entry Hub** | Reptile, **mandatory mini-boss** | **Agni-Mani** refinement | Mirrors the Vats entry-hub pattern. Deeper grief, deeper resolve. |
 | 4 | **Prism Forge — Inner Sanctum side area** | Reptile, **optional mini-boss** — head of Accord research | **Akash refinement knowledge** + **bonus weapons for the Sun-King fight** | The single most senior researcher to survive as a Husk. Engaging them enriches the Akash production sequence at endgame and equips the player for Sun-King. Skipping them is permitted — the multi-species ending still plays but the climactic Akash sequence is tense and improvised. |
 
-### Purification mechanic (named Husks)
+### Purification mechanic (named Husks) — **mandatory, no kill option**
 
-1. **Combat phase**: Player encounters the named Husk in their designated zone. Combat begins — mini-boss-tier fight with unique abilities reflecting their pre-Breach research specialty.
-2. **Post-defeat choice**: After reducing the Husk to a critical state, the player can:
-   - **Kill** — recover the refinement blueprint as loot; Mani recipe unlocked; no allied recruit; minimal lore (one short audio-log fragment).
-   - **Purify** — consume **1 unit of Refined Mani matching the species** (Jal-Mani for Amphibian, Agni-Mani for Reptile) + complete a short timing/QTE sequence. On success: Husk reverts to pre-Breach form, joins the player base as a colonist/ally, **delivers full lore drop**, becomes a named character with arc-aware dialogue at the endgame Council Scene.
-3. **On purification failure**: Husk dies; refined Mani consumed; same outcome as Kill but with the resource cost.
+Named Husks **cannot be killed**. The player must defeat them in combat *and then* purify them by force, taking away their suffering whether they resist or accept. *"Mercy without consent"* — a powerful thematic beat consistent with the cosmic-horror tone (millennia of half-life ended whether the prisoner is ready or not).
 
-### What progression Is and Is Not gated by
+1. **Combat phase**: mini-boss-tier fight with unique abilities reflecting the Husk's pre-Breach research specialty.
+2. **Knowledge transmission** (at critical state): the Husk weakens, speaks — and **teaches the Mani refinement as a dying-act knowledge transmission**. Brief in-encounter audio-log-style dialogue beat. Player receives the Mani recipe at this moment.
+3. **Forced purification QTE**: combat resumes briefly OR the QTE triggers directly. Player **uses the freshly-learned Mani** (or, for Vats Husk 1 specifically, the Bhu-Mani they already know is sufficient as the *first* species-mismatched purification — the Husk teaches Jal during this beat). Timing/QTE sequence executes the transmutation.
+4. **Resolution**: Husk reverts to pre-Breach form, joins the player base as a colonist/ally, delivers full lore drop, becomes a named character with arc-aware dialogue at the endgame Council Scene.
 
-- **Mani refinement recipes** are NOT gated — kill or purify, you learn the Mani. Required for puzzles and combat progression.
-- **Allied recruit + endgame Council Scene presence** ARE gated — only purification yields an ally at endgame.
-- **Lore depth** is gated — purified Husks deliver rich lore, killed Husks leave only fragments.
-- **Akash refinement at endgame** is reshaped by whether the optional Forge Husk was engaged — see [[13 Campaign Structure#6 The Choice (the endgame)|the Choice section]].
+> *"Take my knowledge, then take my pain."* The encounter is one unified beat: fight → transmit → purify. The Mani recipe is unlocked **as part of** the encounter, not before or after.
+
+### What is and is not gated
+
+- **Mani refinement recipes**: unlocked automatically through the forced encounter. NEVER gated by player choice — the Husk transmits, the player purifies, the recipe is yours.
+- **Endgame Council Scene mandatory roster**: all 3 mandatory named Husks (Vats 1, Vats 2, Forge 1) are guaranteed allies at endgame for every player. Their arc-aware Council lines are based on *how* the encounter went (dialogue choices, optional context), not whether they survived.
+- **Optional Forge Husk 4**: the ONE source of Council Scene variance from the Husk roster. Engaging them adds a 4th Husk ally + bonus weapons + clean Akash refinement at endgame. Skipping them is permitted — multi-species ending still plays but the Akash sequence is improvised.
+- **Council Scene variance** beyond Husks: comes from Grinder Trust Arc completion + Cryo-Survivor recruits gathered along the river journey + dialogue choices throughout.
 
 ### Why this works
 
-- Refinement is never blocked by a player's combat preferences (kill-the-boss players still progress)
-- The good ending's *richness* scales with the player's mercy choices
-- Each named Husk is a memorable mini-boss encounter
-- Refined Mani is the cost of purification — creates real player economy decisions
-- **The first named purification (Vats Husk 1) introduces the mechanic; the second (Vats Husk 2) delivers the conspiracy bombshell** — the act-one-to-act-two pivot for the entire main game ([[13 Campaign Structure]])
+- The forced-purification framing makes the mercy theme *load-bearing* — the player can't opt out of compassion, just as the Husks couldn't opt out of millennia of suffering
+- The Husk teaching the Mani during their final moments unifies the encounter mechanically AND narratively
+- All mandatory Husks present at Council Scene gives the endgame a consistent emotional baseline
+- The optional Husk 4 carries the meaningful "engagement" variance
+- **The first encounter (Vats Husk 1) introduces the mechanic; the second (Vats Husk 2) delivers the conspiracy bombshell** — the act-one-to-act-two pivot for the entire main game ([[13 Campaign Structure]])
 
 ---
 

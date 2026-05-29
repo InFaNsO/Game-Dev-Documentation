@@ -167,8 +167,11 @@ Each ally speaks 1-2 lines making their case (~25-35 lines total). Speakers natu
 ### Hybrid scene authoring
 
 **Council scene structure is fixed**, but specific allies' dialogue varies based on personal arcs:
-- **Named NPCs** (Chief, Shaman, Scout, the first purified Amphibian, the first purified Reptile) get **arc-aware lines** that reference player choices throughout the campaign
-- **Generic recruits** (additional Cryo-Survivors, secondary purified NPCs) have **fixed lines** that fit the council shape
+- **Named NPCs** (Chief, Shaman, Scout, and the 3 mandatory purified Husks — Vats 1, Vats 2, Forge 1) get **arc-aware lines** that reference player choices throughout the campaign
+- **Optional Forge Husk 4** is present only if engaged; their presence adds an additional voice to the Council
+- **Cryo-Survivors and generic recruits** have **fixed lines** that fit the council shape
+
+All 3 mandatory named Husks are always present at Council Scene (forced purification means every player has them as allies). Variance from the Husk roster comes only from optional Husk 4. Broader variance comes from Grinder Trust Arc completion + Cryo-Survivor recruits along the river journey + dialogue choices throughout.
 
 This balances replay depth with authoring scope — adds roughly 30-50% more lines than a flat scene but keeps the core structure stable.
 
@@ -259,7 +262,7 @@ Every Mega Structure visit follows a single shared 8-beat structure. Solo-dev au
                   next biome unlocked via newly-refined Mani gear.
 ```
 
-**Scope target: 5-8 hours of main-path content per structure.** Total main game ~30-45 hours when combined with Trust Arc, connecting regions, and the endgame Choice sequence.
+**Scope target (current estimate): ~3-4 hours of main-path content per structure.** Total main game ~12-15 hours when combined with Trust Arc, connecting regions, and the endgame Choice sequence. **Final duration will be set during development** — these numbers are a working target, not a hard commitment.
 
 ### Locked design dimensions
 
@@ -309,7 +312,7 @@ Each structure gets one defining mechanic that scales across the visit.
 ### Why this design scales solo-dev
 
 - One 8-beat shape × 3 structures = author the rhythm once, vary content.
-- One signature hook per structure = three mechanical systems total, each playable in 5-8 hours of content.
+- One signature hook per structure = three mechanical systems total, each playable in ~3-4 hours of content.
 - Audio logs are the cheapest lore vehicle that still feels evocative; reusable across structures.
 - Procgen handles the raid-zone bulk; hand-authoring concentrates on the beats players will remember.
 

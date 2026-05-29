@@ -109,13 +109,17 @@ Loose distribution for design reference:
 | **Common Husks** | Working-caste Amphibians and Reptiles who **did not know the secret**. The vapor-tenders, heat-workers, soldiers, citizens. | Generic enemy archetypes (Brood, Tidefall, Choir / Stalker, Speaker, Sentinel). Killable. Not story-tied. |
 | **Named / Inner-Circle Husks** | Accord scientists, doorway operators, "first-through" volunteers who **knew the truth**. Each has a name and a story. | Story-gated. Purification mechanic available. Their dialogue reveals the conspiracy in layers. |
 
-### What "killing" means narratively
+### What "killing" means narratively (generic Husks)
 
-A Husk has been suffering for thousands of years — neither alive nor dead, animated by foreign radiation, lucid enough to suffer, never lucid enough to rest. **Killing a Husk severs the radiation thread that animates them.** It is mercy. The player isn't slaying monsters; they're releasing prisoners. This subtle reframe should land through audio logs, environmental storytelling, and dialogue — never lecturing the player.
+A common Husk has been suffering for thousands of years — neither alive nor dead, animated by foreign radiation, lucid enough to suffer, never lucid enough to rest. **Killing a common Husk severs the radiation thread that animates them.** It is mercy. The player isn't slaying monsters; they're releasing prisoners. This subtle reframe should land through audio logs, environmental storytelling, and dialogue — never lecturing the player.
 
-### What "purification" means narratively
+### What "purification" means narratively (named Husks — forced)
 
-For the named, story-gated Husks: purification uses refined elemental Mani as an anchor to **transmute the radiation in their body**, stabilizing them back into normal mortal biology. Not exorcism. **Restoration.** The purified individual remembers everything, including the centuries of half-life. They are not unbroken. But they are alive.
+Named Husks **cannot be killed** — the player must defeat them in combat *and* purify them by force. Purification uses refined elemental Mani as an anchor to **transmute the radiation in their body**, stabilizing them back into normal mortal biology. Not exorcism. **Restoration.** The purified individual remembers everything, including the centuries of half-life. They are not unbroken. But they are alive.
+
+The forced framing is thematically load-bearing: a named Husk who has been a prisoner for millennia may not be *ready* to accept mercy — may rage against it, fear it, or beg for the suffering to continue rather than face what restoration means. The player takes their pain away regardless. *"Mercy without consent"* — consistent with the cosmic-horror tone of the setting. The Husks did not consent to their corruption; they do not get to choose to remain corrupted.
+
+During the encounter, the named Husk transmits their specific Mani refinement knowledge **as a dying-act gift** in the moment before the forced purification — a final transmission from one researcher to another. *"Take my knowledge, then take my pain."*
 
 ---
 

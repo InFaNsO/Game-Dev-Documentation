@@ -12,7 +12,7 @@ The player wakes from cryo-sleep as **the last carrier of pre-Breach knowledge**
 
 ### What the Player is NOT Trying to Do
 
-- **Not** recovering the original Akash-Mani crystal — it was destroyed at The Breach
+- **Not** recovering the original Akash-Mani crystal — it was destroyed at The Breach (a NEW Akash-Mani is produced at endgame in the good ending)
 - **Not** sealing The Breach — already closed for millennia
 - **Not** fighting an active cosmic-horror antagonist — the threat is historical, the consequences are present
-- **Not** chasing a final boss — the climax is the moral Choice, not a battle
+- **Note on the final boss:** there IS a climactic boss — the **Head of Accord Research**, the corrupted architect of the catastrophe, fought beneath the Vats. But defeating him isn't the *resolution*: his forced purification delivers the truth and frames **the moral Choice**, which is the true climax. The battle sets up the decision; the decision is the point.

@@ -41,13 +41,15 @@ The Vats are now haunted by Amphibian Husks — the working caste, immortal, wan
 
 **Puzzle examples:** route healing vapor into a corrupted refinement hall to make it safe; cut off vapor flow sustaining a Husk-infested rig to weaken enemies in that area; seal a leak bleeding contaminated water into a clean section.
 
-**Player progression:** Reclaim in phases — first the surface oil rigs (refine Jal-Mani in Act 2A), then the deeper chambers (refine Vayu-Mani in Act 2B). Each phase unlocks new gear required for downriver travel.
+**Player progression:** Reclaim in phases — learn Jal-Mani (Vats Husk 1) then Vayu-Mani (Vats Husk 2, who also delivers the mid-game conspiracy reveal). Each Mani unlocks gear required to progress.
 
-**Boss:** Vatlord — multi-phase, spawns Vat-Brood mid-fight, cascading status effects. Defends the central vapor regulator the player must activate.
+**Boss:** Vatlord — **the Vats site manager**, multi-phase, spawns Vat-Brood, cascading status. **Requires Jal + Vayu to defeat** (gives no Mani). Defends the central vapor regulator. NOT the campaign final boss.
+
+**Endgame return — the Breach Site:** beneath the Vats is a sealed deep chamber — **ground zero, where Akash was originally refined and The Breach occurred.** Visible but inaccessible on the first visit; unseals at endgame (after all 3 structures reclaimed + all 4 Manis held). The player returns here for the **campaign final boss, the Head of Accord Research** (Amphibian). See [[13 Campaign Structure#6 The Choice (the endgame)|the endgame]].
 
 **Audio log themes:** Accord-era Amphibian rituals, vapor refinement protocols, the inner-circle Akash doorway research, fragments of the final day before The Breach.
 
-**Sub-themes:** Oil-rig platforms · Submerged industrial chambers · Vapor refinement halls · Deep-water Bleed pool zones.
+**Sub-themes:** Oil-rig platforms · Submerged industrial chambers · Vapor refinement halls · Deep-water Bleed pool zones · (endgame) the sealed Breach chamber.
 
 ---
 
@@ -61,9 +63,9 @@ The Reptile caste worked the Forge — their cold-blooded biology let them opera
 
 **Puzzle examples:** redirect three tower beams to crack a Reptile ceremonial seal; align mirrors so a single beam passes through three sequential prisms to ignite a forge; survive a heat zone by hopping between shade pillars on timing.
 
-**Player progression:** Reach via Drowned Reach mini-locations after Vats reclamation. Reclaim the Forge. Refine Agni-Mani. **Second named-NPC purification — deepest conspiracy reveal** (actual doorway protocols, the Accord's full plan to enter Akash, named members of the inner circle).
+**Player progression:** Reach via Drowned Reach mini-locations after Vats reclamation. Learn Agni-Mani (Forge Husk 1). Reclaim the Forge.
 
-**Boss:** Sun-King — phase 1 = sun pillars (LOS hazards constantly sweeping the arena), phase 2 = burn-everything ultimate. Defends the prime focus lens the player must recalibrate.
+**Boss:** Sun-King — **the Forge site manager**, phase 1 = sun pillars (LOS hazards constantly sweeping the arena), phase 2 = burn-everything ultimate. **Requires Agni to defeat** (gives no Mani). Defends the prime focus lens. NOT the campaign final boss — the player returns to the Vats afterward for the Head of Research.
 
 **Audio log themes:** Accord-era Reptile hierarchy, heat refinement protocols, the doorway experiment in its final days, the names of those who knew vs those who didn't.
 

@@ -88,7 +88,7 @@ This is one of the central mechanics. Locked design:
 |---|---|---|---|
 | **Raw Mani (shard)** | **Unknown structure.** Can manifest as any of the elements unpredictably. Random rolls from the **Mani Effect Table** on detonation. | Found as loot; thrown as a live-timer grenade (Bob-omb mechanic from Sparks of Hope). Auto-detonates on timer expiry. | High. Random effects can self-harm. Grinders throw raw Mani in combat and frequently injure themselves — players can bait this. |
 | **Refined elemental Mani** (Bhu/Jal/Agni/Vayu) | **Structured.** Predictable, controllable single-element effects. **Power scales with size** — small shards for safe use, larger crystals for ult-tier effects. | Crafted at Mega Structures the player has reclaimed. Used in ammo, abilities, traversal gear, purification. | Lower per-use, higher per-crystal-size. A fist-sized refined Mani is dangerous to handle. |
-| **Akash-Mani (refined)** | The fifth refined form. Original was destroyed at The Breach. **A new Akash-Mani is produced as the climactic act of the multi-species (good) ending** — refined safely this time, using all four elemental Manis as anchors and multi-species cooperation as the stabilizing protocol the Accord lacked. | Endgame act in the good ending only. Never wielded during gameplay; manifested as the closing beat of the campaign. | Catastrophic without proper protocol — the Accord proved it. Safe only with the head researcher's knowledge (optional Forge Husk) and multi-species cooperation. |
+| **Akash-Mani (refined)** | The fifth refined form. Original was destroyed at The Breach. **A new Akash-Mani is produced as the climactic act of the multi-species (good) ending** — refined safely this time, using all four elemental Manis as anchors and multi-species cooperation as the stabilizing protocol the Accord lacked. | Endgame act in the good ending only. Never wielded during gameplay; manifested as the closing beat of the campaign. | Catastrophic without proper protocol — the Accord proved it. Safe only with the Head of Research's knowledge (obtained by purifying the mandatory final boss) and multi-species cooperation. |
 
 ### Mani Effect Table (raw rolls)
 
@@ -137,16 +137,29 @@ This means **zero animation budget for The Bleed itself.** Shader and audio carr
 
 ---
 
-## 9. The Endgame Implications
+## 9. The Endgame: The Head of Research & The Final Reckoning
 
-The original Akash-Mani is destroyed. There is no artifact to recover. The Breach is already sealed.
+The original Akash-Mani is destroyed. There is no artifact to recover. The Breach is already sealed. But the *knowledge* of how it was refined survives in one mind — the **Head of Accord Research**, the Amphibian who led the secret Akash doorway work, now the most thoroughly corrupted Husk of all, the campaign's **final boss**.
 
-**However — a NEW Akash-Mani can be refined at endgame, correctly this time, IF the player commits to the multi-species path AND if they have learned the protocols from the optional Forge Husk** (head of Accord research, mini-boss in the Prism Forge inner sanctum side area).
+### The guardian Husk (the campaign's best-kept secret)
 
-**The campaign endgame is therefore not a battle against The Bleed — it is a choice about what kind of civilization to rebuild, and whether to dare reach for Akash again.** See [[13 Campaign Structure]] for the Choice mechanic.
+The Head of Research did not just oversee the doorway experiment — he *performed the refinement* that opened it. When The Breach destroyed everything, his guilt and horror were so total that **even reduced to a mindless Husk, some buried fragment of him has spent a thousand years unconsciously trying to prevent anyone from ever refining Akash again.**
 
-- **Multi-species cooperation path (good ending):** Player purifies enough named Amphibians and Reptiles to seed the rebuilt federation. The three species rebuild together — slowly, carefully, with the Accord's mistakes as warning. **A new Akash-Mani is produced at endgame**, stabilized by multi-species cooperation (the protocol the Accord lacked). If the player engaged the optional Forge Husk, the refinement is clean and the rebuilt civilization reaches for the "next frontier." If they skipped, the refinement is tense and improvised but still succeeds; the epilogue is quieter. Either way: the world heals, The Bleed's pooled zones gradually dissipate, and Akash refinement passes back into civilizational knowledge — with the lesson "*never alone, never in secret*" learned in blood.
-- **Humans-only path (bad ending):** Player refuses to revive the other species **and refuses to attempt Akash refinement** — even safely, even with the protocols. Humans flourish for one generation on the strength of the four elemental Manis alone. With no Amphibian or Reptile cooperation, multi-species refinement chains can never be re-established. Civilization stagnates, then declines. The last human dies alone. **The Bleed outlasts humanity. Akash refinement is lost a second time, this time by choice.**
+This is the twist the whole campaign builds toward: the final boss is, in a broken way, **the only being still protecting the world.** The player must defeat the one entity still trying to stop the mistake — in order to gain the *choice* of whether to make it themselves. He sits at the **Breach site, the sealed deep chamber beneath Genesis Vats (ground zero)**, guarding the exact spot where Akash was refined.
+
+### The two-tier truth
+
+- **Mid-game factual reveal** (Vats Husk 2): the player learns *what* happened — the Accord secretly tried to open a doorway to Akash, and that caused The Breach. This powers Act 3 with dramatic irony.
+- **Endgame reckoning** (Head of Research, after forced purification): the player learns the *why* and the *who* — his personal culpability, the guardian truth ("even with nothing left of me, I tried to stop it"), the ambiguous question of what noticed them from the other side, and the framing of the final Choice. *"Do it right — the way we couldn't — or never do it at all."*
+
+Because the player already knows the factual conspiracy from mid-game, the reckoning lands as an **emotional capstone**, not a confusing info-dump — and the Choice that immediately follows feels earned, not rushed.
+
+### The Choice
+
+**The campaign endgame is not a battle against The Bleed — it is a choice about what kind of civilization to rebuild, and whether to dare reach for Akash again.** The forced purification of the Head of Research is mandatory (he's the final boss), so **every player always receives the safe refinement protocols** — the question is never *can* you, only *should* you. See [[13 Campaign Structure#6 The Choice (the endgame)|the Choice]].
+
+- **Multi-species cooperation path (good ending):** Player commits to the renewed federation. **A new Akash-Mani is produced** at the player base, stabilized by all four elemental Manis + multi-species cooperation (the protocol the Accord lacked) + the Head of Research's now-lucid guidance. The world heals, The Bleed's pooled zones dissipate over generations, and Akash refinement re-enters civilizational knowledge with the lesson *"never alone, never in secret"* learned in blood. The rebuilt civilization reaches for the "next frontier."
+- **Humans-only path (bad ending):** Player refuses the renewed federation **and refuses to attempt Akash refinement** — even safely, even with the protocols in hand. Humans flourish for one generation on the four elemental Manis alone. With no multi-species cooperation, the refinement chain can never be re-established. Civilization stagnates, then declines. The last human dies alone. **The Bleed outlasts humanity. Akash refinement is lost a second time — this time by choice.**
 
 ---
 
@@ -156,4 +169,5 @@ The original Akash-Mani is destroyed. There is no artifact to recover. The Breac
 - **What did the Accord actually want from Akash?** Partially answered through audio logs; ultimately remains player interpretation.
 - **What is the "next frontier"** the rebuilt civilization will reach for? Unstated. Could be controlled dimensional access, space travel, time, ascension. Sequel decides.
 - **Did any cryo-sleepers besides the player survive?** Yes — encountered as recruitable NPCs along the river journey.
-- **Could Akash-Mani be re-refined safely with The Accord's lessons learned?** The Accord thought so. The Accord was wrong. **The lesson of the good ending is that this question should not be asked.**
+- **Could Akash-Mani be re-refined safely with The Accord's lessons learned?** The good ending says yes — but only with multi-species cooperation, in the open, never in secret. Whether that safety holds across generations is the open question a sequel could explore.
+- **What did the Head of Research see that made even his Husk fight to stop it?** He frames the Choice but never fully answers what waits on the other side. Player interpretation; sequel territory.

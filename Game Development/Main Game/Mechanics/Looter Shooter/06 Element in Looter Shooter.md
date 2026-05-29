@@ -47,7 +47,7 @@ The current Grinder civilization remembers Mani as folk-memory — *"the ancient
 | **Jal-Mani** | Water | Genesis Vats | Vats Named Husk 1 (mandatory mini-boss) |
 | **Vayu-Mani** | Air | Genesis Vats | Vats Named Husk 2 (mandatory mini-boss; also reveals conspiracy) |
 | **Agni-Mani** | Fire | Prism Forge | Forge Named Husk 1 (mandatory mini-boss) |
-| **Akash-Mani** | Ether / Space | Player base (produced at endgame, multi-species path only) | Forge Named Husk 4 (optional mini-boss, head of Accord research) |
+| **Akash-Mani** | Ether / Space | Player base (produced at endgame, multi-species path only) | Head of Accord Research (campaign final boss, beneath the Vats — mandatory) |
 
 ### Refined Mani — Combat Role (enchanted weapons)
 

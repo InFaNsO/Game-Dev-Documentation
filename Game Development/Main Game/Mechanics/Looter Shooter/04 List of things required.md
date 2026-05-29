@@ -120,21 +120,30 @@
         - [ ] **Agni** (Fire) — Burn / Melt armor
     - [ ] Akash-Mani is NOT used for enchantment — only manifested in endgame production sequence
 
-- [ ] **Named Husks as Mini-Bosses (Topic 8 correction)**
-    - [ ] 4 total named Husks across the campaign (3 mandatory + 1 optional)
-    - [ ] Each is a mini-boss-tier combat encounter with unique abilities
-    - [ ] **Cannot be killed — forced purification only.** Player must defeat in combat and then transmute by force.
-    - [ ] **Knowledge transmission happens DURING the fight at critical state** — Husk weakens, teaches the Mani refinement as a dying-act knowledge beat, then forced-purification QTE
-    - [ ] Mani recipe is unlocked AS PART OF the encounter (not before, not after)
-    - [ ] Each teaches one specific refined Mani:
-        - [ ] Vats Husk 1 (entry hub, mandatory) → Jal-Mani
-        - [ ] Vats Husk 2 (inner sanctum, mandatory) → Vayu-Mani + conspiracy reveal
-        - [ ] Forge Husk 1 (entry hub, mandatory) → Agni-Mani
-        - [ ] Forge Husk 4 (inner sanctum side area, optional, head researcher) → Akash refinement knowledge + bonus weapons for Sun-King
-    - [ ] After purification: Husk reverts to pre-Breach form, joins base as ally, full lore drop, present at endgame Council Scene with arc-aware dialogue
-    - [ ] All 3 mandatory Husks ALWAYS become allies at Council Scene (consistent baseline for every player)
-    - [ ] Optional Husk 4 = the only Council Scene variance from the Husk roster
+- [ ] **Named Husks — forced-purification boss hierarchy (Topic 8)**
+    - [ ] 6 named Husks total, all mandatory, all forced-purified (no kill option)
+    - [ ] Org-chart hierarchy preserved in corruption (climb the Accord chain of command in reverse):
+        - [ ] **Tier 1 — Teaching Husks** (mini-bosses, teach a Mani during the fight at critical state):
+            - [ ] Vats Husk 1 (entry hub) → Jal-Mani — *hint* only
+            - [ ] Vats Husk 2 (inner sanctum) → Vayu-Mani + **mid-game factual conspiracy reveal**
+            - [ ] Forge Husk 1 (entry hub) → Agni-Mani — *hint* only
+        - [ ] **Tier 2 — Manager Bosses** (reclamation bosses; give NO Mani; require biome Mani to defeat):
+            - [ ] Vatlord (Vats manager) — requires Jal + Vayu — *hint*
+            - [ ] Sun-King (Forge manager) — requires Agni — *hint*
+        - [ ] **Tier 3 — Final Boss**:
+            - [ ] Head of Accord Research (Amphibian) — beneath the Vats (Breach site) — requires ALL 4 Manis — delivers the **endgame reckoning**
+    - [ ] **Knowledge transmission happens DURING the teaching-Husk fight at critical state** — Mani recipe unlocked as part of the encounter
+    - [ ] **Manager bosses & final boss are capability-gated** — can't progress without the relevant Mani(s)
+    - [ ] After purification: Husk reverts to pre-Breach form, joins base as ally, present at Council Scene with arc-aware dialogue
+    - [ ] All 6 named Husks ALWAYS become allies (forced purification = consistent endgame roster for every player)
     - [ ] No named Husks at Lithic Mow (Grinder-only biome; player wakes knowing Bhu-Mani)
+    - [ ] **Two-tier truth**: hints (most Husks) → mid-game factual reveal (Vats Husk 2) → endgame reckoning (Head of Research)
+
+- [ ] **Endgame final-boss flow**
+    - [ ] After all 3 structures reclaimed + all 4 Manis held → sealed chamber beneath the Vats (Breach site) unseals
+    - [ ] Return to Vats, descend, fight Head of Research (final boss)
+    - [ ] Forced purification → reckoning → return to base
+    - [ ] Council Scene → The Choice → (good) Akash Mani production at base
 
 - [ ] **Mani System (lore-driven combat resource)**
     - [ ] **Raw Mani Grenade — real-time pressure mechanic**

@@ -115,12 +115,15 @@ Combat flavor: **predator pressure + burn.** Agni-Mani affinity (fire/burn).
 | **Forge-Sentinel** | Frontline / Tank | Heavy armored, slow, high HP. Damage-reduction aura. Dies to penetration / flank. *Lore: the ceremonial Forge guards, still in their armor.* |
 | **Sun-King** (boss) | — | Prism Forge reclamation boss. Multi-phase: phase 1 = sun pillars (LOS hazards), phase 2 = burn-everything ultimate. Drops first **Refined Agni-Mani**. |
 
-### Element-Touched Wildlife
+### Wildlife — CUT (Topic 9)
 
-Passive cross-faction ambient threats. Wildlife touched by residual Bleed pools.
-- **Stoneback Burrower** — armored herbivore, hostile if cornered, mines passively. Bleed-touched variant has crystal protrusions.
-- **Silt Hound** — pack predator, uses sound. Bleed-touched variant is briefly incorporeal.
-- **Drill Wyrm** — rare large worm. Mid-tier threat encounter. Bleed-touched variant erupts unpredictably.
+**No wildlife faction exists in the game.** Cut deliberately to preserve the one-rig art discipline (wildlife would be the only enemy category requiring a non-humanoid rig pipeline) and to reinforce the dead-world cosmic-horror tone. The world is ecologically emptied — what lives is human (Grinders) or corrupted (Husks).
+
+Non-player, non-Husk threats are covered by:
+- **Hostile rival Grinders / scavengers** — splinter groups who reject the player's refinement knowledge as heresy (see the Elder Chieftain rival faction and the "Wild Driller" side quest in [[15 Grinder Trust Arc]]). Reuse the human rig — no new assets.
+- **Environmental Bleed-pool hazards** — residual contamination zones that damage over time, not combatants.
+
+Ambient non-combat life (insects, distant silhouettes, set-dressing fauna) may exist for atmosphere but is never a combat entity and never needs a combat rig.
 
 ---
 

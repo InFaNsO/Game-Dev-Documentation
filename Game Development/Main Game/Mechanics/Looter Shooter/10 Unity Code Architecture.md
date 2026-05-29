@@ -202,7 +202,7 @@ public class ManiEffectDef : ScriptableObject
     public string EffectId;            // "Burn" / "Freeze" / "Phase" / "Summon" / ...
     public ManiTier Tier;            // Common / Uncommon / Rare
     public StatusEffectDef Status;      // optional — many effects just apply status
-    public List<EffectDef> CustomEffects; // for "Phase caster" / "Summon wildlife" etc.
+    public List<EffectDef> CustomEffects; // for "Phase caster" / "Summon Mani-construct" etc.
     public float Radius;
     public GameObject VfxPrefab;
 }
@@ -225,7 +225,7 @@ public class ManiShardDef : ItemDef
 // Faction-specific data
 public class FactionDef : ScriptableObject
 {
-    public string FactionId;             // "Grinders" / "Wildlife" / "RogueGrinder"
+    public string FactionId;             // "Grinders" / "RivalScavengers" / "RogueGrinder" / "AmphibianHusks" / "ReptileHusks"
     public string DisplayName;
     public AIOverlayProfile AIOverlay;   // pack-tribe behavior weights
     public List<EnemyDef> Archetypes;
@@ -858,7 +858,7 @@ Assets/
     Items/  Weapons/  Ammo/  Armor/  Abilities/  StatusEffects/
     Enemies/  Recipes/  LootTables/  Maps/  AssemblerRules/
     ManiEffects/                 ← NEW
-    Factions/                    ← NEW (Grinders / Wildlife / RogueGrinder)
+    Factions/                    ← NEW (Grinders / RivalScavengers / RogueGrinder)
   Settings/                      (URP, Input Actions, Addressables config)
 ```
 
@@ -927,7 +927,7 @@ Every system listed transfers to the dream game with **additive changes only, no
 | Status effect deck              | Same     | + class-specific effects                      |
 | Intent system                   | Same     | + party-target prediction UI                  |
 | **Mani System**              | Raw shards (rolled effects) | + **Refined shards (chosen effects)** unlocked via Mega Structure progression |
-| **Faction System**              | Grinders + Wildlife + RogueGrinder | + Amphibian Husks + Reptile Husks + purification system |
+| **Faction System**              | Grinders + Rival Scavengers + RogueGrinder | + Amphibian Husks + Reptile Husks + purification system |
 | Procgen room library            | Lithic Mow / 3 sub-themes | + Genesis Vats / Prism Forge biomes + dungeon themes |
 | Assembler + directors           | Same engine | + dungeon-break events, branching rules, biome-specific hazards |
 | Inventory grid                  | Same     | + per-character + shared stash split          |

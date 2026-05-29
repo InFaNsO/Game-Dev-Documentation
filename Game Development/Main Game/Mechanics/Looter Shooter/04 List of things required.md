@@ -145,7 +145,7 @@
     - [ ] **Mani Effect Table**
         - [ ] Common (60%): Burn, Freeze, Push, Stagger
         - [ ] Uncommon (30%): Honey (root), Vamp, Ink, Suppressed
-        - [ ] Rare (10%): Phase (teleport caster), Summon wildlife, Create cover, Anti-grav lift
+        - [ ] Rare (10%): Phase (teleport caster), Summon Mani-construct (temporary hostile), Create cover, Anti-grav lift
     - [ ] **Refined Mani — structured, predictable, scaled by size**
         - [ ] **Bhu-Mani** (Earth) — refined at Lithic Mow. Prototype-unlocked tier.
         - [ ] Jal-Mani / Vayu-Mani (Water/Air) — Genesis Vats, main game
@@ -165,7 +165,7 @@
         - [ ] **Mani-ignorant** — their thrown raw Mani has random effect on everyone including themselves (player can bait self-harm)
         - [ ] Archetypes: Scout (MVP) · Driller (MVP) · Chief (V1) · Shaman (V1) — see [[11 Factions and Species#Grinders (Humans — primary prototype faction)|full roster]]
         - [ ] Boss: Elder Chieftain (main game)
-    - [ ] **Bleed-Touched Wildlife** — passive faction, hostile if provoked; minor combat presence
+    - [ ] **Rival Grinder Scavengers** — splinter group rejecting the player's knowledge; reuse the human rig (no new assets). Covers the threat role wildlife would have filled (wildlife cut — Topic 9).
     - [ ] **Faction reputation** — kill/spare/trade choices affect future encounters
     - [ ] **Main game additions** (deferred): Amphibian Husks, Reptile Husks, purification mechanic — see [[11 Factions and Species]]
 

@@ -76,7 +76,6 @@ Quick reference for all locked names in the looter shooter / main game lore. San
 | **The Grinders** | Semi-hostile → trustable | Sole human faction. ~15–20 hunter-gatherer descendants in Lithic Mow valley. Element-ignorant, mining-proficient. |
 | **Amphibian Husks** | Hostile until biome reclaimed | Inhabit Genesis Vats. Immortal, since The Breach. |
 | **Reptile Husks** | Hostile until biome reclaimed | Inhabit Prism Forge. Immortal, since The Breach. |
-| **Element-Touched Wildlife** | Passive unless provoked | Minor combat presence across all biomes. |
 | **Rogue Grinder Defector** | Friendly | Single vendor NPC at player base. (Prototype only — likely folds into the main-tribe vendor in main game.) |
 
 ---

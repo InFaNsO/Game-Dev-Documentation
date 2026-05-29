@@ -50,7 +50,7 @@ Each hub uses the [[10 Unity Code Architecture#7 Procedural Level Assembly|procg
 ## 2. Connecting Regions Detail
 
 ### The Riverwild (Lithic Mow → Genesis Vats)
-**Vibe:** Forested / rocky river corridor between the mountain valley and the lake. Bleed-touched wildlife at low intensity. Old Accord transport infrastructure (rusted barges, feeder pipes).
+**Vibe:** Forested / rocky river corridor between the mountain valley and the lake. Roaming hostile scavengers (rival Grinders) and scattered Bleed-pool hazards. Old Accord transport infrastructure (rusted barges, feeder pipes).
 
 **Mini-locations:**
 1. **Pre-Breach research outpost** — Accord cache. Lore reveals + first Mani blueprints reward.
@@ -78,7 +78,7 @@ Each Mega Structure mechanically unlocks the next. Players *feel* the gate as "I
 | Region | Gated by | Unlocked by |
 |---|---|---|
 | **Lithic Mow** | (starting area) | — |
-| **The Riverwild** | Mild wildlife threat | Player capability |
+| **The Riverwild** | Mild scavenger threat + Bleed pools | Player capability |
 | **Genesis Vats interior** | **Bhu-Mani gear** (mining tools to clear collapsed entry, earth-shields vs. falling debris) | Lithic Mow reclamation completed |
 | **The Drowned Reach** | **Jal-Mani gear** (rebreathers for vapor zones, water-skim boots for flooded passages) | Genesis Vats partial reclamation (Jal-Mani refining online) |
 | **Prism Forge approach** | **Vayu-Mani gear** (heat-dispersal cloaks for tower interiors) | Genesis Vats full reclamation |

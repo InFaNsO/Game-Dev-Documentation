@@ -18,10 +18,11 @@ This file is the shared, version-controlled brain across machines (home PC + off
 - [x] **Topic 5** — River journey (3 hubs + player base, no Old Capital, hub-and-spoke fast travel after first visit)
 - [x] **Topic 6** — Grinder Trust Arc (3 compressed phases, Drill Assault as climactic sequence carrying both trust-tier shifts)
 - [x] **Topic 7** — The Endgame Choice (pure values declaration, both endings always available, full council scene with hybrid authoring, 3-part hybrid endings with playable epilogue)
-- [x] **Topic 8** — Mega Structure interiors (8-beat visit shape, multi-phase reactivation, per-structure signature mechanics: drill descent / vapor management / light + heat)
+- [x] **Topic 8** — Mega Structure interiors (8-beat visit shape, multi-phase reactivation, per-structure signature mechanics: drill descent / vapor management / light + heat; named Husks = forced-purification mini-bosses; Akash produced at endgame)
+- [x] **Topic 9** — Wildlife scope: **CUT entirely**. No animal faction. Threat role filled by rival Grinder scavengers (reuse human rig). Preserves one-rig art discipline.
 
 **Topics still queued:**
-- [ ] **Topic 9** — Wildlife scope (keep / cut / fold into Husks only — likely merges into Topic 8)
+- [ ] **Topic 8 open item** — final boss during Akash Mani refinement? (4 options A-D parked: Bleed manifestation / Accord scientist echo / Akash inhabitant echo / Trial of the Four Elements gauntlet)
 - [ ] **Topic 10** — Revisit mini-bosses per biome (deferred from Topic 3 — Duckov-style multi-boss setpieces per biome)
 
 ---
@@ -75,7 +76,9 @@ This file is the shared, version-controlled brain across machines (home PC + off
 
 ### Recent changes (digest)
 
-- **2026-05-29** — Topic 8 corrections (this commit): Player wakes knowing Bhu-Mani (cryo-memory). Refined Mani has combat role via enchanted bullets AND enchanted knives. Named Husks are mini-bosses; each teaches one specific Mani refinement; distribution = 0 Lithic / 2 mandatory Vats / 1 mandatory + 1 optional Forge. Sun-King = final boss of campaign. Akash Mani IS produced at endgame (new, correctly refined) as climactic act of multi-species ending — optional Forge Husk enriches but doesn't gate. Kill-vs-purify never gates progression but scales lore depth + Council Scene composition. Updates to 11, 13, 12, 06, 04, 15.
+- **2026-05-29** — Topic 9 locked (this commit): Wildlife CUT entirely. No animal faction — preserves the one-rig art discipline (wildlife would be the only non-humanoid rig pipeline) and reinforces dead-world cosmic horror. Threat role wildlife would have filled is now **rival Grinder scavengers** (splinter heretic group, reuse human rig, led by the Elder Chieftain, seeds the "Wild Driller" side quest). Trust Arc Phase 1 Scout-rescue beat now vs. scavengers not wildlife. "Summon wildlife" raw-Mani rare effect renamed "Summon Mani-construct." Updated 04, 08, 09, 10, 11, 12, 13, 14, 15. Also: Topic 8 forced-purification + scope refinements (commit `8d08cb6`) — named Husks can't be killed, must be purified by force; ~3-4 hrs/structure (~12-15 hrs total).
+
+- **2026-05-29** — Topic 8 corrections (commit `6b4bec0`): Player wakes knowing Bhu-Mani (cryo-memory). Refined Mani has combat role via enchanted bullets AND enchanted knives. Named Husks are mini-bosses; each teaches one specific Mani refinement; distribution = 0 Lithic / 2 mandatory Vats / 1 mandatory + 1 optional Forge. Sun-King = final boss of campaign. Akash Mani IS produced at endgame (new, correctly refined) as climactic act of multi-species ending — optional Forge Husk enriches but doesn't gate. Kill-vs-purify never gates progression but scales lore depth + Council Scene composition. Updates to 11, 13, 12, 06, 04, 15.
 
 - **2026-05-29** — Topic 8 locked (commit `2a5f328`): Mega Structure interiors. 8-beat visit shape shared across all three structures. Multi-phase reactivation sequence (locate → restore → defend → activate). Per-structure signature mechanics: Lithic Mow drill descent, Vats vapor management, Forge light redirection + heat zones. Lore distribution: audio logs primary + purified-NPC dialogue for emotional landing. Refinement-knowledge gating: boss drops blueprint + cryo-memory flashback on pickup. Light environmental puzzles (3-5 per structure). Authored hub/boss/puzzle/reactivation sections + procgen exploration zones. Scope target: 5-8 hours per structure. Updates to `13 Campaign Structure.md` §6.5, `05 Mega Structures - Game Worlds.md`, and `04 List of things required.md`.
 

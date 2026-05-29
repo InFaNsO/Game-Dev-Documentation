@@ -35,7 +35,7 @@ Base (stash, Grinder vendor [Allied tier+], craft, load out)
 Raid load → procedural assembler stitches rooms from Lithic Mow library
    ↓
 Exploration (real-time top-down stealth across stitched rooms)
-   ↓ Grinder / wildlife / Husk alerted + LOS → encounter triggers
+   ↓ Grinder / scavenger alerted + LOS → encounter triggers
 Tactical Combat — turn-based but kinetic
    • Free-form movement within visible dome (Sparks of Hope)
    • 2 actions per turn — no movement after weapon fire
@@ -106,7 +106,7 @@ The first Bhu-Mani refinement — taught by the player to the Grinder Shaman at 
 ### Mani drives combat unpredictability
 The lore's "[[06 Element in Looter Shooter|Mani]] holds chaotic potential" *is* the central novel combat mechanic:
 - **Raw Mani Grenades** with live detonation timers create real-time pressure inside turn-based combat
-- **Mani Effect Table** rolls deliver Burn / Freeze / Push / Honey / Vamp / Ink / Suppressed / Stagger / rarer effects (Phase, Summon wildlife, Anti-grav lift, Create cover)
+- **Mani Effect Table** rolls deliver Burn / Freeze / Push / Honey / Vamp / Ink / Suppressed / Stagger / rarer effects (Phase, Summon Mani-construct, Anti-grav lift, Create cover)
 - **Mani Veins** in mine walls are destructible cover that drop shards and trigger radial random effects on break
 - **Refined Bhu-Mani = chosen effects** — unlocked after teaching the Grinders. This is the carrot.
 
@@ -130,7 +130,7 @@ Their lore (~15–20 hunter-gatherers, mining-proficient, Mani-ignorant) drives:
 ## 9. Faction Roster — Prototype Scope
 
 - **The Grinders** — sole human faction, all four archetypes (Scout / Driller / Chief / Shaman). Trust arc transforms disposition from semi-hostile to tribal kin.
-- **Bleed-Touched Wildlife** — passive, dangerous if provoked; minor combat presence
+- **Hostile rival Grinders / scavengers** — splinter group rejecting the player's knowledge; reuse the human rig (no new assets). Wildlife was cut (Topic 9).
 - **Rogue Grinder Defector** — single vendor NPC at the player's wake-site / base; potentially folds into the main Grinder vendor once trust arc completes
 
 Amphibian Husks, Reptile Husks, and the purification mechanic are **deferred to the main game** — see [[11 Factions and Species]].

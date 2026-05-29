@@ -96,7 +96,7 @@ Loose distribution for design reference:
 
 - **Common (60%)**: Burn / Freeze / Push / Stagger
 - **Uncommon (30%)**: Honey (root) / Vamp / Ink / Suppressed
-- **Rare (10%)**: Phase (teleport caster) / Summon wildlife / Anti-grav lift / Create cover
+- **Rare (10%)**: Phase (teleport caster) / Summon Mani-construct (temporary hostile) / Anti-grav lift / Create cover
 
 ---
 

@@ -20,17 +20,17 @@ The prototype's primary social mechanic and the main game's act-one narrative sp
 ### Phase 1 — Save the Scout (~15–30 min)
 - Wake at the Headwaters cryo facility. **Player retains cryo-memory of Bhu-Mani refinement** — fragmented memories, but enough to refine it on Accord equipment.
 - Brief tutorial in the abandoned outpost.
-- Venture out. Encounter a lone Grinder **Scout** being attacked by Bleed-touched wildlife.
+- Venture out. Encounter a lone Grinder **Scout** being attacked by **hostile scavengers** — a rival Grinder splinter group (the same heretic faction the Elder Chieftain later leads). Establishes early that the Grinders are fractured, not unified.
 - **First combat in the world** = saving the Scout. Mechanically teaches the player how combat works while narratively earning the first sliver of trust.
 - Wounded Scout reluctantly leads you toward the camp.
 - **Trust tier → WARY.** Camp access, basic dialogue, no vendor, no crafting station, no quests beyond "don't die in our space."
 
-> Note: there are **no Husks at Lithic Mow** — only Grinders, Bleed-touched wildlife, and the player's own cryo-survivor allies recruited later. Named-Husk encounters begin at Genesis Vats. The player's pre-existing Bhu-Mani knowledge is the reason they can lead the Trust Arc's climactic Demonstration in Phase 3 without needing a Husk teacher.
+> Note: there are **no Husks at Lithic Mow** and **no wildlife anywhere** (cut — Topic 9). Threats in the valley are hostile rival Grinders / scavengers and environmental Bleed-pool hazards. Named-Husk encounters begin at Genesis Vats. The player's pre-existing Bhu-Mani knowledge is the reason they can lead the Trust Arc's climactic Demonstration in Phase 3 without needing a Husk teacher.
 
 ### Phase 2 — Prove and Prepare (~1–2 hrs)
 - Settle into the camp. **Chief** receives you: *"You can stay. We're watching you."*
 - Witness Grinders using **raw Mani as grenades** — random effects, occasional self-harm, losing tribe members to their own ignorance.
-- Handful of "prove useful" missions: defend camp from a wildlife attack, recover stolen supplies, heal an injured Grinder. Each builds practical trust without changing the tier.
+- Handful of "prove useful" missions: defend camp from a rival-scavenger raid, recover stolen supplies, heal an injured Grinder. Each builds practical trust without changing the tier.
 - The **Shaman** is the most curious about the player — asks questions, watches closely. Becomes the player's social bridge into the tribe.
 - Chief eventually proposes the unthinkable: **the tribe's biggest operation in generations.** Reactivate the long-silent Lithic Mow drill. The Shaman has dreamed of it. The Chief sees a chance to break the cycle of dying-to-ignorance. The Scout will come because they owe the player. The plan is set.
 - *(Trust tier stays WARY through this phase — the watershed is the assault itself.)*
@@ -40,7 +40,7 @@ The prototype's single most important sequence. Has two internal trust-shifts.
 
 **Approach & breach**
 - Joint operation with Chief, Shaman, and Scout. Player + Grinder squad approach the silent drill.
-- Clear initial corruption hazards (wildlife, stray Husks, environmental Bleed pools at the entrance).
+- Clear initial hazards (rival scavengers, environmental Bleed pools at the entrance). No Husks in the valley.
 - Push into the drill structure itself — Accord-era mining halls, dust-covered, dormant for millennia.
 
 **Mid-assault: The Demonstration** *(watershed beat)*

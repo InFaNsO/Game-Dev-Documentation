@@ -133,7 +133,7 @@ Triggered when an `Alerted` enemy gets LOS within combat range. Time freezes for
 - [MVP] **Mani Effect Table** — roll on detonation
   - [MVP] Common (60%): Burn / Freeze / Push / Stagger
   - [V1] Uncommon (30%): Honey / Vamp / Ink / Suppressed
-  - [V1] Rare (10%): Phase (teleport caster), Summon wildlife, Anti-grav lift, Create cover
+  - [V1] Rare (10%): Phase (teleport caster), Summon Mani-construct (temporary hostile), Anti-grav lift, Create cover
 - [MVP] **Mani-Infused Ammo** — per-shot proc chance triggers common-tier Effect roll
 - [V1] **Mani Veins** in mine walls — destructible cover, drops shards when broken, triggers radial random effect on break
 - [V1] **Ultimate fueling** — Mani pickup adds to Ultimate gauge faster than damage alone
@@ -229,10 +229,12 @@ Triggered when an `Alerted` enemy gets LOS within combat range. Time freezes for
   - [V1] **Grinder Chief** — buff aura for nearby Grinders, mining-charge artillery (delayed AOE)
   - [V1] **Grinder Shaman** (rare) — attempts to refine Mani, signature: **Mani Nova** (high-risk-high-reward area burst)
 
-### J2. Bleed-Touched Wildlife
-- [V1] Passive faction, hostile if provoked
-- [V1] Minor combat presence; rare encounters
-- [V1] Drops Mani-related materials
+### J2. Rival Grinder Scavengers (Secondary Hostile)
+- [MVP] Splinter group of Grinders who reject the player's refinement knowledge as heresy
+- [MVP] Reuse the human rig + Grinder archetypes — **no new assets**
+- [V1] Threat in the Lithic Mow valley and the Riverwild (covers the role wildlife would have filled)
+- [V1] Led by the Elder Chieftain (main-game boss); seeds the "Wild Driller" side quest
+- _(Wildlife was cut — Topic 9. See [[11 Factions and Species#Wildlife — CUT (Topic 9)|Factions doc]].)_
 
 ### J3. Rogue Grinder Defector (Vendor NPC)
 - [MVP] Single NPC at player's base
@@ -242,7 +244,7 @@ Triggered when an `Alerted` enemy gets LOS within combat range. Time freezes for
 ### J4. Faction System (Architectural)
 - [MVP] **`FactionDef`** SO drives: AI overlay, weapon palette, archetype roster, reputation track
 - [V1] Reputation visible in vendor UI + reflected in vendor pricing
-- [Stretch] Faction-on-faction events (e.g., Grinder patrol attacks wildlife mid-raid)
+- [Stretch] Faction-on-faction events (e.g., loyal Grinder patrol clashes with rival scavengers mid-raid)
 
 ## K. Base / Hideout
 

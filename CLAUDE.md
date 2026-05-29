@@ -18,9 +18,9 @@ This file is the shared, version-controlled brain across machines (home PC + off
 - [x] **Topic 5** — River journey (3 hubs + player base, no Old Capital, hub-and-spoke fast travel after first visit)
 - [x] **Topic 6** — Grinder Trust Arc (3 compressed phases, Drill Assault as climactic sequence carrying both trust-tier shifts)
 - [x] **Topic 7** — The Endgame Choice (pure values declaration, both endings always available, full council scene with hybrid authoring, 3-part hybrid endings with playable epilogue)
+- [x] **Topic 8** — Mega Structure interiors (8-beat visit shape, multi-phase reactivation, per-structure signature mechanics: drill descent / vapor management / light + heat)
 
 **Topics still queued:**
-- [ ] **Topic 8** — Mega Structure interiors (refinement-knowledge gates, environmental puzzles, lore reveals beyond just enemies)
 - [ ] **Topic 9** — Wildlife scope (keep / cut / fold into Husks only — likely merges into Topic 8)
 - [ ] **Topic 10** — Revisit mini-bosses per biome (deferred from Topic 3 — Duckov-style multi-boss setpieces per biome)
 
@@ -54,11 +54,15 @@ This file is the shared, version-controlled brain across machines (home PC + off
 
 - **Locked design — The Endgame Choice (Topic 7).** Pure values declaration, both endings always available. **2-3 named Husk purifications per species are MANDATORY main-campaign content** (built into Vats and Forge story beats) — no gating prerequisites. **Bad ending (Humans Only)** reframed: "we decided our survival was enough" — recognizable real-world ethics, not strawman villainy. **Council scene**: full composition, every recruited ally speaks (~25-35 lines). **Hybrid authoring**: fixed structure + arc-aware lines for named NPCs (Chief, Shaman, Scout, first-purified Amphibian, first-purified Reptile). **Hybrid endings format**: voiceover + time-lapse cinematic → small playable epilogue in transformed base (~5-10 min, no combat) → final cinematic shot + closing line. Same base layout reused for both epilogues, visually altered for scope. Save/reload before Choice allowed. See `13 Campaign Structure.md` §6.
 
+- **Locked design — Mega Structure interiors (Topic 8).** Every structure visit follows a shared **8-beat shape**: Approach → Entry Hub → Exploration → Puzzle Gate → Inner Sanctum → Reactivation (multi-phase: locate → restore → defend → activate, boss is the defense phase) → Blueprint pickup → Outro. **Per-structure signature mechanics**: Lithic Mow = vertical drill descent + reactivation (Bhu-Mani gear); Genesis Vats = vapor management (toxic vs healing vapor flows, valve redirection); Prism Forge = light/laser redirection + heat zones (Agni-Mani gear extends safe exposure). **Lore distribution hybrid**: audio logs primary + purified-NPC dialogue for emotional landing. **Refinement-knowledge gating**: boss drops blueprint + cryo-memory flashback on pickup + companion reaction. **Light environmental puzzles** (3-5 per structure, using the signature mechanic). **Authored sections**: hub, boss arena, puzzles, reactivation phases, inner sanctum. **Procgen sections**: regular raid/exploration zones. Scope target: 5-8 hours of main-path content per structure. See `13 Campaign Structure.md` §6.5 and `05 Mega Structures - Game Worlds.md`.
+
 - **Looter-shooter doc structure.** Numbered files 00–15 in `Looter Shooter/`. `00 Looter Shooter.md` is the hub. Lore: 11 Factions, 12 Akashic/Bleed, 13 Campaign, 14 Naming Glossary, 15 Grinder Trust Arc. Implementation: 08 Prototype Design, 09 Feature List, 10 Unity Architecture. `06 Element in Looter Shooter.md` is intentionally kept-named (filename preserved for Obsidian link stability) but its *content* is now the Mani System doc.
 
 - **"Topic N" numbering.** The user refers to planning sessions by "Topic N" (a session sequence, NOT filenames). Topics 1–7 are now locked and documented. Topics 8–10 remain queued (see Plan of Action above).
 
 ### Recent changes (digest)
+
+- **2026-05-29** — Topic 8 locked (this commit): Mega Structure interiors. 8-beat visit shape shared across all three structures. Multi-phase reactivation sequence (locate → restore → defend → activate). Per-structure signature mechanics: Lithic Mow drill descent, Vats vapor management, Forge light redirection + heat zones. Lore distribution: audio logs primary + purified-NPC dialogue for emotional landing. Refinement-knowledge gating: boss drops blueprint + cryo-memory flashback on pickup. Light environmental puzzles (3-5 per structure). Authored hub/boss/puzzle/reactivation sections + procgen exploration zones. Scope target: 5-8 hours per structure. Updates to `13 Campaign Structure.md` §6.5, `05 Mega Structures - Game Worlds.md`, and `04 List of things required.md`.
 
 - **2026-05-29** — Topic 7 locked (commit `d3638c7`): The Endgame Choice. Purification of 2-3 named Husks per species made MANDATORY main-campaign content; both endings always available. Bad ending reframed as "we decided our survival was enough." Full council scene with all recruited allies; hybrid authoring (fixed structure + arc-aware named NPC lines). 3-part hybrid endings: voiceover+timelapse → small playable epilogue → final cinematic. Same base layout reused for both epilogues, visually altered.
 

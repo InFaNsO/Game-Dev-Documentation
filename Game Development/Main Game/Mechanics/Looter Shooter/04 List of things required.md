@@ -143,6 +143,21 @@
     - [ ] **Faction reputation** — kill/spare/trade choices affect future encounters
     - [ ] **Main game additions** (deferred): Amphibian Husks, Reptile Husks, purification mechanic — see [[11 Factions and Species]]
 
+- [ ] **Mega Structure Interiors (Topic 8 locks)**
+    - [ ] **8-beat visit shape** (shared across all structures): Approach → Entry Hub → Exploration → Puzzle Gate → Inner Sanctum → Reactivation (multi-phase) → Blueprint pickup → Outro
+    - [ ] **Multi-phase reactivation sequence** — 4 phases per structure: locate → restore → defend (boss is here) → activate
+    - [ ] **Refinement-knowledge gating** — boss drops blueprint object; cryo-memory flashback on pickup (post-process effect + short VO); companion reaction
+    - [ ] **Light environmental puzzles** — 3-5 per structure using the structure's signature mechanic
+    - [ ] **Audio logs as primary lore vehicle** — distributed across hub/exploration/inner sanctum
+    - [ ] **Per-structure signature mechanics:**
+        - [ ] **Lithic Mow** — vertical descent + drill reactivation (Bhu-Mani gear repairs collapsed routes)
+        - [ ] **Genesis Vats** — vapor management (toxic Bleed vapor vs healing vapor zones; valve-based flow redirection)
+        - [ ] **Prism Forge** — light/laser redirection (aim mirrors/prisms) + heat zones (timed exposure, Agni-Mani gear extends safe time)
+    - [ ] **Authored vs procgen split**:
+        - [ ] Authored: entry hub, boss arena, puzzle rooms, reactivation phase areas, inner sanctum
+        - [ ] Procgen: regular raid / exploration zones (themed per structure)
+    - [ ] Scope target: 5-8 hours of main-path content per structure
+
 - [ ] **Procedural Level Assembly**
     - [ ] Hand-authored modular room prefabs
         - [ ] Cover anchor metadata (Full / Half / None) **with facing cones for flanking**

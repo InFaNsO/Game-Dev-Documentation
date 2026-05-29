@@ -19,7 +19,13 @@ A single great river connects all three structures geographically. The player jo
 
 A massive drill placed between two mountains, drilling down into the valley floor to mine ultra-rare raw Mani ore. Surface infrastructure includes mining camps, drill machinery rooms, and ore-processing stations. The Grinders — descendants of the Accord's human working caste — have lived in the valley for generations and use the surface ruins as their home. The drill itself has been silent for millennia.
 
-**Player progression:** Reclaim the drill alongside the Grinders. First mass-production of Bhu-Mani. Establish player base at the valley.
+**Signature mechanic:** vertical descent + drill reactivation. Bhu-Mani-gear required to shore up unstable shafts, repair collapsed routes, and create cover for combat in open chambers.
+
+**Player progression:** Reclaim the drill alongside the Grinders. First mass-production of Bhu-Mani. Establish player base at the valley. See [[15 Grinder Trust Arc]] for the Drill Assault sequence.
+
+**Boss (main game):** Elder Chieftain — a rival Grinder splinter-faction leader who rejects the player's refinement knowledge as heresy. NOT a Husk; human combatant with mining-gear loadout.
+
+**Audio log themes:** pre-Breach mining operations, Grinder ancestor castes, hints that the drill was producing more raw Mani than the Accord publicly reported.
 
 **Sub-themes for procgen room library:** Mining tunnels (tight LOS, ambush corridors) · Drill machinery rooms (multi-level vertical) · Outdoor camp areas (open ground with scavenged shelter) · Mani vein chambers (destructible cover, chaos-reward zones).
 
@@ -31,7 +37,15 @@ A massive series of connected oil rigs in a great lake, with a central vapor ven
 
 The Vats are now haunted by Amphibian Husks — the working caste, immortal, wandering for millennia. The first named-NPC purification happens at the Vats. **This is where the conspiracy is revealed.**
 
-**Player progression:** Reclaim in phases — first the surface oil rigs (refine Jal-Mani), then the deeper chambers (refine Vayu-Mani). Each phase unlocks new gear required for downriver travel.
+**Signature mechanic:** vapor management. Toxic Bleed vapor in corrupted zones (status DoT). Healing vapor in old refinement halls (regen). Player redirects vapor flows via valves to clear paths and create temporary safe zones.
+
+**Puzzle examples:** route healing vapor into a corrupted refinement hall to make it safe; cut off vapor flow sustaining a Husk-infested rig to weaken enemies in that area; seal a leak bleeding contaminated water into a clean section.
+
+**Player progression:** Reclaim in phases — first the surface oil rigs (refine Jal-Mani in Act 2A), then the deeper chambers (refine Vayu-Mani in Act 2B). Each phase unlocks new gear required for downriver travel.
+
+**Boss:** Vatlord — multi-phase, spawns Vat-Brood mid-fight, cascading status effects. Defends the central vapor regulator the player must activate.
+
+**Audio log themes:** Accord-era Amphibian rituals, vapor refinement protocols, the inner-circle Akash doorway research, fragments of the final day before The Breach.
 
 **Sub-themes:** Oil-rig platforms · Submerged industrial chambers · Vapor refinement halls · Deep-water Bleed pool zones.
 
@@ -43,6 +57,14 @@ An array of five massive glass towers at the desert banks of the great river, do
 
 The Reptile caste worked the Forge — their cold-blooded biology let them operate inside the towers during sun-peak when interior temperatures reached lethal levels. **The Reptiles were closest to the central refinement chain at the moment of The Breach. Most died instantly. Those who didn't became Reptile Husks within minutes.**
 
-**Player progression:** Reach via Drowned Reach mini-locations after Vats reclamation. Reclaim the Forge. Refine Agni-Mani. Second named-NPC purification — deeper lore reveals.
+**Signature mechanic:** light/laser redirection + heat zones. Player aims mirrors and prisms to crack sealed doors, activate sequences, and redirect tower beams. Open areas have heat zones with timed-exposure damage; Agni-Mani gear extends safe time.
+
+**Puzzle examples:** redirect three tower beams to crack a Reptile ceremonial seal; align mirrors so a single beam passes through three sequential prisms to ignite a forge; survive a heat zone by hopping between shade pillars on timing.
+
+**Player progression:** Reach via Drowned Reach mini-locations after Vats reclamation. Reclaim the Forge. Refine Agni-Mani. **Second named-NPC purification — deepest conspiracy reveal** (actual doorway protocols, the Accord's full plan to enter Akash, named members of the inner circle).
+
+**Boss:** Sun-King — phase 1 = sun pillars (LOS hazards constantly sweeping the arena), phase 2 = burn-everything ultimate. Defends the prime focus lens the player must recalibrate.
+
+**Audio log themes:** Accord-era Reptile hierarchy, heat refinement protocols, the doorway experiment in its final days, the names of those who knew vs those who didn't.
 
 **Sub-themes:** Glass tower interiors (vertical, hot, light-puzzle) · Underground heat pipework · Sand-glassed exterior plazas · Reptile ceremonial sites.

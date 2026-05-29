@@ -225,6 +225,78 @@ The Choice is irreversible within a save. Save can be reloaded from before the C
 
 ---
 
+## 6.5. Mega Structure Interior Design (Topic 8)
+
+Every Mega Structure visit follows a single shared 8-beat structure. Solo-dev authors the rhythm once, then varies content per location. Each structure has **one defining mechanical hook** that differentiates the experience from regular raid zones.
+
+### The 8-beat visit shape
+
+```
+1. APPROACH       outdoor area leading to entry. Light combat. Audio-log foreshadowing.
+2. ENTRY HUB      hand-authored safe zone. Allies deploy. First major lore drop.
+3. EXPLORATION    procgen raid zones, mini-objectives (find audio logs, scout, gather
+                  raw Mani, encounter common Husks).
+4. PUZZLE GATE    structure's signature mechanic blocks progression. Solving it = first
+                  full taste of the structure's identity.
+5. INNER SANCTUM  hand-authored zone. Deeper lore. FIRST NAMED HUSK ENCOUNTER —
+                  purification reveals conspiracy layer.
+6. REACTIVATION   multi-phase sequence: locate → restore → defend (boss is the defense
+                  phase) → activate.
+7. BLUEPRINT      boss drops refinement blueprint. Cryo-memory flashback on pickup.
+                  Recipe unlocked for player base.
+8. OUTRO          short post-boss area. Allies regroup. Structure operational. Path to
+                  next biome unlocked via newly-refined Mani gear.
+```
+
+**Scope target: 5-8 hours of main-path content per structure.** Total main game ~30-45 hours when combined with Trust Arc, connecting regions, and the endgame Choice sequence.
+
+### Locked design dimensions
+
+| Dimension | Lock | Why |
+|---|---|---|
+| **Puzzle complexity** | Light environmental puzzles, 3-5 per structure | Solo-dev realistic. Makes structures feel distinct from raid zones. |
+| **Lore distribution** | Hybrid — audio logs primary + purified-NPC dialogue for emotional landing | Audio logs cheap to produce; named NPCs already locked content. Each method plays to its strength. |
+| **Refinement-knowledge gating** | Boss drops blueprint object + cryo-memory flashback on pickup + companion reaction | Refinement feels *earned*. Three small systems each ~1 min of authored content per structure. |
+| **Reclamation mechanic** | Multi-phase reactivation sequence (4 phases: locate → restore → defend → activate) | Reclamation feels *engineered*, not just "boss died, structure works again." |
+| **Procgen vs authored** | Authored: hub safe zone, boss arena, puzzle rooms, reactivation phase areas. Procgen: regular raid/exploration zones (themed per structure). | Matches existing prototype pattern. |
+| **NPC presence** | Locked from prior topics: named purifiable Husks + generic Husk enemies + audio logs as "ghost voices" | No new design — existing systems cover this. |
+
+### Per-structure mechanical hooks
+
+Each structure gets one defining mechanic that scales across the visit.
+
+#### Lithic Mow — Vertical drill reactivation
+- **Hook**: vertical descent. Drill is the literal centerpiece. Bhu-Mani-gear required to repair collapsed routes and shore up unstable shafts.
+- **Puzzle gate examples**: route around a flooded mine section by reactivating an old pump; shore up an unstable shaft with Bhu-Mani-crafted supports; map a maze of corridor splits using vibration patterns.
+- **Inner sanctum**: drill core (where the Demonstration beat happens — locked via Topic 6).
+- **Audio logs**: pre-Breach mining operations, Grinder ancestor castes (degraded workers who survived in the valley), early hints that the drill was producing more raw Mani than the Accord publicly reported.
+- **Boss (main game)**: Elder Chieftain — a rival Grinder splinter-faction leader who rejects the player's refinement knowledge as heresy. NOT a Husk. Different combat flavor — human enemy with mining-gear loadout.
+
+#### Genesis Vats — Vapor management
+- **Hook**: vapor management. Toxic Bleed vapor in corrupted zones (status DoT). Healing vapor in old refinement halls (regen). Player redirects vapor flows via valves to clear paths and create temporary safe zones.
+- **Puzzle gate examples**: route healing vapor into a corrupted refinement hall to make it safe enough to enter; cut off vapor flow to a Husk-infested rig to weaken them (no more sustaining radiation in their area); seal a leak that's bleeding contaminated water into a clean section.
+- **Inner sanctum**: deep refinement chambers (partially submerged). **First named Amphibian Husk purification → conspiracy revealed.** Audio logs around the inner sanctum start hinting at the Akash doorway research.
+- **Boss**: Vatlord — multi-phase, spawns Vat-Brood mid-fight, applies cascading status. Defense phase of reactivation (Vatlord defends the central vapor regulator the player needs to activate).
+- **Blueprints**: Jal-Mani in Act 2A (mid-visit), Vayu-Mani in Act 2B (post-boss). Two-phase reclamation matches refining two elements here.
+- **Audio logs**: Accord-era Amphibian rituals, vapor refinement protocols, the inner-circle Akash doorway research, fragments of the final day before The Breach.
+
+#### Prism Forge — Light redirection + heat zones
+- **Hook**: light/laser redirection (aim mirrors/prisms to crack sealed doors, activate sequences, redirect tower beams). Heat zones (timed exposure, Agni-Mani gear extends safe time).
+- **Puzzle gate examples**: redirect three tower beams to crack a Reptile ceremonial seal; align mirrors so a single beam passes through three sequential prisms to ignite a forge; survive a heat zone by hopping between shade pillars using timing.
+- **Inner sanctum**: top of a glass tower, sun-peak chamber. **First named Reptile Husk purification → deepest conspiracy reveal** (actual doorway protocols, the Accord's plan to enter Akash, the names of inner-circle members).
+- **Boss**: Sun-King — phase 1 = sun pillars (LOS hazards constantly sweeping the arena), phase 2 = burn-everything ultimate. Defense phase of reactivation (Sun-King defends the prime focus lens the player needs to recalibrate).
+- **Blueprint dropped**: Agni-Mani refinement.
+- **Audio logs**: Accord-era Reptile hierarchy, heat refinement, the doorway experiment in its final days, the names of those who knew vs those who didn't.
+
+### Why this design scales solo-dev
+
+- One 8-beat shape × 3 structures = author the rhythm once, vary content.
+- One signature hook per structure = three mechanical systems total, each playable in 5-8 hours of content.
+- Audio logs are the cheapest lore vehicle that still feels evocative; reusable across structures.
+- Procgen handles the raid-zone bulk; hand-authoring concentrates on the beats players will remember.
+
+---
+
 ## 7. Prototype Scope vs Main Game Scope
 
 | System | Prototype | Main Game |

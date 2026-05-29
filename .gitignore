@@ -1,0 +1,7 @@
+# Claude Code personal/local settings (keep .claude/settings.json committed for shared hooks)
+.claude/settings.local.json
+**/.claude/settings.local.json
+
+# OS files
+Thumbs.db
+.DS_Store

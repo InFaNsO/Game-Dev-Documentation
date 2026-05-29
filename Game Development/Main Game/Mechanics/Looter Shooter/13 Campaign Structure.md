@@ -120,32 +120,108 @@ Four acts, mapped to geography. Each act = a hub + the connecting region after i
 
 ## 6. The Choice (the endgame)
 
-After all three Mega Structures are reclaimed and the player has had the opportunity to purify named NPCs of each species, the player returns to the base for the endgame Choice.
+After all three Mega Structures are reclaimed and the player has lived through the mandatory main-campaign purifications of 2-3 named Amphibians and 2-3 named Reptiles, the player returns to the base for the endgame Choice.
 
-### The Choice itself
+### Framing
 
-Presented in-fiction as a council with all recruited allies present: Grinders, Cryo-Survivors, and any purified Amphibian / Reptile representatives. The player chooses:
+**Purification of 2-3 named Husks per species is mandatory main-campaign content** — scripted into the Genesis Vats and Prism Forge arcs as story beats. Every player arrives at endgame with the same context: they have met purified survivors of both species, learned the Mani Accord's secret from them, and built personal relationships. Both endings must therefore always be available — gating the good ending behind optional purifications would punish players who simply played the campaign as designed.
 
-| Choice | Ending | Tone |
-|---|---|---|
-| **Humans-only — rebuild with our species alone** | **Bad ending.** Refuse to revive the other species. Short-term human flourishing as the Mega Structures are restored for human use only. Long-term: no multi-species refinement chain possible, knowledge stagnates, civilization peaks within one generation and slowly declines. The last human dies alone in a quiet base, surrounded by an empty world. The Bleed outlasts humanity. | Tragic, isolating, "we kept the world for ourselves and lost it." |
-| **Multi-species cooperation — rebuild the federation together** | **Good ending.** Continue purifying named NPCs of each species. The three species rebuild together, slowly, learning from the Accord's mistakes. **The lost knowledge of Akash refinement stays lost, by choice.** Civilization heals. The world enters a new era. | Hopeful, earned, "we chose the harder path together." |
+**The Choice is a pure values declaration:** keep doing this work as the foundation of the rebuilt civilization, or stop here and let humanity rebuild alone from now on.
 
-### Gating logic
+| Choice | What it means in practice |
+|---|---|
+| **Humans Only** | Stop further purification. Rebuild centered on humans. The handful of already-purified Amphibians and Reptiles can stay as honored guests, but no more rescue missions are launched. The vast majority of remaining Husks stay Husks forever. |
+| **Multi-Species Cooperation** | Continue purifications as a generational project. The rebuilt civilization is structurally three-species. Husks across the world are gradually transmuted — mercy at scale. |
 
-The Choice unlocks once:
-- All three Mega Structures reclaimed
-- At least one named NPC of each non-human species has been encountered (player has *seen* the option to purify)
-- Player returns to base and triggers the council scene
+Both choices are honest answers to *"what kind of world do we build?"*. The bad ending is not "humans hate other species" — it is "humans decided their survival was enough, and chose not to take on the burden of the other species' rescue." Recognizable real-world ethics, not a strawman villain.
 
-The Choice is **not reversible** within a save. Players can replay to see the other ending.
+### The Council Scene — full composition
+
+Triggers when player returns to base after Forge reclamation. Single authored sequence at the player base. **All recruited allies present:**
+
+- **Grinders**: Chief, Shaman, Scout
+- **Cryo-Survivors**: every recruit from river-journey mini-locations
+- **Purified named NPCs**: every Amphibian and Reptile saved during the campaign (4-6 individuals)
+
+Each ally speaks 1-2 lines making their case (~25-35 lines total). Speakers naturally split:
+
+| Tend toward Humans-Only | Tend toward Multi-Species |
+|---|---|
+| Chief (possibly — pragmatic, tribal-loyalty) | The Shaman (haunted by knowledge of the dead) |
+| Cryo-Survivors who lost everyone | The purified named NPCs (most damning case) |
+| | Some Cryo-Survivors who saw what cooperation built |
+
+**The purified NPCs are the most powerful voices.** They look at the player and describe specific Husks they personally knew — by name — still walking the Vats and the Forge, who could be saved. Choosing humans-only means looking these allies in the eye and telling them no more.
+
+### Hybrid scene authoring
+
+**Council scene structure is fixed**, but specific allies' dialogue varies based on personal arcs:
+- **Named NPCs** (Chief, Shaman, Scout, the first purified Amphibian, the first purified Reptile) get **arc-aware lines** that reference player choices throughout the campaign
+- **Generic recruits** (additional Cryo-Survivors, secondary purified NPCs) have **fixed lines** that fit the council shape
+
+This balances replay depth with authoring scope — adds roughly 30-50% more lines than a flat scene but keeps the core structure stable.
+
+### The Declaration
+
+After all speeches, the player makes a public declaration. Two dialogue options:
+
+- **"We rebuild alone. Humanity will rise by its own strength — and answer to no one."**
+- **"The Mani Accord's mistake was hiding the truth, not the cooperation. We finish what they should have built."**
+
+The chosen path triggers the ending sequence.
+
+### Ending format — hybrid voiceover + time-lapse + small playable epilogue
+
+Both endings use the same three-part structure. **Same playable area** (the player base, visually altered for each ending) — saves authoring cost while giving the player a final agency moment.
+
+**Part 1 — Voiceover narration over time-lapse imagery** (~1-2 min)
+- Narrator (Shaman or player VO) describes the years that follow
+- Imagery shows the wide-scope consequences of the Choice
+
+**Part 2 — Small playable epilogue** (~5-10 min)
+- Player wakes in the base, much older
+- Walks through the transformed (rebuilt or declining) base
+- Brief interactions with named NPCs who remain
+- No combat; pure exploration and dialogue
+- Ends at a symbolic location (new central monument vs. empty council ring)
+
+**Part 3 — Final cinematic shot + closing line**
+- Single held shot of the world's final state
+- One-line closing voiceover
+- Credits
+
+### Humans-Only Ending (bad)
+
+**Voiceover beat**: one human generation flourishes — Lithic Mow drill running at scale, Bhu-Mani in abundance, a brief peak. Then decline: Genesis Vats falls silent without Amphibians, Prism Forge cracks without Reptiles. Husks still walk the Vats and the Forge — unsaved, immortal forever. Bleed-pooled zones never heal.
+
+**Playable epilogue**: player wakes in an emptier base, much older. Walks through a sparser, sadder version. Most generic NPCs are gone (natural causes; non-human allies departed or never fully integrated). A handful of named survivors remain. A purified Amphibian (if they stayed) is silent at a window, looking toward the Vats. A Husk is visible at the edge of the valley, still walking, never released. Player ends at the empty council ring.
+
+**Final shot**: aged player sitting alone where the council once met. Closing line: *"The Mani Accord left us a wound. Humanity sealed itself inside it."* Elegiac music.
+
+### Multi-Species Ending (good)
+
+**Voiceover beat**: slow generational work — Genesis Vats coming back online with Amphibian engineers, Prism Forge running with Reptile heat-workers. Husks across the world gradually transmuted via mass-purification — mercy at scale. Bleed-pooled zones fade slowly. Three species working together: cautious, scarred, but real.
+
+**Playable epilogue**: player wakes in a thriving multi-species rebuilt base, older but well. Walks through a richer, busier version. The Chief is older but proud (or his successor if appropriate). The Shaman is the keeper of records. Purified Amphibians and Reptiles lead their own restoration projects. A new central monument honors all three species. Player ends at a council chamber being built for a new generation.
+
+**Final shot**: three-species council at the new monument under construction. Closing line: *"The Mani Accord left us a wound. We chose, finally, to heal it together."* Hopeful but earned music.
+
+### Subtle sequel hook (both endings)
+
+Each ending closes with a one-line whisper of *"what comes next?"* without committing to anything. The world built (or failed) is the canvas for sequel possibilities — the player can imagine what comes after, and the developer keeps full freedom.
+
+### Save / replay handling
+
+The Choice is irreversible within a save. Save can be reloaded from before the Choice to see both endings. **No anti-cheese mechanics** — players who want both endings deserve both.
 
 ### Why this works narratively
 
 - No artifact to chase = the climax is **emotional and ideological**, not collectible
-- The bad ending is a *consequence* not a punishment — players who choose humans-only see exactly why it fails
-- The good ending is *earned*, not handed over — requires actively purifying named NPCs throughout the game
-- Sequels can pick up either ending and continue (humans-only canon = sequel about isolated humanity's last try; multi-species canon = sequel about the rebuilt federation reaching the "next frontier")
+- Both endings are equally earned in effort — distinguished only by conviction
+- The bad ending is a *consequence* not a punishment — players see why it fails through the playable epilogue
+- The playable epilogue gives the player final agency to *experience* the consequences of their choice rather than just watching them
+- The hybrid council scene rewards careful play without gating
+- Sequels can pick up either ending and continue (humans-only canon = isolated humanity's last try; multi-species canon = the federation reaching the "next frontier")
 
 ---
 

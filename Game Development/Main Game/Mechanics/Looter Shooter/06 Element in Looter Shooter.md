@@ -49,11 +49,29 @@ The current Grinder civilization remembers Mani as folk-memory — *"the ancient
 | **Agni-Mani** | Fire | Prism Forge | Forge Named Husk 1 (mandatory mini-boss) |
 | **Akash-Mani** | Ether / Space | Player base (produced at endgame, multi-species path only) | Head of Accord Research (campaign final boss, beneath the Vats — mandatory) |
 
+### Combat — The Three Weapon Lanes (Phase 1 lock, 2026-06-02)
+
+**There are NO ballistic firearms anywhere in the world.** A civilization whose entire technology base was elemental Mani never developed gunpowder; combat is Mani-driven end to end. This keeps Mani load-bearing in combat (not a decorative spice on top of bullets) and fits the Grinders as primitive scavengers. All ranged attacks are **travel-based projectiles, never hitscan** — which gives the grid's spacing/positioning real teeth.
+
+The player's kit is three lanes, ordered as an **inverse cost ↔ range ↔ risk curve** (cheap = close & risky; expensive = far & safe). Exact numbers are deferred (tuned in Phase 3/4); the *hierarchy* is locked:
+
+| Lane | Cost | Role | Range (nature) | Notes |
+|---|---|---|---|---|
+| **Enchanted melee** (knives) | **Free / cheap** | Every-turn default | Adjacent (1 tile) | The workhorse. You *want* to close to it — but it puts you in danger. |
+| **Channeled refined-Mani magic** | **Mid** | Mid-layer reach | Short / medium | Innate abilities (player woke knowing Bhu). The positioning layer. |
+| **Mani projectile launchers** | **High / limited-use** | Ultimate-tier burst | Long / AoE | Looted devices firing Mani-charged projectiles. The rare, safe big hit / board-clear. The "loot" lane (mod slots: focus crystal / chamber / charge coil). |
+
+**Player posture = close-range-primary** (lean on cheap melee, reach with spells, save launchers for big moments). NOTE: this *inverts* the legacy "gunslinger manages the gap" framing — the **player** is now the melee-forward actor and **enemies apply ranged pressure**. Legacy docs pending Phase 5 reconciliation.
+
+**Enemies differ from the player** (they do not mirror the kit): Grinders = crude Mani-shard launchers + melee Driller + chaotic raw-Mani Shaman; Husks (main game) = melee / elemental.
+
+> Cost/economy exact values, action economy, and per-lane range numbers are **deferred** — locked here is only the lane structure, no-guns rule, and the cost/range/risk ordering.
+
 ### Refined Mani — Combat Role (enchanted weapons)
 
 Each refined elemental Mani can be consumed to **enchant weapons** with elemental attacks. Enchantments apply to:
 
-- **Enchanted bullets** (Mani-infused ammo) — per-shot proc chance of the corresponding status effect on hit
+- **Enchanted projectiles** (Mani-charged launcher ammo) — per-shot proc chance of the corresponding status effect on hit
 - **Enchanted knives / melee weapons** — per-hit proc chance, plus passive elemental aura when wielded
 
 | Mani | Combat flavor | Status proc |

@@ -67,6 +67,22 @@ The player's kit is three lanes, ordered as an **inverse cost ↔ range ↔ risk
 
 > Cost/economy exact values, action economy, and per-lane range numbers are **deferred** — locked here is only the lane structure, no-guns rule, and the cost/range/risk ordering.
 
+### Combat — Arena & Camera (Phase 2, 2026-06-02)
+
+> Spatial frame for the Encounter Arena. **Rules are locked; the numbers are reference targets, finalized in gray-box/playtest.** (To be extracted into a dedicated combat-spec doc in the Phase 5 doc-sync.)
+
+**Arena rules:**
+- **Compact single-screen grid, NO camera panning** — the whole arena must be readable in one fixed shot.
+- Odd-sized grid (true center tile for symmetric layouts + central hazard/objective).
+- *Reference target:* **7×7** (49 positions), tile ≈ 2m. Chosen compact because position-count complexity scales worse than N² (AI, authoring, readability). Bump toward 8×8 only if playtest shows the three range bands (melee/spell/launcher) feel mushy — size and range-band distinction get validated together.
+- Consequence at 7×7: the launcher's **long-range** band is compressed (max straight distance ~6–7 tiles), so its identity rests on **AoE + high cost**, not sniper reach. Intended.
+
+**Camera rules (the dual-camera is the #1 identity bet → must-playtest):**
+- **One unified PERSPECTIVE rig** — NOT orthographic-isometric, NOT 90° top-down. (Keep Into the Breach's *readable-tile aesthetic*, but achieve it via a steep perspective cam so the tactical ↔ OTS blend stays smooth. Orthographic would fight the perspective OTS cam.)
+- **Tactical angle = OTS reaction-cam angle + 15–25°.** The blend swing is the design constraint — a small, natural movement by construction, so the eye barely readjusts on snap-back.
+- **Derived floor:** tactical view stays plannable on the grid (**≥ ~45°**), which sets the OTS cam to a **slightly elevated** over-the-shoulder (**≥ ~25–30°**) — not a ground-level cinematic parry cam. It still shows the attacker's wind-up but keeps the world coherent with the planning view.
+- *Reference targets:* OTS ~25–35°, tactical ~45–55°. Direction reference = South Park: The Fractured But Whole (perspective grid tactics).
+
 ### Refined Mani — Combat Role (enchanted weapons)
 
 Each refined elemental Mani can be consumed to **enchant weapons** with elemental attacks. Enchantments apply to:

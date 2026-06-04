@@ -83,6 +83,45 @@ The player's kit is three lanes, ordered as an **inverse cost ↔ range ↔ risk
 - **Derived floor:** tactical view stays plannable on the grid (**≥ ~45°**), which sets the OTS cam to a **slightly elevated** over-the-shoulder (**≥ ~25–30°**) — not a ground-level cinematic parry cam. It still shows the attacker's wind-up but keeps the world coherent with the planning view.
 - *Reference targets:* OTS ~25–35°, tactical ~45–55°. Direction reference = South Park: The Fractured But Whole (perspective grid tactics).
 
+### Combat — Turn Structure, Action Economy & Resources (Phase 3, 2026-06-02)
+
+> Rules locked; numbers are reference targets, finalized in gray-box/playtest.
+
+**Turn structure (3.0):**
+- **Side-based phases:** full **Player Phase** → full **Enemy Phase**, repeat. NOT individually-interleaved initiative. Enemies ordered by agility within the Enemy Phase.
+- Rationale: concentrates all enemy attacks into one window = exactly when the OTS reaction-cam fires. Cleanly separates *planning* (tactical cam) from *reacting* (reaction cam), so the camera structure falls out of the turn structure.
+- **Core loop:** Player Phase (plan / move / attack in tactical cam) → Enemy Phase (each incoming attack = OTS reaction-cam + parry window) → repeat.
+
+**Action economy (3.3) — AP pool (Option B):**
+- One **AP pool** with a cap (ref ~6). **NO carryover** — AP refreshes to a small base each Player Phase. (Carryover dropped: the launcher is fed by Veins, not AP-banking, so carryover had no job left and only weakened parry motivation.)
+- **AP sources:** small **base regen** (ref +2 — the floor, so you can always at least melee, no death-spiral) + **parry generation** (perfect parry = +big AP, block = +small, miss = 0). **Parry is the only way to exceed base each turn → the skill engine.**
+- **Costs (ref):** melee 1 AP · spell 2–3 AP · launcher = Charge + a chunk of AP (so even when stocked it competes within the turn, never spam).
+- **Movement is a SEPARATE budget** (not AP) — protects the close-range-primary identity.
+
+**Parry vs Dodge — the greed split (makes the reaction-cam a decision):**
+- **Dodge** = wider/safer window, avoids damage, **generates NO AP.**
+- **Parry** = tight window, **risk of the full hit on a miss**, but success = avoid damage **+ AP + counter.**
+- Every incoming attack: play safe (dodge) or risk the parry to fuel your next turn.
+
+**Three-resource model (each a distinct job + timescope):**
+| Resource | Job | Timescope | Source |
+|---|---|---|---|
+| **AP** | per-turn action currency (melee + base spells) | this turn only (no carryover) | base regen + **parry** |
+| **Mani Shard** | upgrade a spell / cast an off-element "advanced" spell | **PLAYTEST — see below** | found scattered in the arena |
+| **Mani Vein → Launcher Charges** | fuel a launcher burst (ult-tier) | **persistent**, carried between battles (1 vein ≈ 3–4 rounds) | harvested from veins |
+
+**OPEN — Mani Shard scope (prototype BOTH, decide by playtest):**
+- (a) **Battle-scoped, use-it-or-lose-it** — abundant, a shard drops *every battle*; scarcity is positional (reach it under fire) + temporal (this fight only). Preserves the clean three-timescope split (spatial axis).
+- (b) **Persistent, limited** (like Charges) — carried between battles, **rarer drop similar to veins.** Collapses into the "carried consumable" axis with Charges.
+- **Dev note:** drop-rate MUST differ by mode — (a) drops every battle, (b) is vein-rare. Build both, A/B in playtest.
+
+**Ranges & movement (3.1 / 3.2) — relationships locked, numbers reference:**
+- **Melee = 1** (adjacent). **Spell ≈ movement budget** — the spacing engine: closing from spell-range to melee eats your whole move, forcing the "poke safe vs. commit and get exposed" choice every turn. **Launcher = board-spanning + AoE** (rare; at 7×7 its identity is AoE + cost, not reach).
+- **Movement = separate budget, splittable** around the action (move → attack → move) for kiting / flanking reposition — **EXCEPT the launcher is heavy and roots you** (no move after firing; revives the good part of the old "commit-to-the-shot" rule for one lane only).
+- *Reference (7×7):* movement ~3–4 · spell ~3–4 · launcher ~6–7 + AoE radius ~1.
+
+**Naming reconciliation (for Phase 5 doc-sync):** locked docs currently use "shard" for the raw-Mani grenade and say "veins drop shards." New clean split → **Raw Mani** = chaotic live-timer grenade (Effect Table, Grinders' tool, unchanged) · **Mani Shard** = refined spell fuel (new role) · **Mani Vein** = deposit → Launcher Charges (new role).
+
 ### Refined Mani — Combat Role (enchanted weapons)
 
 Each refined elemental Mani can be consumed to **enchant weapons** with elemental attacks. Enchantments apply to:

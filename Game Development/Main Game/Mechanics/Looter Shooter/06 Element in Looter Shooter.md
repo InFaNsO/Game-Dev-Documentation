@@ -29,7 +29,7 @@ The current Grinder civilization remembers Mani as folk-memory — *"the ancient
 
 | Form | Behavior | Risk |
 |---|---|---|
-| **Raw Mani** | Unstructured. Random rolls from the **Mani Effect Table** on detonation. Live-timer grenade mechanic (auto-detonates after ~5–8 seconds). | High. Can self-harm. Grinders use this exclusively because they cannot refine. |
+| **Raw Mani** | Unstructured. Random rolls from the **Mani Effect Table** on detonation. **Fired as chaotic launcher ammo** (early-game / Grinders), AoE on impact. *(Held "live-timer grenade" mechanic RETIRED — a pre-refinement relic; see Phase 4.4.)* | High. Can self-harm. Grinders use this exclusively because they cannot refine. |
 | **Refined elemental Mani** (Bhu / Jal / Agni / Vayu) | Structured. Predictable single-element effects. **Power scales with crystal size** — small for safe use, large for ult-tier effects but more dangerous to handle. | Controlled per use; rises with size. |
 | **Refined Akash-Mani** | Theoretically the fifth refined form. The Accord made one. It destroyed them. **Never refined in this campaign.** | Catastrophic. The Accord proved it. |
 
@@ -122,6 +122,28 @@ The player's kit is three lanes, ordered as an **inverse cost ↔ range ↔ risk
 
 **Naming reconciliation (for Phase 5 doc-sync):** locked docs currently use "shard" for the raw-Mani grenade and say "veins drop shards." New clean split → **Raw Mani** = chaotic live-timer grenade (Effect Table, Grinders' tool, unchanged) · **Mani Shard** = refined spell fuel (new role) · **Mani Vein** = deposit → Launcher Charges (new role).
 
+### Combat — Mani Re-fit & Onboarding Progression (Phase 4.4, 2026-06-02)
+
+> Reconciles the locked Mani mechanics with the grid/turn model + sets the combat onboarding ramp. Rules locked; numbers reference.
+
+**Raw Mani re-framed → chaotic launcher ammo (held-timer grenade RETIRED):**
+- Raw Mani is the *unrefined* weapon, so it belongs to whoever can't refine: the **Grinders** + the **player early-game** (before refinement production is up).
+- Fired from the **launcher lane** as a travel-based projectile → **AoE detonation on impact → rolls the Mani Effect Table** (chaotic — great rolls OR self/ally-harm + splash = the locked Grinder "Mani-ignorant" flavor). The old "pick up shard → 5–8s real-time timer → throw before it blows" mechanic is **retired** (a pre-refinement relic that doesn't fit turn-based).
+- **Same resource, matured behavior:** Mani Vein → Launcher Charges fire **raw** (Effect Table chaos) before refinement and **refined** (controlled elemental, mod slots) after. Unlocking refinement trades *gambling for reliability* — a power-up that's also a risk-reduction. No new resource; the launcher just matures.
+- **The kit encodes the story arc:** chaotic raw → structured refined, mirroring the player learning/teaching refinement at the Drill Assault.
+
+**Combat onboarding progression (staged — front-loads the identity hook; Sekiro model = deflect-core first, tools later):**
+- **Early game (Grinder arc / Lithic Mow tutorial):** **melee + parry + positioning/flanking + raw Mani as an OPTION.** Already a complete loop (offense / defense / position / wildcard) and it front-loads the #1 identity mechanic (the parry / reaction-cam).
+- **Refined spells + refined launcher unlock POST-trust** (with refinement production), introduced as *earned growth*, each with a deliberate teaching + reinforcement beat.
+- **Raw Mani stays a wildcard OPTION, NOT the main early offense** — melee + parry are the reliable *skill* core; raw Mani is a gamble, and forcing reliance on a coin-flip would make the early game feel random, not skillful. Also sets up the "now I have *controlled* power" payoff.
+- **The real boredom risk is a combat-sparse, story-heavy tutorial — NOT withholding spells.** Three pacing guardrails: (1) **front-load a combat hook** in the first minutes (wake → small parry fight → then story breathes); (2) keep the tutorial **tight with real combat taste**; (3) **tease the refined-Mani carrot** early (an NPC/enemy wields it) so withholding becomes *aspiration*.
+
+**Hazard-push (carries):** push = forced grid movement; **collision damage Into-the-Breach style** — shove into walls / other units / Mani veins (triggers radial Effect Table) / live raw-Mani zones. Vayu (push) + Bhu (knockback) become kill *setups*. No verticality needed.
+
+**Effect Table + enchanted procs:** unchanged (the Effect Table is the raw/early-launcher behavior + the sanctioned chaos RNG; procs per 4.1).
+
+**Doc-sync flags (Phase 5):** doc 06 "Mani's Role in the Present World" para + doc 04 "Mani shards (live grenade)" → rewrite "live-timer grenade" → "chaotic launcher ammo (early/Grinder), refined via the trust arc."
+
 ### Combat — Enemy Doctrine & Intent (Phase 4.3, 2026-06-02)
 
 > **Framework locked; the enemy ROSTER is deliberately DEFERRED.** Build one simple enemy to gray-box the loop, then design the per-biome rosters from playtest results.
@@ -135,8 +157,10 @@ The player's kit is three lanes, ordered as an **inverse cost ↔ range ↔ risk
 - **Pack behavior** (Grinders fight as a pack, never alone): ranged units hold distance + focus the player, melee closes, **anti-flank** (face the player, avoid showing their rear), try to **flank/surround** the player; focus-fire spikes how many reaction windows hit at once.
 - **Parryability:** parryable/dodgeable **by default** (the reaction loop is the point); **some attacks are unparryable → must be DODGED/repositioned** (the anti-turtle guard from 4.2, delivered here — forces movement, not just timing). **Feints deferred** to V1/main game.
 
+**Combat-density / pacing note (2026-06-02):** **Lithic Mow is a story-heavy TUTORIAL biome, deliberately combat-light** — its job is the Grinder Trust Arc, not a combat playground. **You never fight your allied tribe**; the combat in/around Lithic Mow is vs **rival Grinder scavengers** (the splinter group filling the cut-wildlife threat role, Topic 9) + the **Drill Assault** climax. **The real combat game begins after the trust arc** (Vats/Forge), where the primary enemy is the **Husk** — so the Husk is the enemy type that carries the *bulk* of the game's combat. Implication: the prototype's "prove combat" job leans on the Drill Assault + scavenger encounters and likely wants a **dedicated combat proving-ground slice** (→ ties to the task-3 mini-game split), separate from the story-tutorial.
+
 **Enemy roster — DEFERRED (not locked):**
-- **Prototype = ONE simple enemy** to gray-box the core loop. Grinder-flavored by default (Lithic Mow is the prototype biome). *(User noted "Husk" — combat is biome-agnostic mechanically; reconcile when roster work begins. Husks are main-game Vats/Forge.)*
+- **Prototype = ONE simple enemy** to gray-box the core loop. **Husk-flavored is the more *representative* choice** (it's what the bulk of real combat fights), though a biome-agnostic dummy validates the loop equally. (Grinder-flavored = the rival *scavengers*, not the allied tribe.)
 - **Full per-biome roster designed AFTER the prototype** shows what each biome needs.
 - *Reference/candidate doctrine (thinking only, NOT locked):* Scout = ranged kiter · Driller = melee gap-closer (flagship parry moment) · Chief = pack coordinator/focus-fire · Shaman = chaotic raw-Mani AoE, Mani-ignorant (baitable self-harm).
 

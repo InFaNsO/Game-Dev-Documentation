@@ -122,6 +122,37 @@ The player's kit is three lanes, ordered as an **inverse cost ↔ range ↔ risk
 
 **Naming reconciliation (for Phase 5 doc-sync):** locked docs currently use "shard" for the raw-Mani grenade and say "veins drop shards." New clean split → **Raw Mani** = chaotic live-timer grenade (Effect Table, Grinders' tool, unchanged) · **Mani Shard** = refined spell fuel (new role) · **Mani Vein** = deposit → Launcher Charges (new role).
 
+### Combat — Damage Model (Phase 4.1, 2026-06-02)
+
+> Rules locked; numbers are reference targets. **NO armor in the prototype** (revisit after a playable build).
+
+**Deterministic philosophy:**
+- **Flat base damage, NO ±variance** — exact-lethality planning (a 30-dmg hit on a 28-HP enemy kills, *guaranteed*). Variance would quietly steal that back.
+- **Every multiplier is earned by a decision** (position / timing / elemental setup), never rolled.
+- **RNG is confined to exactly two places:** the raw-Mani Effect Table, and the enchant status-proc chance. Nothing else rolls.
+
+**Facing & flanking (the sole positional damage lever — with no armor, this carries the entire "positioning = damage" identity):**
+- Every unit has a **facing direction**; it faces the way it **last moved/attacked**.
+- **Re-facing in place** (turning without moving) **costs movement** (ref: 1 tile of the move budget). *PLAYTEST-review.* This is what keeps flanking meaningful — neither side can spin to face a threat for free.
+- **Arc** = attacker's position vs. target's facing → **Front / Side / Rear**.
+- Multipliers (ref): **Front ×1.0 · Side ×1.25 · Rear → triggers Crit.**
+
+**Crit — earned, not rolled (ref ×2):** one crit channel, three deterministic triggers:
+- **Rear-flank** (positioned behind the target),
+- **Parry-counter** (won the reaction-cam parry — ties the Phase 3 parry economy straight into damage),
+- **Status-combo** (see below).
+
+**Status — apply, then cash in (this is the status→crit wiring):**
+- **Apply (step 1):** either **GUARANTEED** (spells/abilities designed to apply a status — plannable) or a **PROC** (enchanted weapons have a per-hit *chance* to also apply their element's status — the sanctioned RNG, a bonus you don't rely on).
+- **Combo crit (step 2):** a **status-afflicted enemy + the right follow-up hit = guaranteed crit.** Flagship example: **Frozen → heavy hit → Shatter (×2)**.
+- Effect: the status deck is wired **into** the crit channel, not left floating — Burn/Freeze/Push are crit *setups*. Works in the Bhu-only prototype too (Freeze via the raw-Mani Effect Table → Shatter via a Bhu melee hit).
+
+**Body zones: CUT for the prototype.** Flank arcs carry all positional damage depth; a deterministic head-shot multiplier would just mean "always aim head." "Cripple a limb"-type effects, if ever wanted, arrive later as a specific status/ability (Phase 4.4), not a per-attack aim-menu.
+
+**No armor (prototype decision):** removed for now. Rationale — Expedition 33 precedent (our reaction-defense reference puts mitigation in *active* parry/dodge, with armor as only a thin stat), solo-dev scope, and avoiding a *passive* defense layer redundant with active parry (the same reason cover was cut). Revisit once there's a playable prototype. Knock-on: Bhu's enchant drops "armor break."
+
+**Reference damage pipeline:** `Final = Base × FlankMult × CritMult` (no armor term).
+
 ### Refined Mani — Combat Role (enchanted weapons)
 
 Each refined elemental Mani can be consumed to **enchant weapons** with elemental attacks. Enchantments apply to:
@@ -131,7 +162,7 @@ Each refined elemental Mani can be consumed to **enchant weapons** with elementa
 
 | Mani | Combat flavor | Status proc |
 |---|---|---|
-| **Bhu-Mani enchantment** | Earth / physical | Stagger · Armor break · Knockback |
+| **Bhu-Mani enchantment** | Earth / physical | Stagger · Knockback (was "armor break" — dropped, no armor in prototype) |
 | **Jal-Mani enchantment** | Water | Freeze · Slow |
 | **Vayu-Mani enchantment** | Air | Push · Knockdown · Displacement |
 | **Agni-Mani enchantment** | Fire | Burn · Melt armor |

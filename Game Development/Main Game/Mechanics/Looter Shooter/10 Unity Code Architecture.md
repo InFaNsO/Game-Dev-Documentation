@@ -3,10 +3,12 @@
 
 > Lore reference stack: [[14 Naming Glossary]] · [[12 The Akashic and The Bleed]] · [[11 Factions and Species]] · [[13 Campaign Structure]] · [[15 Grinder Trust Arc]]
 
+> ⚠️ **STALE — PENDING RE-ARCHITECTURE (2026-06-02).** This document was written for the *old* combat/world model (continuous tactical space, free-form movement dome, XCOM cover, overwatch, procgen room assembly, firearms/ammo/armor, live-timer Mani grenade). **All of that was redesigned in Phases 1–4** — see **[[06 Element in Looter Shooter|06]] "Combat — …" sections** for the authoritative spec. The code structures below (`CoverSystem`, `OverwatchSystem`, continuous `TacticalSpace`, `Gameplay.Procgen`, `AmmoDef`/`ArmorDef`, grenade timer) are **superseded** and will be re-architected when the build starts (task 4). The new shape: **tile grid (~7×7)** · **no cover / no height / no procgen** (authored single-screen arenas, Encounter-Arena transition) · **dual camera** (tilted-3/4 ↔ OTS reaction-cam) · **side-based phases + AP economy (parry-fed)** · **no firearms/armor** · **Mani-is-the-loot economy** (raw → refining minigame → refined fuel → cast/research). Treat this file as a *legacy reference for the data-driven/decoupled patterns*, not the combat design.
+
 Target: **Unity 6 + C# + URP**, single-player, single-project.
-Combat model: **Sparks of Hope × XCOM × Expedition 33** (continuous tactical space, free-form movement dome, rescued XCOM tactics, reactive parry/dodge).
-World structure: **procedurally assembled rooms** from a hand-authored prefab library (Lithic Mow outskirts).
-Content layer: **lore-driven** — Mani System, Faction System, Mega Structure environments.
+Combat model (REVISED): **grid-tactical (South Park: FbW) × intent telegraph (Into the Breach) × reactive parry (Expedition 33) × tactical↔OTS camera (Valkyria Chronicles)** — self-contained authored arenas, dual camera, AP/parry economy.
+World structure (REVISED): **hand-authored** explore world + a **pool of hand-authored single-screen tile arenas** (NO procgen in the prototype; procgen → dream-game dungeons later).
+Content layer: **lore-driven** — Mani System/economy, Faction System, Mega Structure environments.
 
 Architecture is opinionated toward *data-driven content* (ScriptableObjects), *decoupled systems* (events + service locator), and *clean transitions* between the two gameplay modes (Real-time Exploration ↔ Turn-Based Combat).
 
@@ -16,7 +18,7 @@ Architecture is opinionated toward *data-driven content* (ScriptableObjects), *d
 
 1. **Data over code.** Every weapon, item, enemy, recipe, loot table, room prefab, ability, **Mani effect, faction profile** is a `ScriptableObject`. Designers tweak in Inspector.
 2. **Two clearly separated gameplay modes.** Exploration and Combat are sibling state machines that own their own input, UI, and update loops. Transition is a first-class event.
-3. **Procgen is first-class.** Room library + assembler + encounter director live alongside core systems, not bolted on.
+3. ~~**Procgen is first-class.**~~ **REVISED — procgen is CUT from the prototype.** The explore world and the combat arenas are **hand-authored**. (Procgen moves to the dream-game dungeon system later.)
 4. **Lore is mechanical, not flavor.** Mani System and Faction System are full subsystems, not stat tables.
 5. **Composition over inheritance.** MonoBehaviours are thin; logic lives in plain C# services and components.
 6. **Event-driven.** Systems don't reach into each other — they subscribe to a typed event bus.
@@ -32,9 +34,9 @@ Assembly: Core            → bootstrap, services, events, save, settings
 Assembly: Data            → ScriptableObject definitions (no MonoBehaviour deps)
 Assembly: Gameplay.Shared → stats, damage pipeline, inventory model, item instances
 Assembly: Gameplay.Explore→ player controller, AI patrol, world loot, stealth
-Assembly: Gameplay.Combat → tactical space, cover, turn manager, actions, intents, parry/dodge, status, overwatch
-Assembly: Gameplay.Procgen→ room library, assembler, encounter director, loot director, runtime navmesh
-Assembly: Gameplay.Mani→ Mani shards, effect table, grenade timer, vein destructibles
+Assembly: Gameplay.Combat → grid (TileGrid), facing/flank, side-based turn manager, AP economy, actions, intent telegraphs, parry/dodge, dual-camera rig, status   [REVISED — was: continuous space, cover, overwatch]
+Assembly: Gameplay.Arena → authored arena pool, encounter setup, Encounter-Arena transition   [REPLACES Gameplay.Procgen — CUT]
+Assembly: Gameplay.Mani→ raw Mani (loot), Effect Table, refining minigame, research minigame, refined Mani, launcher charges, vein/big-ore   [REVISED — grenade timer retired]
 Assembly: Gameplay.Faction→ faction definitions, faction AI overlays, reputation
 Assembly: Gameplay.Base   → stash, vendor, crafting, loadout
 Assembly: UI              → MVP UI controllers, HUD, screens
@@ -886,32 +888,35 @@ Assets/
 
 ## 20. Build Order (Suggested Sprints)
 
-1. **Bootstrap + Data layer + Inventory grid + Stash + Loadout.** Prove the loot/item bones.
-2. **Procgen MVP** — 3 room prefabs (1 per sub-theme), assembler stitches a 3-room line, runtime navmesh bake.
-3. **Exploration + player controller + world loot + stealth AI.** Real-time slice works.
-4. **Combat core** — `TacticalSpace`, free-form movement dome, action economy (2 actions, no movement after shot), 1 Grinder Scout archetype, deterministic damage pipeline, intents.
-5. **Cover system with facing cones + flanking** — XCOM tactics rescued.
-6. **Reactive layer** — parry timing minigame, dodge, perfect-parry counter.
-7. **Mani System** — shard pickup, live timer, throw / hold-detonate, Effect Table rolls, vein destructibles. **The signature mechanic.**
-8. **Status effect deck** (Burn/Freeze/Push/Honey/Vamp/Ink/Suppressed/Stagger).
-9. **Faction System + Grinder archetype roster** (Driller, Chief, Shaman) + pack-tribe AI overlay.
-10. **Overwatch (continuous LOS) + abilities + ultimate gauge.** Combat depth complete.
-11. **Room library expansion to 30–50 prefabs across 3 sub-themes**, encounter & loot directors tuned.
-12. **Rogue Grinder vendor + crafting + faction reputation + Knowledge Log.**
-13. **AI polish, raid timer, evac, audio pass, tutorial raid.**
-14. **V1 features from [[09 Complete Feature List]] in priority order.**
+> **REVISED 2026-06-02** to the locked combat model. **#1 priority is the dual-camera reactive-loop gray-box** — if that single loop feels good, the combat identity is validated.
+
+1. **GRAY-BOX THE DUAL-CAMERA REACTIVE LOOP FIRST** — one authored tile arena, 1 simple enemy, side-based phases, plan in tilted-3/4 → enemy attack → OTS reaction-cam → parry/dodge → snap back. The make-or-break.
+2. **Combat core** — `TileGrid`, facing/flank arcs, AP economy (parry-fed, no carryover), splittable movement, flat deterministic damage pipeline (Front/Side/Rear→crit, no armor), intent telegraphs.
+3. **Reactive layer** — Dodge + Parry (Block/Perfect), counter + flat AP, Perfect = crit + drops raw Mani, ranged deflect.
+4. **Bootstrap + Data layer + Inventory grid + Stash + Loadout.** The loot/item bones.
+5. **Exploration + player controller + world loot + stealth AI + Encounter-Arena transition** (explore → authored arena → return).
+6. **Mani System / economy** — raw Mani loot, **refining minigame**, refined Mani, raw-Mani launcher (Effect Table), **research minigame**, vein/big-ore. **The signature loop.**
+7. **Status effect deck (prototype core)** — Burn/Freeze/Stagger/Push + combo-crit (Freeze→Shatter).
+8. **Per-biome enemy roster** (designed from gray-box results) + pack-tribe AI + hazard-push.
+9. **Authored arena pool** (Lithic Mow themed) — expand the set; boss bespoke staging.
+10. **Rogue Grinder vendor + crafting + faction reputation + Knowledge Log.**
+11. **AI polish, raid timer, evac, audio pass, tutorial raid.**
+12. **V1 features from [[09 Complete Feature List]] in priority order.**
+*(Cut from the old plan: procgen MVP, cover system, overwatch, ultimate gauge, live-timer grenade.)*
 
 ---
 
 ## 21. Open Questions to Pin Down Before Sprint 1
 
-- **Camera angle:** pure top-down or 30°–45° tilted? Affects art pipeline and cover-occlusion math.
-- **Movement dome visualization:** flat ground projection, holographic ring, or animated boundary line?
-- **Mani grenade timer length:** 5s / 6s / 8s? Tune toward "tense but recoverable."
-- **Real-time pause-to-combat transition style:** hard freeze or 0.8s slow-mo blend?
-- **Encounter scope visualization:** how do we show the player "this room + that room are in the fight" without breaking immersion?
+*(Most of the original questions are now RESOLVED or MOOT after the combat redesign — see [[06 Element in Looter Shooter|06]]):*
+- ~~Camera angle~~ → **RESOLVED:** one unified **perspective** rig; **tactical = OTS reaction-cam angle + 15–25°** (tactical ~45–55°, OTS ~25–35°). Not top-down, not orthographic.
+- ~~Movement dome visualization~~ → **MOOT** (grid, no dome).
+- ~~Mani grenade timer length~~ → **MOOT** (held-timer grenade retired; raw Mani is fired AoE via the launcher).
+- **Real-time → combat transition style:** the **Encounter-Arena** transition (explore → load a self-contained arena → return on win). Blend style still TBD in build.
+- ~~Encounter scope visualization~~ → **MOOT** (combat is a separate arena, not in-place).
+- **Still open (build-time):** the dual-camera blend feel (the #1 gray-box), exact AP/range/cost numbers, the two Mani minigames' designs.
 
-Resolve before writing the first `MonoBehaviour`.
+Resolve the build-time items during the gray-box, not before.
 
 ---
 
@@ -921,17 +926,18 @@ Every system listed transfers to the dream game with **additive changes only, no
 
 | System                          | Prototype | Main Game additions                          |
 |---|---|---|
-| Combat controller / turn FSM    | Solo     | Party-of-3 turn slots                        |
-| TacticalSpace + cover (facing cones) | Same | Multi-floor dungeons                          |
-| MovementController              | Free-form + dash | + Team Jump (use ally as launchpad)   |
-| Status effect deck              | Same     | + class-specific effects                      |
-| Intent system                   | Same     | + party-target prediction UI                  |
-| **Mani System**              | Raw shards (rolled effects) | + **Refined shards (chosen effects)** unlocked via Mega Structure progression |
+| Combat controller / turn FSM (side-based) | Solo | Party-of-3 turn slots                  |
+| TileGrid + facing/flank         | Same     | Larger arenas, more enemies                   |
+| Movement (grid budget, splittable) | Same  | + party positioning                          |
+| Dual-camera rig (tactical ↔ OTS) | Same    | + party-target framing                       |
+| AP / parry economy              | Same     | + class resources                            |
+| Status effect deck              | Same     | + class-specific + compound-spell effects     |
+| Intent telegraphs               | Same     | + party-target prediction UI                  |
+| **Mani System / economy**       | Raw loot → refine minigame → refined fuel; research minigame; Bhu only | + Jal/Vayu/Agni + 2-element compounds + purification anchor |
 | **Faction System**              | Grinders + Rival Scavengers + RogueGrinder | + Amphibian Husks + Reptile Husks + purification system |
-| Procgen room library            | Lithic Mow / 3 sub-themes | + Genesis Vats / Prism Forge biomes + dungeon themes |
-| Assembler + directors           | Same engine | + dungeon-break events, branching rules, biome-specific hazards |
+| Authored arena pool             | Lithic Mow themed | + Vats/Forge themed arenas (procgen = dream-game dungeons, NOT carried from here) |
 | Inventory grid                  | Same     | + per-character + shared stash split          |
-| Damage pipeline                 | Same     | + party-buff steps                            |
+| Damage pipeline (flat, flank/crit, no armor) | Same | + party-buff steps                    |
 | Save system                     | Same     | + city/automation state registered            |
 
 If a sprint produces a system that *can't* go on this list, stop and rethink it.

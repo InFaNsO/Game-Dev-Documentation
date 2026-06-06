@@ -2,12 +2,13 @@
 ### List of Mechanics to be developed
 
 - Inventory
-- Crafting
+- Crafting (incl. the **refining** + **research** minigames — the Mani crafting loop)
 - Trading
-- **Fighting** (Tactics + Timing — Sparks of Hope movement + XCOM cover/flanking + Expedition 33 reactive parry/dodge)
-- **Procedural Level Assembly** (room prefab library → assembler → tactical playfield)
-- **Mani System** (raw vs. refined, live-timer grenades, vein destructibles — see [[06 Element in Looter Shooter|Mani]])
+- **Fighting** (grid-tactical + dual-camera + reactive parry — **full spec in [[06 Element in Looter Shooter|06]] "Combat" sections**; locked 2026-06-02. Old "Sparks of Hope dome + XCOM cover + procgen + firearms" model is RETIRED.)
+- **Mani System / economy** (no guns/armor → **Mani is the loot**: raw Mani → refine → refined fuel → cast/research — see [[06 Element in Looter Shooter|Mani]])
 - **Faction System** (Grinder trust arc + reputation — see [[07 Civilization - The Grinders|The Grinders]] and [[15 Grinder Trust Arc]])
+
+> **NOTE (2026-06-02):** Combat was fully redesigned (Phases 1–4). The authoritative spec now lives in **`06` "Combat — …" sections**. The detailed lists below are being reconciled; where they conflict with `06`, `06` wins. **Procedural Level Assembly is CUT from the prototype** (authored arenas; procgen → dream-game only).
 
 > Cross-references: [[11 Factions and Species]] · [[12 The Akashic and The Bleed]] · [[13 Campaign Structure]] · [[14 Naming Glossary]]
 
@@ -23,23 +24,23 @@
             - [ ] Passive effects per rarity tier
         - [ ] Consumables
             - [ ] Blueprints
-            - [ ] Ammunitions (typed: FMJ / AP / HP / **Mani-infused**)
+            - [ ] **Raw Mani** (the core loot — un-elemental, refine it into fuel; also = launcher ammo fired raw)
+            - [ ] **Refined Mani** (Bhu/Jal/Vayu/Agni — *made* via the refining minigame; spell/launcher fuel)
             - [ ] Healing & status cures
-            - [ ] **Mani shards** (live grenade — see Mani System below)
         - [ ] Permanent
-            - [ ] Weapons (with mod slots: barrel, optic, mag, grip, stock)
-            - [ ] Armor (slot, armor class, durability, coverage zones)
+            - [ ] **Mani launchers / focuses** (the loot weapon lane — mod slots: focus crystal / chamber / charge coil. NO firearms.)
+            - [ ] ~~Armor~~ — **CUT from the prototype** (no armor; mitigation lives in active parry/dodge — revisit post-build)
     - [ ] Quickslots bound to rig pouches
     - [ ] Weight affects exploration move speed
 
 - [ ] **Crafting**
     - [ ] Crafting station at base
-    - [ ] Minigames for crafting
-        - [ ] Successful = rarity bump on output
+    - [ ] **Refining minigame** ("impose structure on chaotic Mani") — raw Mani → **refined Mani**; gated by learned elements; score → yield / quality / efficiency. Big-ore (vein) → big refined (launcher fuel).
+    - [ ] **Research minigame** — permanently **unlock/develop spells** (incl. 2-element compounds); score → unlock tier / strength / **Mani refund**. (Spell identity = which element(s) researched; power = score + input quality.)
+    - [ ] Minigame success = rarity/strength bump on output (the locked crafting-minigame pillar)
     - [ ] Blueprints unlock permanent recipe access
     - [ ] Salvage station — break items → materials
-    - [ ] **Mani refinement station** (refines raw Mani → Bhu-Mani; later tiers added per Mega Structure reclaimed)
-    - [ ] **Mani-infused ammo crafting** (consumes raw Mani shards)
+    - [ ] Refinement tiers expand per Mega Structure reclaimed (Bhu prototype → Jal/Vayu/Agni main game; Akash = endgame, learned from the final boss, never mixed)
 
 - [ ] **Trading**
     - [ ] NPCs at base
@@ -48,76 +49,30 @@
     - [ ] **Vendor unlocks via [[15 Grinder Trust Arc|trust arc]]** — no vendor until Grinders reach Allied tier
     - [ ] High vendor rep unlocks Grinder-faction-exclusive gear (drills, mining charges, raw Mani supply)
 
-- [ ] **Fighting — Tactics + Timing**
-    - [ ] **Mode transition**
-        - [ ] Real-time top-down stealth exploration
-        - [ ] Enemy `Alerted` + LOS → encounter triggers
-        - [ ] World freezes for enemies; player position stays continuous (no grid snap)
-        - [ ] Camera blends, encounter UI fades in (~0.8s)
-        - [ ] Encounter scope = current room + adjacent rooms within ~15m
-    - [ ] **Turn structure (Sparks of Hope action economy)**
-        - [ ] Initiative by agility
-        - [ ] Per turn: **free-form movement within visible dome** + **2 actions** (weapon attack / technique / item)
-        - [ ] **No movement after using your weapon** (commit-to-the-shot rule)
-        - [ ] Dash and Team Jump (main game) do NOT consume movement budget
-        - [ ] Reactives (parry/dodge) are free, cost timing + stamina
-    - [ ] **Tactical space (NOT a grid)**
-        - [ ] Continuous world coords (matches explore mode)
-        - [ ] Movement dome visualized as range circle on the ground during your turn
-        - [ ] NavMesh pathing in real-time (you drive the character with the stick)
-        - [ ] Cover anchors authored as discrete metadata on room prefabs
-    - [ ] **Cover system (XCOM crispness)**
-        - [ ] Full cover — −66% damage
-        - [ ] Half cover — −33% damage
-        - [ ] **Cover anchors have facing cones** — shooting from outside the cone = **flanked** (no cover bonus + crit chance). Preserves flanking without a grid.
-        - [ ] Height advantage — +10% damage, ignores half cover
-        - [ ] **Mani veins** are destructible cover (drop shards when broken — risk: triggers radial Mani Effect Table roll)
-    - [ ] **Damage model — deterministic (Expedition 33 × Sparks of Hope)**
-        - [ ] Weapon shots always land for calculated damage (base ±10% variance)
-        - [ ] Cover modifies damage, not hit chance
-        - [ ] **No hit% on basic shots.** RNG lives in: raw Mani Effect Table rolls, status proc chances, crit windows
-        - [ ] Crits earned via: flanking, perfect parry counter, status combos
-        - [ ] Body-part hit zones — Head / Torso / Limbs with multipliers
-    - [ ] **Movement-as-mechanic (Sparks of Hope core)**
-        - [ ] Free-form stick-driven movement within dome — feels real-time
-        - [ ] **Dash-through** enemies on path → chip damage (limited count per turn)
-        - [ ] **Authored traversal points** in room prefabs (pipes, vents, ledges) for repositioning
-        - [ ] **Team Jump** — disabled in prototype (solo); enabled in main game (party)
-    - [ ] **Intent system (STS2 / Expedition 33)**
-        - [ ] Icon above each enemy at start of their turn
-        - [ ] Shows: action type + target + predicted damage
-        - [ ] Player sees this *before* committing their own action
-    - [ ] **Reactive layer (Expedition 33)**
-        - [ ] Parry — timed input minigame on incoming attack
-            - [ ] Perfect → 0 damage + counterattack
-            - [ ] Good → 50% reduction (block)
-            - [ ] Miss → full damage
-        - [ ] Dodge — held stamina cost, opposed agility roll → full miss on success
-        - [ ] Free actions (no AP cost); cost stamina or timing skill
-    - [ ] **Abilities (JRPG layer)**
-        - [ ] 2–3 signature abilities per weapon class on cooldown
-        - [ ] 1 Ultimate per character; gauge fills via damage taken/dealt + **Mani pickup**
-    - [ ] **Status effect deck (Sparks of Hope Super Effects)**
-        - [ ] Burn (DoT), Freeze (skip turn), Push (forced move), Honey (rooted)
-        - [ ] Vamp (steal HP), Ink (can't shoot), Suppressed (move only), Stagger
-        - [ ] Applied via: ammo types, abilities, **Mani grenades**, **Mani veins**
-    - [ ] **Overwatch (XCOM, adapted for continuous space)**
-        - [ ] End turn with held action → triggers on enemy entering LOS
-        - [ ] **Continuous LOS check** during enemy real-time movement (raycast per tick)
-    - [ ] **Enemy AI (Goal-Oriented, faction-aware)**
-        - [ ] Goal selection: Patrol / Investigate / Engage / Flank / Regroup / Retreat
-        - [ ] Intent picker reads goal weights + cover state + ally positions
-        - [ ] **Faction-specific behavior overlays** (Grinders fight as a pack — Mani-ignorant, may self-harm with thrown raw Mani)
-        - [ ] Reinforcements drift in from adjacent rooms on later turns if alerted
+- [ ] **Fighting — grid-tactical + dual-camera + reactive parry**
+
+  > **AUTHORITATIVE SPEC = [[06 Element in Looter Shooter|06]] "Combat — …" sections** (Phases 1–4, locked 2026-06-02). The old "SoH free-form dome + XCOM cover + overwatch + firearms + continuous-space" model below is RETIRED. Headline checklist only:
+
+    - [ ] **Mode transition → Encounter Arena:** real-time top-down stealth explore → alert + LOS → **transition into a self-contained, authored, single-screen tile arena** (carry alert/approach advantage) → on win, return to the exact explore spot (loot resolves there).
+    - [ ] **Arena:** compact **tile grid (~7×7)**, no panning, **no cover, no height/verticality.** Authored (no procgen).
+    - [ ] **Dual camera:** tilted-3/4 tactical ↔ OTS reaction-cam on enemy attacks (tactical = OTS + 15–25°). **#1 must-gray-box.**
+    - [ ] **Turn structure:** side-based phases (Player Phase → Enemy Phase).
+    - [ ] **Action economy:** **AP pool**, no carryover, base regen + **parry-fed**; **movement = separate splittable budget** (launcher roots you). Lanes: **melee** (free) / **spell** (AP + refined Mani) / **launcher** (AP + big refined Mani, AoE, rare).
+    - [ ] **Damage:** flat **deterministic** (no variance, no hit%). **Facing & flank arcs** (Front ×1.0 / Side ×1.25 / **Rear→crit**). **NO armor.** Crit earned (rear-flank · parry-counter · status-combo). Body zones cut.
+    - [ ] **Reactive layer:** Dodge (safe/no reward) vs Parry (Block/Perfect) — both → counter + flat AP; **Perfect → crit + drops raw Mani**; ranged: Block negates, **Perfect deflects.** No stamina (prototype).
+    - [ ] **Intent:** ITB telegraph — action + target + **exact** damage; round-locked (prototype).
+    - [ ] **Status deck (prototype core):** Burn / Freeze / Stagger / Push (Bhu enchant + raw-Mani Effect Table); combo-crit (Freeze→Shatter).
+    - [ ] **Enemy AI:** pack behavior, anti-flank, focus-fire; parryable-default + some unparryable→must-dodge. **Roster DEFERRED** — build ONE simple enemy to gray-box first.
+    - [ ] *(Cut: overwatch, Team Jump, dash-through-chip, body zones, ±damage variance, the Ultimate-gauge — superseded by the AP/parry economy.)*
 
 - [ ] **Enchanted Weapons (refined Mani combat role)**
-    - [ ] **Enchanted bullets** (Mani-infused ammo) — per-shot proc chance of elemental status effect
+    - [ ] **Enchanted projectiles** (Mani-charged launcher ammo) — per-shot proc chance of elemental status effect
     - [ ] **Enchanted knives / melee weapons** — per-hit proc + passive elemental aura when wielded
     - [ ] Per-element flavor:
-        - [ ] **Bhu** (Earth) — Stagger / Armor break / Knockback
+        - [ ] **Bhu** (Earth) — Stagger / Knockback *(was "Armor break" — dropped, no armor)*
         - [ ] **Jal** (Water) — Freeze / Slow
         - [ ] **Vayu** (Air) — Push / Knockdown / Displacement
-        - [ ] **Agni** (Fire) — Burn / Melt armor
+        - [ ] **Agni** (Fire) — Burn *(was "Melt armor" — dropped, no armor)*
     - [ ] Akash-Mani is NOT used for enchantment — only manifested in endgame production sequence
 
 - [ ] **Named Husks — forced-purification boss hierarchy (Topic 8)**
@@ -148,33 +103,24 @@
     - [ ] Forced purification → reckoning + the "how" → return to base
     - [ ] Council Scene → The Choice → (good) Akash Mani production at base
 
-- [ ] **Mani System (lore-driven combat resource)**
-    - [ ] **Raw Mani Grenade — real-time pressure mechanic**
-        - [ ] Pick up Mani shard → live detonation timer starts in hand (~5–8 sec)
-        - [ ] Free movement, dash, traversal during timer
-        - [ ] Throw or hold-to-detonate before timer expires
-        - [ ] On explosion → roll on **Mani Effect Table** ("unpredictable reactions" — lore-justified by [[12 The Akashic and The Bleed#5 The Akashic / The Bleed — the corrupting force|Akashic contamination]])
-    - [ ] **Mani Effect Table**
-        - [ ] Common (60%): Burn, Freeze, Push, Stagger
-        - [ ] Uncommon (30%): Honey (root), Vamp, Ink, Suppressed
-        - [ ] Rare (10%): Phase (teleport caster), Summon Mani-construct (temporary hostile), Create cover, Anti-grav lift
-    - [ ] **Refined Mani — structured, predictable, scaled by size**
-        - [ ] **Bhu-Mani** (Earth) — refined at Lithic Mow. Prototype-unlocked tier.
-        - [ ] Jal-Mani / Vayu-Mani (Water/Air) — Genesis Vats, main game
-        - [ ] Agni-Mani (Fire) — Prism Forge, main game
-        - [ ] **Akash-Mani — never refinable in this game** (destroyed at The Breach, lore only)
-        - [ ] Power scales with crystal size (small = safe, large = ult-tier risky)
-    - [ ] **Mani-Infused Ammo** — per-shot proc chance on Effect Table (raw rolls only)
-    - [ ] **Mani Veins in environment** — destructible cover, drops shards when broken, triggers radial random effect (risk/reward)
-    - [ ] **Ultimate fueling** — Mani pickup fills Ultimate gauge faster
+- [ ] **Mani System / economy (the looter engine — no guns/armor → Mani IS the loot)**
+    - [ ] **Raw Mani = the loot** — un-elemental, chaotic, persistent. Two grades: small (→ spells) + **Mani Vein / big ore** (rare, biome-elemental → launcher). Three sinks: fire raw (launcher), refine→cast, research material.
+    - [ ] **Raw-Mani launcher shot** — fired AoE on impact → rolls the **Mani Effect Table** (chaotic, can self-harm). *(The old "pick up shard → 5–8s live timer → throw" hand-grenade is RETIRED.)*
+    - [ ] **Mani Effect Table** — Common: Burn / Freeze / Push / Stagger · Uncommon: Honey / Vamp / Disrupt (was "Ink") / Suppressed · Rare: Phase / Summon Mani-construct / Anti-grav-displacement *(removed "Create cover" — no cover)*
+    - [ ] **Refined Mani = spell/launcher fuel — you MAKE it (refining minigame), never find it.** Power scales with crystal size (small → spells, big → launcher). **Consumed on casting** (cost = AP + refined Mani).
+        - [ ] **Bhu** — Lithic Mow / prototype tier (player wakes knowing it)
+        - [ ] Jal / Vayu — Genesis Vats · Agni — Prism Forge (main game; learned from named Husks)
+        - [ ] **Akash — never refinable / never mixed** (learned from the final boss at endgame only)
+    - [ ] **Mani Veins** — big-ore deposits → refine to big refined Mani (launcher); double as arena hazard-push targets
+    - [ ] **(Ultimate gauge removed — the "power move" is AP→Launcher, fed by parry + vein loot)**
 
 - [ ] **Faction System (lore-driven enemy & vendor design)**
     - [ ] **Faction definition** — AI behavior profile, weapon palette, archetype roster, reputation track
     - [ ] **[[07 Civilization - The Grinders|The Grinders]] — sole human faction (semi-hostile → allied via trust arc)**
         - [ ] [[15 Grinder Trust Arc|Trust arc]] gates camp access, vendor, crafting, companions
         - [ ] Pack-tribe AI — coordinated callouts, regrouping, never alone
-        - [ ] Mining-aesthetic weapons (drills, mining charges, scavenged firearms)
-        - [ ] **Mani-ignorant** — their thrown raw Mani has random effect on everyone including themselves (player can bait self-harm)
+        - [ ] Mining-aesthetic weapons — **NO firearms** (Mani-tech world): drills (melee) + crude **raw-Mani launchers**
+        - [ ] **Mani-ignorant** — their raw-Mani launcher shots have random effects on everyone including themselves (player can bait self-harm)
         - [ ] Archetypes: Scout (MVP) · Driller (MVP) · Chief (V1) · Shaman (V1) — see [[11 Factions and Species#Grinders (Humans — primary prototype faction)|full roster]]
         - [ ] Boss: Elder Chieftain (main game)
     - [ ] **Rival Grinder Scavengers** — splinter group rejecting the player's knowledge; reuse the human rig (no new assets). Covers the threat role wildlife would have filled (wildlife cut — Topic 9).
@@ -196,18 +142,8 @@
         - [ ] Procgen: regular raid / exploration zones (themed per structure)
     - [ ] Scope target: 5-8 hours of main-path content per structure
 
-- [ ] **Procedural Level Assembly**
-    - [ ] Hand-authored modular room prefabs
-        - [ ] Cover anchor metadata (Full / Half / None) **with facing cones for flanking**
-        - [ ] Spawn anchors (player, enemy, loot, **Mani vein**, boss)
-        - [ ] Door sockets (for stitching)
-        - [ ] Traversal points (pipes / vents / ledges)
-        - [ ] Height-layer markers
-        - [ ] **Environmental hazard markers** (cave-in trigger points for Lithic Mow)
-    - [ ] Assembler: layout grammar / WFC across door sockets
-    - [ ] Encounter director places enemies by cover-cluster + sightline heuristics, **faction-aware**
-    - [ ] Loot director places loot by room type + depth, includes Mani shard spawns at vein anchors
-    - [ ] Runtime navmesh bake at raid load
-    - [ ] **Theme = Lithic Mow** for prototype: mining tunnels, drill machinery rooms, outdoor camp areas, Mani vein chambers
-    - [ ] 30–50 rooms across 3 sub-themes (tunnels / camps / drill machinery) for prototype
-    - [ ] **Main game extension**: Genesis Vats theme (oil rigs / vapor halls / submerged) + Prism Forge theme (glass towers / heat pipework / sand-glassed plazas)
+- [ ] ~~**Procedural Level Assembly**~~ — **CUT FROM THE PROTOTYPE (2026-06-02).** The explore world is **hand-authored**; combat uses a **pool of hand-authored, single-screen tile arenas** (Encounter Arena model) — no procgen, no cover anchors, no height layers. Procgen moves to the **dream-game dungeon system** later (or possibly a separate small generative project). What the prototype authors instead:
+    - [ ] Hand-authored explore spaces (Lithic Mow valley — full story density)
+    - [ ] A **pool of authored arenas**, region-themed (Lithic Mow tileset), single-plane; arena ingredients = Mani veins (big ore + hazard), cave-in / raw-Mani hazard tiles, spawn/facing anchors
+    - [ ] Boss fights may get bespoke arena staging
+    - [ ] *(Main-game procgen — Vats/Forge dungeon themes — deferred to the dream game, not this prototype.)*

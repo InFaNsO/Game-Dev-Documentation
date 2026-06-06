@@ -3,11 +3,11 @@
 
 > Slice of the [[00 Looter Shooter|Looter Shooter]] pillar, shipped as its **own polished game** before integration into the [[01 Concept & Idea|main game]].
 >
-> **Combat inspirations:** **Mario + Rabbids: Sparks of Hope** (free-form movement within a dome, real-time-during-your-turn feel, deterministic damage, status effect deck, real-time grenade pressure) + **XCOM 2** (explicit cover math, flanking via anchor facing, overwatch) + **Expedition 33** (parry/dodge reactive layer, intent telegraphs).
+> **Combat inspirations (locked 2026-06-02 — see [[06 Element in Looter Shooter|06]] "Combat" sections):** **South Park: The Fractured But Whole** (compact single-screen tile **grid**, perspective 3/4) + **Into the Breach** (telegraphed enemy intent + collision/hazard push) + **Expedition 33** (reactive parry/dodge on the enemy turn, the dual-camera parry moment) + **Valkyria Chronicles** (tactical ↔ OTS camera blend). *Sparks of Hope (free-form dome), XCOM cover %, height/verticality, firearms, and procgen arenas were all **cut** in the combat redesign.*
 >
 > **Setting:** The outskirts of [[05 Mega Structures - Game Worlds#Lithic Mow|Lithic Mow]] in the post-[[12 The Akashic and The Bleed|Breach]] world, alongside [[07 Civilization - The Grinders|the Grinders]] — the player's first allies in the journey to rebuild what the [[14 Naming Glossary#The Federation|Mani Accord]] left behind.
 >
-> **Strategic rationale:** the prototype's procgen + tactical combat tech transfers **directly** into the main game's dungeon system. Lore is the same lore — the prototype is canonically the player's first hours after waking from cryo.
+> **Strategic rationale:** the prototype proves the **combat + loot + story** core that carries directly into the main game (combat controller, Mani economy, faction/trust framework). Procgen is **not** in the prototype — it moves to the dream game's dungeon system later. Lore is the same lore — the prototype is canonically the player's first hours after waking from cryo.
 
 > Lore reference stack: [[14 Naming Glossary]] · [[12 The Akashic and The Bleed]] · [[11 Factions and Species]] · [[13 Campaign Structure]] · [[15 Grinder Trust Arc]]
 
@@ -15,13 +15,13 @@
 
 ## 1. One-line Pitch
 
-A stealth-extraction looter set in the post-Breach valley of Lithic Mow — earn the trust of the [[07 Civilization - The Grinders|Grinders]], teach them refinement, read enemy intents, parry, flank with cover, and weaponize raw [[06 Element in Looter Shooter|Mani]] in turn-based duels that feel real-time because you actually drive your character.
+A stealth-extraction looter set in the post-Breach valley of Lithic Mow — earn the trust of the [[07 Civilization - The Grinders|Grinders]], teach them refinement, read enemy intents, **parry on the reaction-cam**, flank on a tile grid, and collect & refine raw [[06 Element in Looter Shooter|Mani]] into spells in self-contained tactical arenas.
 
 ## 2. Design Goals (Prototype Scope)
 
-1. **Prove the combat model** — Sparks-of-Hope × XCOM × Expedition 33 fused into a single cohesive system that feels readable, skill-expressive, and never RNG-frustrating.
-2. **Prove the procgen room tech** — modular prefabs + assembler produce tactically coherent levels. This is the dream game's hardest unknown; the prototype de-risks it.
-3. **Prove the Mani loop** — unpredictable raw Mani grenades create memorable moments without feeling unfair; refined Bhu-Mani becomes the carrot pulling players forward.
+1. **Prove the combat model** — the grid-tactical + dual-camera + reactive-parry loop (South Park grid × Into the Breach intent × Expedition 33 parry), readable, skill-expressive, never RNG-frustrating. **The #1 thing to gray-box: the dynamic-camera reactive loop** (plan in tilted-3/4 → enemy attack → OTS reaction-cam → parry → snap back).
+2. **Prove the loot + crafting loop** — since there are no guns/armor, **Mani is the loot**: collect raw Mani → the refining minigame → refined Mani → cast/research. *(Replaces the old "prove procgen room tech" goal — procgen is cut from the prototype.)*
+3. **Prove the Mani loop** — chaotic raw-Mani launcher shots create memorable moments without feeling unfair; refined Bhu-Mani spells (via the refining/research minigames) become the carrot pulling players forward.
 4. **Prove the social loop** — the [[15 Grinder Trust Arc|Grinder trust arc]] earned through demonstration, not handed over via quests.
 5. **Prove the loot tension** — going in light vs. heavy, deciding when to extract.
 6. **Prove the meta loop** — base → raid → return → upgrade → harder raid.
@@ -30,23 +30,23 @@ A stealth-extraction looter set in the post-Breach valley of Lithic Mow — earn
 ## 3. Core Loop
 
 ```
-Base (stash, Grinder vendor [Allied tier+], craft, load out)
+Base (stash, Grinder vendor [Allied tier+], refine/research minigames, load out)
    ↓ pick raid map + difficulty
-Raid load → procedural assembler stitches rooms from Lithic Mow library
+Raid load → hand-authored Lithic Mow explore space
    ↓
-Exploration (real-time top-down stealth across stitched rooms)
-   ↓ Grinder / scavenger alerted + LOS → encounter triggers
-Tactical Combat — turn-based but kinetic
-   • Free-form movement within visible dome (Sparks of Hope)
-   • 2 actions per turn — no movement after weapon fire
-   • Cover anchors with facing cones for flanking (XCOM)
-   • Raw Mani grenades — live detonation timer, random Effect Table
-   • Parry / Dodge / Overwatch (E33 + XCOM)
-   • Deterministic damage; RNG only in Mani rolls & status procs
-   ↓ win → loot (Mani shards, weapons, mods), real-time resumes
-   ↓ flee → reposition + invuln, real-time resumes
-   ↓ lose → drop carried loot, run ends
-Extract at evac point  →  back to Base
+Exploration (real-time top-down stealth across the authored world)
+   ↓ Grinder / scavenger alerted + LOS → transition into a self-contained ARENA
+Tactical Combat — turn-based, side-based phases (Encounter Arena model)
+   • Compact single-screen TILE GRID (~7×7), no panning, no cover, no height
+   • Dual camera: tilted-3/4 tactical ↔ OTS reaction-cam on enemy attacks
+   • AP economy (parry-fed, no carryover); melee free / spells + launcher cost Mani
+   • Facing & flank arcs = the positional damage lever (Front/Side/Rear→crit)
+   • Player Phase (plan/move/attack) → Enemy Phase (each attack = OTS cam + Parry/Dodge)
+   • Raw Mani fired AoE via launcher → chaotic Effect Table; hazard-push collisions
+   • Deterministic damage; RNG only in Mani Effect Table & status procs
+   ↓ win → RETURN to the explore spot; enemies become lootable bodies (raw Mani + materials)
+   ↓ lose → drop carried loot, run ends   (death-drop/insurance → task 2)
+Extract at evac point  →  back to Base (refine raw Mani, research spells)
 ```
 
 ## 4. Pillars
@@ -54,36 +54,37 @@ Extract at evac point  →  back to Base
 | Pillar | Player Feeling | Mechanic |
 |---|---|---|
 | **Extraction tension** | "Do I push one more room?" | Weight, raid timer, evac points, on-death loot drop |
-| **Tactical kinetic combat** | "I read that attack and dashed into flanking position." | Free-form movement dome, intent icons, cover + facing, parry timing |
-| **Mani unpredictability** | "Did I just freeze the whole room?" | Live-timer raw Mani grenades, Effect Table rolls, destructible Mani veins |
+| **Tactical grid combat** | "I read that attack, repositioned to its rear, and parried the counter." | Tile grid, intent telegraphs, facing/flank arcs, dual-camera parry timing |
+| **Mani unpredictability** | "Did I just freeze the whole arena?" | Raw-Mani launcher → Effect Table rolls, hazard-push collisions, Mani veins as big-ore deposits |
 | **Social earning** | "I'm one of them now." | [[15 Grinder Trust Arc|Trust arc]] — gates everything, earned through three discrete moments |
 | **Loot identity** | "This gun is *mine*." | Grid inventory, rarity, mods, condition |
 | **Meta progression** | "Next run I'm ready." | Stash, vendor rep, craft tiers, blueprints, skill tree |
 
 ## 5. Combat Model Summary
 
-Full design in [[04 List of things required]] and [[10 Unity Code Architecture]]. Headline rules:
+Full design in **[[06 Element in Looter Shooter|06]] "Combat" sections** (the live spec). Headline rules (locked 2026-06-02):
 
-- **Turn:** free-form movement within a visible **dome** (real-time stick input, Sparks of Hope), then **2 actions** (weapon / technique / item). **No movement after weapon fire** — commit to the shot.
-- **Damage:** deterministic — shots always land, cover reduces damage. **No hit%.**
-- **Variance:** lives in parry timing (Expedition 33), crit windows (flank / perfect parry / status combos), status effect proc chances, and **raw Mani Effect Table rolls** (lore-justified by [[12 The Akashic and The Bleed#5 The Akashic / The Bleed — the corrupting force|Akashic contamination]] in every grain of Mani).
-- **Intent:** every enemy shows next action + target + predicted damage at start of their turn.
-- **Cover:** Full −66%, Half −33%, Flank +crit. **Anchors have facing cones** — shooting outside the cone = flank. Preserves XCOM flanking without a grid.
-- **Movement:** free-form within dome; **dash-through chips enemies, costs no movement**; authored traversal points (pipes/vents/ledges) per room.
-- **Raw Mani grenade:** pick up shard → live timer in hand → free movement during timer → throw / hold-detonate → roll on Mani Effect Table.
-- **Status deck:** Burn, Freeze, Push, Honey, Vamp, Ink, Suppressed, Stagger — applied via ammo, abilities, raw Mani grenades, shattered Mani veins.
+- **Arena:** combat triggers a transition into a **self-contained arena** — a compact single-screen **tile grid** (~7×7), no panning, **no cover, no height/verticality**. Authored, not procgen. On win you return to the explore spot.
+- **Camera:** one unified **perspective** rig; **tilted-3/4 tactical** view ↔ **OTS reaction-cam** during enemy attacks; tactical angle = OTS + 15–25° (smooth blend = the #1 identity bet).
+- **Turn:** **side-based phases** — Player Phase (plan / move / attack) → Enemy Phase (each attack = OTS reaction-cam + **Parry/Dodge**).
+- **Action economy:** **AP pool**, no carryover, **fed by base regen + parry** (parry = the skill engine). **Movement = separate splittable budget.** Three weapon lanes on an inverse cost↔range↔risk curve: **enchanted melee** (free/adjacent) → **refined-Mani spells** (mid, cost AP + refined Mani) → **Mani launcher** (rare, AP + big refined Mani, AoE).
+- **Damage:** flat **deterministic** (no variance, no hit%). **Facing & flank arcs** = the positional lever (Front ×1.0 / Side ×1.25 / **Rear→crit**). **NO armor.** Crit earned (rear-flank · parry-counter · status-combo). RNG only in the raw-Mani Effect Table + status procs.
+- **Reactive layer:** Dodge (safe, no reward) vs Parry (Block/Perfect). Both parry → immediate counter + flat AP; **Perfect → crit counter + drops raw Mani**; ranged: Block negates, **Perfect deflects**.
+- **Intent:** every enemy telegraphs action + target + **exact** predicted damage (Into the Breach); round-locked for the prototype.
+- **Raw Mani:** the unrefined weapon → **fired AoE via the launcher → rolls the Effect Table** (chaotic, can self-harm). The old live-timer "grenade" is retired. **Hazard-push** = forced movement + collision damage.
+- **Status deck (prototype core):** Burn / Freeze / Stagger / Push — via Bhu enchant + the raw-Mani Effect Table; wired into the combo-crit (Freeze→Shatter).
 
 ## 6. Setting — Lithic Mow Outskirts
 
 Single biome: **the outskirts of [[05 Mega Structures - Game Worlds#Lithic Mow|Lithic Mow]]**, controlled by [[07 Civilization - The Grinders|The Grinders]]. The player wakes at the [[14 Naming Glossary#World Locations|Headwaters]] (a forgotten Accord research outpost upriver) and ventures into the valley.
 
-**Sub-themes for room library:**
-- **Mining tunnels** — tight LOS, ambush corridors, dense cover anchors
-- **Drill machinery rooms** — multi-level vertical fights, height-advantage gameplay
-- **Outdoor camp areas** — open ground with scavenged shelter, longer sightlines
-- **Mani vein chambers** — destructible cover walls, high reward / high chaos
+**Sub-themes (authored explore world + a pool of authored arenas):**
+- **Mining tunnels** — tight ambush corridors in the explore world; tight arenas
+- **Drill machinery areas** — industrial setpieces (single-plane — no verticality)
+- **Outdoor camp areas** — open ground, longer engagements
+- **Mani vein chambers** — big-ore deposits (launcher Mani); arena hazard ingredients
 
-Three raid map *seeds* (small / medium / large) — each procedurally assembled per raid from the shared 30–50 room library. Story beats minimal in raid zones; story happens at the Grinder camp via the trust arc.
+The explore world is **hand-authored** (full story density); combat uses a **pool of hand-authored, region-themed arenas** (no procgen). Mani veins / cave-ins are arena *ingredients*, not literal explore terrain. Story beats minimal in raid zones; story happens at the Grinder camp via the trust arc.
 
 ## 7. The Grinder Trust Arc (the prototype's social spine)
 
@@ -105,20 +106,20 @@ The first Bhu-Mani refinement — taught by the player to the Grinder Shaman at 
 
 ### Mani drives combat unpredictability
 The lore's "[[06 Element in Looter Shooter|Mani]] holds chaotic potential" *is* the central novel combat mechanic:
-- **Raw Mani Grenades** with live detonation timers create real-time pressure inside turn-based combat
-- **Mani Effect Table** rolls deliver Burn / Freeze / Push / Honey / Vamp / Ink / Suppressed / Stagger / rarer effects (Phase, Summon Mani-construct, Anti-grav lift, Create cover)
-- **Mani Veins** in mine walls are destructible cover that drop shards and trigger radial random effects on break
-- **Refined Bhu-Mani = chosen effects** — unlocked after teaching the Grinders. This is the carrot.
+- **Raw Mani fired via the launcher** → AoE on impact → **Effect Table** roll: the chaotic, can-self-harm option (early/Grinder weapon). The old live-timer hand-grenade is retired.
+- **Mani Effect Table** rolls deliver Burn / Freeze / Push / Stagger / rarer effects (the "Create cover" roll is removed — no cover; "Anti-grav" → displacement-only)
+- **Mani Veins** are big-ore deposits → refine into **big refined Mani** = launcher fuel; in arenas they double as hazard-push targets
+- **Refined Bhu-Mani spells** — made via the **refining + research minigames** after teaching the Grinders. The carrot. (Loot = raw Mani; you *make* refined Mani.)
 
 ### Grinders are a faction, not a stat block
 Their lore (~15–20 hunter-gatherers, mining-proficient, Mani-ignorant) drives:
-- **Pack-tribe AI** — coordinated callouts, regrouping, never alone
-- **Mining-aesthetic weapons** — drills (cover-breakers), mining charges (delayed AOE), scavenged firearms
-- **Mani ignorance is a mechanic** — Grinder grenades randomly affect everyone including themselves; players can bait self-harm via positioning
-- **Archetypes:** Scout · Driller · Chief · Shaman (rare Mani-Nova caster)
+- **Pack-tribe AI** — coordinated callouts, regrouping, never alone (round-locked intent telegraphs)
+- **Mining-aesthetic weapons** — **NO firearms** (a Mani-tech world never built gunpowder): crude **Mani-shard launchers** (chaotic raw-Mani AoE) + the Driller's drill (melee gap-closer)
+- **Mani ignorance is a mechanic** — Grinder raw-Mani launcher shots randomly affect everyone including themselves; players can bait self-harm via positioning
+- **Archetypes (roster DEFERRED — prototype builds ONE simple enemy first):** candidate doctrine Scout · Driller · Chief · Shaman
 
-### Lithic Mow is a combat environment, not a backdrop
-- Tunnel-density LOS, drill-rooms verticality, **Mani veins**, cave-in mid-combat events
+### Lithic Mow combat ingredients (arena-side, not literal explore terrain)
+- Tunnel-tight arenas, **Mani veins** (big-ore + hazard targets), cave-in hazards, raw-Mani zones — authored arena ingredients, single-plane (no verticality)
 - Genesis Vats / Prism Forge environmental setpieces deferred to main game
 
 ### Knowledge drives progression
@@ -151,12 +152,12 @@ Amphibian Husks, Reptile Husks, and the purification mechanic are **deferred to 
 
 What ships forward into the dream game **with zero rewrite**:
 
-- Combat system (Sparks × XCOM × E33) — gains party orchestration on top
-- Mani system — gains Jal/Vayu/Agni refinement tiers + purification anchor mechanic
+- Combat system (grid × dual-camera × E33 parry) — gains party orchestration on top
+- Mani system — gains Jal/Vayu/Agni refinement tiers + 2-element compound spells + purification anchor mechanic
 - Faction system — gains Amphibian Husks + Reptile Husks
-- Room prefab library + assembler + encounter director — becomes the dungeon procgen for Vats and Forge
-- Cover system with facing cones, AI goal selector, status effect system
-- Grid inventory, item definitions, crafting recipes
+- Authored arena pool + encounter framework — main game adds procgen *later* (dream-game dungeon system), not in this prototype
+- Facing/flank system, AI intent telegraphs, status effect system
+- Grid inventory, item definitions, refining/research minigames, crafting recipes
 - Trust arc framework — adaptable to purified-NPC ally reputation system in main game
 - Save system, event bus, service locator
 
@@ -174,6 +175,6 @@ What changes for main game:
 - Combat encounter resolves in 30–90 sec.
 - Players describe Mani moments as "memorable" not "unfair."
 - The first refinement ceremony lands emotionally — playtesters report it as "the moment the game clicked for me."
-- No raid feels like the same raid twice (procgen passes the "novelty test").
+- The dual-camera parry loop "feels good" in the gray-box — the validation gate for the whole combat identity.
 - Inventory tetris feels *fun*, not chore.
-- Players describe combat as "tactical" and "kinetic" — never "lucky" or "static."
+- Players describe combat as "tactical" and "skill-expressive" — never "lucky" or "static."

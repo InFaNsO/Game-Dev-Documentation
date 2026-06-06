@@ -95,12 +95,12 @@ No invisible walls. Every gate is justified narratively *and* mechanically. The 
 
 - **First trip to each region** = physical traversal of the mini-locations between hubs. Player experiences the world the first time, meets named NPCs, encounters major lore beats.
 - **Subsequent trips** = fast travel between unlocked hubs. River-journey cinematic (single shared asset — a barge cutting through water with biome transition montage) plays as a brief transition.
-- **Within each hub** = open exploration of the safe zone + procgen raid zones (the looter-shooter loop from the prototype).
+- **Within each hub** = open exploration of the safe zone + raid zones (the looter-shooter loop). *(In the **prototype** these are hand-authored; **main-game** raid zones may use procgen — a dream-game feature.)*
 
 ### Why this is right for solo dev
 - 10 authored zones is achievable vs. 10s of kilometers of seamless world
 - Fast travel keeps the "river as spine" feel without forced repetition
-- Each zone procgen-assembled from the room library inside its biome theme
+- Prototype zones are **hand-authored**; main-game raid zones can layer in procgen (dream-game dungeon tech) later
 
 ---
 
@@ -273,7 +273,7 @@ Every Mega Structure visit follows a single shared 8-beat structure. Solo-dev au
 | **Lore distribution** | Hybrid — audio logs primary + purified-NPC dialogue for emotional landing | Audio logs cheap to produce; named NPCs already locked content. Each method plays to its strength. |
 | **Refinement-knowledge gating** | Boss drops blueprint object + cryo-memory flashback on pickup + companion reaction | Refinement feels *earned*. Three small systems each ~1 min of authored content per structure. |
 | **Reclamation mechanic** | Multi-phase reactivation sequence (4 phases: locate → restore → defend → activate) | Reclamation feels *engineered*, not just "boss died, structure works again." |
-| **Procgen vs authored** | Authored: hub safe zone, boss arena, puzzle rooms, reactivation phase areas. Procgen: regular raid/exploration zones (themed per structure). | Matches existing prototype pattern. |
+| **Procgen vs authored** | *(MAIN-GAME only.)* Authored: hub safe zone, boss arena, puzzle rooms, reactivation phase areas. Procgen: regular raid/exploration zones (themed per structure). | **NOTE (2026-06-02):** the **prototype is fully AUTHORED** (no procgen — explore world hand-authored + a pool of authored single-screen combat arenas, Encounter-Arena model). Procgen is a **dream-game** feature; it returns here only for the main-game Mega Structures. |
 | **NPC presence** | Locked from prior topics: named purifiable Husks + generic Husk enemies + audio logs as "ghost voices" | No new design — existing systems cover this. |
 
 ### Per-structure mechanical hooks
@@ -336,9 +336,9 @@ Each structure gets one defining mechanic that scales across the visit.
 | Akash-Mani | (lore only, never appears) | (lore only, never appears) |
 | Story arc | Trust arc + Lithic Mow reclamation | Full 4-act campaign |
 | Endgame | Tutorial completion / vertical slice end | The Choice + two endings |
-| Procgen room library | ~30–50 Lithic Mow rooms across 3 sub-themes | + Genesis Vats theme + Prism Forge theme |
+| Authored arena pool | Lithic Mow themed (NO procgen) | + Vats / Forge themed arenas; procgen dungeons = dream-game only |
 
-The prototype proves the combat system, procgen room tech, Grinder trust arc, and Bhu-Mani refinement loop. **Every system carries forward into the main game with additive layers only — no rewrites.**
+The prototype proves the **combat system, the loot + crafting (Mani-economy) loop, the Grinder trust arc, and Bhu-Mani refinement.** *(NOT procgen — the prototype is fully hand-authored, 2026-06-02; procgen is a dream-game feature only.)* **Every system carries forward into the main game with additive layers only — no rewrites.**
 
 See [[10 Unity Code Architecture#20 Carry-Forward Checklist (Prototype → Main Game)|carry-forward checklist]] in the architecture doc.
 

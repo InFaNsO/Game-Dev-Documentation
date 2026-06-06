@@ -43,7 +43,7 @@ The world is a single continent crossed by a single great river that flows from 
 - 5 hubs: Headwaters · Lithic Mow · Genesis Vats · Prism Forge + the player base (grows at Lithic Mow)
 - 5 mini-locations: 2 in Riverwild · 2 in Drowned Reach · 1 in Glass Delta
 
-Each hub uses the [[10 Unity Code Architecture#7 Procedural Level Assembly|procgen room library]] within its biome theme. Mini-locations are small, focused, single-objective.
+Each hub is hand-authored within its biome theme (procgen was cut from the LS prototype — see [[08 Unity Code Architecture]]). Mini-locations are small, focused, single-objective.
 
 ---
 
@@ -340,7 +340,7 @@ Each structure gets one defining mechanic that scales across the visit.
 
 The prototype proves the **combat system, the loot + crafting (Mani-economy) loop, the Grinder trust arc, and Bhu-Mani refinement.** *(NOT procgen — the prototype is fully hand-authored, 2026-06-02; procgen is a dream-game feature only.)* **Every system carries forward into the main game with additive layers only — no rewrites.**
 
-See [[10 Unity Code Architecture#20 Carry-Forward Checklist (Prototype → Main Game)|carry-forward checklist]] in the architecture doc.
+See [[08 Unity Code Architecture#20 Carry-Forward Checklist (Prototype → Main Game)|carry-forward checklist]] in the architecture doc.
 
 ---
 

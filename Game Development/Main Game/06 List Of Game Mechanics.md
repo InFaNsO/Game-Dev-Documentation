@@ -150,7 +150,7 @@
 - Blueprint / recipe unlocks
 - Era / tech progression tracking
 
-## 13. Foundational Tech *(engine architecture — see [[Mechanics/Looter Shooter/10 Unity Code Architecture|LS 10]])*
+## 13. Foundational Tech *(engine architecture — see [[08 Unity Code Architecture|Code Architecture]], the shared foundation)*
 - Game state machine
 - Service locator + typed event bus
 - ScriptableObject data layer

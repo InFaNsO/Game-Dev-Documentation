@@ -5,7 +5,7 @@
 
 ---
 
-![[01 Goal#Main Goal for Player]]
+![[Game Development/Main Game/Mechanics/Looter Shooter/01 Goal#Main Goal for Player]]
 
 ![[02 Story#Story Summary]]
 
@@ -37,4 +37,4 @@ The standalone prototype is specified across:
 
 - [[08 Standalone Prototype - Design]] — design brief, pillars, scope cuts.
 - [[09 Complete Feature List]] — full feature list tagged MVP / V1 / Stretch.
-- [[10 Unity Code Architecture]] — Unity 6 architecture, code patterns, build order.
+- [[08 Unity Code Architecture]] — Unity 6 architecture, code patterns, build order. *(Promoted to the **Main Game level** — it's the shared foundation every game follows.)*

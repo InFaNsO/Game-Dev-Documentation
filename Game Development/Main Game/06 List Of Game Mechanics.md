@@ -79,7 +79,8 @@
   - Mod slots
 - Salvage
 
-## 5. City-Building *(city pillar — Anno-style)*
+## 5. City-Building *(city pillar — Anno-style; DESIGN IN PROGRESS 2026-06-07 → see `Mechanics/City Builder/` 03/04/05)*
+> **Locked direction:** Anno biome-as-map (Bhu/Jal/Agni/Vayu + Akash space-time tech capstone) · 4 species (incl. new **Avian** — canon ripple) · 3-tier population w/ escalating Mani-element complexity · Mani-as-infrastructure economy (utilities + Mani-tech goods, multi-element goods force trade) · refining-as-building · **automated DSP-style TD vs wild-Mani constructs** (developed here) · **grid substrate + free decoration** (cross-portfolio) · procgen islands · NO AI colonies.
 - Building placement + adjacency bonuses
 - Population / colonists
   - Needs
@@ -105,7 +106,8 @@
   - Loot
   - Era-advancing otherworldly tech
 
-## 7. Procedural Generation *(powers dungeons; maybe islands)*
+## 7. Procedural Generation *(powers dungeons; islands for the City-Builder)*
+> **2026-06-07:** runs on the **grid substrate** (cross-portfolio lock → cheap discrete-tile procgen). The **City-Builder needs procgen islands** earlier than the old "v4 = dream game" assumption. **⚑ A dedicated cross-game procgen-planning discussion** will assign each version (placement→rooms→dungeons→islands/towns) to its host game and set dev-order.
 - Dungeon procgen
   - Room prefab library
   - Layout assembler (grammar / WFC)
@@ -159,7 +161,7 @@
 - UI / UX framework
 
 ## 14. Art & Audio Systems
-- One-rig art discipline (shared humanoid rig)
+- One-rig art discipline (shared humanoid rig; **now 4 species** incl. the new **Avian** humanoid bird-folk — canon ripple from the City-Builder)
 - Mani VFX / particle systems (= also the automation output)
 - Shaders (corruption / elemental)
 - Audio (SFX, music, audio logs)

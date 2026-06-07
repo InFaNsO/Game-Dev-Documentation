@@ -17,7 +17,8 @@
 *Built once (in the first game), carried forward into EVERY game. Additive, no rewrites — it grows as games demand more.*
 - **13 Foundational Tech** — game state machine · service locator + typed event bus · ScriptableObject data layer · camera · input · UI/UX framework
 - **12 Save system** — the save/load skeleton (meta-progression *content* scales per game)
-- **14 Art & Audio** — one-rig discipline · Mani VFX / particle systems · shaders · audio pipeline
+- **14 Art & Audio** — one-rig discipline (**now 4 species** incl. the new **Avian** — canon ripple from the City-Builder) · Mani VFX / particle systems · shaders · audio pipeline
+- **GRID substrate (CROSS-PORTFOLIO lock, 2026-06-07)** — ONE grid-based placement / pathfinding / tile system is the **universal substrate across ALL games** (city · combat · automation · dungeon · procgen); **decorations are free-build** (the cozy layer). Researched decision (free-build breaks logistics/automation; Townscaper proves cozy ≠ gridless). Combat is already grid → consistent.
 
 ## Procgen Thread — System 7 *(a cross-cutting thread, grown across host games)*
 *Not its own game. Scope it for the dream game (procedural dungeons + island/town generation), then build it up in versions, each developed inside whichever game first needs that level:*
@@ -26,6 +27,7 @@
 - **v3 — Complete dungeons** (stitch rooms + encounter/loot directors into full dungeons) → host: the **Dungeon/Roguelike integration**
 - **v4 — Entire towns / islands** (procedural settlements + the Triangle's islands) → host: the **City-builder** and/or the **Dream Game**
 > Host-game links are tentative — the rule is "build the next procgen version inside the game that first needs it."
+> **⚑ FLAGGED (2026-06-07):** a dedicated **cross-game procgen-planning discussion** will assign each version to its host game and **set dev-order across all games.** Note: the **City-Builder uses procgen islands** (a v4-flavored need surfacing earlier than the table assumes) — exactly the kind of host-reassignment that discussion will settle. Also note the **grid substrate** (Tier 0) makes every procgen version cheaper (discrete tiles).
 
 ---
 
@@ -45,9 +47,9 @@
 4. **The Looter Shooter** — fuse parry + tactical combat + the looter, then add: the full Mani spell system (3 lanes, **2-element compounds — LS scope-cap**), Encounter Arena, extraction loop (10), story / trust arc (9), authored world, enemy roster. *First full combat + loot + story product.*
    - This is where combat's two halves first integrate — and **that's exactly what the Looter Shooter IS** (the merge). **No separate "combined combat" game** — it would be redundant.
 
-### C. City-Building *(System 5)*
-5. **City-Builder** — proves building + adjacency + population/needs + production chains + multi-town logistics (Anno-lite, Mani world).
-   - *(Defenses / tower-defense = the bridge to the dungeon loop; folds in at Integration B.)*
+### C. City-Building *(System 5)* — **DESIGN IN PROGRESS (2026-06-07; see `Mechanics/City Builder/` 03/04/05)**
+5. **City-Builder** — proves building + adjacency + population/needs + production chains + multi-town logistics (Anno-lite, Mani world). **Locked so far:** Anno **biome-as-map** (Bhu/Jal/Agni/Vayu + **Akash space-time tech capstone**) · **4 species** incl. new **Avian** (canon ripple) · Anno **3-tier population** w/ escalating Mani-element complexity (1→2→3 → all-4 Akash Synthesis = endgame) · **Mani-as-infrastructure economy** (refined-Mani utilities + Mani-tech goods; multi-element goods force inter-biome trade) · refining-as-building · ~5 bounded classic chains · **grid + free decoration** · procgen islands.
+   - **Tower-defense folds in HERE, not at Integration B (REVISED 2026-06-07):** a **DSP-style *automated* city-defense vs wild-Mani constructs** is developed in the city game — a system *distinct* from the tactical dungeon combat, so non-redundant. Only the **clear-vs-defend dilemma + dungeon-break clock** wait for the Dungeon integration.
 
 ### D. Automation *(System 3 + Mani 2)*
 6. **Spell-Shop** — proves the gem-factory (factory-inside-gem, resource-nodes = gem-size) + particle-spell construction + production chains + research, with **full-depth mixing (UNCAPPED — not the LS's 2-element cap)**. The magic-spell shop.

@@ -39,12 +39,10 @@ Mani elements & lore reused from the [[00 Looter Shooter|Looter Shooter]]; **Aka
 
 ## Build decomposition (decided 2026-06-07)
 
-The city pillar ships as **3 complete games** (mirroring the combat split — two proving-games + a fusion):
-1. **Cozy Mani-Town Builder** — perfects needs / desirability / cozy planning (single town).
-2. **Mani Logistics Game** — perfects network management, **decoupled from city micro** (⚠ needs its own purpose: "what is the network *for*").
+The city pillar ships as **3 complete games** (mirroring the combat split — two proving-games + a fusion). **Build order: Logistics → Cozy Town → Fusion** (logistics first — it's the smaller build + the design-riskiest system).
+1. **Mani Logistics Game (the reusable core)** — Anno route-network with **abstract demand** (keep demand so it has purpose; strip the cozy-town micro). Uses the **same mechanic the fusion needs** → genuinely reusable. ⚠ gray-box the fun first.
+2. **Cozy Mani-Town Builder** — perfects needs / desirability / cozy planning (single town). ⚠ must be "the cozy gem," not "the fusion minus features."
 3. **The City Builder (fusion)** — *this* full design (Phases 0–6); games 1+2 fold in additively.
-
-Order **1 → 2 → 3** (1/2 reorderable). ⚠ Game 1 must be "the cozy gem," not "Game 3 minus features."
 
 ## Status
 

@@ -48,11 +48,10 @@
    - This is where combat's two halves first integrate — and **that's exactly what the Looter Shooter IS** (the merge). **No separate "combined combat" game** — it would be redundant.
 
 ### C. City-Building *(System 5)* — **SPLIT INTO 3 GAMES (decided 2026-06-07; design in `Mechanics/City Builder/` 00–09)**
-The city pillar follows the **combat pattern** (Parry + Tactical → Looter Shooter): **two focused proving-games + a fusion.** Each is a complete, polished, shipped product (no early-access "demo-then-finish-in-public").
-- **5a. Cozy Mani-Town Builder** — single town, **needs + desirability + planning**, Mani-as-infrastructure, household granularity. *Perfects the cozy half.* (Touchstone: Town-to-City × Mani.) ⚠ Must be "the cozy gem," not "Game 3 minus features" (it overlaps the fusion).
-- **5b. Mani Logistics Game** — **network management decoupled from city micro** (supply/demand nodes, the Vayu-freight web, throughput/optimization). *Perfects the logistics half.* (Touchstone: OpenTTD / Factorio-trains / Mini Motorways × Mani.) ⚠ **#1 design risk:** decoupled logistics needs its *own* compelling purpose — "what is the network *for*" — since it no longer serves a city's needs.
-- **5c. The City Builder (fusion)** — **the full Phases 0–6 design**: cozy towns + multi-biome network + era/tech staircase + Akash Synthesis. Games 5a + 5b fold in additively.
-- **Order:** 5a → 5b → 5c (5a/5b independent, reorderable; 5a leads — most bounded, establishes Mani-economy + art + town tech).
+The city pillar follows the **combat pattern** (Parry + Tactical → Looter Shooter): **two focused proving-games + a fusion.** Each is a complete, polished, shipped product (no early-access "demo-then-finish-in-public"). **Build order: Logistics → Cozy Town → Fusion** (revised 2026-06-07 — ordered by scope + risk).
+- **① Mani Logistics Game (the reusable CORE)** — the **Anno route-network with ABSTRACT DEMAND** (ship to satisfy demand nodes; throughput; scale the Vayu-freight web), **stripped of the cozy-town micro but KEEPING demand** so it has purpose (not a spreadsheet). Constraints: built as the **reusable logistics core** the fusion sits on; uses the **SAME mechanic the fusion needs** (Anno routes serving demand), not a divergent abstract puzzle (else it won't transfer). *Built first: it's the **smaller build** (systems-heavy, art-lean), the **design-riskiest** system (de-risk first), and defers the art-heavy game. ⚠ Gray-box the fun cheaply before full production. Reused twice (fusion + dream game's Main↔Satellite).* (Touchstone: Transport Tycoon / OpenTTD × Mani.)
+- **② Cozy Mani-Town Builder** — single town, **needs + desirability + planning**, Mani-as-infrastructure, household granularity. *Perfects the cozy half.* ⚠ Must be "the cozy gem," not "the fusion minus features" (it overlaps ③). (Touchstone: Town-to-City × Mani.)
+- **③ The City Builder (fusion)** — **the full Phases 0–6 design**: cozy towns + multi-biome network + era/tech staircase + Akash Synthesis. Reuses ① (logistics core) + ② (cozy town) additively.
 - **Tower-defense** stays at the Dungeon/Roguelike integration (reverted 2026-06-07 — clashed with the cozy identity; only *actual* TD forward-maps to the dream game's TD). All three city games ship **no combat/TD**; tension = pure economic/logistics. *(Environmental Mani-weather = deferred, post-prototype.)*
 - **Other locks:** Anno **biome-as-map** (Bhu/Jal/Agni/Vayu + **Akash space-time capstone**) · **4 species** incl. new **Avian** (canon ripple) · 3-tier population w/ 1→2→3 Mani-element escalation → all-4 Akash endgame · refining-as-building · grid + free decoration · DSP island scale (1 big home town + 1–2 outposts/map).
 
@@ -79,8 +78,8 @@ The city pillar follows the **combat pattern** (Parry + Tactical → Looter Shoo
 ---
 
 ## Build order (the ladder)
-**1** Parry Combat → **2** Tactical Combat → **3** Looting & Crafting → **▶ 4 The Looter Shooter** → **5a** Cozy Mani-Town Builder → **5b** Mani Logistics Game → **▶ 5c City Builder (fusion)** → **6** Spell-Shop → **▶ 7 Dungeon/Roguelike integration** → **▶ 8 The Dream Game**
-> *(City pillar split into 3 games 2026-06-07 — two proving-games + a fusion, mirroring the combat split. 5a/5b reorderable.)*
+**1** Parry Combat → **2** Tactical Combat → **3** Looting & Crafting → **▶ 4 The Looter Shooter** → **5a** Mani Logistics Game → **5b** Cozy Mani-Town Builder → **▶ 5c City Builder (fusion)** → **6** Spell-Shop → **▶ 7 Dungeon/Roguelike integration** → **▶ 8 The Dream Game**
+> *(City pillar split into 3 games 2026-06-07 — two proving-games + a fusion, mirroring the combat split. Build order = Logistics → Cozy Town → Fusion: logistics first because it's the smaller build + the design-riskiest system.)*
 *(Procgen is a thread woven through these — v1/v2 in the early combat/looter games, v3 at the Dungeon integration, v4 at City/Dream Game.)*
 
 > **OPEN (refine when relevant):** exact ship-vs-internal per game · exact ordering of 5/6 (city / automation are independent and can reorder) · the deep-scope of each remaining pillar (City, Automation) the way Combat was scoped.

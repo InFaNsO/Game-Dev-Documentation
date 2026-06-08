@@ -4,7 +4,7 @@
 >
 > This pillar proves the dream game's **Mani spell-engineering** system, and it is where spell-mixing reaches **maximum depth** (no 2-element cap — that cap is a Looter-Shooter scope-limit only). The spells designed here are literally the spells cast in the **combat pillar** — the automation game's output is the combat game's input.
 >
-> **Status:** DESIGN PASS IN PROGRESS (started 2026-06-08). References + world + core mechanics + **Surface B production model + element matrix LOCKED**; systems detail, scope, consolidation, game-split, and plot still to come.
+> **Status:** DESIGN PASS IN PROGRESS (started 2026-06-08). References + world + core mechanics + Surface B + element matrix LOCKED; **Systems Spec IN PROGRESS** (progression / research / economy spine locked → `08`; gear · tech-tree structure · special-requests next); scope, consolidation, game-split, and plot still to come.
 
 ## One-line pitch
 
@@ -28,10 +28,11 @@ Run a Mani spell-gear workshop in the Accord's frontier boom: **engineer** spell
 - `05 Core Mechanics & Loop` — the two surfaces, the core loop, make-or-buy, the scope principle.
 - `06 Spell System — Conjuration & Elements` — Conjuration Engineering in detail + the element matrix + particle tech.
 - `07 Market & Competitor AI` — the market substrate, competitor v1, the cross-portfolio AI thread.
+- `08 Progression, Research & Economy` — the two-currency spine (Money + Research Points), analysis-machine research, the three growth axes.
 
 ## Open / next
 
 - ✅ **Surface B = fully machine-automated** — mega-assembler centerpiece + generic/specialized parts + warehouse stage; quality lives in Surface A. LOCKED 2026-06-08, see `05`.
 - ✅ **Element matrix LOCKED** — names + roles (pairs Steam/Magma/Lightning/Mud/Frost/Crystal · triples Eruption/Tempest/Detonation/Blizzard · all-4 = Akash). 2026-06-08, see `06`.
-- Then: systems detail → scope & depth → consolidation → **game-split** → **plot**.
+- **Systems Spec IN PROGRESS:** ✅ progression / research / economy spine (`08`); next = **gear system** · tech-tree structure · special-requests + market detail. Then → scope & depth → consolidation → **game-split** → **plot**.
 - Pre-prototyping: the **Conjuration Engineering loop is the #1 gray-box** — the automation pillar's equivalent of combat's dual-camera parry loop. Prove "assemble a process → conjure a construct → fire it in the test room → it feels good" *before* building the shop economy around it.

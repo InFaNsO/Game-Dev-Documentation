@@ -40,7 +40,7 @@ Stats come from **measurable properties** of the form + motion (so shape *matter
 **Form = function = visual, all one thing.**
 
 ### Depth source (the Modulus-fix)
-A **tech tree of in-gem operations** — new emitters, **shapers** (new forms), **drivers** (new behaviors: homing, multi-stage, orbit, delayed-detonate), and **multi-element merging** — is the deliberate patch for Modulus's missing depth. **Gem-scale** (bigger gem = bigger/more-complex construct) and **market pressure** compound on top.
+A **tech tree of in-gem operations** — new emitters, **shapers** (new forms), **drivers** (new behaviors: homing, multi-stage, orbit, delayed-detonate), and **multi-element merging** — is the deliberate patch for Modulus's missing depth. **Gem-scale** (bigger gem = **more nodes, purer nodes, and more internal build-space** → bigger, more-complex, higher-quality constructs) and **market pressure** compound on top. **Gem grade is the *quality* axis and lives entirely in Surface A** — Surface B is quantity/throughput only (see `05`).
 
 ### The Test Room
 A **proving ground** in the workshop where you **fire the spell and watch the real output** — instant visual feedback. It's the **dopamine** (DSP "watch it work"), the **debugger** (see what your process actually makes), and the **design bench** (iterate before committing to mass production) in one.

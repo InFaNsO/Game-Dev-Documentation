@@ -22,7 +22,7 @@ Periodic **endgame special requests** hint that the Accord is secretly chasing *
 You are an **artisan-entrepreneur running a spell-gear workshop**:
 
 - **Design spells** — the signature *Conjuration Engineering* (see `05`/`06`).
-- **Produce** them through your **workshop automation** (staff/machines — see `05`).
+- **Produce** them through your **workshop automation** (fully machine-automated, feeding a mega assembler — see `05`).
 - **House** each spell in **gear**: gauntlet, wand, sword, armor, etc. (the delivery device a mage uses to cast).
 - **Sell** to mages, delvers, and guards in a **competitive market** with **rival workshops** (see `07`).
 - Win periodic **special-request bake-offs** (best submission rewarded handsomely; weak ones eat losses).

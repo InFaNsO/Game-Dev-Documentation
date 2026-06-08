@@ -101,3 +101,22 @@ The Looter Shooter capped combinations at 2 elements *(LS scope-limit only)*. He
 **Mechanical basis for combining (ties three systems together):** gear **housings have gem slots** → **slot count = how many element-gems you combine = combination tier** (1 → base · 2 → pairs · 3 → triples). So **gear progression = element-combination capacity**, and Surface A's process merges the multiple gem streams into the compound.
 
 > **Status:** count, **names, and roles LOCKED 2026-06-08** (base unchanged; pairs = Steam / Magma / Lightning / Mud / Frost / Crystal; triples = Eruption / Tempest / Detonation / Blizzard; all-4 = Akash, forbidden). Exact spell *numbers* firm up alongside the particle exploration.
+
+---
+
+## Gear — the spell housing (LOCKED 2026-06-08)
+
+Every spell is sold **housed in gear** — the device a mage casts through. Gear has **two axes**:
+
+**Type** = delivery role + the customer segment it sells to:
+
+| Gear | Delivery role | Combat lane / buyer |
+|---|---|---|
+| **Wand** | ranged projectile | caster lane / mages |
+| **Gauntlet** | rapid close-range / utility | hand-cast / delvers |
+| **Sword** | enchanted melee | every-turn melee lane / frontline |
+| **Armor** | defensive / reactive (barriers, buffs) | survival / guards |
+
+**Slots (1 / 2 / 3)** = the **combination tier** (locked): how many element-gems the gear holds = base / pair / triple. Each type comes in 1/2/3-slot versions; higher-slot gear costs more to produce and needs the **researched compound recipe** to fill the extra slots.
+
+So **gear type → combat role → market segment**, and **gear slots = element-combination capacity** — a "3-slot Frost wand" is at once a spell, a combat tool, and a market bet. Surface B manufactures the gear (parts + housing). *(Type list is a strong default; staff / amulet / etc. can be added later.)*

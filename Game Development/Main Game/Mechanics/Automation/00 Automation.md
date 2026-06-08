@@ -4,7 +4,7 @@
 >
 > This pillar proves the dream game's **Mani spell-engineering** system, and it is where spell-mixing reaches **maximum depth** (no 2-element cap — that cap is a Looter-Shooter scope-limit only). The spells designed here are literally the spells cast in the **combat pillar** — the automation game's output is the combat game's input.
 >
-> **Status:** DESIGN PASS IN PROGRESS (started 2026-06-08). References + world + core mechanics + Surface B + element matrix LOCKED; **Systems Spec IN PROGRESS** (progression / research / economy spine locked → `08`; gear · tech-tree structure · special-requests next); scope, consolidation, game-split, and plot still to come.
+> **Status:** DESIGN PASS IN PROGRESS (started 2026-06-08). References + world + core mechanics + Surface B + element matrix LOCKED; **Systems Spec IN PROGRESS** (progression/economy spine `08` + gear `06` locked; **next = the machine framework — a particle-system deep dive → finalize the Section A modules** · then tech-tree · special-requests); scope, consolidation, game-split, and plot still to come.
 
 ## One-line pitch
 
@@ -34,5 +34,6 @@ Run a Mani spell-gear workshop in the Accord's frontier boom: **engineer** spell
 
 - ✅ **Surface B = fully machine-automated** — mega-assembler centerpiece + generic/specialized parts + warehouse stage; quality lives in Surface A. LOCKED 2026-06-08, see `05`.
 - ✅ **Element matrix LOCKED** — names + roles (pairs Steam/Magma/Lightning/Mud/Frost/Crystal · triples Eruption/Tempest/Detonation/Blizzard · all-4 = Akash). 2026-06-08, see `06`.
-- **Systems Spec IN PROGRESS:** ✅ progression / research / economy spine (`08`); next = **gear system** · tech-tree structure · special-requests + market detail. Then → scope & depth → consolidation → **game-split** → **plot**.
+- **Systems Spec IN PROGRESS:** ✅ progression/research/economy spine (`08`) · ✅ gear system (`06`); **NEXT = the machine framework** — confirm the keystone *(proposed: the in-gem operation-modules (A) ARE the factory's manufactured parts (B); a spell-gear = a gem with an embedded conjuration-machine)*, then a **particle-system deep dive → finalize the Section A modules** (Emit · Shape · Drive · Split/Route · Merge), then Section B machine taxonomy · tech-tree · special-requests. Then → scope & depth → consolidation → **game-split** → **plot**.
+  - *Defer-line:* lock the machine **framework** on paper; the **exact** operation vocabulary + part catalog + behaviors + numbers firm up at the gray-box.
 - Pre-prototyping: the **Conjuration Engineering loop is the #1 gray-box** — the automation pillar's equivalent of combat's dual-camera parry loop. Prove "assemble a process → conjure a construct → fire it in the test room → it feels good" *before* building the shop economy around it.

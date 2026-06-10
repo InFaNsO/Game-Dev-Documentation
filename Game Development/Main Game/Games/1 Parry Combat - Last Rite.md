@@ -36,10 +36,11 @@ So there's never a "why am I replaying this?" — the player *is* the immortal, 
 
 Uses only what `Mechanics/Looter Shooter/06` locked for the reactive layer — **no spells / launcher / tactical grid** (those are Tactical Combat + later games):
 
-- **Player kit:** Parry (Block / Perfect) · Dodge · Counter · ranged-deflect. 1–2 unlockable techniques *max* — **mastery is the progression, not a skill tree.**
-- **Enemy attacks pose a "which response?" read:** parryable (deflect) · unparryable/perilous (must dodge) · ranged (Perfect-parry deflects it back) · **feints/mix-ups** (the core depth — punish premature parries) · **phases** (HP-threshold moveset shifts = the cheapest depth multiplier).
-- **Dual-camera reaction-cam** fires per incoming attack → multi-enemy stays **readable** (attacks resolve one at a time); the depth of mixed fights is in the *planning between reads* (who to face/punish/deny), not parsing simultaneous chaos.
-- **Movement model — working default:** Expedition 33-style near-stationary timing duels (cheapest, matches the reference; confirm vs. free-arena movement at gray-box).
+- **Player kit (LOCKED 2026-06-10):** **Blade offense** (light strikes — proactive pressure + HP chip; a conscious *addition* to the original list, since "you master the blade" needs offense) · Parry — **Block** (wide window, small purge, chip) + **Perfect** (tight window, big purge, guaranteed **counter**, **ranged-deflect** sends projectiles back) · **Dodge** (i-frames for perilous attacks; safe, no purge — the greed-split) · **Purification finisher** (purge-break → mercy-kill). **≤2 unlockable techniques** — *expressive, not power*, unlocked **diegetically at rebirth milestones**, never a skill tree (**mastery IS the progression**). Candidates (gray-box-open): perfect-dodge→counter; chain-parry stance.
+- **Enemy attacks pose a "which response?" read:** parryable (deflect) · unparryable/perilous (must dodge) · ranged (Perfect-parry deflects it back) · **feints/mix-ups** (the core depth — punish premature parries) · **phases** (HP-threshold moveset shifts = the cheapest depth multiplier). Telegraphs are **colour/icon-coded and fairness is sacred** (Sekiro's perilous tell).
+- **Resolution (LOCKED 2026-06-10): HP + a parry-fed purge meter** (Sekiro-style). Blade + counters chip HP; **Perfect parries fill purge fastest**; a broken purge meter staggers the guardian into the **purification finisher** ("take my pain" — the mercy-kill). **Parrying is the win condition, not just defense** → wires the purifier theme into the mechanics and **seeds the LS's forced-purification of named Husks.** Purge decays if you stop parrying.
+- **Camera (LOCKED 2026-06-10): a single smart action-cam** that dynamically pushes into OTS/close framing on each telegraphed attack, then pulls back (Furi/Sekiro/E33 do this with ~one camera). **NOT the LS's two-mode dual-camera rig** — that switch only earns its keep with a grid to switch away from, so it **moves to Game 2 (Tactical Combat)**. Game 1's milestone = the **reaction layer + reaction-cam *feel*.** Multi-enemy stays **readable** (attacks resolve one at a time → the depth of mixed fights is the *planning between reads*, not parsing simultaneous chaos).
+- **Movement model (LOCKED 2026-06-10):** Expedition 33-style **near-stationary timing duels** for v1 (cheapest, matches the reference, lowest-risk gray-box). Free-arena movement stays a possible *later* experiment, not v1.
 
 ## Replayability — four stacked layers
 
@@ -83,9 +84,21 @@ Mostly **atmospheric** (visual/audio distortion, degrading narration, hallucinat
 - **→ Looter Shooter:** Husks are immortal, mind-gone, wandering for millennia. Last Rite is the player **experiencing the Husk-making process from the inside** — by the true ending the protagonist has essentially become one. Deepens every LS Husk encounter.
 - **→ Dream Game:** the immortal protagonist. The dream game's immortality is "the Husk-making force **with mind intact**"; Last Rite is the **mind-lost** counterpart. Deliberate thematic pair — Last Rite seeds the immortality motif years early.
 
-## Open / deferred (settle at gray-box)
+## Design-lock pass — LOCKED 2026-06-10
 
-- Movement model: E33-stationary (default) vs free-arena.
-- Exact rebirth count + how aggressively later loops compress/escalate.
-- Whether the protagonist starts immortal or *gains* it at the first heart (leaning: gains it → the first beast-kill is the inciting rebirth; death-retry is on throughout regardless).
-- All numbers (HP, posture/parry windows, ranking thresholds).
+A full design-detail pass settled the structural decisions (numbers stay reference-only, per portfolio discipline — feel-dependent values get their real answer from the gray-box):
+
+- **D1 — Immortality framing:** the protagonist **gains** immortality at the **first beast's heart** (the inciting rebirth). Death-retry (respawn at duel start) is on from minute one regardless.
+- **D2 — Loop structure:** **full re-descent every rebirth** — all 6 guardians re-fought but **remixed** (feints / new attacks / warped ruin) = a re-learn, never bigger numbers. **~5 rebirths** to the true ending; the **final rebirth transforms into the true-ending sequence** (mind-gone protagonist walks out a Husk → hands the baton to the LS). Late-loop-drag mitigations (ranking + a "fast-clear once mastered" valve) = playtest-revisit.
+- **D3 — Movement:** **E33 near-stationary timing duels** for v1 (free-arena = possible later experiment).
+- **D4 — Camera:** **single smart action-cam** (push-to-OTS on telegraph, pull back). ⚠ **Roadmap correction:** the LS two-mode dual-camera rig **moves to Game 2 (Tactical Combat)**; Game 1 proves the reaction layer + reaction-cam feel. Supersedes the older "dual-camera gray-box = Game 1's first milestone" framing.
+- **D5 — Resolution:** **HP + parry-fed purge meter → purification finisher** (Sekiro-style; parrying is the win condition; seeds the LS forced-purification).
+- **D6 — Kit:** blade offense + Parry (Block/Perfect) + Dodge + counter + ranged-deflect + finisher; **≤2 expressive (non-power) techniques** unlocked diegetically at rebirth milestones (no tree). Blade offense is a conscious addition to the original concept's kit list.
+- **D7 — Replay / sanity:** 4 stacked layers (difficulty-ascension · per-duel ranking · "The Rite" gauntlet · the layered mystery → true ending); **sanity = atmospheric only, fairness sacred**; Endless mode = future free update; "embrace the hallucination" toggle = deferred stretch.
+- **D8 — Reference-target numbers (ALL playtest-open):** player ~4 hits to death; Perfect parry ~8f (~130ms @60fps) inside a ~20f (~330ms) Block window; dodge ~12–15f i-frames; purge-to-finisher ~5–8 Perfects on a basic guardian (decays when idle); duel ~30–90s; ranking thresholds = deferred.
+
+### Still deferred to the gray-box (per portfolio discipline)
+- All D8 numbers (feel-dependent → tune in the playable build).
+- The exact 1–2 unlockable techniques (you'll know what the loop is missing once it's playable).
+- Micro-feel of the smart action-cam (**the #1 thing to validate first**).
+- Movement: whether free-arena ever earns its way in.

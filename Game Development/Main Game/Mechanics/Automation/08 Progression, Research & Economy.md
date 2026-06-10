@@ -27,6 +27,16 @@ Plus one **non-spendable progress meter**:
 - **machine tiers** (better analyzers, the 2nd/3rd mega assembler)
 - **workshop expansion** — *working default:* **research unlocks the tech/right, money pays the build.** (Revisit.)
 
+## Tech-surface structure (LOCKED 2026-06-10)
+
+The tech surface splits in two, and the recipe half gets the distinctive UI:
+
+1. **The Element Matrix IS the recipe-research screen.** The 14-cell matrix (4 base + 6 pairs + 4 triples + the grayed-out forbidden **Akash** cell) is literally the research UI — you **unlock cells**. A cell needs **RP + having analyzed at least one finished product of each parent element** (the breakthrough rule made visible — research stays *discovered*, and the forbidden cell taunts you all game).
+2. **A conventional 3-branch tree for everything else:**
+   - **Conjuration** — new emitters / shapers / drivers / merge tiers (Surface A depth; **mold** as the capstone, see `09`)
+   - **Workshop** — machine tiers, belt speed, analyzer tiers, the 2nd/3rd mega assembler
+   - **Expansion** — warehouse floor, higher-slot gear licenses, bigger-gem handling
+
 ## The core fork — and why it isn't grind
 
 Every finished good is a **fork: SELL (money now) or ANALYZE (capability later).**

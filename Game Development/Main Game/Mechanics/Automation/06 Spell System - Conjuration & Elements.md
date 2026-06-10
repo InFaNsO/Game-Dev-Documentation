@@ -1,6 +1,6 @@
 # Automation — Spell System: Conjuration & Elements
 
-> The signature mechanic in full: **Conjuration Engineering** (Surface A), the **particle tech** that renders it, and the **element matrix** (multi-Mani, full depth). **Locked 2026-06-08**; the element-matrix specifics are a strong proposal pending final confirm; exact operations deferred to pre-prototyping.
+> The signature mechanic in full: **Conjuration Engineering** (Surface A), the **particle tech** that renders it, and the **element matrix** (multi-Mani, full depth). **Locked 2026-06-08**; element matrix confirmed; **module vocabulary + flow model LOCKED 2026-06-10** (see [[09 Machine Framework - Modules, Parts & Production|09]]); exact op lists + numbers firm up at the gray-box.
 
 ---
 
@@ -36,11 +36,12 @@ Stats come from **measurable properties** of the form + motion (so shape *matter
 - **Shape profile** → damage type (pointed → pierce · broad → blunt/AoE · edged → slash)
 - **Motion** (driver + speed) → delivery (projectile / melee / AoE / barrier) + speed
 - **Element** → status & damage flavor · **Purity** → power multiplier
+- **Process flow rate** → **cast time** (casting = charging the pipeline; cast time = volume ÷ flow rate — LOCKED 2026-06-10, see `09`). Engineering efficiency is combat-legible.
 
 **Form = function = visual, all one thing.**
 
 ### Depth source (the Modulus-fix)
-A **tech tree of in-gem operations** — new emitters, **shapers** (new forms), **drivers** (new behaviors: homing, multi-stage, orbit, delayed-detonate), and **multi-element merging** — is the deliberate patch for Modulus's missing depth. **Gem-scale** (bigger gem = **more nodes, purer nodes, and more internal build-space** → bigger, more-complex, higher-quality constructs) and **market pressure** compound on top. **Gem grade is the *quality* axis and lives entirely in Surface A** — Surface B is quantity/throughput only (see `05`).
+A **tech tree of in-gem operations** — new emitters, **shapers** (new forms), **drivers** (new behaviors: homing, multi-stage, orbit, delayed-detonate), and **multi-element merging** — is the deliberate patch for Modulus's missing depth. **Capstone: mold** — free-form construct shaping (runtime-SDF conform) arrives mid/late tech-tree: the moment spells stop looking like presets and start looking like *yours* (locked `09`). **Gem-scale** (bigger gem = **more nodes, purer nodes, and more internal build-space** → bigger, more-complex, higher-quality constructs) and **market pressure** compound on top. **Gem grade is the *quality* axis and lives entirely in Surface A** — Surface B is quantity/throughput only (see `05`).
 
 ### The Test Room
 A **proving ground** in the workshop where you **fire the spell and watch the real output** — instant visual feedback. It's the **dopamine** (DSP "watch it work"), the **debugger** (see what your process actually makes), and the **design bench** (iterate before committing to mass production) in one.
@@ -59,6 +60,22 @@ A **proving ground** in the workshop where you **fire the spell and watch the re
 - **Two visual budgets:** the **in-gem process** view favors *readability* (design clearly); the **fired spell** gets the lavish hero VFX.
 
 *(Sources captured at validation: Unity VisualEffect scripting API, VFX Graph Parameters & Events, Performance & Optimization docs.)*
+
+### Deep dive findings (2026-06-10 — the user-directed particle deep dive; grounds the `09` module vocabulary)
+
+Researched against the Unity 6 / VFX Graph 17.x package docs. **The validated architecture survives — and is stronger than assumed:**
+
+- **Runtime SDF baking is officially supported** (`MeshToSDFBaker`, runtime + editor; bake once at *spell-compile* time, output = a 3D-texture parameter). With **Conform/Attract-to-SDF**, a particle cloud can *hold an arbitrary player-built shape* → **the player's process output can literally define the construct's visual** (not just pick a preset). This powers the **mold** capstone. Caveats: resource-intensive (low res ≤64³ if frequent), normalized output (handle scale), must `Dispose()`.
+- **GraphicsBuffer sampling** — exposed GraphicsBuffer properties + `[VFXType]` structs let the CPU sim upload arbitrary per-spell point/attribute lists the template reads per-particle. **The standard sim→skin data pipe** (supersedes point caches, which are editor-only).
+- **GPU Events chain systems natively** (Trigger Event On Die / Rate → child system inherits position/velocity/color): projectile → explosion → lingering zone is first-class → **multi-stage and split-in-flight Drive ops are confirmed feasible.** (Gameplay forks still live in the CPU sim — default to firing new pooled instances; GPU events for cosmetic debris.) Still behind an "experimental" toggle but long-stable; since 17.1 compatible with instancing.
+- **Strips/trails** (lances, beams — bendable via noise/vector-field params), **URP Lit Decal output** (ground zones: magma/mud), **six-way lit smoke**, mesh/skinned-mesh sampling (CPU-readable meshes), turbulence/vector-fields (Texture3D = runtime-swappable) — all available in URP on Unity 6.
+- **The hard wall (confirmed absolute):** graph **topology** is compile-time — systems, blocks, wiring, output types, blend modes, **per-system capacity** are fixed; only exposed property *values* change at runtime. Bool/branch params allow 2–4 behavior variants per template. → The **~8-template × parameters** plan sits exactly on the right side of this wall.
+- **URP gaps that don't bite:** no distortion output, no per-particle lights (use Output-Event-spawned pooled light prefabs), **mobile unsupported** (→ desktop-only, recorded in `10`). Instancing is on by default — prefer float/vector/gradient per-instance params; reserve texture/SDF swaps for the spell *archetype*, not per-cast.
+- **Performance claim confirmed:** overdraw/fillrate (not particle count) is the dominant cost; stylized small/opaque-ish mesh particles genuinely de-risk it; VFX Graph 17 ships a profiling/debug panel.
+
+**The 8 starter render templates (reference set, locked as framework in `09`):** Projectile (quad/mesh + strip trail + homing/orbit branch) · Volley · Beam (strip) · Burst/Detonation (GPU-event chain) · Ground Zone (loop + decal) · **Conjured Construct** (Conform-to-SDF — the signature) · Aura/Channel · Weather/Arena.
+
+**Prototype-first order (for the ① Conjuration Game gray-box):** (1) one Projectile template × 30 parameter presets — does one template read as 30 spells? (the #1 design risk: template *coverage*; mitigated by shape-source params) → (2) `MeshToSDFBaker` → Conform "earth fist" pipeline → (3) GraphicsBuffer pipe from a stub sim → (4) GPU-event chain → (5) 20 pooled instances + profiling panel + overdraw view.
 
 ---
 
@@ -100,7 +117,7 @@ The Looter Shooter capped combinations at 2 elements *(LS scope-limit only)*. He
 
 **Mechanical basis for combining (ties three systems together):** gear **housings have gem slots** → **slot count = how many element-gems you combine = combination tier** (1 → base · 2 → pairs · 3 → triples). So **gear progression = element-combination capacity**, and Surface A's process merges the multiple gem streams into the compound.
 
-> **Status:** count, **names, and roles LOCKED 2026-06-08** (base unchanged; pairs = Steam / Magma / Lightning / Mud / Frost / Crystal; triples = Eruption / Tempest / Detonation / Blizzard; all-4 = Akash, forbidden). Exact spell *numbers* firm up alongside the particle exploration.
+> **Status:** count, **names, and roles LOCKED 2026-06-08** (base unchanged; pairs = Steam / Magma / Lightning / Mud / Frost / Crystal; triples = Eruption / Tempest / Detonation / Blizzard; all-4 = Akash, forbidden). **The matrix doubles as the recipe-research UI** — you unlock cells with RP + analyzed-parent breakthroughs; the forbidden Akash cell sits visibly grayed-out all game (LOCKED 2026-06-10, see `08`). Exact spell *numbers* firm up at the gray-box.
 
 ---
 

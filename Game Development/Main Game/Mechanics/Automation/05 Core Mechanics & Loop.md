@@ -43,7 +43,7 @@ A belt/machine line that **manufactures the parts + gear** that Surface A consum
 3. **Produce** — feed the workshop (Surface B): mass-produce the blueprint's parts and route them to the **mega assembler**, which builds the finished spell-gear. **Throughput caps your market output.**
 4. **Sell** — put products on the **competitive market** (`07`): demand varies by element / behavior / gear; **rival workshops** supply the same market → supply & demand → prices move.
 5. **Special requests** — periodic head-to-head **bake-offs**; best submission wins big, weak ones eat losses (you go directly against the rival AI on a fixed spec).
-6. **Grow** — money → expand the workshop (stations, staff, **bigger/purer gems, better gear**) + climb the **tech tree** (new operations, elements, multi-Mani recipes, gear types). Growth (and market demand) pulls you toward **multi-Mani** spells for maximum power.
+6. **Grow** — money → expand the workshop (stations, machines, **bigger/purer gems, better gear**) + climb the **tech tree** (new operations, elements, multi-Mani recipes, gear types). Growth (and market demand) pulls you toward **multi-Mani** spells for maximum power.
 
 ## Resolved supporting decisions
 
@@ -52,6 +52,6 @@ A belt/machine line that **manufactures the parts + gear** that Surface A consum
 - **Scope principle (locked by the user):** *this* game is the **deep, fully-featured, micro-managed reference implementation** of Mani spell-engineering. The **dream game decides later how much to abstract** — this one does not pre-abstract.
 - **Combat reuse:** the spells designed here **share the combat pillar's spell-data model** — they are literally the spells cast in combat (fire lance = projectile, earth fist = melee slam, ice wall = barrier). The automation game's *output* is the combat game's *input*.
 
-## Deferred to pre-prototyping
+## Machine framework — RESOLVED (2026-06-10)
 
-The exact **operation set, machines, and belt system** are deferred until the **particle-system exploration** (see `06` — the tech is validated; the precise vocabulary is not yet fixed). The first build milestone is the **Conjuration Engineering gray-box**, not the shop economy.
+The **operation set, machines, and belt system** are now locked as a framework in [[09 Machine Framework - Modules, Parts & Production|09]] (keystone: modules = parts; 5 op categories; cast-time-from-flow; recipe-gated merging; B taxonomy + Vayu-belt transport + blueprint = BOM), grounded in the particle deep dive (`06`). Remaining defer: exact op/part lists + all numbers → the gray-box. The first build milestone is the **Conjuration Engineering gray-box** (= the ① Conjuration Game's first milestone, see `11`), not the shop economy.

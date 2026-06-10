@@ -55,8 +55,11 @@ The city pillar follows the **combat pattern** (Parry + Tactical → Looter Shoo
 - **Tower-defense** stays at the Dungeon/Roguelike integration (reverted 2026-06-07 — clashed with the cozy identity; only *actual* TD forward-maps to the dream game's TD). All three city games ship **no combat/TD**; tension = pure economic/logistics. *(Environmental Mani-weather = deferred, post-prototype.)*
 - **Other locks:** Anno **biome-as-map** (Bhu/Jal/Agni/Vayu + **Akash space-time capstone**) · **4 species** incl. new **Avian** (canon ripple) · 3-tier population w/ 1→2→3 Mani-element escalation → all-4 Akash endgame · refining-as-building · grid + free decoration · DSP island scale (1 big home town + 1–2 outposts/map).
 
-### D. Automation *(System 3 + Mani 2)*
-6. **Spell-Shop** — proves the gem-factory (factory-inside-gem, resource-nodes = gem-size) + particle-spell construction + production chains + research, with **full-depth mixing (UNCAPPED — not the LS's 2-element cap)**. The magic-spell shop.
+### D. Automation *(System 3 + Mani 2)* — **SPLIT INTO 2 GAMES (decided 2026-06-10; design in `Mechanics/Automation/` 00–11)**
+One risky core (Conjuration Engineering) = one proving game + the fusion. A standalone Surface-B/market game was considered and rejected — factory-without-the-signature fails the identity test ("the fusion minus its soul"); the factory genre is already proven by Factorio/DSP.
+- **6a ① The Conjuration Game** *(small, ~Opus Magnum scale)* — a Zachlike commission-puzzle game: pure Surface A (spec letter → build the in-gem process → fire in the Test Room → scored on spec-fit · part-cost · cast time · gem efficiency); ~30–50 commissions along the element matrix + sandbox; Akash-tease finale. **Proves the #1 gray-box** + builds the VFX template library, module sim, derived-stat model, and the spec-judge (= the bake-off engine). Mirrors Parry Combat: riskiest identity mechanic, wrapped small and shipped.
+   - *uses:* 3 (Surface A only) + 2 + Tier 0
+- **6b ② The Spell-Shop (fusion)** — adds Surface B (warehouse factory + mega assembler), the living market + **competitor AI v1**, the two-currency progression, gear, plot — with **full-depth mixing (UNCAPPED — not the LS's 2-element cap)**. Reuses 6a additively.
    - *uses:* 3 + 2 + 11 (economy) + Tier 0
 
 ### E. Procgen *(System 7)* — **NOT a standalone game.** It's the cross-cutting **Procgen Thread** (see top: v1 placement → v2 rooms → v3 dungeons → v4 towns/islands), grown inside whichever game first needs each version.
@@ -78,9 +81,10 @@ The city pillar follows the **combat pattern** (Parry + Tactical → Looter Shoo
 ---
 
 ## Build order (the ladder)
-**1** Parry Combat → **2** Tactical Combat → **3** Looting & Crafting → **▶ 4 The Looter Shooter** → **5a** Mani Logistics Game → **5b** Cozy Mani-Town Builder → **▶ 5c City Builder (fusion)** → **6** Spell-Shop → **▶ 7 Dungeon/Roguelike integration** → **▶ 8 The Dream Game**
+**1** Parry Combat → **2** Tactical Combat → **3** Looting & Crafting → **▶ 4 The Looter Shooter** → **5a** Mani Logistics Game → **5b** Cozy Mani-Town Builder → **▶ 5c City Builder (fusion)** → **6a** Conjuration Game → **▶ 6b** Spell-Shop (fusion) → **▶ 7 Dungeon/Roguelike integration** → **▶ 8 The Dream Game**
 > *(City pillar split into 3 games 2026-06-07 — two proving-games + a fusion, mirroring the combat split. Build order = Logistics → Cozy Town → Fusion: logistics first because it's the smaller build + the design-riskiest system.)*
+> *(Automation pillar split into 2 games 2026-06-10 — one proving game + the fusion. ⚑ The Conjuration Game is small/self-contained enough to slot EARLIER in the ladder if a breather between big builds is wanted — final placement at the dev-order session.)*
 *(Procgen is a thread woven through these — v1/v2 in the early combat/looter games, v3 at the Dungeon integration, v4 at City/Dream Game.)*
 
-> **OPEN (refine when relevant):** exact ship-vs-internal per game · exact ordering of 5/6 (city / automation are independent and can reorder) · the deep-scope of each remaining pillar (City, Automation) the way Combat was scoped.
-> **DECIDED:** no "combined combat" game (the LS *is* that merge) · procgen is a cross-cutting thread, not a standalone game.
+> **OPEN (refine when relevant):** exact ship-vs-internal per game · exact ordering of 5/6 (city / automation are independent and can reorder; 6a is portable earlier).
+> **DECIDED:** no "combined combat" game (the LS *is* that merge) · procgen is a cross-cutting thread, not a standalone game · all three big pillars now scoped + split (combat 2026-06-02 · city 2026-06-07 · automation 2026-06-10, see `Mechanics/Automation/10`–`11`).

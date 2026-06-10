@@ -29,9 +29,15 @@ In the automation game it drives:
 
 **Implementation guardrail (keeps v1 cheap):** a **utility / heuristic agent** on the shared market model — evaluate segments by margin/demand, allocate production, set prices, bid contracts. **No ML, no world-simulation.** This is the smallest version that makes the market feel alive, and it's the foundation v2 extends.
 
-## Special requests (the bake-off)
+## Special requests (the bake-off) — format LOCKED 2026-06-10
 
-Periodically the market (or a patron) issues a **special request** with a fixed spec. You and the rival AI both submit; the **best submission is rewarded handsomely**, weaker ones eat losses. This is the concentrated, legible moment where the competition becomes a direct duel — and (per `04`) the **endgame requests carry the Akash tease**.
+Periodically the market (or a patron) posts a **contract with a spec**: constraints (element/compound · gear type · stat thresholds, e.g. "pierce ≥ X, cast ≤ Y" · quantity · deadline).
+
+- **Opt-in** — you choose to compete (cozy-respecting; ignoring one just means a rival takes it).
+- You design or adapt a spell, produce the batch, submit before the deadline.
+- **Judged vs rival submissions on spec-fit + grade + price** — winner takes the payout + a **reputation jump**; losers **eat their production costs**.
+- **Structural double duty:** bake-offs are the pacing skeleton (quasi-quests) AND the **plot-delivery vehicle** — the endgame **Akash-tease** requests ("the Accord seeks a new kind of Mani…") arrive through this channel (the plot session hangs its story here).
+- **Build reuse:** the spec-judging engine is built first in the **① Conjuration Game** (its commission levels = bake-offs v0, see `11`) and carries into the Spell-Shop unchanged.
 
 ## The cross-portfolio competitor-AI thread
 

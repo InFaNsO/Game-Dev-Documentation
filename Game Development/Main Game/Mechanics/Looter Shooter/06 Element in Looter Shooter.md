@@ -77,6 +77,13 @@ The player's kit is three lanes, ordered as an **inverse cost ↔ range ↔ risk
 - *Reference target:* **7×7** (49 positions), tile ≈ 2m. Chosen compact because position-count complexity scales worse than N² (AI, authoring, readability). Bump toward 8×8 only if playtest shows the three range bands (melee/spell/launcher) feel mushy — size and range-band distinction get validated together.
 - Consequence at 7×7: the launcher's **long-range** band is compressed (max straight distance ~6–7 tiles), so its identity rests on **AoE + high cost**, not sniper reach. Intended.
 
+**Arena generation — PROCEDURAL (UPDATED 2026-06-10 — reverses the 2026-06-02 "authored arenas, no procgen" lock, per user):**
+- Encounter Arenas are **procedurally generated for run-to-run variety**, NOT a fixed pool of hand-authored rooms.
+- Generation stays **inside the locked spatial frame**: the single-screen / no-panning / odd-sized compact grid and all camera rules below are **non-negotiable**. Procgen varies the *contents*, never the frame or readability.
+- **What's generated:** the playable footprint (some cells blocked/impassable = the arena's "holes & obstructions"), obstacle & **hazard placement** (Mani veins, cave-ins, hazard tiles that feed hazard-push setups), terrain/cover-ingredient features, and **spawn zones** (player + enemy starts, honoring the alert/approach advantage carried in from the explore world).
+- Region-themed **tile palettes + rule sets** (Lithic Mow ruleset, etc.) keep each biome's arenas coherent; **boss fights may still use bespoke authored staging** (the one authored exception).
+- This is the Looter Shooter's instance of the **cross-game procgen thread** (capability = *constrained single-screen grids* — the **same generator** that produces the automation gem grids; ideally debuts earlier in Tactical Combat and matures here). The **explore world stays hand-authored** (story density) — only the combat arenas are generated, so the old "procgen explore-map" risk is still fully avoided.
+
 **Camera rules (the dual-camera is the #1 identity bet → must-playtest):**
 - **One unified PERSPECTIVE rig** — NOT orthographic-isometric, NOT 90° top-down. (Keep Into the Breach's *readable-tile aesthetic*, but achieve it via a steep perspective cam so the tactical ↔ OTS blend stays smooth. Orthographic would fight the perspective OTS cam.)
 - **Tactical angle = OTS reaction-cam angle + 15–25°.** The blend swing is the design constraint — a small, natural movement by construction, so the eye barely readjusts on snap-back.

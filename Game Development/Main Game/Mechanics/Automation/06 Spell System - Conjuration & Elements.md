@@ -12,6 +12,10 @@ A spell is a **conjured 3D elemental construct** that you **design by building a
 
 Model: **B-paradigm on C-substrate** — the *form emerges from a process* (Modulus-true depth), but the process is built from **discrete, grid-placed, manufacturable modules** (readable, scope-bounded, grid-lock-compliant, and the modules *are* Surface B's manufactured parts).
 
+### The gem grid — a procedurally varied build-space (LOCKED 2026-06-10)
+
+The factory floor is **NOT flat open land that only changes size.** Every refined gem comes with a **procedurally generated internal grid — holes (unusable gaps) + obstructions (blocked cells)** — so two same-grade gems still play differently. Building the conjuration process becomes a **spatial routing puzzle** (place emitters / shapers / drivers + conduits *around* the obstructions), not "fill a bigger square." Gem grade still scales node count, purity, and total build-space (the **quality** axis), but **topology is now a per-gem wildcard**: selecting/buying a gem is a real choice, and the same recipe must be **re-solved on each new gem's layout** (replayability + a reason to hunt for clean gems). This is the automation pillar's instance of the **cross-game procgen thread** (capability = *constrained single-screen grids*; the same generator skins combat arenas). Reverses the earlier "automation = no procgen" scope cut — procgen now applies to the **gem grid** (spatial), while contracts/market events stay systemic.
+
 ### The three design axes
 
 | Axis | What you set | Fire Lance | Earth Fist |

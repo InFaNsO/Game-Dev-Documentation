@@ -28,7 +28,7 @@
 - **Worker/staff sim** — fully machine-automated (locked `05`).
 - **Multi-site logistics** — one warehouse; shipping networks are the city pillar's job.
 - **Embodied competitor (v2)** — lives in the city fusion (`07` thread plan).
-- **Procgen** — the warehouse is hand-authored; only **contracts and market events** are generated (systemic, not spatial).
+- **Procgen** — the **warehouse (Surface B) is hand-authored**, and contracts/market events are systemically generated. **EXCEPTION (added 2026-06-10): the gem grid (Surface A) IS spatially procgen** — each gem has a generated internal layout with holes + obstructions (see `06`). So automation is no longer "no procgen": gem-grid topology is in; full level / dungeon / island procgen stays out.
 - **Mobile** — tech note: VFX Graph doesn't support mobile → desktop only (we weren't targeting mobile anyway).
 
 ---

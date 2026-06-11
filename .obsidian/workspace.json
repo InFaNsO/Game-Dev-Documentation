@@ -25,14 +25,17 @@
             "id": "42d9b3653d565237",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "Game Development/Main Game/07 Testbed Build Plan.md",
-                "mode": "source",
-                "source": false
+                "file": "Game Development/Main Game/Games/1a Last Rite - Architecture.canvas",
+                "viewState": {
+                  "x": 3354.5458722710696,
+                  "y": 3099.4139921149745,
+                  "zoom": 1.1102230246251565e-16
+                }
               },
-              "icon": "lucide-file",
-              "title": "07 Testbed Build Plan"
+              "icon": "lucide-layout-dashboard",
+              "title": "1a Last Rite - Architecture"
             }
           },
           {
@@ -207,17 +210,26 @@
   },
   "active": "42d9b3653d565237",
   "lastOpenFiles": [
-    "CLAUDE.md.tmp.40444.a665084c1e67",
-    "CLAUDE.md.tmp.40444.e2bdc995cc74",
-    "CLAUDE.md.tmp.40444.ea5705f816b4",
-    "CLAUDE.md.tmp.40444.e0251f76e461",
-    "CLAUDE.md.tmp.40444.1bba80c81e5a",
-    "CLAUDE.md.tmp.40444.1b849ffd73d6",
-    "CLAUDE.md.tmp.40444.b38072b8a257",
-    "Game Development/Main Game/07 Testbed Build Plan.md.tmp.40444.73e4407c181e",
-    "Game Development/Main Game/07 Testbed Build Plan.md.tmp.40444.2db7a6afd641",
-    "Game Development/Main Game/07 Testbed Build Plan.md.tmp.40444.db132f298fe7",
-    "Game Development/Main Game/Mechanics/Automation/00 Automation.md.tmp.40444.39079380ea22",
+    "CLAUDE.md.tmp.23392.499c6b9f524f",
+    "Game Development/Main Game/Games/1a Last Rite - Architecture.canvas.tmp.23392.7f582dcf1baa",
+    "Game Development/Main Game/Games/1a Last Rite - Code Architecture.md.tmp.23392.182262c49e4b",
+    "Game Development/Main Game/Games/1a Last Rite - Code Architecture.md.tmp.23392.f35dcd1f1ac9",
+    "Game Development/Main Game/Games/1 Parry Combat - Last Rite.md.tmp.23392.0fb65667cf20",
+    "Game Development/Main Game/Games/1 Parry Combat - Last Rite.md.tmp.23392.f13b0e470520",
+    "Game Development/Main Game/Mechanics/Looter Shooter/11 Factions and Species.md.tmp.24580.da0c2ae1130b",
+    "CLAUDE.md.tmp.16676.3dd536cd414f",
+    "Game Development/Main Game/Games/1 Parry Combat - Last Rite.md.tmp.16676.4222a94e53a6",
+    "Game Development/Main Game/Mechanics/Looter Shooter/11 Factions and Species.md.tmp.16676.7315c99af169",
+    "Game Development/Main Game/Mechanics/Looter Shooter/11 Factions and Species.md.tmp.16676.2e1773f8da54",
+    "Game Development/Main Game/Games/1b Last Rite - Art Bible.md",
+    "Game Development/Main Game/Games/1a Last Rite - Code Architecture.md",
+    "Game Development/Main Game/Games/1a Last Rite - Architecture.canvas",
+    "Game Development/Main Game/Games/00 Game Concepts Hub.md",
+    "Game Development/Main Game/01 Concept & Idea.md",
+    "README.md",
+    "CLAUDE.md",
+    "BGAMER Base.md",
+    "Game Development/Main Game/07 Testbed Build Plan.md",
     "Game Development/Main Game/Mechanics/Automation/11 Game Split - Conjuration Game & Spell-Shop.md",
     "Game Development/Main Game/Mechanics/Automation/02 Game Loop.md",
     "Game Development/Main Game/Mechanics/Automation/01 Goal.md",
@@ -235,15 +247,7 @@
     "Game Development/Main Game/Mechanics/City Builder/06 Logistics & Transport.md",
     "Game Development/Main Game/Mechanics/City Builder/05 Production & Economy.md",
     "Game Development/Main Game/Mechanics/City Builder/04 World & Setting.md",
-    "Game Development/Main Game/Mechanics/City Builder/03 References & Design DNA.md",
-    "Game Development/Main Game/07 Testbed Build Plan.md",
-    "Game Development/Main Game/08 Unity Code Architecture.md",
-    "Game Development/Main Game/06 List Of Game Mechanics.md",
-    "Game Development/Main Game/Mechanics/Looter Shooter/04 List of things required.md",
     "Game Development/Main Game/Mechanics/Looter Shooter/03 Game Loop.canvas",
-    "Game Development/Main Game/Mechanics/Looter Shooter/02 Story.md",
-    "Game Development/Main Game/Mechanics/Looter Shooter/01 Goal.md",
-    "Game Development/Main Game/Mechanics/Looter Shooter/00 Looter Shooter.md",
     "Game Development/Main Game/05 Game Loop.canvas"
   ]
 }

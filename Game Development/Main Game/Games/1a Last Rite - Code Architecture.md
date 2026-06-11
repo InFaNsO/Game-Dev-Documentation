@@ -30,12 +30,12 @@ LastRite.UI ──► LastRite.Game ──► BGamer.CombatReactive ──► BG
 (+ mirrored *.Editor assemblies; + LastRite.Tests / BGamer.Tests editmode asms)
 ```
 
-| Assembly | Becomes | Contents | May reference |
-|---|---|---|---|
-| **BGamer.Core** | `com.bgamer.core` (extracted at Game 2) | Bootstrap + service locator · typed event bus · FSM framework · sim clock + feel (hitstop) · input · save · data conventions · camera director · UI framework · audio · RNG · pooling · scene loader | Unity only |
-| **BGamer.CombatReactive** | `com.bgamer.combat-reactive` (extracted at Game 2 or the LS) | Attack-as-data model · timeline runner · reaction resolver · fighter combat state · projectile sim · damage-step chain · schedulers · combat events | Core |
-| **LastRite.Game** | ships in this repo forever | Game states · player kit FSM · purge/finisher · run/rebirth director · explore mode · sanity · narration · ranking/gauntlet · guardian content bindings | CombatReactive, Core |
-| **LastRite.UI** | ships in this repo | HUD + screens (MVP-lite), event-fed | Game (read-only), Core |
+| Assembly                  | Becomes                                                      | Contents                                                                                                                                                                                             | May reference          |
+| ------------------------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| **BGamer.Core**           | `com.bgamer.core` (extracted at Game 2)                      | Bootstrap + service locator · typed event bus · FSM framework · sim clock + feel (hitstop) · input · save · data conventions · camera director · UI framework · audio · RNG · pooling · scene loader | Unity only             |
+| **BGamer.CombatReactive** | `com.bgamer.combat-reactive` (extracted at Game 2 or the LS) | Attack-as-data model · timeline runner · reaction resolver · fighter combat state · projectile sim · damage-step chain · schedulers · combat events                                                  | Core                   |
+| **LastRite.Game**         | ships in this repo forever                                   | Game states · player kit FSM · purge/finisher · run/rebirth director · explore mode · sanity · narration · ranking/gauntlet · guardian content bindings                                              | CombatReactive, Core   |
+| **LastRite.UI**           | ships in this repo                                           | HUD + screens (MVP-lite), event-fed                                                                                                                                                                  | Game (read-only), Core |
 
 **Extraction = `git mv` + a UPM manifest, zero code change.** The asmdefs enforce from day one that `BGamer.*` never references `LastRite.*` — extraction-readiness is structural, not aspirational. Game 1 ships with the code in-repo (its repo pins it forever — ship-everything principle satisfied); packages are born when Game 2 first consumes them.
 
@@ -178,9 +178,11 @@ RemixOverlayDef: per-rebirth deltas — add/remove strings, reweight, timing
 - The LS will NOT take purge — it maps the same outcomes to AP/crit/Mani. Purge staying host-side is what makes that a re-skin instead of a rewrite.
 
 ### 4.3 Run / rebirth director (the roguelike spine)
-- **Data:** `DescentDef` = ordered `RoomDef`s (encounters, warp-flag groups, lore spots, heart chamber). `RebirthTierDef` = **one SO per loop** holding: URP volume profile + global shader params (the palette-shift-as-HUD), remix overlay set, narration variant set, ruin warp flags, audio snapshot, escalation knobs, `isTerminal` (the final tier routes to the true-ending sequence).
+- **Data:** `DescentDef` = ordered `RoomDef`s (encounters, warp-flag groups, lore spots, heart chamber). `RebirthTierDef` = **one SO per loop** holding: URP volume profile + global shader params (the palette-shift-as-HUD), remix overlay set, narration variant set, ruin warp flags, audio snapshot, escalation knobs, **`maniTheme` (None / Bhu / Jal / Vayu / Agni — the cycle's element, LOCKED 2026-06-11)**, `isTerminal` (the final tier routes to the true-ending sequence).
 - **Seam:** the whole D2 loop ("full re-descent, remixed") is **data overlays applied at rebirth** — adding tier 6 or rebalancing tier 3 touches zero code. RunDirector publishes `RebirthStarted/RoomEntered/EncounterCleared`; save = its memento.
 - **D1:** heart pickup #1 = the inciting rebirth — a scripted beat in the heart chamber's `RoomDef`.
+- **Elemental spine (LOCKED 2026-06-11):** tiers = `None → Bhu → Jal → Vayu → Agni` (Agni = `isTerminal`). The element is an **overlay** — the tier's `RemixOverlayDef`s carry the element's attack flavor onto the base guardians (corruption flavor, never a re-skin). **Fairness law (enforced by the §5 validator):** element overlays may alter only *guardian* attack data + presentation — they never emit player-side status (no slow/freeze/push on the player; keeps D7 fairness-sacred inside a stationary duel).
+- **Chaos Descent (v1-stretch / first content update, NOT core v1):** post-true-ending unlockable — RunDirector takes a runtime-assembled `DescentDef` + a randomly-selected element theme + seeded remix overlays (the `remix` RNG stream). Randomized *selection* of authored content, zero procgen, no new system — the bridge to the eventual full-procgen Endless mode.
 
 ### 4.4 Explore mode (deliberately thin)
 Third-person walk (CharacterController), interactables (lore, doors, the heart), `Shot.Walk`. **No stealth, no loot, no sprint-jump platforming** — it's the breath between duels and the narration/sanity canvas. (LS explore is a different, richer system; nothing here pretends to be it.)

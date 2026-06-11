@@ -2,6 +2,7 @@
 
 > The combat pillar's **reactive-half** proving game (dual-camera parry/dodge/counter), shipped as a complete $5–10 product. **Concept LOCKED 2026-06-10.** Dev slot 1 (first game; builds Tier 0 foundation). Working title "Last Rite." Touchstones: Furi · Sekiro gauntlets · Expedition 33 (the parry reference the user named).
 > **Engineering blueprint:** [[1a Last Rite - Code Architecture]] (assembly map, abstraction seams, Tier-0 concrete v1 — written 2026-06-10, pre-scaffold).
+> **Art bible:** [[1b Last Rite - Art Bible]] (style lock, colour governance, Meshy + Kimodo pipeline, rig amendment — the PORTFOLIO art lock, written 2026-06-10).
 
 ---
 
@@ -49,7 +50,7 @@ Uses only what `Mechanics/Looter Shooter/06` locked for the reactive layer — *
 2. **Per-duel ranking** — no-hit / time / style; the mastery chase.
 3. **"The Rite" gauntlet** — all guardians back-to-back, one healthbar, for score (unlocks after first clear; near-free to build).
 4. **★ The mystery as the replay engine** — the truth behind the immortality unfolds in *layers* across rebirths/difficulty, building to a **true ending**. You replay to *learn more*, not just to score.
-- **Future free update:** an **Endless Dungeon mode** once procgen matures to that level (a later P-tier) — remixed/procedural descents. v1 ships fully authored; the update lands when the tech exists (great for the Steam algorithm).
+- **Future free update:** an **Endless Dungeon mode** once procgen matures to that level (a later P-tier) — remixed/procedural descents. v1 ships fully authored; the update lands when the tech exists (great for the Steam algorithm). **Stepping stone (LOCKED 2026-06-11): the Chaos Descent** — post-true-ending randomized descent via random *selection* of authored content (no procgen), lands first as v1-stretch / first content update; see "Elemental rebirth spine."
 
 ## The reward & the ending
 
@@ -90,13 +91,29 @@ Mostly **atmospheric** (visual/audio distortion, degrading narration, hallucinat
 A full design-detail pass settled the structural decisions (numbers stay reference-only, per portfolio discipline — feel-dependent values get their real answer from the gray-box):
 
 - **D1 — Immortality framing:** the protagonist **gains** immortality at the **first beast's heart** (the inciting rebirth). Death-retry (respawn at duel start) is on from minute one regardless.
-- **D2 — Loop structure:** **full re-descent every rebirth** — all 6 guardians re-fought but **remixed** (feints / new attacks / warped ruin) = a re-learn, never bigger numbers. **~5 rebirths** to the true ending; the **final rebirth transforms into the true-ending sequence** (mind-gone protagonist walks out a Husk → hands the baton to the LS). Late-loop-drag mitigations (ranking + a "fast-clear once mastered" valve) = playtest-revisit.
+- **D2 — Loop structure:** **full re-descent every rebirth** — all 6 guardians re-fought but **remixed** (feints / new attacks / warped ruin) = a re-learn, never bigger numbers. **The rebirth spine is elemental (LOCKED 2026-06-11): 5 descents = 1 neutral tutorial descent + 4 Mani-themed rebirths (Bhu → Jal → Vayu → Agni)** — each rebirth themes one Mani as an **overlay** on the guardians' base identities (corruption flavor, never replacement), driving that cycle's palette LUT, remix overlays, telegraph VFX, and lore/narration (see "Elemental rebirth spine" below). The **final rebirth (Agni) transforms into the true-ending sequence** (mind-gone protagonist walks out a Husk → hands the baton to the LS); the true ending itself stays **element-neutral**. Late-loop-drag mitigations (ranking + a "fast-clear once mastered" valve) = playtest-revisit.
 - **D3 — Movement:** **E33 near-stationary timing duels** for v1 (free-arena = possible later experiment).
 - **D4 — Camera:** **single smart action-cam** (push-to-OTS on telegraph, pull back). ⚠ **Roadmap correction:** the LS two-mode dual-camera rig **moves to Game 2 (Tactical Combat)**; Game 1 proves the reaction layer + reaction-cam feel. Supersedes the older "dual-camera gray-box = Game 1's first milestone" framing.
 - **D5 — Resolution:** **HP + parry-fed purge meter → purification finisher** (Sekiro-style; parrying is the win condition; seeds the LS forced-purification).
 - **D6 — Kit:** blade offense + Parry (Block/Perfect) + Dodge + counter + ranged-deflect + finisher; **≤2 expressive (non-power) techniques** unlocked diegetically at rebirth milestones (no tree). Blade offense is a conscious addition to the original concept's kit list.
 - **D7 — Replay / sanity:** 4 stacked layers (difficulty-ascension · per-duel ranking · "The Rite" gauntlet · the layered mystery → true ending); **sanity = atmospheric only, fairness sacred**; Endless mode = future free update; "embrace the hallucination" toggle = deferred stretch.
 - **D8 — Reference-target numbers (ALL playtest-open):** player ~4 hits to death; Perfect parry ~8f (~130ms @60fps) inside a ~20f (~330ms) Block window; dodge ~12–15f i-frames; purge-to-finisher ~5–8 Perfects on a basic guardian (decays when idle); duel ~30–90s; ranking thresholds = deferred.
+
+### Elemental rebirth spine — LOCKED 2026-06-11
+
+Each cycle themes one Mani as an **overlay on the guardians' base identities** (corruption flavor — D2's "re-learn, never replace"), expressed through enemy attack flavor + telegraph VFX + palette LUT + lore/narration:
+
+| Descent | Theme | Guardian flavor (overlay) | Palette | Canon tie |
+|---|---|---|---|---|
+| 1 | **none** | base identities, no overlay | neutral grade | tutorial descent; ends at the first heart (D1) |
+| 2 | **Bhu** (Earth) | heavy, grounded, *readable* — ground-slam perilous, guard-pressure | stone / ochre / dust | the ruin's own stone-corruption |
+| 3 | **Jal** (Water) | flowing, *delayed*, feint-heavy — the "slow" is the **enemy's** tempo | deep blue, drowned light | **Amphibian-Husk** corruption ascendant |
+| 4 | **Vayu** (Air) | fast, evasive, gust-lunges; guardians may dart within the stationary frame | pale white-out | wind / sky — the lost-Avian echo |
+| 5 | **Agni** (Fire) | fastest, most relentless; telegraphed burn-DoT punishes greed; **terminal** → true-ending sequence | ember / ash / orange | **Reptile-Husk** corruption ascendant |
+
+- **Fairness firewall (D7):** elements re-flavor *enemy* attacks + VFX + palette + lore — they **never** touch the player's reaction window. Jal/Vayu's canonical player-debuffs (slow/push) express as *guardian behavior* (tempo, the guardian's own displacement), never as player status.
+- **The true ending stays element-neutral** — Agni is the climax; Akash is deliberately NOT invoked.
+- **Chaos Descent (post-true-ending; v1-stretch / first content update, NOT core v1):** an unlockable randomized descent — random *selection* of authored guardians/lessers + a random element theme + seeded random remix overlays. Pure data-shuffle of authored content, zero procgen — the bridge between v1's authored cycles and the eventual full-procgen Endless mode. Immortality means the cycle never truly ends.
 
 ### Still deferred to the gray-box (per portfolio discipline)
 - All D8 numbers (feel-dependent → tune in the playable build).

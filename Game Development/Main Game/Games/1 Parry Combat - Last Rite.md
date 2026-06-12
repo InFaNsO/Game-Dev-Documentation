@@ -2,6 +2,7 @@
 
 > The combat pillar's **reactive-half** proving game (dual-camera parry/dodge/counter), shipped as a complete $5–10 product. **Concept LOCKED 2026-06-10.** Dev slot 1 (first game; builds Tier 0 foundation). Working title "Last Rite." Touchstones: Furi · Sekiro gauntlets · Expedition 33 (the parry reference the user named).
 > **Engineering blueprint:** [[1a Last Rite - Code Architecture]] (assembly map, abstraction seams, Tier-0 concrete v1 — written 2026-06-10, pre-scaffold).
+> **Combat core spec (v0):** [[1c Last Rite - Combat Core Spec]] (implementation-level: classes, events, diagrams, tick law, tests — written 2026-06-12, pre-code).
 > **Art bible:** [[1b Last Rite - Art Bible]] (style lock, colour governance, Meshy + Kimodo pipeline, rig amendment — the PORTFOLIO art lock, written 2026-06-10).
 
 ---

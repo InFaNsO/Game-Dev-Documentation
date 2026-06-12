@@ -347,122 +347,17 @@ public sealed class TurnOrderScheduler : IAttackScheduler
 
 ## 8. Diagrams
 
-### 8.1 Connections — who talks to whom
+All diagrams live in the companion **Obsidian canvas** (same folder) — open it side-by-side with this doc:
 
-```mermaid
-graph TD
-    subgraph GAME ["LastRite.Game — components (MonoBehaviours)"]
-        DRV["CombatSimDriver<br/>(creates + ticks)"]
-        INP["PlayerInputRouter"]
-        HUD["DebugCombatHUD"]
-    end
+![[1c Last Rite - Combat Core Diagrams.canvas]]
 
-    subgraph SIM ["BGamer.CombatReactive — pure C# sim"]
-        SES["CombatSession<br/>(root, owns tick order)"]
-        SCH["TurnOrderScheduler<br/>: IAttackScheduler"]
-        TLR["TimelineRunner<br/>(one per active attack)"]
-        HP["HealthSystem<br/>(sole HP writer)"]
-        FS["FighterState ×2"]
-        DATA["FighterDef / AttackDef / MovesetDef<br/>(ScriptableObjects, read-only)"]
-    end
+**[[1c Last Rite - Combat Core Diagrams.canvas|→ Open: 1c Combat Core Diagrams]]** — three boards:
 
-    subgraph CORE ["BGamer.Core — services"]
-        CLK["SimClock : ISimClock"]
-        BUS["EventBus : IEventBus"]
-    end
+- **A · Connections — who talks to whom.** Every class as a card, grouped by assembly (LastRite.Game components → CombatReactive sim → Core services). Every arrow is labeled with the exact call or event it represents and the invariant it honors (I5 one-way events out, I6 one-way input in).
+- **B · Fight flow — one encounter.** The §6 tick law drawn as a flowchart: `EncounterStarted` → input drain → timeline-edge handling (the M1 ReactionResolver insertion point marked in red) → end-check → the scheduling branches (AI attacks / player waits for Strike / consume intent) → `EncounterEnded`.
+- **C · One attack sequence.** A guardian slam end to end with the reference timings (telegraph 600 / commit 200 / recovery 700): all 11 steps from `Tick()` through every publish and the damage application to the turn handover, then roles swap.
 
-    INP -- "EnqueueIntent(StrikeIntent @ms)  [I6: only way in]" --> SES
-    DRV -- "Awake: composes everything<br/>Update: clock.Advance + session.Tick" --> SES
-    DRV --> CLK
-    SES -- "PickNextAttacker / OnAttackEnded" --> SCH
-    SES -- "Advance(now) → edges" --> TLR
-    SES -- "ApplyDamage on Impact" --> HP
-    SCH -- "reads Phase/IsAlive" --> FS
-    HP -- "writes CurrentHp/Dead" --> FS
-    DATA -- "timing + damage + moveset" --> SES
-    CLK -- "NowMs" --> SES
-    SES -- "publish" --> BUS
-    TLR -- "edges → session → publish" --> BUS
-    HP -- "publish" --> BUS
-    BUS -- "events only  [I5: one-way, no mutation]" --> HUD
-```
-
-### 8.2 Fight logic — one full encounter
-
-```mermaid
-flowchart TD
-    START(["EncounterStarted published"]) --> ORDER["Scheduler builds turn order<br/>(once: enemies first, player last)"]
-    ORDER --> TICK["Tick (every frame)"]
-
-    TICK --> DRAIN["1· Drain input queue<br/>keep newest StrikeIntent, drop if >150ms old"]
-    DRAIN --> ACT{"2· Attack timeline<br/>active?"}
-
-    ACT -- "yes" --> ADV["Advance(now) → emit ALL<br/>crossed edges in order (I8)"]
-    ADV --> E1{"edge?"}
-    E1 -- "Telegraphed" --> CUE["publish AttackTelegraphed<br/>(HUD shows ! — later: camera push, VFX)"] --> E1
-    E1 -- "Committed" --> COM["publish AttackCommitted<br/>(cue ends — later: window edges)"] --> E1
-    E1 -- "Impacted" --> DMG["HealthSystem.ApplyDamage(target)<br/>publish AttackImpacted + FighterDamaged<br/>(M1: ReactionResolver gates this — §9.1)"]
-    DMG --> DIED{"target HP == 0?"}
-    DIED -- "yes" --> DIE["Phase = Dead<br/>publish FighterDied"] --> E1
-    DIED -- "no" --> E1
-    E1 -- "Ended" --> RET["publish AttackEnded<br/>scheduler.OnAttackEnded → cursor advances<br/>attacker Phase = Idle, timeline = null"] --> E1
-    E1 -- "no more edges" --> ENDQ
-
-    ACT -- "no" --> ENDQ{"4· any team<br/>fully dead?"}
-    ENDQ -- "yes" --> FIN(["publish EncounterEnded(winner)<br/>session IsFinished — driver stops ticking"])
-    ENDQ -- "no" --> SCHED{"5· timeline empty →<br/>PickNextAttacker"}
-
-    SCHED -- "null (all busy/dead)" --> WAIT["end of frame"]
-    SCHED -- "AI fighter" --> LAUNCH["Moveset.Pick → target = first living opponent<br/>Phase = Attacking, new TimelineRunner(now)<br/>publish AttackStarted"]
-    SCHED -- "player-controlled" --> PIN{"pending<br/>StrikeIntent?"}
-    PIN -- "yes (consume it)" --> LAUNCH
-    PIN -- "no" --> HOLD["stay player's turn —<br/>wait for press (no timeout)"] --> WAIT
-    LAUNCH --> WAIT
-    WAIT --> TICK
-```
-
-### 8.3 One guardian attack, end to end (sequence)
-
-```mermaid
-sequenceDiagram
-    participant DRV as CombatSimDriver (component)
-    participant SES as CombatSession
-    participant SCH as TurnOrderScheduler
-    participant TLR as TimelineRunner
-    participant HP as HealthSystem
-    participant BUS as EventBus
-    participant HUD as DebugCombatHUD (component)
-
-    DRV->>SES: Tick()
-    SES->>SCH: PickNextAttacker()
-    SCH-->>SES: guardian (Idle, alive)
-    SES->>TLR: new TimelineRunner(guardian, player, slam, t0)
-    SES->>BUS: AttackStarted
-    SES->>TLR: Advance(t0)
-    TLR-->>SES: [Telegraphed @ t0]
-    SES->>BUS: AttackTelegraphed
-    BUS-->>HUD: show "!" cue
-    Note over DRV,TLR: ~600 ms of frames pass (TelegraphMs)
-    DRV->>SES: Tick()
-    SES->>TLR: Advance(now)
-    TLR-->>SES: [Committed @ t0+600]
-    SES->>BUS: AttackCommitted
-    Note over DRV,TLR: ~200 ms pass (CommitMs)
-    DRV->>SES: Tick()
-    SES->>TLR: Advance(now)
-    TLR-->>SES: [Impacted @ t0+800]
-    SES->>HP: ApplyDamage(player, 25, guardian, slam)
-    HP->>BUS: FighterDamaged(player, 25, newHp 75)
-    BUS-->>HUD: HP bar 100 → 75
-    SES->>BUS: AttackImpacted
-    Note over DRV,TLR: ~700 ms pass (RecoveryMs)
-    DRV->>SES: Tick()
-    SES->>TLR: Advance(now)
-    TLR-->>SES: [Ended @ t0+1500]
-    SES->>BUS: AttackEnded
-    SES->>SCH: OnAttackEnded(guardian)
-    Note over SCH: cursor → player. Player presses Strike →<br/>same pipeline with roles swapped.
-```
+> Rule: if the canvas and this doc ever disagree, **the §6/§7 text wins** — the canvas is presentation, the text is the spec (the documentation mirror of I3: data is truth).
 
 ---
 

@@ -103,6 +103,8 @@ t0 ──────────────► t0+Telegraph ─────►
     reactable later)     unstoppable)
 ```
 
+> **M1 realized →** the refined **5-phase timeline** (Impact becomes an *Active window*), per-attack **defensibility flags** (`AllowedDefenses` = Parry/Dodge/Jump — supersedes the `readType` reserved above), the **flag-based reaction windows + `ReactionResolver`**, **feints / attack-strings**, and **animation fitting + generation** are all specified in [[1d Last Rite - Reaction & Feints Spec]].
+
 ### 3.2 `MovesetDef` (ScriptableObject)
 
 ```csharp
@@ -362,6 +364,8 @@ All diagrams live in the companion **Obsidian canvas** (same folder) — open it
 ---
 
 ## 9. Attachment points for M1+ (do NOT design these now, do NOT block them either)
+
+> **Update:** items **1 (ReactionResolver), 2 (windows & cues),** and **6 (camera/animation)** below — plus the **5-phase timeline, defensibility flags, and feints** — are now DESIGNED in [[1d Last Rite - Reaction & Feints Spec]]. The seams below stand exactly as written; `1d` fills them in.
 
 1. **ReactionResolver (the big one):** slots **between the `Impacted` edge and `HealthSystem.ApplyDamage`** in Tick step 3. It will take the attack's window data + the defender's timestamped reaction inputs and return a `ReactionOutcome` (Perfect/Block/Dodged/FeintBaited/Hit) that decides whether/how much damage applies. v0's direct `ApplyDamage` call is explicitly the placeholder for this.
 2. **Windows & cues:** `AttackDef` gains per-attack window fields; `TimelineRunner` emits `WindowOpened/Closed` edges computed from them. The VFX/SFX parry cue subscribes to the SAME edges the resolver grades — cue and window can never disagree.

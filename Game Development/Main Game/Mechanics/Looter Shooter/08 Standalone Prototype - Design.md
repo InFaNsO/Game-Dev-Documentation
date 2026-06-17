@@ -3,11 +3,11 @@
 
 > Slice of the [[00 Looter Shooter|Looter Shooter]] pillar, shipped as its **own polished game** before integration into the [[01 Concept & Idea|main game]].
 >
-> **Combat inspirations (locked 2026-06-02 — see [[06 Element in Looter Shooter|06]] "Combat" sections):** **South Park: The Fractured But Whole** (compact single-screen tile **grid**, perspective 3/4) + **Into the Breach** (telegraphed enemy intent + collision/hazard push) + **Expedition 33** (reactive parry/dodge on the enemy turn, the dual-camera parry moment) + **Valkyria Chronicles** (tactical ↔ OTS camera blend). *Sparks of Hope (free-form dome), XCOM cover %, height/verticality, firearms, and procgen arenas were all **cut** in the combat redesign.*
+> **Combat inspirations (locked 2026-06-02 — see [[06 Element in Looter Shooter|06]] "Combat" sections):** **South Park: The Fractured But Whole** (compact single-screen tile **grid**, perspective 3/4) + **Into the Breach** (telegraphed enemy intent + collision/hazard push) + **Expedition 33** (reactive parry/dodge on the enemy turn, the dual-camera parry moment) + **Valkyria Chronicles** (tactical ↔ OTS camera blend). *Sparks of Hope (free-form dome), XCOM cover %, height/verticality, and firearms were all **cut** in the combat redesign; **arena procgen was restored 2026-06-10** (contents procgen within the locked single-screen frame).*
 >
 > **Setting:** The outskirts of [[05 Mega Structures - Game Worlds#Lithic Mow|Lithic Mow]] in the post-[[12 The Akashic and The Bleed|Breach]] world, alongside [[07 Civilization - The Grinders|the Grinders]] — the player's first allies in the journey to rebuild what the [[14 Naming Glossary#The Federation|Mani Accord]] left behind.
 >
-> **Strategic rationale:** the prototype proves the **combat + loot + story** core that carries directly into the main game (combat controller, Mani economy, faction/trust framework). Procgen is **not** in the prototype — it moves to the dream game's dungeon system later. Lore is the same lore — the prototype is canonically the player's first hours after waking from cryo.
+> **Strategic rationale:** the prototype proves the **combat + loot + story** core that carries directly into the main game (combat controller, Mani economy, faction/trust framework). The explore world is hand-authored; **combat arenas are procedurally generated** (contents within the locked single-screen frame) — a deliberate early de-risk of the procgen thread. Full level/dungeon procgen still moves to the dream game's dungeon system later. Lore is the same lore — the prototype is canonically the player's first hours after waking from cryo.
 
 > Lore reference stack: [[14 Naming Glossary]] · [[12 The Akashic and The Bleed]] · [[11 Factions and Species]] · [[13 Campaign Structure]] · [[15 Grinder Trust Arc]]
 
@@ -20,7 +20,7 @@ A stealth-extraction looter set in the post-Breach valley of Lithic Mow — earn
 ## 2. Design Goals (Prototype Scope)
 
 1. **Prove the combat model** — the grid-tactical + dual-camera + reactive-parry loop (South Park grid × Into the Breach intent × Expedition 33 parry), readable, skill-expressive, never RNG-frustrating. **The #1 thing to gray-box: the dynamic-camera reactive loop** (plan in tilted-3/4 → enemy attack → OTS reaction-cam → parry → snap back).
-2. **Prove the loot + crafting loop** — since there are no guns/armor, **Mani is the loot**: collect raw Mani → the refining minigame → refined Mani → cast/research. *(Replaces the old "prove procgen room tech" goal — procgen is cut from the prototype.)*
+2. **Prove the loot + crafting loop** — since there are no guns/armor, **Mani is the loot**: collect raw Mani → the refining minigame → refined Mani → cast/research. *(The prototype also proves constrained single-screen arena procgen — the contained de-risk of the procgen thread; full level/dungeon procgen stays a dream-game feature.)*
 3. **Prove the Mani loop** — chaotic raw-Mani launcher shots create memorable moments without feeling unfair; refined Bhu-Mani spells (via the refining/research minigames) become the carrot pulling players forward.
 4. **Prove the social loop** — the [[15 Grinder Trust Arc|Grinder trust arc]] earned through demonstration, not handed over via quests.
 5. **Prove the loot tension** — going in light vs. heavy, deciding when to extract.
@@ -64,7 +64,7 @@ Extract at evac point  →  back to Base (refine raw Mani, research spells)
 
 Full design in **[[06 Element in Looter Shooter|06]] "Combat" sections** (the live spec). Headline rules (locked 2026-06-02):
 
-- **Arena:** combat triggers a transition into a **self-contained arena** — a compact single-screen **tile grid** (~7×7), no panning, **no cover, no height/verticality**. Authored, not procgen. On win you return to the explore spot.
+- **Arena:** combat triggers a transition into a **self-contained arena** — a compact single-screen **tile grid** (~7×7), no panning, **no cover, no height/verticality**. Procedurally generated within that fixed frame (the explore world stays authored). On win you return to the explore spot.
 - **Camera:** one unified **perspective** rig; **tilted-3/4 tactical** view ↔ **OTS reaction-cam** during enemy attacks; tactical angle = OTS + 15–25° (smooth blend = the #1 identity bet).
 - **Turn:** **side-based phases** — Player Phase (plan / move / attack) → Enemy Phase (each attack = OTS reaction-cam + **Parry/Dodge**).
 - **Action economy:** **AP pool**, no carryover, **fed by base regen + parry** (parry = the skill engine). **Movement = separate splittable budget.** Three weapon lanes on an inverse cost↔range↔risk curve: **enchanted melee** (free/adjacent) → **refined-Mani spells** (mid, cost AP + refined Mani) → **Mani launcher** (rare, AP + big refined Mani, AoE).
@@ -78,13 +78,13 @@ Full design in **[[06 Element in Looter Shooter|06]] "Combat" sections** (the li
 
 Single biome: **the outskirts of [[05 Mega Structures - Game Worlds#Lithic Mow|Lithic Mow]]**, controlled by [[07 Civilization - The Grinders|The Grinders]]. The player wakes at the [[14 Naming Glossary#World Locations|Headwaters]] (a forgotten Accord research outpost upriver) and ventures into the valley.
 
-**Sub-themes (authored explore world + a pool of authored arenas):**
+**Sub-themes (authored explore world + procedurally-generated arenas within the locked frame):**
 - **Mining tunnels** — tight ambush corridors in the explore world; tight arenas
 - **Drill machinery areas** — industrial setpieces (single-plane — no verticality)
 - **Outdoor camp areas** — open ground, longer engagements
 - **Mani vein chambers** — big-ore deposits (launcher Mani); arena hazard ingredients
 
-The explore world is **hand-authored** (full story density); combat uses a **pool of hand-authored, region-themed arenas** (no procgen). Mani veins / cave-ins are arena *ingredients*, not literal explore terrain. Story beats minimal in raid zones; story happens at the Grinder camp via the trust arc.
+The explore world is **hand-authored** (full story density); combat uses **procedurally-generated, region-themed arenas** (within the locked single-screen frame). Mani veins / cave-ins are arena *ingredients*, not literal explore terrain. Story beats minimal in raid zones; story happens at the Grinder camp via the trust arc.
 
 ## 7. The Grinder Trust Arc (the prototype's social spine)
 
@@ -119,7 +119,7 @@ Their lore (~15–20 hunter-gatherers, mining-proficient, Mani-ignorant) drives:
 - **Archetypes (roster DEFERRED — prototype builds ONE simple enemy first):** candidate doctrine Scout · Driller · Chief · Shaman
 
 ### Lithic Mow combat ingredients (arena-side, not literal explore terrain)
-- Tunnel-tight arenas, **Mani veins** (big-ore + hazard targets), cave-in hazards, raw-Mani zones — authored arena ingredients, single-plane (no verticality)
+- Tunnel-tight arenas, **Mani veins** (big-ore + hazard targets), cave-in hazards, raw-Mani zones — procedurally-placed arena ingredients, single-plane (no verticality)
 - Genesis Vats / Prism Forge environmental setpieces deferred to main game
 
 ### Knowledge drives progression
@@ -155,7 +155,7 @@ What ships forward into the dream game **with zero rewrite**:
 - Combat system (grid × dual-camera × E33 parry) — gains party orchestration on top
 - Mani system — gains Jal/Vayu/Agni refinement tiers + 2-element compound spells + purification anchor mechanic
 - Faction system — gains Amphibian Husks + Reptile Husks
-- Authored arena pool + encounter framework — main game adds procgen *later* (dream-game dungeon system), not in this prototype
+- Procgen arena framework (single-screen) + encounter framework — main game extends procgen to full dungeons *later* (dream-game dungeon system)
 - Facing/flank system, AI intent telegraphs, status effect system
 - Grid inventory, item definitions, refining/research minigames, crafting recipes
 - Trust arc framework — adaptable to purified-NPC ally reputation system in main game

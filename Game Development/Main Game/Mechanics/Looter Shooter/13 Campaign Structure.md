@@ -43,7 +43,7 @@ The world is a single continent crossed by a single great river that flows from 
 - 5 hubs: Headwaters · Lithic Mow · Genesis Vats · Prism Forge + the player base (grows at Lithic Mow)
 - 5 mini-locations: 2 in Riverwild · 2 in Drowned Reach · 1 in Glass Delta
 
-Each hub is hand-authored within its biome theme (procgen was cut from the LS prototype — see [[08 Unity Code Architecture]]). Mini-locations are small, focused, single-objective.
+Each hub is hand-authored within its biome theme. Mini-locations are small, focused, single-objective. *(Combat arenas within and around hubs are procedurally generated for run variety — see §6.5.)*
 
 ---
 
@@ -273,7 +273,7 @@ Every Mega Structure visit follows a single shared 8-beat structure. Solo-dev au
 | **Lore distribution** | Hybrid — audio logs primary + purified-NPC dialogue for emotional landing | Audio logs cheap to produce; named NPCs already locked content. Each method plays to its strength. |
 | **Refinement-knowledge gating** | Boss drops blueprint object + cryo-memory flashback on pickup + companion reaction | Refinement feels *earned*. Three small systems each ~1 min of authored content per structure. |
 | **Reclamation mechanic** | Multi-phase reactivation sequence (4 phases: locate → restore → defend → activate) | Reclamation feels *engineered*, not just "boss died, structure works again." |
-| **Procgen vs authored** | *(MAIN-GAME only.)* Authored: hub safe zone, boss arena, puzzle rooms, reactivation phase areas. Procgen: regular raid/exploration zones (themed per structure). | **NOTE (2026-06-02):** the **prototype is fully AUTHORED** (no procgen — explore world hand-authored + a pool of authored single-screen combat arenas, Encounter-Arena model). Procgen is a **dream-game** feature; it returns here only for the main-game Mega Structures. |
+| **Procgen vs authored** | *(MAIN-GAME.)* Authored: hub safe zone, boss arena, puzzle rooms, reactivation phase areas. Procgen: regular raid/exploration zones (themed per structure). | **NOTE (updated 2026-06-10):** the prototype's **explore world is hand-authored**, but its **combat arenas are procedurally generated** (contents within the locked single-screen frame, Encounter-Arena model). Full level/dungeon/raid-zone procgen remains a dream-game / main-game feature. |
 | **NPC presence** | Locked from prior topics: named purifiable Husks + generic Husk enemies + audio logs as "ghost voices" | No new design — existing systems cover this. |
 
 ### Per-structure mechanical hooks
@@ -336,11 +336,11 @@ Each structure gets one defining mechanic that scales across the visit.
 | Akash-Mani | (lore only, never appears) | (lore only, never appears) |
 | Story arc | Trust arc + Lithic Mow reclamation | Full 4-act campaign |
 | Endgame | Tutorial completion / vertical slice end | The Choice + two endings |
-| Authored arena pool | Lithic Mow themed (NO procgen) | + Vats / Forge themed arenas; procgen dungeons = dream-game only |
+| Combat arenas | Lithic Mow themed, procgen within the locked frame | + Vats / Forge themed arenas; full procgen dungeons = dream-game only |
 
-The prototype proves the **combat system, the loot + crafting (Mani-economy) loop, the Grinder trust arc, and Bhu-Mani refinement.** *(NOT procgen — the prototype is fully hand-authored, 2026-06-02; procgen is a dream-game feature only.)* **Every system carries forward into the main game with additive layers only — no rewrites.**
+The prototype proves the **combat system, the loot + crafting (Mani-economy) loop, the Grinder trust arc, and Bhu-Mani refinement** — plus **constrained single-screen arena procgen** (the explore world stays hand-authored; full level/dungeon procgen is a dream-game feature). **Every system carries forward into the main game with additive layers only — no rewrites.**
 
-See [[08 Unity Code Architecture#20 Carry-Forward Checklist (Prototype → Main Game)|carry-forward checklist]] in the architecture doc.
+Every system carries forward into the main game with additive layers only — no rewrites (the carry-forward discipline; see [[Games/1a Last Rite - Code Architecture]] for the concrete extraction-ready seams).
 
 ---
 

@@ -4,11 +4,11 @@
 - Inventory
 - Crafting (incl. the **refining** + **research** minigames — the Mani crafting loop)
 - Trading
-- **Fighting** (grid-tactical + dual-camera + reactive parry — **full spec in [[06 Element in Looter Shooter|06]] "Combat" sections**; locked 2026-06-02. Old "Sparks of Hope dome + XCOM cover + procgen + firearms" model is RETIRED.)
+- **Fighting** (grid-tactical + dual-camera + reactive parry — **full spec in [[06 Element in Looter Shooter|06]] "Combat" sections**; locked 2026-06-02. Old "Sparks of Hope dome + XCOM cover + firearms" model is RETIRED; arena procgen was restored 2026-06-10.)
 - **Mani System / economy** (no guns/armor → **Mani is the loot**: raw Mani → refine → refined fuel → cast/research — see [[06 Element in Looter Shooter|Mani]])
 - **Faction System** (Grinder trust arc + reputation — see [[07 Civilization - The Grinders|The Grinders]] and [[15 Grinder Trust Arc]])
 
-> **NOTE (2026-06-02):** Combat was fully redesigned (Phases 1–4). The authoritative spec now lives in **`06` "Combat — …" sections**. The detailed lists below are being reconciled; where they conflict with `06`, `06` wins. **Procedural Level Assembly is CUT from the prototype** (authored arenas; procgen → dream-game only).
+> **NOTE (2026-06-02):** Combat was fully redesigned (Phases 1–4). The authoritative spec now lives in **`06` "Combat — …" sections**. The detailed lists below are being reconciled; where they conflict with `06`, `06` wins. **Procedural Level Assembly is RESTORED in the prototype** (procedurally-generated arenas within the locked single-screen frame for run variety; full level/dungeon procgen → dream-game).
 
 > Cross-references: [[11 Factions and Species]] · [[12 The Akashic and The Bleed]] · [[13 Campaign Structure]] · [[14 Naming Glossary]]
 
@@ -54,7 +54,7 @@
   > **AUTHORITATIVE SPEC = [[06 Element in Looter Shooter|06]] "Combat — …" sections** (Phases 1–4, locked 2026-06-02). The old "SoH free-form dome + XCOM cover + overwatch + firearms + continuous-space" model below is RETIRED. Headline checklist only:
 
     - [ ] **Mode transition → Encounter Arena:** real-time top-down stealth explore → alert + LOS → **transition into a self-contained, authored, single-screen tile arena** (carry alert/approach advantage) → on win, return to the exact explore spot (loot resolves there).
-    - [ ] **Arena:** compact **tile grid (~7×7)**, no panning, **no cover, no height/verticality.** Authored (no procgen).
+    - [ ] **Arena:** compact **tile grid (~7×7)**, no panning, **no cover, no height/verticality.** Procedurally generated for run variety (within the locked single-screen frame).
     - [ ] **Dual camera:** tilted-3/4 tactical ↔ OTS reaction-cam on enemy attacks (tactical = OTS + 15–25°). **#1 must-gray-box.**
     - [ ] **Turn structure:** side-based phases (Player Phase → Enemy Phase).
     - [ ] **Action economy:** **AP pool**, no carryover, base regen + **parry-fed**; **movement = separate splittable budget** (launcher roots you). Lanes: **melee** (free) / **spell** (AP + refined Mani) / **launcher** (AP + big refined Mani, AoE, rare).
@@ -142,8 +142,8 @@
         - [ ] Procgen: regular raid / exploration zones (themed per structure)
     - [ ] Scope target: 5-8 hours of main-path content per structure
 
-- [ ] ~~**Procedural Level Assembly**~~ — **CUT FROM THE PROTOTYPE (2026-06-02).** The explore world is **hand-authored**; combat uses a **pool of hand-authored, single-screen tile arenas** (Encounter Arena model) — no procgen, no cover anchors, no height layers. Procgen moves to the **dream-game dungeon system** later (or possibly a separate small generative project). What the prototype authors instead:
+- [ ] **Procedural Level Assembly** — **PROTOTYPE-SCOPED (2026-06-10).** The explore world is **hand-authored**; combat uses **procedurally-generated arenas for run variety** (single-screen tile grids, Encounter Arena model). Procgen is constrained to *contents* within the locked spatial frame (playable footprint, hazard/Mani-vein placement, spawn zones) — the frame itself (single-screen, no-panning, odd-sized grid, camera rules) is non-negotiable; boss fights may stay bespoke-authored. Full level/dungeon procgen scales to the **dream-game dungeon system** later. What the prototype generates and authors:
     - [ ] Hand-authored explore spaces (Lithic Mow valley — full story density)
-    - [ ] A **pool of authored arenas**, region-themed (Lithic Mow tileset), single-plane; arena ingredients = Mani veins (big ore + hazard), cave-in / raw-Mani hazard tiles, spawn/facing anchors
+    - [ ] **Procedurally-generated arenas**, region-themed (Lithic Mow tileset), single-plane; generated contents = footprint (holes/obstructions), Mani veins (big ore + hazard), cave-in / raw-Mani hazard tiles, spawn/facing anchors
     - [ ] Boss fights may get bespoke arena staging
     - [ ] *(Main-game procgen — Vats/Forge dungeon themes — deferred to the dream game, not this prototype.)*

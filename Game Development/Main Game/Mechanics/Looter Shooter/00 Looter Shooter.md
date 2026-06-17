@@ -1,7 +1,7 @@
 
 # Looter Shooter — Overview
 
-> The looter-shooter pillar, shipped first as a standalone prototype before integration into the main game. Stealth-extraction looter set on the outskirts of Lithic Mow with a **grid-tactical, dual-camera, reactive-parry** combat model (South Park: FbW grid × Into the Breach intent × Expedition 33 parry × Valkyria Chronicles camera) and a **Mani-is-the-loot** economy. Combat = self-contained **authored** arenas (Encounter-Arena model — no procgen; procgen is a dream-game feature). **Authoritative combat/Mani spec: [[06 Element in Looter Shooter|06]] "Combat — …" sections** (locked 2026-06-02).
+> The looter-shooter pillar, shipped first as a standalone prototype before integration into the main game. Stealth-extraction looter set on the outskirts of Lithic Mow with a **grid-tactical, dual-camera, reactive-parry** combat model (South Park: FbW grid × Into the Breach intent × Expedition 33 parry × Valkyria Chronicles camera) and a **Mani-is-the-loot** economy. Combat = self-contained **procedurally-generated** arenas (Encounter-Arena model — contents procgen within a locked single-screen frame; the explore world stays hand-authored). **Authoritative combat/Mani spec: [[06 Element in Looter Shooter|06]] "Combat — …" sections** (locked 2026-06-02; arena procgen restored 2026-06-10).
 
 ---
 
@@ -37,4 +37,4 @@ The standalone prototype is specified across:
 
 - [[08 Standalone Prototype - Design]] — design brief, pillars, scope cuts.
 - [[09 Complete Feature List]] — full feature list tagged MVP / V1 / Stretch.
-- [[08 Unity Code Architecture]] — Unity 6 architecture, code patterns, build order. *(Promoted to the **Main Game level** — it's the shared foundation every game follows.)*
+- [[Games/1a Last Rite - Code Architecture]] — Unity 6 architecture, code patterns, build order. *(The concrete Tier-0 foundation every game follows; the older top-level "08 Unity Code Architecture" stub was removed 2026-06-13, pending main-game work.)*

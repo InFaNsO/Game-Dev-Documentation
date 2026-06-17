@@ -27,7 +27,7 @@ A massive drill placed between two mountains, drilling down into the valley floo
 
 **Audio log themes:** pre-Breach mining operations, Grinder ancestor castes, hints that the drill was producing more raw Mani than the Accord publicly reported.
 
-**Sub-themes (authored explore world + authored arena pool — no procgen in prototype):** Mining tunnels (tight ambush corridors) · Drill machinery areas (industrial setpieces, single-plane) · Outdoor camp areas (open ground) · Mani vein chambers (big-ore deposits + arena hazard ingredients).
+**Sub-themes (authored explore world + procedurally-generated arenas — contents procgen within the locked frame):** Mining tunnels (tight ambush corridors) · Drill machinery areas (industrial setpieces, single-plane) · Outdoor camp areas (open ground) · Mani vein chambers (big-ore deposits + arena hazard ingredients).
 
 ---
 

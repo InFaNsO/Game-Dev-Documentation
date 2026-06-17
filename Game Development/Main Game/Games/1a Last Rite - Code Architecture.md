@@ -1,6 +1,6 @@
 # Game 1 "Last Rite" — Code Architecture & Abstraction Map
 
-> **The engineering blueprint for Game 1 — written BEFORE the scaffold (2026-06-10).** Companion to [[1 Parry Combat - Last Rite]] (the design; all D1–D8 locks). Pattern source: [[../08 Unity Code Architecture|08 Unity Code Architecture]] (the Tier-0 *patterns* carry; its LS-specific machinery — grid/cover/Mani/faction/inventory — is NOT built here). **This doc is the concrete v1 of the Tier-0 foundation** — the first real instance of the shared architecture every later game inherits.
+> **The engineering blueprint for Game 1 — written BEFORE the scaffold (2026-06-10).** Companion to [[1 Parry Combat - Last Rite]] (the design; all D1–D8 locks). Pattern source: the Tier-0 *patterns* (assemblies · service locator · typed event bus · SO data layer · top-level state machine · build order) — its LS-specific machinery (grid/cover/Mani/faction/inventory) is NOT built here. *(The older top-level "08 Unity Code Architecture" doc that first captured these patterns was removed 2026-06-13, pending main-game work; this doc is now the authoritative Tier-0 source.)* **This doc is the concrete v1 of the Tier-0 foundation** — the first real instance of the shared architecture every later game inherits.
 
 **Target:** Unity 6 (6000.3.6f1) · C# · URP · Input System · Cinemachine 3. Single-player, single project.
 

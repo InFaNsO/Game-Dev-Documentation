@@ -33,6 +33,11 @@ Ports + warehouses with capacity caps. The macro challenge = **portfolio balanci
 
 Space-fold **portals = instant transfer** → effectively **removes route management at endgame.** The logistics endgame = *conquering distance itself* — especially satisfying given the high route volume D creates.
 
+> ⚠️ **OPEN — DEFERRED TO DEVELOPMENT (flagged 2026-06-13).** Tension to resolve at build time: instant portals *delete the logistics core loop they're meant to cap.* Two candidate framings, undecided — **do not act on this until we reach this part of development:**
+> - **(a) Narrative-only capstone** — the portal/Akash Synthesis is a cinematic great-work that completes the game, not a playable mechanic, so it never trivializes live logistics.
+> - **(b) Playable reward (gated)** — portals are a real mechanic the player earns, but hard-gated (rare Akash materials, long build, throughput caps / breakable) so endgame logistics keep meaningful tension.
+> Decide once the logistics game is playable and we can feel whether the late-game goes hollow. Until then, leave the locked "instant transfer" direction as-is.
+
 ## 3.5 Threat interaction — NONE (LOCKED 2026-06-07)
 
 **Routes are not attacked.** Tower-defense is reserved for the dream game (see `04 World & Setting`), so nothing severs routes or besieges ports. Logistics tension is **purely economic** (supply/demand balancing across the network). *(Environmental Mani-weather as a soft route-disruptor = deferred, revisit post-prototype.)*

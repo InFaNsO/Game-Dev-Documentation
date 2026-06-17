@@ -160,7 +160,7 @@
 - Blueprint / recipe unlocks
 - Era / tech progression tracking
 
-## 13. Foundational Tech *(engine architecture — see [[08 Unity Code Architecture|Code Architecture]], the shared foundation)*
+## 13. Foundational Tech *(engine architecture — see [[Games/1a Last Rite - Code Architecture|Code Architecture]], the concrete Tier-0 foundation)*
 - Game state machine
 - Service locator + typed event bus
 - ScriptableObject data layer

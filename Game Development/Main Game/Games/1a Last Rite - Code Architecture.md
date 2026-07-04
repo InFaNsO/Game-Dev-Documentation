@@ -6,6 +6,35 @@
 
 ---
 
+## ⚑ AS-BUILT — Combat Prototype (updated 2026-07-04)
+
+> Everything from §0 down is the **north-star blueprint** (pure-C# deterministic sim, asmdef extraction story, camera director, etc.), written before any code. The **combat prototype actually shipped a different, MonoBehaviour-driven, animation-integrated architecture** — a deliberate solo-dev pivot toward "Unity-only, no pure-C# sim." This section is the source of truth for *what exists today*; the blueprint below stays the aspiration for later hardening/extraction.
+
+**Key divergences from the blueprint**
+- **No pure-C# sim, no `ISimClock`/`IRng`/`IEventBus`, no asmdefs, no `Assets/Code/`, no EditMode tests.** All game code is Unity types (`MonoBehaviour` / `ScriptableObject`) in a single `Assembly-CSharp`, under `Assets/Scripts/`.
+- **The animation IS the clock.** Attack windows are authored in **frames** on `SOAttackDef` (`TimeWindow{StartFrame,EndFrame}`), and the live attack phase + defense-validity are read from the **Animator's current playback frame** (`AnimController.GetCurrentAnimationFrame()` off `AnimatorStateInfo.normalizedTime`) — not a separate ms clock. Data-is-truth survives (timing lives in the SO), but sim and presentation share one timeline.
+- **Turn flow is event + `StateMachineBehaviour` driven**, not a scheduler over a sim loop.
+
+**As-built module map** (`Assets/Scripts/`)
+
+| Namespace / file | Role |
+|---|---|
+| `BGamer.Core/GameManager` | singleton service locator (`Register<T>` / `Get<T>`, `[DefaultExecutionOrder(-200)]`) |
+| `BGamer.Core/ISystem`, `IGameEntity` | interfaces with **default methods** for entity↔system registration; `IGameEntity` also carries `Team Side`. `enum Team { None, Player, FriendlyNPC, AggressiveNPC }` |
+| `BGamer.Core/AnimController` | data-driven animator wrapper: string-key → `List<AnimTransitionData>` (param/trigger sets); `Play(name)`, `GetCurrentAnimationFrame()`, `GetActiveAnimName()` |
+| `BGamer.Combat/CombatSystem` | `ISystem`; turn loop (`StartCombat` picks the `AggressiveNPC`, `NextTurn` alternates aggressor by side); self-registers with `GameManager` in `Awake` (`[DefaultExecutionOrder(-100)]`); events `OnEntityRegistered/OnResolved/OnTurnComplete/OnAttackPhaseChanged`; routes defense via `CombatEntity.GetDefenseResult` |
+| `BGamer.Combat/CombatEntity` | `IGameEntity`; owns per-swing state (`ActiveAttack/ActiveTarget/ActiveAttackPhase`), picks its own move + target, drives `AnimController.Play`, single-writer `ApplyDamage`; events `OnDefensePerformed/OnHealthChanged/OnDied/OnAttackEnd`; player input LMB=dodge / RMB=parry |
+| `BGamer.Combat/SOAttackDef` | attack data: frame windows (Startup/Telegraph/Commit/Hit/Recover + Parry/PerfectParry/Dodge), Damage, `AllowedDefences`, `AttackPhase PhaseAt(frame)`, per-attack `AnimTransitionData` |
+| `BGamer.Combat/SOFighterDef` | Name, MaxHP, `Moveset` (`List<SOAttackDef>`), `AnimData` (non-attack anim map: idle/hit/parried/death/dodge) |
+| `BGamer.Combat/DebugCombatHUD` | IMGUI HUD — HP bars (event-driven) + attack-window box (polled from the live attacker) |
+| `LastRite/AttackStateBehaviour` | `StateMachineBehaviour` on each attack state → on state-exit fires `CombatEntity.AttackAnimEnded → OnAttackEnd → CombatSystem.NextTurn` |
+
+**Prototype behaviour (done):** a real-character 1v1 duel (extensible to #-vs-#): fighters alternate turns, each auto-selects a random moveset attack + an enemy target, plays the attack anim, and applies damage at the **Hit** frame; the player defends by timing **RMB parry / LMB dodge** against the boss's live animation-frame windows; `DebugCombatHUD` shows both HP bars and the colour-coded current attack window. Characters (Purifier, CinderScale) are rigged Humanoid with grounded Mixamo anims; consolidated single-file FBX (`Purifier_Full.fbx`, `CinderScale_Full.fbx`) exist as portable character assets.
+
+**Still to build (blueprint items not yet real):** the reaction→economy resolver (parry currently only negates the swing; purge/counter unbuilt), camera director / smart action-cam, purge meter + purification finisher, run/rebirth spine, sanity/narration, ranking/gauntlet, the guardian roster, the asmdef split + `BGamer.*` extraction, and any automated tests.
+
+---
+
 ## 0. The abstraction rule (read this first)
 
 **A seam goes exactly where a future game swaps something out — nowhere else.**

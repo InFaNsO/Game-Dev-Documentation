@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Production Cost Ledger.md",
+                "file": "Game Development/Main Game/Games/01 Last Rite/1e Last Rite - Build Roadmap.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Production Cost Ledger"
+              "title": "1e Last Rite - Build Roadmap"
             }
           },
           {
@@ -207,11 +207,15 @@
   },
   "active": "42d9b3653d565237",
   "lastOpenFiles": [
+    "Game Development/Main Game/Games/01 Last Rite/1e Last Rite - M1 Tracker.html",
+    "Game Development/Main Game/Games/01 Last Rite/1 Parry Combat - Last Rite.md",
+    "Game Development/Main Game/Games/00 Game Concepts Hub.md",
+    "Game Development/Main Game/Games/01 Last Rite",
+    "Production Cost Ledger.md",
     "Tools/03 SOMA-to-Meshy Retarget Map.md",
     "Tools/02 Prompting & Motion Quality.md",
     "Tools/01 AssetForge.md",
     "Tools/00 Tools Hub.md",
-    "Production Cost Ledger.md",
     "Tools/03 SOMA-to-Meshy Retarget Map.md.tmp.51848.7e2d8acdc3f6",
     "Tools/02 Prompting & Motion Quality.md.tmp.60584.a8560fcc29b2",
     "Tools/01 AssetForge.md.tmp.60584.237fccfcb795",
@@ -221,19 +225,17 @@
     "Production Cost Ledger.md.tmp.36796.db6bf0c4b0b8",
     "Game Development/Main Game/Games/1c Last Rite - Combat Core Spec.md.tmp.36796.5c1a5ef7cc54",
     "Game Development/Main Game/Games/1c Last Rite - Combat Core Spec.md.tmp.36796.a5cb8814200c",
-    "Game Development/Main Game/Games/1d Last Rite - Reaction & Feints Spec.md",
+    "Game Development/Main Game/Games/01 Last Rite/1d Last Rite - Reaction & Feints Spec.md",
     "Game Development/Main Game/Games/1d Last Rite - Reaction & Feints Spec.md.tmp.36796.9b297550d27d",
-    "CLAUDE.md.tmp.14300.0f679311b4a2",
     "Game Development/Main Game/Mechanics/Looter Shooter/13 Campaign Structure.md",
     "Game Development/Main Game/Mechanics/Looter Shooter/00 Looter Shooter.md",
     "Game Development/Main Game/Mechanics/Looter Shooter/09 Complete Feature List.md",
     "Game Development/Main Game/Mechanics/Looter Shooter/06 Element in Looter Shooter.md",
-    "Game Development/Main Game/Games/1c Last Rite - Combat Core Diagrams.canvas",
-    "Game Development/Main Game/Games/1c Last Rite - Combat Core Spec.md",
-    "Game Development/Main Game/Games/1a Last Rite - Architecture.canvas",
-    "Game Development/Main Game/Games/1b Last Rite - Art Bible.md",
-    "Game Development/Main Game/Games/1a Last Rite - Code Architecture.md",
-    "Game Development/Main Game/Games/00 Game Concepts Hub.md",
+    "Game Development/Main Game/Games/01 Last Rite/1c Last Rite - Combat Core Diagrams.canvas",
+    "Game Development/Main Game/Games/01 Last Rite/1c Last Rite - Combat Core Spec.md",
+    "Game Development/Main Game/Games/01 Last Rite/1a Last Rite - Architecture.canvas",
+    "Game Development/Main Game/Games/01 Last Rite/1b Last Rite - Art Bible.md",
+    "Game Development/Main Game/Games/01 Last Rite/1a Last Rite - Code Architecture.md",
     "Game Development/Main Game/01 Concept & Idea.md",
     "README.md",
     "CLAUDE.md",
@@ -243,8 +245,6 @@
     "Game Development/Main Game/Mechanics/Automation/02 Game Loop.md",
     "Game Development/Main Game/Mechanics/Automation/01 Goal.md",
     "Game Development/Main Game/Mechanics/Automation/10 Scope & Depth Allocation.md",
-    "Game Development/Main Game/Mechanics/Automation/09 Machine Framework - Modules, Parts & Production.md",
-    "Game Development/Main Game/Mechanics/Automation/07 Market & Competitor AI.md",
     "Game Development/Main Game/Mechanics/Looter Shooter/03 Game Loop.canvas",
     "Game Development/Main Game/05 Game Loop.canvas"
   ]

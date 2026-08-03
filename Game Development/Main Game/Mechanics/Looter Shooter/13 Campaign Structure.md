@@ -340,7 +340,7 @@ Each structure gets one defining mechanic that scales across the visit.
 
 The prototype proves the **combat system, the loot + crafting (Mani-economy) loop, the Grinder trust arc, and Bhu-Mani refinement** — plus **constrained single-screen arena procgen** (the explore world stays hand-authored; full level/dungeon procgen is a dream-game feature). **Every system carries forward into the main game with additive layers only — no rewrites.**
 
-Every system carries forward into the main game with additive layers only — no rewrites (the carry-forward discipline; see [[Games/1a Last Rite - Code Architecture]] for the concrete extraction-ready seams).
+Every system carries forward into the main game with additive layers only — no rewrites (the carry-forward discipline; see [[1a Last Rite - Code Architecture]] for the concrete extraction-ready seams).
 
 ---
 

@@ -4,6 +4,8 @@
 
 **Tooling:** Meshy AI (image→3D meshes, PBR textures, auto-LOD, auto-rig) · NVIDIA Kimodo (text+constraint humanoid motion diffusion) · Unity 6 URP + Humanoid avatar retargeting · one shared toon/ramp shader + one parameterized corruption shader + one grading LUT-per-rebirth.
 
+> **⚠ Animation-sourcing amendment (2026-07-31):** **Kimodo is dropped for Last Rite combat animation** — output quality judged unacceptable by the developer. Combat clips now come from a purchased pack (**Mega Animation Pack v1.8**, Unity Asset Store) retargeted via Unity Humanoid — see the §5.4 status note + [[1h Last Rite - Player Moveset & Animation Plan]] (the full clip plan) + [[1f Last Rite - Combat Iteration Log]]. Everything else in this bible — Meshy meshes/rigs, the style lock, colour governance, the §2 rig amendment — stands unchanged.
+
 ---
 
 ## 0. The lock (read this first)
@@ -87,6 +89,15 @@ The rule that protects it: **a gameplay colour never appears as decoration.** If
 Every asset passes through: **shared toon shader → corruption overlay (where applicable) → grading LUT.** **Never ship a raw Meshy texture** — desaturate and regrade it into the governed §3 palette first. This pass, not the generator, is what makes the game look like one game.
 
 ### 5.4 Animation: Kimodo generates motion, **you author timing**
+
+> **⚠ SUPERSEDED for combat animation — 2026-07-31.** Kimodo is **dropped for Last Rite combat clips** (output quality judged unacceptable). The replacement pipeline:
+> **Mega Animation Pack v1.8** (Unity Asset Store, publisher Alcaboce, asset id 170897, ~$70 — Humanoid rig; per-weapon folders of ~70 clips each; ships an Animator controller + avatar mask; standard Asset Store EULA — one purchase covers player + all enemies + future games)
+> → **Unity Humanoid retarget** onto the chibi rigs
+> → **per-clip Blender fixes** (shoulder rotation to avoid head clipping · foot-curve pinning · ~10–15% amplitude reduction)
+> → **re-time in Blender NLA/Graph Editor** to the AttackDef frame windows (130ms perfect / 330ms block; keep speed change ≤15%)
+> → **Mecanim Animator** with shared link poses, cross-fades (0.1–0.15s chains · 0.05–0.08s parry deflect · 0.15–0.2s heavy wind-ups) and **Animation Events on impact frames** (the clip-events timing model of [[1d Last Rite - Reaction & Feints Spec]] §7 — unchanged).
+> Full tiered animation list + pack clip mapping + validation checklist: [[1h Last Rite - Player Moveset & Animation Plan]]. The workflow below is retained as the original Kimodo plan — Kimodo remains available for non-combat / other uses (Tools docs carry matching status notes).
+
 Workflow: **Kimodo (text prompt + keyframe/path constraints) → standard-skeleton FBX → Unity Humanoid retarget → hand-edit the telegraph timing.**
 
 > **The load-bearing rule: the D8 frame windows are gameplay DATA, not animation data.** Drive the parry/block/dodge windows from ScriptableObjects ([[1a Last Rite - Code Architecture]]: attack-as-data, sim = source of truth) with animation events aligned to them; then stretch/hold Kimodo's anticipation poses to land on those exact frame counts. AI buys motion *quality* (the real budget per [[1 Parry Combat - Last Rite]]'s cost-truth: "moveset animation + telegraph design"); the *design* is the timing you impose. The animation mirrors the sim — it never feeds back into it.
@@ -100,7 +111,7 @@ Telegraph VFX · the corruption shader · purge/purification VFX · UI · gradin
 
 Build **one corner** end-to-end and judge it inside the gray-box that [[1 Parry Combat - Last Rite]] already ranks #1 (the smart-action-cam reactive loop):
 
-> **1 guardian** (Meshy mesh + auto-rig) **+ 1 Kimodo attack** with hand-tuned telegraph timing **+ the corruption shader + one LUT swap**, played inside the smart-action-cam loop.
+> **1 guardian** (Meshy mesh + auto-rig) **+ 1 Kimodo attack** with hand-tuned telegraph timing **+ the corruption shader + one LUT swap**, played inside the smart-action-cam loop. *(2026-07-31: read "1 Kimodo attack" as "one pack attack clip" — see the §5.4 status note.)*
 
 - If that slice **feels right**, the style is proven end-to-end → scale to the full roster.
 - If the **chibi retarget fights you** (see §7), you've spent days, not months, finding out.
@@ -111,9 +122,9 @@ This is the art-equivalent of the design's "gray-box the riskiest thing first" �
 
 ## 7. Risks & deferred
 
-- **⚠ #1 risk — Kimodo retarget onto chibi proportions.** Kimodo trains on realistic human proportions; retargeting onto big-head / stub-limb characters causes **foot-skating and self-intersection.** Mitigation is standard (Unity Humanoid foot-IK correction; a slight leg-length compromise on the mesh) — but it belongs in the §6 first art slice, **not month six.** This is the one thing to validate before committing to the pipeline.
+- **⚠ #1 risk — Kimodo retarget onto chibi proportions.** Kimodo trains on realistic human proportions; retargeting onto big-head / stub-limb characters causes **foot-skating and self-intersection.** Mitigation is standard (Unity Humanoid foot-IK correction; a slight leg-length compromise on the mesh) — but it belongs in the §6 first art slice, **not month six.** This is the one thing to validate before committing to the pipeline. **⚠ 2026-07-31: moot for combat clips — Kimodo dropped (§5.4 status note). The chibi-retarget risk transfers to the pack clips in reduced form: first session, retarget one weapon folder onto the chibi purifier rig and check arm/head clipping + root-motion vs in-place before building the Animator — checklist in [[1h Last Rite - Player Moveset & Animation Plan]].**
 - **Deferred to the gray-box (per portfolio discipline):** exact reference colours/hex per §3 channel; the precise LUT-per-rebirth ramp; final proportion ratio (feel-dependent — tune against telegraph readability + retarget quality together); the ruin-kit piece count.
-- **Tooling caveat:** Kimodo is open-source and runs locally (GPU-bound). Confirm the local install + Unity import round-trip works in the first slice before scaling — a broken FBX round-trip silently breaks the §5.4 rule.
+- **Tooling caveat:** Kimodo is open-source and runs locally (GPU-bound). Confirm the local install + Unity import round-trip works in the first slice before scaling — a broken FBX round-trip silently breaks the §5.4 rule. *(2026-07-31: combat clips no longer depend on this — see the §5.4 status note.)*
 
 ---
 

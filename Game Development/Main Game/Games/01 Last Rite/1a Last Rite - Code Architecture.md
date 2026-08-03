@@ -12,8 +12,8 @@
 
 **Key divergences from the blueprint**
 - **No pure-C# sim, no `ISimClock`/`IRng`/`IEventBus`, no asmdefs, no `Assets/Code/`, no EditMode tests.** All game code is Unity types (`MonoBehaviour` / `ScriptableObject`) in a single `Assembly-CSharp`, under `Assets/Scripts/`.
-- **The animation IS the clock.** Attack windows are authored in **frames** on `SOAttackDef` (`TimeWindow{StartFrame,EndFrame}`), and the live attack phase + defense-validity are read from the **Animator's current playback frame** (`AnimController.GetCurrentAnimationFrame()` off `AnimatorStateInfo.normalizedTime`) — not a separate ms clock. Data-is-truth survives (timing lives in the SO), but sim and presentation share one timeline.
-- **Turn flow is event + `StateMachineBehaviour` driven**, not a scheduler over a sim loop.
+- **The animation IS the clock — and (2026-07-18) the animation *events* are the truth.** Originally attack windows were authored in **frames** on `SOAttackDef` (`TimeWindow{StartFrame,EndFrame}`) and polled from the **Animator's playback frame** (`AnimController.GetCurrentAnimationFrame()` off `AnimatorStateInfo.normalizedTime`). The build is now moving phases + defense windows **onto the clip as animation events**, forwarded by a **`CombatAnimEventListener`** (nested `MonoBehaviour`, runtime-`AddComponent`-ed onto the Animator's GameObject, holds a back-ref to its `CombatEntity`) into `CombatEntity`'s events; the SO keeps only *non-frame* data (`Damage`, difficulty start-delay, `AllowedDefences`, combo metadata). Either way sim + presentation share one timeline. **This inverts blueprint I3** (which forbade gameplay timing in anim events) — full trail in [[1f Last Rite - Combat Iteration Log]].
+- **Turn flow is event + `StateMachineBehaviour` driven**, not a scheduler over a sim loop: `AttackStateBehaviour` (state-exit) → `CombatSystem.NextTurn`; `CombatTurnSequencer` orders turns and handles the **parry → counter** turn; move/target selection lives in **`IAttackPlanner`** (`NPCAttackPlanner` random-from-moveset · `PlayerAttackPlanner` player-chosen). `CombatEntity` is a `partial` class (the anim-event region + nested listener live in a partial file).
 
 **As-built module map** (`Assets/Scripts/`)
 
@@ -28,6 +28,10 @@
 | `BGamer.Combat/SOFighterDef` | Name, MaxHP, `Moveset` (`List<SOAttackDef>`), `AnimData` (non-attack anim map: idle/hit/parried/death/dodge) |
 | `BGamer.Combat/DebugCombatHUD` | IMGUI HUD — HP bars (event-driven) + attack-window box (polled from the live attacker) |
 | `LastRite/AttackStateBehaviour` | `StateMachineBehaviour` on each attack state → on state-exit fires `CombatEntity.AttackAnimEnded → OnAttackEnd → CombatSystem.NextTurn` |
+| `BGamer.Combat/IAttackPlanner`, `NPCAttackPlanner`, `PlayerAttackPlanner` | who-attacks-what: NPC picks a random moveset attack + cycles target; player chooses via `PlayerChoseAttack`. Carried on each fighter GameObject |
+| `BGamer.Combat/CombatTurnSequencer` | builds turn order (player first, then enemies) and injects the **parry → counter** turn (`TurnData.IsParriedTurn`) |
+| `BGamer.Combat/CombatEntity.CombatAnimEventListener` *(nested, partial)* | runtime-added MonoBehaviour on the Animator's GameObject; receives the clip's animation events (`AnimStartup … AnimRecover`, defense-window open/close, `ChainBranch`/`CancelBranch`) and raises `CombatEntity`'s events (passing `SOAttackDef` + entity). See [[1d Last Rite - Reaction & Feints Spec]] §7 |
+| `BGamer.Juice/*` | decoupled reaction layer (camera shake, blood splat, selection highlight) driven by scene wiring, never referenced from `BGamer.Combat` |
 
 **Prototype behaviour (done):** a real-character 1v1 duel (extensible to #-vs-#): fighters alternate turns, each auto-selects a random moveset attack + an enemy target, plays the attack anim, and applies damage at the **Hit** frame; the player defends by timing **RMB parry / LMB dodge** against the boss's live animation-frame windows; `DebugCombatHUD` shows both HP bars and the colour-coded current attack window. Characters (Purifier, CinderScale) are rigged Humanoid with grounded Mixamo anims; consolidated single-file FBX (`Purifier_Full.fbx`, `CinderScale_Full.fbx`) exist as portable character assets.
 

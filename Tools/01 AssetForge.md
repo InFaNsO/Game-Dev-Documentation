@@ -2,6 +2,8 @@
 
 > Our in-house asset pipeline: it turns a concept into a rigged, animated, Unity-ready character by orchestrating Meshy (geometry) + Kimodo (motion) inside Blender, and exposes every stage as MCP tools so Claude can drive it. Part of [[00 Tools Hub]]. Last updated 2026-06-14.
 
+> **⚠ Status note (2026-07-31): Kimodo is deprecated for Last Rite combat animation** — output quality judged unacceptable by the developer; combat clips now come from the purchased **Mega Animation Pack v1.8** (Unity Asset Store, Humanoid retarget → Blender fix/re-time pass) instead — see [[1h Last Rite - Player Moveset & Animation Plan]] + [[1f Last Rite - Combat Iteration Log]]. The Meshy stages (mesh/retopo/rig/export) are unaffected. The Kimodo sections below are **retained for reference/other uses** (non-combat motion, experiments).
+
 ## Repo & layout
 
 - **Repo:** `InFaNsO/AssetForge` (renamed 2026-06-14 from `Auto-Asset-Development`).

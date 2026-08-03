@@ -1,0 +1,593 @@
+<title>Last Rite — M1 Tracker</title>
+<style>
+  :root {
+    --ground: #14110e;
+    --surface: #1c1814;
+    --elevated: #241f19;
+    --raised: #2c261f;
+    --border: #38312a;
+    --border-soft: #2a241e;
+    --text: #f3ede4;
+    --muted: #a99f92;
+    --faint: #756c60;
+    --ember: #ef6a34;
+    --ember-soft: #ff8b5a;
+    --ember-dim: #7a3a20;
+    --done: #58a878;
+    --active: #d9a24a;
+    --todo: #6d6459;
+    --shadow: 0 18px 44px rgba(0,0,0,.44);
+    --mono: ui-monospace, "Cascadia Code", "JetBrains Mono", Menlo, Consolas, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1100px 620px at 78% -8%, rgba(239,106,52,.10), transparent 60%),
+      radial-gradient(900px 500px at 5% 4%, rgba(239,106,52,.05), transparent 55%),
+      var(--ground);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: clamp(28px, 5vw, 60px) clamp(18px, 4vw, 40px) 80px;
+  }
+
+  /* ---------- Header ---------- */
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ember-soft);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 18px;
+  }
+  .eyebrow .chip {
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px 10px;
+    letter-spacing: .1em;
+  }
+
+  h1 {
+    font-size: clamp(2.1rem, 6vw, 3.5rem);
+    line-height: 1.02;
+    letter-spacing: -.02em;
+    font-weight: 800;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+  h1 .accent { color: var(--ember); }
+
+  .lede {
+    font-size: clamp(1rem, 2.2vw, 1.18rem);
+    color: var(--muted);
+    max-width: 62ch;
+    margin: 0 0 8px;
+  }
+  .lede strong { color: var(--text); font-weight: 600; }
+
+  /* ---------- Frame-window motif ---------- */
+  .framebar {
+    margin: 30px 0 34px;
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    background: linear-gradient(180deg, var(--surface), var(--ground));
+    padding: 16px 18px 14px;
+  }
+  .framebar .label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--faint);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .track {
+    display: flex;
+    height: 30px;
+    border-radius: 7px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .track span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: rgba(255,255,255,.82);
+    text-transform: uppercase;
+  }
+  .seg-wind { flex: 3; background: repeating-linear-gradient(45deg, #221c16, #221c16 6px, #26201a 6px, #26201a 12px); color: var(--faint); }
+  .seg-parry { flex: 1.1; background: linear-gradient(180deg, #2f6f8f, #26586f); }
+  .seg-hit { flex: .8; background: linear-gradient(180deg, var(--ember), #c8471f); }
+  .seg-rec { flex: 2; background: #201a15; color: var(--faint); }
+
+  /* ---------- Purge meter ---------- */
+  .purge {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    padding: 22px 22px 20px;
+    margin-bottom: 34px;
+  }
+  .purge-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .purge-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .purge-title b { color: var(--ember-soft); font-weight: 600; }
+  .purge-count {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .purge-count b {
+    color: var(--text);
+    font-size: 22px;
+    font-variant-numeric: tabular-nums;
+  }
+  .meter {
+    height: 16px;
+    border-radius: 999px;
+    background: #0f0c0a;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+  }
+  .meter-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #b9451e, var(--ember) 60%, var(--ember-soft));
+    box-shadow: 0 0 18px rgba(239,106,52,.5);
+    transition: width .55s cubic-bezier(.16,1,.3,1);
+  }
+  .meter.full .meter-fill { animation: pulse 2.2s ease-in-out infinite; }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 18px rgba(239,106,52,.5); }
+    50% { box-shadow: 0 0 30px rgba(239,106,52,.85); }
+  }
+  .purge-status {
+    margin-top: 12px;
+    font-size: 13.5px;
+    color: var(--faint);
+    min-height: 20px;
+  }
+  .purge-status.unlocked { color: var(--ember-soft); font-weight: 600; }
+
+  /* ---------- Controls ---------- */
+  .controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+  }
+  .filters { display: flex; gap: 6px; flex-wrap: wrap; }
+  .filters button, .reset {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 13px;
+    cursor: pointer;
+    transition: transform .12s ease, border-color .18s ease, color .18s ease, background .18s ease;
+  }
+  .filters button:hover, .reset:hover { border-color: var(--ember-dim); color: var(--text); }
+  .filters button.on { background: var(--ember); color: #1a0f08; border-color: var(--ember); font-weight: 600; }
+  .filters button:active, .reset:active { transform: translateY(1px); }
+  .reset { margin-left: auto; }
+  button:focus-visible, .status:focus-visible { outline: 2px solid var(--ember-soft); outline-offset: 2px; }
+
+  /* ---------- Deliverable cards ---------- */
+  .list { display: grid; gap: 14px; }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--elevated);
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: 46px 1fr auto;
+    gap: 4px 16px;
+    align-items: start;
+    transition: border-color .2s ease, transform .12s ease, opacity .2s ease;
+  }
+  .card:hover { border-color: var(--ember-dim); }
+  .card.is-done { opacity: .62; }
+  .card.is-done .card-title { text-decoration: line-through; text-decoration-color: var(--faint); }
+
+  .idx {
+    grid-row: 1 / span 3;
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--faint);
+    padding-top: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .card.is-done .idx { color: var(--done); }
+  .card.is-active .idx { color: var(--active); }
+
+  .card-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .card-title { font-size: 1.08rem; font-weight: 650; letter-spacing: -.01em; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 2px 9px;
+  }
+  .tag.flag { color: #1a0f08; background: var(--ember-soft); border-color: var(--ember-soft); font-weight: 700; }
+
+  .why { grid-column: 2 / 4; color: var(--muted); font-size: .96rem; margin: 6px 0 0; }
+  .tech {
+    grid-column: 2 / 4;
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--faint);
+    background: var(--ground);
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    padding: 9px 12px;
+  }
+  .tech b { color: var(--ember-soft); font-weight: 500; }
+  .today {
+    grid-column: 2 / 4;
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: var(--faint);
+    font-style: italic;
+  }
+
+  /* status pill (button) */
+  .status {
+    grid-row: 1;
+    grid-column: 3;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    padding: 6px 13px;
+    cursor: pointer;
+    white-space: nowrap;
+    border: 1px solid var(--border);
+    background: var(--raised);
+    color: var(--muted);
+    transition: transform .12s ease, background .18s ease, color .18s ease, border-color .18s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .status:hover { transform: translateY(-1px); }
+  .status:active { transform: translateY(0) scale(.97); }
+  .status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--todo); }
+  .status[data-s="1"] { border-color: #6a5326; color: var(--active); }
+  .status[data-s="1"] .dot { background: var(--active); box-shadow: 0 0 8px var(--active); }
+  .status[data-s="2"] { border-color: #2f6b46; color: var(--done); background: #16241c; }
+  .status[data-s="2"] .dot { background: var(--done); box-shadow: 0 0 8px var(--done); }
+
+  /* ---------- Exit gate ---------- */
+  .gate {
+    margin-top: 34px;
+    border: 1px solid var(--ember-dim);
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(239,106,52,.09), rgba(239,106,52,.02));
+    padding: 24px 26px;
+  }
+  .gate .label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ember-soft);
+    margin-bottom: 10px;
+  }
+  .gate .quote {
+    font-size: clamp(1.3rem, 3.4vw, 1.8rem);
+    font-weight: 700;
+    letter-spacing: -.01em;
+    line-height: 1.15;
+    margin: 0 0 10px;
+  }
+  .gate p { margin: 0; color: var(--muted); font-size: .96rem; max-width: 60ch; }
+
+  /* ---------- Context strip ---------- */
+  .ladder {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 12px;
+  }
+  .rung {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 12px;
+    color: var(--faint);
+    background: var(--surface);
+  }
+  .rung.done { color: var(--done); border-color: #2f6b46; }
+  .rung.now { color: #1a0f08; background: var(--ember); border-color: var(--ember); font-weight: 700; }
+  .arw { color: var(--faint); }
+
+  .notes {
+    margin-top: 26px;
+    color: var(--faint);
+    font-size: 13px;
+    line-height: 1.65;
+    border-top: 1px solid var(--border-soft);
+    padding-top: 18px;
+  }
+  .notes b { color: var(--muted); font-weight: 600; }
+
+  @media (max-width: 620px) {
+    .card { grid-template-columns: 36px 1fr; }
+    .status { grid-row: auto; grid-column: 1 / 3; justify-self: start; margin-top: 10px; }
+    .card-head, .why, .tech, .today { grid-column: 2 / 3; }
+    .idx { grid-row: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Milestone M1 <span class="chip">Last Rite · Game 1</span> <span class="chip">Do next</span></p>
+  <h1>Make the combat <span class="accent">feel good</span>.</h1>
+  <p class="lede">The prototype already <strong>moves</strong>: fighters trade turns, animations play, damage lands on the Hit frame. But the reaction loop pays nothing out yet. M1 closes that loop. It is the validation gate the whole portfolio's combat identity rests on.</p>
+
+  <div class="framebar" aria-hidden="true">
+    <div class="label"><span>Attack window (frames)</span><span>the clock is the animation</span></div>
+    <div class="track">
+      <span class="seg-wind">wind-up</span>
+      <span class="seg-parry">parry</span>
+      <span class="seg-hit">hit</span>
+      <span class="seg-rec">recover</span>
+    </div>
+  </div>
+
+  <div class="purge">
+    <div class="purge-top">
+      <div class="purge-title">Purge meter <b>// M1 completion</b></div>
+      <div class="purge-count"><b id="pct">0</b>% <span id="tally">0 / 8 cleared</span></div>
+    </div>
+    <div class="meter" id="meter"><div class="meter-fill" id="fill"></div></div>
+    <div class="purge-status" id="pstatus">Tap a status pill on any task to cycle To&nbsp;do, In&nbsp;progress, Done. Progress saves in your browser.</div>
+  </div>
+
+  <div class="controls">
+    <div class="filters" id="filters">
+      <button data-f="all" class="on">All</button>
+      <button data-f="0">To do</button>
+      <button data-f="1">In progress</button>
+      <button data-f="2">Done</button>
+    </div>
+    <button class="reset" id="reset">Reset progress</button>
+  </div>
+
+  <div class="list" id="list"></div>
+
+  <div class="gate">
+    <div class="label">Exit criterion</div>
+    <p class="quote">"You immediately want to do it again."</p>
+    <p>Until this hits, everything downstream (the real boss, the run spine, the roster) is premature. M1 is the "feels good?" gate that validates the reaction identity before any content gets built on top of it.</p>
+  </div>
+
+  <div class="ladder" aria-label="Milestone ladder">
+    <span class="rung done">M0 prototype</span>
+    <span class="arw">&rarr;</span>
+    <span class="rung now">M1 feel</span>
+    <span class="arw">&rarr;</span>
+    <span class="rung">M2 one guardian + rank</span>
+    <span class="arw">&rarr;</span>
+    <span class="rung">M3 run spine</span>
+    <span class="arw">&rarr;</span>
+    <span class="rung">M4 content</span>
+    <span class="arw">&rarr;</span>
+    <span class="rung">M5 polish</span>
+  </div>
+
+  <div class="notes">
+    <b>Where this sits:</b> M0 (the playable combat prototype) is done. M1 has no upstream dependency and unblocks M2. The two items to watch: the <b>Purge meter finisher</b> is the D5 keystone (parry is the win condition), and the <b>smart action-cam</b> is design's #1 must-playtest. Source: <b>1e Last Rite - Build Roadmap</b> in the vault. Item <b>#09 (feel layer)</b> is a proposed addition from the game-feel planning pass, not yet written into the roadmap doc.
+  </div>
+</div>
+
+<script>
+  const DELIVERABLES = [
+    {
+      title: "Reactions pay out",
+      tags: ["Reaction loop"],
+      why: "Right now a parry only classifies the defense. It has to produce a real outcome. This is the heartbeat.",
+      tech: "Wire <b>CombatSystem.OnEntityDefense</b> + <b>CombatEntity.GetDefenseResult</b> into outcomes: parry negates the hit, staggers the attacker, opens a counter window. Perfect parry gives a bigger reward plus hitstop. Dodge i-frames the hit.",
+      today: "Today: it detects the parry but nothing happens after."
+    },
+    {
+      title: "Damage gated by defense",
+      tags: ["Reaction loop"],
+      why: "A successful parry or dodge must actually cancel the incoming damage, not just play alongside it.",
+      tech: "The Hit-frame <b>ApplyDamage</b> must be cancelled by a valid parry or dodge instead of firing unconditionally."
+    },
+    {
+      title: "Counter input",
+      tags: ["Reaction loop", "Mastery"],
+      why: "The counter is earned by the player, not handed out. Pressing at the right moment is the skill expression.",
+      tech: "During the counter window, player <b>Strike</b> = counter hit. Input driven, never automatic."
+    },
+    {
+      title: "Fight flow and win / lose",
+      tags: ["Match structure"],
+      why: "A duel needs an ending. No result state exists yet, so a fight never actually resolves.",
+      tech: "Death ends the duel, transitions to a result state, then restarts the encounter."
+    },
+    {
+      title: "Purge meter to purification finisher",
+      tags: ["D5 keystone"],
+      flag: true,
+      why: "The core win condition. Parrying fills the meter, and breaking it is how you purify the guardian. Parry = victory.",
+      tech: "Parry-fed meter. On break, force <b>Stagger</b>, then play the purification finisher micro-sequence. Seeds the forced-purification later in the run."
+    },
+    {
+      title: "Window tuning and authoring tool",
+      tags: ["Tooling"],
+      why: "Stamping frame windows by hand is the current authoring pain point. A tool makes tuning every attack fast.",
+      tech: "Scrub-to-author editor helper: stamp Hit and Parry frame windows into <b>SOAttackDef</b> from the anim preview, tuned to each attack's real impact frame."
+    },
+    {
+      title: "Smart action-cam",
+      tags: ["Camera"],
+      flag: true,
+      why: "Design's #1 must-playtest. The push-in on telegraph then snap back is what should make a parry feel cinematic.",
+      tech: "Push to over-the-shoulder on the telegraph, then snap back, driven by <b>Cinemachine</b>. Covers the disruptive zoom and axis-cut on perfect-parry and finisher. One camera only (D4): the dual-camera rig moved to Game 2. Camera <b>shake / kicks</b> live in the feel layer (#09). Motion blur and look-ahead do not apply to a near-stationary duel.",
+      today: "The single reactive camera whose micro-feel the whole portfolio's combat identity rests on."
+    },
+    {
+      title: "Cleanups",
+      tags: ["Hygiene"],
+      why: "Small correctness and lifecycle fixes carried over from the prototype so the core is clean before it grows.",
+      tech: "Fix the inverted <b>PickNextAttack</b> Debug.Assert, remove the enemy-only NextTurn test line, add <b>CombatEntity.OnDestroy</b> unregister."
+    },
+    {
+      title: "Impact & feel layer (minimum viable juice)",
+      tags: ["Feel", "Proposed"],
+      flag: true,
+      why: "The exit gate is 'you immediately want to do it again.' You cannot validate that with no impact feedback and no sound. A scoped subset of juice, kept deliberately separate from the full VFX and audio pass that stays in M5.",
+      tech: "<b>Hit stop</b> (1 to 5 frame freeze on hit / parry / perfect / finisher), <b>white hit flash</b>, <b>camera shake / kicks</b> (small, never washing out the next telegraph), a <b>PERFECT / DODGE</b> success banner, and a <b>minimum SFX set</b> (parry clink, bright perfect ding, bassy hit, whiff, purge tick, finisher sting; pitch-ascending on consecutive perfects). All built as event-bus subscribers (I5): juice never mutates sim state. Define the hit-stop rule up front (pause the sim clock vs visual-only).",
+      today: "Not yet in the roadmap doc. Proposed addition from the game-feel planning pass."
+    }
+  ];
+
+  const KEY = "lastrite-m1-status-v1";
+  let state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { state = {}; }
+
+  let filter = "all";
+  const listEl = document.getElementById("list");
+
+  function labelFor(s) { return s === 2 ? "Done" : s === 1 ? "In progress" : "To do"; }
+
+  function render() {
+    listEl.innerHTML = "";
+    DELIVERABLES.forEach((d, i) => {
+      const s = state[i] || 0;
+      if (filter !== "all" && String(s) !== filter) return;
+
+      const card = document.createElement("div");
+      card.className = "card" + (s === 2 ? " is-done" : s === 1 ? " is-active" : "");
+
+      const tags = d.tags.map(t => `<span class="tag">${t}</span>`).join("");
+      const flag = d.flag ? `<span class="tag flag">Priority</span>` : "";
+      const today = d.today ? `<p class="today">${d.today}</p>` : "";
+
+      card.innerHTML = `
+        <div class="idx">${String(i + 1).padStart(2, "0")}</div>
+        <div class="card-head">
+          <span class="card-title">${d.title}</span>
+          ${flag}${tags}
+        </div>
+        <button class="status" data-s="${s}" data-i="${i}" aria-label="Status: ${labelFor(s)}. Click to change.">
+          <span class="dot"></span>${labelFor(s)}
+        </button>
+        <p class="why">${d.why}</p>
+        <div class="tech">${d.tech}</div>
+        ${today}
+      `;
+      listEl.appendChild(card);
+    });
+
+    listEl.querySelectorAll(".status").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const i = +btn.dataset.i;
+        state[i] = ((state[i] || 0) + 1) % 3;
+        localStorage.setItem(KEY, JSON.stringify(state));
+        render();
+        updateMeter();
+      });
+    });
+  }
+
+  function updateMeter() {
+    const total = DELIVERABLES.length;
+    let points = 0, doneCount = 0;
+    for (let i = 0; i < total; i++) {
+      const s = state[i] || 0;
+      points += s / 2;
+      if (s === 2) doneCount++;
+    }
+    const pctExact = (points / total) * 100;
+    const pct = Math.round(pctExact);
+    document.getElementById("fill").style.width = pctExact + "%";
+    document.getElementById("pct").textContent = pct;
+    document.getElementById("tally").textContent = doneCount + " / " + total + " cleared";
+
+    const meter = document.getElementById("meter");
+    const st = document.getElementById("pstatus");
+    if (doneCount === total) {
+      meter.classList.add("full");
+      st.classList.add("unlocked");
+      st.textContent = "Purge meter broken. M1 clear, the reaction loop feels good. Purification finisher unlocked.";
+    } else {
+      meter.classList.remove("full");
+      st.classList.remove("unlocked");
+      const remaining = total - doneCount;
+      st.textContent = remaining + (remaining === 1 ? " task" : " tasks") + " left before the gate: “you immediately want to do it again.”";
+    }
+  }
+
+  document.getElementById("filters").addEventListener("click", e => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    filter = b.dataset.f;
+    document.querySelectorAll("#filters button").forEach(x => x.classList.toggle("on", x === b));
+    render();
+  });
+
+  document.getElementById("reset").addEventListener("click", () => {
+    state = {};
+    localStorage.removeItem(KEY);
+    render();
+    updateMeter();
+  });
+
+  render();
+  updateMeter();
+</script>

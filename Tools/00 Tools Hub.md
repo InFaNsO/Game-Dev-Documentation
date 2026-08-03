@@ -2,6 +2,8 @@
 
 > The custom + third-party tooling behind the portfolio's content pipeline. Design/lore lives under `Game Development/`; this section documents **how assets get made**. Last updated 2026-06-14.
 
+> **⚠ Status note (2026-07-31): Kimodo is deprecated for Last Rite combat animation.** Output quality was judged unacceptable for combat; Last Rite combat clips now come from a purchased pack (**Mega Animation Pack v1.8**, Unity Asset Store) retargeted via Unity Humanoid — see [[1h Last Rite - Player Moveset & Animation Plan]] + [[1f Last Rite - Combat Iteration Log]]. The Kimodo pipeline below is **retained for reference/other uses** (non-combat motion, experiments, future games) — nothing is deleted.
+
 ## What's here
 
 - **[[01 AssetForge]]** — our in-house Blender asset pipeline (mesh → retopo → rig → animate → export), driven over MCP. The hub tool; everything else plugs into it.

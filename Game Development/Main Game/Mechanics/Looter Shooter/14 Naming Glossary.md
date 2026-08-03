@@ -5,6 +5,19 @@ Quick reference for all locked names in the looter shooter / main game lore. San
 
 ---
 
+## The Franchise
+
+| Name | Tier | Pronunciation | Meaning |
+|---|---|---|---|
+| **Mani Kalpa** | Franchise brand + formal (lore) | MAH-nee KAL-pah | "The jewel's world-cycle." *Kalpa* (Sanskrit कल्प) = a world's full lifetime / aeon — and also "proper practice, ritual" (Vedanga). Aeon + rite + practice in one word. **LOCKED 2026-08-03.** |
+
+- **Every game ships as "Mani Kalpa: [English subtitle]"** — the franchise itself obeys the two-tier law (formal Sanskrit over common English, exactly like The Akashic / The Bleed). Game 1 = **"Mani Kalpa: One Last Rite"** (LOCKED 2026-08-03 — "one last" is the protagonist's doomed promise; the curse guarantees it is never the last. Vault files/folders keep the short name "Last Rite").
+- **Era structure for free:** a kalpa *contains* yugas — each game/era is **one yuga** of the Mani Kalpa with its own protagonist. Candidate coined lore term if an era ever needs a formal name: **Manivantara** ("the age of a Mani").
+- **The name is CANON (locked with the brand):** in-world characters refer to the world's great cycle as **the Mani Kalpa** — the franchise name is diegetic, not a box-sticker. First plant: Game 1 (see [[1 Parry Combat - Last Rite]] → Canon callbacks). The formal register (Accord texts, audio logs) uses it cosmologically; survivors may not know the word at all — learning it is a lore reveal, never a tutorial popup.
+- **Why not "Mani Chronicles" (the runner-up, dropped 2026-08-03):** maximum cold-shelf familiarity, but "Chronicles" is gaming's most-worn franchise suffix — generic, un-ownable, and **non-diegetic** (nobody in-world can say it without breaking tone). *Kalpa* is ownable (exact phrase unclaimed anywhere as of the lock), thumbnail-punchy, and self-teaching — the trailer card writes itself: *"A kalpa is the lifetime of a world. This is the Mani Kalpa."* ("Mani Yuga" died to Yuga Labs + the "Mani yoga" mishearing; "Panchamani" was right in meaning but too long — it stays the formal substance word below.)
+
+---
+
 ## The Substance
 
 | Name | Tier | Pronunciation | Meaning |

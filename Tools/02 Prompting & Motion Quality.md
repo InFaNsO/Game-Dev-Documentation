@@ -2,6 +2,8 @@
 
 > How to get high-quality motion out of Kimodo, and how to tune the knobs. Sourced from NVIDIA's official Kimodo docs (best-practices, configuration, model zoo) + our own pipeline experience. Companion to [[01 AssetForge]]. Last updated 2026-06-14.
 
+> **⚠ Status note (2026-07-31): Kimodo is deprecated for Last Rite combat animation** (quality — replaced by the purchased Mega Animation Pack v1.8 pipeline; see [[1h Last Rite - Player Moveset & Animation Plan]] + [[1f Last Rite - Combat Iteration Log]]). This doc is **retained for reference/other uses** — the prompting guidance still applies wherever Kimodo is used outside Last Rite combat.
+
 ## The one mental model: generation vs retarget
 
 Two *separate* classes of problem — different fixes. Diagnose which one you have before tuning:

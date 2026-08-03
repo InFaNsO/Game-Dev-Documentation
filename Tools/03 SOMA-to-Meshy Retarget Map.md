@@ -2,6 +2,8 @@
 
 > How a Kimodo **SOMA** animation (77-joint, index-addressed, Y-up) becomes pose data on a Meshy **Mixamo** rig (24-bone, name-addressed, Z-up). The bone map + the per-frame transform that bridges them. Part of [[00 Tools Hub]] · companion to [[01 AssetForge]] (where the map lives in code) and [[02 Prompting & Motion Quality]]. Last updated 2026-06-15.
 
+> **⚠ Status note (2026-07-31): Kimodo is deprecated for Last Rite combat animation** (quality — replaced by the purchased Mega Animation Pack v1.8, which retargets via Unity Humanoid and does **not** use this SOMA map; see [[1h Last Rite - Player Moveset & Animation Plan]] + [[1f Last Rite - Combat Iteration Log]]). This map is **retained for reference/other uses** — it remains the working SOMA→Mixamo bridge for any future Kimodo motion.
+
 ---
 
 ## The two storage formats

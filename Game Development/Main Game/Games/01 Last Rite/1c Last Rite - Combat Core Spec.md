@@ -4,6 +4,13 @@
 >
 > **v0 scope:** two fighters · turn-order scheduling · one attack per fighter · damage · death · debug HUD. **NOT in v0 (but every attachment point is specified in §9):** parry/dodge windows + reaction resolver, purge meter, camera, animation, projectiles, feints, remix.
 
+> ## ⚑ SUPERSEDED where it describes the *mechanism* — read [[1a Last Rite - Code Architecture]] §AS-BUILT + [[1f Last Rite - Combat Iteration Log]] first
+> This doc's **sim mechanism is superseded.** The build did **not** ship the pure-C# deterministic sim: there is no `ISimClock`, `CombatSession.Tick`, `IEventBus`, or `HealthSystem` — combat is MonoBehaviour-driven and animation-integrated (2026-07-04 pivot). Consequently:
+> - **I1** (sim is pure C#), **I2** (ms of `ISimClock`), **I7** (deterministic tick) — **superseded.** The animation is the clock.
+> - **I3** (data-is-truth; **"anim events are allowed for pure cosmetics only"**) — **inverted for timing (2026-07-18):** phases + defense windows are now authored **as animation events on the clip**, which *are* the timing truth. See [[1d Last Rite - Reaction & Feints Spec]] §3–§5/§7.
+>
+> What **survives** from this doc is the *design intent*, not the plumbing: the phase model, per-attack timing (**I4**), the reaction outcomes, single-writer HP, turn order, and **I10** (numbers are playtest-open). Treat `1c` as the historical v0 rationale; `1a` §AS-BUILT + `1d` are current.
+
 ---
 
 ## 0. Terminology & the laws (read first)

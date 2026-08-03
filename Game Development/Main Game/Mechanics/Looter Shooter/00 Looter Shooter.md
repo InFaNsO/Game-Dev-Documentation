@@ -37,4 +37,4 @@ The standalone prototype is specified across:
 
 - [[08 Standalone Prototype - Design]] — design brief, pillars, scope cuts.
 - [[09 Complete Feature List]] — full feature list tagged MVP / V1 / Stretch.
-- [[Games/1a Last Rite - Code Architecture]] — Unity 6 architecture, code patterns, build order. *(The concrete Tier-0 foundation every game follows; the older top-level "08 Unity Code Architecture" stub was removed 2026-06-13, pending main-game work.)*
+- [[1a Last Rite - Code Architecture]] — Unity 6 architecture, code patterns, build order. *(The concrete Tier-0 foundation every game follows; the older top-level "08 Unity Code Architecture" stub was removed 2026-06-13, pending main-game work.)*

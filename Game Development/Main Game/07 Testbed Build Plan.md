@@ -34,7 +34,7 @@
 ## Pillar decompositions → the small games
 
 ### A. Combat *(System 1)*
-1. **Parry Combat** — proves the **reactive half**: souls-like parry / dodge / counter + a **single smart action-cam** reaction-cam (push-to-OTS on telegraph). The #1 identity mechanic, in isolation. *(The two-mode dual-camera rig is NOT here — it needs a grid to switch away from, so it moves to Tactical Combat. Design-lock 2026-06-10, see [[Games/1 Parry Combat - Last Rite]].)*
+1. **Parry Combat** — proves the **reactive half**: souls-like parry / dodge / counter + a **single smart action-cam** reaction-cam (push-to-OTS on telegraph). The #1 identity mechanic, in isolation. *(The two-mode dual-camera rig is NOT here — it needs a grid to switch away from, so it moves to Tactical Combat. Design-lock 2026-06-10, see [[1 Parry Combat - Last Rite]].)*
    - *uses:* 1 (reactive layer, smart action-cam) + 1 simple enemy + Tier 0
 2. **Tactical Combat** — proves the **tactical half**: grid format, movement, facing / flank, AP economy, turn structure, enemy AI + intent telegraphs, **+ the two-mode dual-camera rig (tactical ↔ OTS — moved here from Parry Combat, since the switch only earns its keep with a grid).**
    - *uses:* 1 (tactical, action economy, enemy AI/intent, dual-camera) + Tier 0

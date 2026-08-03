@@ -33,6 +33,16 @@
 
 ---
 
+## Purchased asset packs (USD)
+
+| Date | Game | Asset | Operation | Est. USD | Notes |
+|---|---|---|---|---|---|
+| 2026-07-31 | Last Rite (+ future games) | Mega Animation Pack v1.8 (Unity Asset Store, publisher Alcaboce, asset id 170897) | One-time purchase | **~$70** | Humanoid-rig combat clips, per-weapon folders (~70 clips each); replaces Kimodo for Last Rite combat animation — see [[1h Last Rite - Player Moveset & Animation Plan]]. Standard Asset Store EULA: one purchase covers player + all enemies + future games. |
+
+**Packs subtotal (est.): ~$70**
+
+---
+
 ## Notes
 - This ledger starts **2026-06-13**; the original high-poly Meshy *generation* (prior session) is not tracked here.
 - Reconcile periodically against the Modal/Meshy dashboards and correct the estimates if they drift.

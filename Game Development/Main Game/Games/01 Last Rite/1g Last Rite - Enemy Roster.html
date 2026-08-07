@@ -281,7 +281,7 @@
 <section id="elements">
   <div class="wrap">
     <div class="sec-head"><span class="num">01</span><h2>The Elemental Strata</h2></div>
-    <p class="sec-sub">The ruin descends through three domains, each claimed by a Mani element. Bhu (earth) is deliberately excluded from the bespoke roster — see the rebirth spine below.</p>
+    <p class="sec-sub">The ruin descends through four domains, each claimed by a Mani element. <b>Bhu (earth) gained a bespoke family on 2026-08-07</b>, reversing its earlier data-remix-only status — the Mega Animation Pack removed the moveset-animation cost that capped bespoke enemies at nine. Full designs, weapons and movesets: "1i Last Rite - Bhu Mani Husks".</p>
     <div class="tabs" id="tabs"></div>
     <div class="lesson" id="lesson"></div>
   </div>
@@ -291,7 +291,7 @@
 <section id="roster-sec">
   <div class="wrap">
     <div class="sec-head"><span class="num">02</span><h2>The Roster</h2></div>
-    <p class="sec-sub">Six minibosses are the locked "guardian" tier (they forward-map to the Looter Shooter as named-Husk mini-bosses). Three bosses are stratum masters. Six regulars fill the connective fights.</p>
+    <p class="sec-sub">Nine minibosses are the "guardian" tier (they forward-map to the Looter Shooter as named-Husk mini-bosses). Four bosses are stratum masters. Six regulars fill the connective fights. <b>19 enemies total.</b> Moveset shape locked 2026-08-07: guardians carry 2 VFX specials + 2 light + 2 heavy; bosses carry 2 VFX specials + 5 light + 5 heavy.</p>
 
     <div class="controls">
       <div class="legend" id="legend"></div>
@@ -405,6 +405,12 @@ const ELEMENTS = {
     teach:"Every enemy poses a <b>“which response?”</b> read. Telegraphs are colour-coded and fairness is sacred — a fake can never become an unreactable sucker-punch.",
     traits:["Parryable","Perilous / dodge-only","Ranged (deflect back)","Feints & mix-ups","HP-threshold phases"]
   },
+  bhu: {
+    key:"bhu", name:"Bhu", sub:"Earth · Failed Burials", sw:"#c8a86b",
+    stratum:"Failed Burials", mesh:"Bhu Mani Husk (bespoke family)", palette:"Stone / ochre / dust",
+    teach:"<b>Tempo &amp; economy.</b> Four incompatible rhythms inside one Enemy Phase. Dodge-only steps keep you alive but generate no AP — every husk is a question about how greedy to be.",
+    traits:["Honest wide telegraphs (Garland)","Delayed off-beat commits (Mourner)","Feints that drain AP (Deadfall)","Support aura &amp; revival (Reliquary)","Amber gem pulse = shared telegraph language"]
+  },
   jal: {
     key:"jal", name:"Jal", sub:"Water · Flooded Depths", sw:"#3aa0ff",
     stratum:"Flooded Depths", mesh:"Amphibian Husk", palette:"Deep blue, drowned light",
@@ -426,6 +432,56 @@ const ELEMENTS = {
 };
 
 const ENEMIES = [
+  /* ---------------- BHU (added 2026-08-07 — see "1i Last Rite - Bhu Mani Husks") ---------------- */
+  { element:"bhu", tier:"boss", name:"Reliquary Husk", epithet:"Dhatugarbha", phases:3,
+    identity:"An Accord ritualist entombed in polished black basalt, every crack repaired with gold like a restored idol. No head — a stone lotus crown cradles the bare Mani; its chest is a shrine of oil lamps; a broken halo rides its back.",
+    traitName:"The Multiplier",
+    trait:"Barely fights. <b>Consecrate</b> is a persistent aura giving every living husk +1 chain step and tightened windows until it dies; <b>Rite of Return</b> revives a destroyed husk. Kill the priest first — the fight audibly relaxes when you do.",
+    moves:[
+      {name:"Consecrate",      type:"util",   note:"aura: +1 chain step + tighter windows, team-wide"},
+      {name:"Rite of Return",  type:"util",   note:"channels one turn, revives a dead husk the next — interruptible"},
+      {name:"Lamplight Lash",  type:"parry",  note:"parry-only; tight, elegant window"},
+      {name:"Ember Dart",      type:"ranged", note:"Perfect parry deflects it back"},
+      {name:"Halo Grind",      type:"dodge",  note:"big damage, long recovery — its one real commitment"},
+      {name:"Sanctum Break",   type:"dodge",  note:"JUMP-flagged phase-3 finisher"}
+    ]},
+  { element:"bhu", tier:"miniboss", name:"Garland Husk", epithet:"Asthikumbha", phases:2,
+    identity:"A squat clay golem like a cracked funeral urn given legs — a wax-sealed pot for a head with no face, dead marigold garlands, a vermilion rite-cloth banner, and a kiln-glow burning behind its clay ribs.",
+    traitName:"The Metronome",
+    trait:"The honest one — longest telegraphs, widest windows, biggest damage. The rhythm baseline the family deviates from. <b>Parry Bellring Lunge and its pot rings like a struck temple bell: every other enemy is Staggered and forfeits its next turn.</b>",
+    moves:[
+      {name:"Grave-Scoop",        type:"parry", note:"the connector; links into everything"},
+      {name:"Gravedigger's Fall", type:"parry", note:"overhead spade slam"},
+      {name:"Bellring Lunge",     type:"parry", note:"chain ender; parry staggers the whole enemy team"},
+      {name:"Kiln Vent",          type:"dodge", note:"VFX special — ember ring; longest recovery in the family"},
+      {name:"Grave Dust",         type:"parry", note:"VFX special — dust column; shrinks your next parry window"},
+      {name:"Lid-Rattle",         type:"feint", note:"shares Grave-Scoop's telegraph, cancels to guard"}
+    ]},
+  { element:"bhu", tier:"miniboss", name:"Mourner Husk", epithet:"Avarana", phases:2,
+    identity:"A stooped veil of hanging moss, votive threads and white mourning flowers with no face behind it; a hollow banyan-root ribcage with the Mani swinging inside like a censer on chains. Its back is concave — a front-only shell.",
+    traitName:"The Off-Beat",
+    trait:"Its attacks <b>hang</b> — unusually long commits, so the hit lands later than the telegraph implies. Punishes muscle memory rather than bad reading. The natural carrier for the Jal rebirth overlay.",
+    moves:[
+      {name:"Vigil Thrust",    type:"parry", note:""},
+      {name:"Slab Shove",      type:"parry", note:"grave-slab shield bash"},
+      {name:"Root Snare",      type:"parry", note:"VFX special — applies Rooted: halves your dodge window for 2 attacks"},
+      {name:"Mourner's Sweep", type:"dodge", note:"JUMP-flagged; the canonical heavy sweep"},
+      {name:"Grief Toll",      type:"dodge", note:"VFX special — pendulum shockwave; hits the whole opposing team"},
+      {name:"Veil Embrace",    type:"dodge", note:"unparryable; drains HP and Purge. Dodge it and he is Exposed for a turn"}
+    ]},
+  { element:"bhu", tier:"miniboss", name:"Deadfall Husk", epithet:"Chitakashtha", phases:2,
+    identity:"Bone-white bleached driftwood wrung into a human shape, grain spiralling like a body twisted while it petrified. No head — a splintered hollow with the Mani wedged inside and a crown of blood-red leaves erupting from it.",
+    traitName:"The Liar",
+    trait:"Fastest telegraphs, longest chains, most feints. Attacks your <b>economy</b> — a baited parry is a full hit AND zero AP, so every successful lie costs your next turn's combo. Author him first in the enemy rotation.",
+    moves:[
+      {name:"Splinter Rake",    type:"parry", note:"fastest read in the game"},
+      {name:"Reaping Cut",      type:"parry", note:""},
+      {name:"Harvest Arc",      type:"parry", note:"wide committed sweep"},
+      {name:"Widowmaker Lunge", type:"parry", note:"PARRY-ONLY; tight window, high damage — the step his fake imitates"},
+      {name:"Quill Shed",       type:"dodge", note:"VFX special — radial splinters; his next attack is visibly weakened"},
+      {name:"Ash Scatter",      type:"feint", note:"VFX special — plays Widowmaker's full telegraph, then collapses to a heap"}
+    ]},
+
   /* ---------------- JAL ---------------- */
   { element:"jal", tier:"boss", name:"MireCrown", epithet:"the Drowned Regent", phases:3,
     identity:"A bloated frog-regent in a crown of coral and lily; master of the flooded depths, its voice a sinking choir.",
@@ -578,7 +634,7 @@ const REBIRTH = [
   {n:1, name:"Neutral", theme:"no overlay", sc:"#b9c2d0",
    note:"<b>Base identities, no overlay.</b> The tutorial descent — every guardian in its neutral form. It ends at the first beast's heart, where the protagonist gains the curse (the inciting rebirth)."},
   {n:2, name:"Bhu", theme:"Earth", sc:"#c8a86b",
-   note:"<b>Hardened base — no bespoke enemies.</b> Bhu is a pure data remix of the existing roster: heavier, slower, more HP, with a stone / ochre / dust LUT. It honors “except Bhu” while keeping the five-descent spine intact."},
+   note:"<b>⚠ Revised 2026-08-07 — Bhu now has its own bespoke family</b> (Garland, Mourner and Deadfall husks + the Reliquary boss); it is no longer a pure data remix. The earlier “no bespoke enemies” rule was priced when moveset animation was the bottleneck, and the animation pack removed that cost. The heavier/slower remix overlay and the stone / ochre / dust LUT still apply to the <i>other</i> strata during this descent. Designs: “1i Last Rite - Bhu Mani Husks”."},
   {n:3, name:"Jal", theme:"Water", sc:"#3aa0ff",
    note:"<b>Jal ascendant.</b> The Flooded Depths gain remix overlays — longer holds, more feints, drowned-light LUT. Amphibian-Husk corruption is everywhere; the “slow” deepens."},
   {n:4, name:"Vayu", theme:"Air", sc:"#a9e6f0",
@@ -602,7 +658,7 @@ function hexToSoft(hex){
 /* ---- Element tabs ---- */
 function renderTabs(){
   const tabs = document.getElementById("tabs");
-  const order = ["all","jal","vayu","agni"];
+  const order = ["all","bhu","jal","vayu","agni"];
   tabs.innerHTML = order.map(k=>{
     const e = ELEMENTS[k];
     return `<button class="tab${k===state.el?" active":""}" data-el="${k}" style="--sw:${e.sw}">

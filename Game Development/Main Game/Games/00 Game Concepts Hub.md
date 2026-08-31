@@ -14,7 +14,7 @@
 
 | # | Game (working title) | Pillar | One-line pitch | Concept |
 |---|---|---|---|---|
-| 1 | **Parry Combat — "Mani Kalpa: One Last Rite"** (title LOCKED 2026-08-03) | Combat | Descend a post-Breach ruin; parry-purify its corrupted guardians to claim a Husk's secret of immortality — then be reborn at the top, harder and madder, each cycle. | ✅ **LOCKED** — [[1 Parry Combat - Last Rite]] |
+| 1 | **Parry Combat — "Mani Kalpa: One Last Rite"** (title LOCKED 2026-08-03) | Combat | A purifier kept alive by a leaking rite dives into a sealed Accord facility to steal the immortality it died inventing — parry-purifying its engineered Husks and tearing the gem from each, feeding the armor that keeps her human while it makes her into them. | ✅ **LOCKED** — [[1 Parry Combat - Last Rite]] · **story spine LOCKED 2026-08-11:** [[1k Last Rite - Lore Bible]] · **environment LOCKED 2026-08-12:** [[1l Last Rite - World & Environment Bible]] |
 | 2 | **Tactical Combat — "Salvage Run"** *(WT)* | Combat | A lone scavenger fights through procgen single-screen grid arenas to extract from the dead zone; die-and-retry roguelike. | ⬜ TODO |
 | 3 | **Looting & Crafting** *(WT)* | Looter | Loot raw Mani, run the refine + research minigames, manage inventory + a vendor economy. | ⬜ TODO |
 | ▶4 | **The Looter Shooter** | Integration | The flagship: cryo-survivor at Lithic Mow, the Grinder trust arc, full combat + loot + story. | ✅ designed in `Mechanics/Looter Shooter/` (product-concept polish: TODO) |

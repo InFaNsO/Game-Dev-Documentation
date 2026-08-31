@@ -266,9 +266,9 @@
 <header class="hero">
   <div class="wrap">
     <div class="kicker">Game 1 · Last Rite · Design Reference</div>
-    <h1>Enemy Roster <span class="thin">— the corrupted guardians of the ruin</span></h1>
+    <h1>Enemy Roster <span class="thin">— the staff of a facility that tried to cure death</span></h1>
     <p class="lede">
-      Three elemental strata, fifteen bespoke enemies. Each stratum is built around one
+      Four elemental strata, nineteen enemies (13 bespoke + 6 regulars). Each stratum is built around one
       <b>Mani element</b> and teaches the player a distinct combat <b>read</b>. Pick an element to
       recolor the page and filter the roster, expand any card for its moveset, and hover the legend
       to spotlight a read across every enemy.
@@ -281,7 +281,7 @@
 <section id="elements">
   <div class="wrap">
     <div class="sec-head"><span class="num">01</span><h2>The Elemental Strata</h2></div>
-    <p class="sec-sub">The ruin descends through four domains, each claimed by a Mani element. <b>Bhu (earth) gained a bespoke family on 2026-08-07</b>, reversing its earlier data-remix-only status — the Mega Animation Pack removed the moveset-animation cost that capped bespoke enemies at nine. Full designs, weapons and movesets: "1i Last Rite - Bhu Mani Husks".</p>
+    <p class="sec-sub"><b>⚠ Story lock 2026-08-11 ("1k Last Rite - Lore Bible"):</b> the ruin is the Accord's <b>mani-medicine division</b> — it reverse-engineered Husk-deathlessness into a cure and a bad batch turned its own entire staff into engineered Husks. <b>Every enemy below is facility staff</b>, or one of the purifiers who came hunting the same prize and lost. The facility descends through four domains, each claimed by a Mani element. <b>Bhu (earth) gained a bespoke family on 2026-08-07</b>, reversing its earlier data-remix-only status — the Mega Animation Pack removed the moveset-animation cost that capped bespoke enemies at nine. Full designs, weapons and movesets: "1i Last Rite - Bhu Mani Husks".</p>
     <div class="tabs" id="tabs"></div>
     <div class="lesson" id="lesson"></div>
   </div>
@@ -319,11 +319,11 @@
   </div>
 </section>
 
-<!-- 3. REBIRTH SPINE -->
+<!-- 3. DESCENT SPINE (was: REBIRTH SPINE — restructured 2026-08-11) -->
 <section id="rebirth-sec">
   <div class="wrap">
-    <div class="sec-head"><span class="num">03</span><h2>The Rebirth Spine</h2></div>
-    <p class="sec-sub">Five descents. The curse IS the replay loop — each cycle the world is a shade wrong. Click a descent to see what changes.</p>
+    <div class="sec-head"><span class="num">03</span><h2>The Descent Spine</h2></div>
+    <p class="sec-sub"><b>⚠ Restructured 2026-08-11, order freed 2026-08-12.</b> This was <i>The Rebirth Spine</i> — five re-descents of one ruin, the curse as the replay loop, each cycle a shade wrong. <b>That loop is cut</b> ("1 Parry Combat - Last Rite" D2), and the fixed <b>Bhu→Jal→Vayu→Agni</b> sequence that replaced it is <b>void</b> too ("1l Last Rite - World &amp; Environment Bible" §1.7). It is now <b>the dive itself</b>: a tutorial, then <b>four wings in any order</b> — each granting a <b>seal</b>, all four opening the <b>sealed sanctum</b> where the heart waits. Each wing still <b>re-teaches the fight rather than raising numbers</b> — that law survived, and free order sharpens it: a wing must author a <i>character</i>, not a rung. Click a step to see what it is.</p>
     <div class="stepper" id="stepper"></div>
     <div class="rebirth-note" id="rebirthNote"></div>
   </div>
@@ -333,14 +333,14 @@
 <section id="prod-sec">
   <div class="wrap">
     <div class="sec-head"><span class="num">04</span><h2>Production &amp; Tier Economics</h2></div>
-    <p class="sec-sub">Art is near-free (one rig + corruption shader). The real budget is moveset animation + telegraph design — so the expensive multi-phase tier is held to nine, and growth lives in the cheap regular tier.</p>
+    <p class="sec-sub"><b>⚠ Revised 2026-08-07.</b> Art is near-free (one rig + corruption shader). The old cap — "the multi-phase tier is held to nine" — was priced against bespoke animation; the Mega Animation Pack supplies every light and heavy attack, so the bespoke tier now stands at <b>13</b> (4 bosses + 9 guardians) and <b>telegraph design is the remaining real cost</b>. Growth still lives in the cheap regular tier.</p>
     <div class="prod">
       <div class="pcard">
         <h4>Cost per tier</h4>
         <ul>
           <li><b>Regular</b> — 2–3 attack clips + shared idle/hit/death · 2–3 <b>SOAttackDef</b> · 1 <b>SOFighterDef</b> · animator graph · prefab. Pure data + clips.</li>
-          <li><b>Miniboss</b> — 4–6 clips · phase-swap data · ≥1 feint branch. Needs the phase system + feint data model.</li>
-          <li><b>Boss</b> — 6–8 clips · 3 phases · one set-piece mechanic (The Hold / off-screen angles / Escalation).</li>
+          <li><b>Miniboss / guardian</b> — <b>6 moves</b>: 2 VFX specials + 2 light + 2 heavy · phase-swap data · ≥1 feint branch. Only the 4 attacks are pack clips; the 2 specials are particle systems over generic clips.</li>
+          <li><b>Boss</b> — <b>12 moves</b>: 2 VFX specials + 5 light + 5 heavy · 3 phases · one set-piece mechanic (The Hold / off-screen angles / Escalation).</li>
         </ul>
       </div>
       <div class="pcard">
@@ -400,34 +400,34 @@ const ATTACK_TYPES = {
 const ELEMENTS = {
   all: {
     key:"all", name:"All Strata", sub:"the full descent", sw:"#b9c2d0",
-    stratum:"Upper ruin → flooded depths → sealed core", mesh:"Humanoid (one shared rig)",
-    palette:"Desaturated dead-world; saturation = information",
+    stratum:"Mountain-shrine · stepwell · lattice tower · temple courtyard — ANY ORDER, four seals open the sanctum (2026-08-12)", mesh:"Humanoid (one shared rig)",
+    palette:"Colourful but dead — warm faded mineral. Décor dark/matte/static; gameplay bright/saturated/moving",
     teach:"Every enemy poses a <b>“which response?”</b> read. Telegraphs are colour-coded and fairness is sacred — a fake can never become an unreactable sucker-punch.",
     traits:["Parryable","Perilous / dodge-only","Ranged (deflect back)","Feints & mix-ups","HP-threshold phases"]
   },
   bhu: {
     key:"bhu", name:"Bhu", sub:"Earth · Failed Burials", sw:"#c8a86b",
-    stratum:"Failed Burials", mesh:"Bhu Mani Husk (bespoke family)", palette:"Stone / ochre / dust",
+    stratum:"Failed Burials — the mountain-shrine growth wing (specimen vats); its burial terraces are where the staff went into the ground", mesh:"Bhu Mani Husk (bespoke family)", palette:"Ochre, sandstone gold, mossy green, umber · veins deep emerald",
     teach:"<b>Tempo &amp; economy.</b> Four incompatible rhythms inside one Enemy Phase. Dodge-only steps keep you alive but generate no AP — every husk is a question about how greedy to be.",
     traits:["Honest wide telegraphs (Garland)","Delayed off-beat commits (Mourner)","Feints that drain AP (Deadfall)","Support aura &amp; revival (Reliquary)","Amber gem pulse = shared telegraph language"]
   },
   jal: {
-    key:"jal", name:"Jal", sub:"Water · Flooded Depths", sw:"#3aa0ff",
-    stratum:"Flooded Depths", mesh:"Amphibian Husk", palette:"Deep blue, drowned light",
+    key:"jal", name:"Jal", sub:"Water · The Stepwell", sw:"#3aa0ff",
+    stratum:"The Stepwell — a monumental sunken baoli; blood &amp; fluids, a terraced cascade filtering down to the threshold", mesh:"Amphibian Husk", palette:"Sandstone gold, verdigris, dusty rose, basalt · veins deep indigo",
     teach:"<b>Patience.</b> The slow is the enemy's tempo — delayed telegraphs and feints punish panic-parries. Wait for the blade to arrive.",
     traits:["Delayed telegraphs (hang time)","Feint-heavy chains","Flow — chains that loop back","Mist / disorient","Water projectiles (deflectable)"]
   },
   vayu: {
-    key:"vayu", name:"Vayu", sub:"Air · Wind-Scoured Heights", sw:"#a9e6f0",
-    stratum:"Wind-Scoured Heights", mesh:"Avian Husk (new mesh)", palette:"Pale white-out",
+    key:"vayu", name:"Vayu", sub:"Air · The Hollow Tower", sw:"#a9e6f0",
+    stratum:"The Hollow Tower — a tall pierced-lattice shrine; breath &amp; spirit, nadi channels in double helix, bellows-lungs, empty bell-jars", mesh:"Avian Husk (new mesh)", palette:"Warm pale sandstone, cream, bleached ochre, dusty rose — NOT monochrome white · veins pale silver-lilac",
     teach:"<b>Speed &amp; tracking.</b> Reads come fast and from angles; guardians dart within the stationary frame. Keep your eyes on the bird.",
     traits:["Short, honest telegraphs","Displacement / darting","Gust projectiles","Multi-angle attacks","Evasion — punish the recovery"]
   },
   agni: {
-    key:"agni", name:"Agni", sub:"Fire · Sealed Core", sw:"#ff7a2f",
-    stratum:"Sealed Core", mesh:"Reptile Husk", palette:"Ember / ash / orange",
-    teach:"<b>Endurance &amp; greed discipline.</b> Relentless chains and telegraphed burn pressure punish greedy offense. The final exam.",
-    traits:["Long relentless chains","Telegraphed burn-DoT","Escalation — gets faster","Greed punishment","Terminal → true ending"]
+    key:"agni", name:"Agni", sub:"Fire · The Temple Courtyard", sw:"#ff7a2f",
+    stratum:"The Temple Courtyard — carved devotional stone; energy &amp; metabolism: a dead stepped fire-altar, deepstambha lamp-towers, treatment couches, spent grey mani", mesh:"Reptile Husk", palette:"Dark terracotta, oxblood, soot-black, tarnished brass, ash-grey. NO ORANGE, NO FIRE — orange is reserved · veins dark antique bronze",
+    teach:"<b>Endurance &amp; greed discipline.</b> Relentless chains and telegraphed burn pressure punish greedy offense. The most intense wing — but since 2026-08-12 that is a <b>tuning target, not a position</b>: order is free, so Agni can be first.",
+    traits:["Long relentless chains","Telegraphed burn-DoT","Escalation — gets faster","Greed punishment","Grants a seal — the sanctum is terminal, not Agni"]
   }
 };
 
@@ -581,7 +581,7 @@ const ENEMIES = [
 
   /* ---------------- AGNI ---------------- */
   { element:"agni", tier:"boss", name:"PyreMaw", epithet:"the Furnace Warden", phases:3,
-    identity:"A massive horned reptile-husk, cracked hide leaking ember-light; the furnace-heart guardian and last gate before the beast's heart.",
+    identity:"A massive horned reptile-husk, cracked hide leaking ember-light; the furnace-heart guardian and last gate before the heart — the lead researcher.",
     traitName:"Escalation",
     trait:"Its chains grow <b>longer each time you fully parry a string</b>; telegraphed burn brands shrink safe space; flame-armor punishes attacking into its chain.",
     moves:[
@@ -593,7 +593,7 @@ const ENEMIES = [
       {name:"Furnace Heart",  type:"util",   note:"nonstop chains until a Perfect lands → big purge window", phase:"P3"}
     ]},
   { element:"agni", tier:"miniboss", name:"CinderScale", epithet:"the First Guardian", phases:3, built:true,
-    identity:"Already built — the M2 vertical-slice boss and the chain teacher. The first guardian new players master.",
+    identity:"<b>⚠ PROTOTYPE ONLY (2026-08-07).</b> Built as a test enemy for combat prototyping, not as shipped content — the model may be reused later, but its design, weapon set and role are parked. Treat the roster's tutorial-teacher slot as belonging to the Bhu family instead.",
     traitName:"Chain Basics",
     trait:"A natural <b>2–3 hit chain</b> enemy. M2 promotes it to a full multi-phase boss: +feint, HP-threshold phase swap, finisher.",
     moves:[
@@ -630,17 +630,22 @@ const ENEMIES = [
     ]}
 ];
 
+/* ⚠ 2026-08-11 — these were the five REBIRTH cycles (re-descents of one ruin with elemental
+   overlays). The loop is cut; they are now the five STEPS OF THE ONE DIVE. Const name kept
+   so the stepper JS below is untouched. Canon: "1k Last Rite - Lore Bible" §6. */
 const REBIRTH = [
-  {n:1, name:"Neutral", theme:"no overlay", sc:"#b9c2d0",
-   note:"<b>Base identities, no overlay.</b> The tutorial descent — every guardian in its neutral form. It ends at the first beast's heart, where the protagonist gains the curse (the inciting rebirth)."},
-  {n:2, name:"Bhu", theme:"Earth", sc:"#c8a86b",
-   note:"<b>⚠ Revised 2026-08-07 — Bhu now has its own bespoke family</b> (Garland, Mourner and Deadfall husks + the Reliquary boss); it is no longer a pure data remix. The earlier “no bespoke enemies” rule was priced when moveset animation was the bottleneck, and the animation pack removed that cost. The heavier/slower remix overlay and the stone / ochre / dust LUT still apply to the <i>other</i> strata during this descent. Designs: “1i Last Rite - Bhu Mani Husks”."},
-  {n:3, name:"Jal", theme:"Water", sc:"#3aa0ff",
-   note:"<b>Jal ascendant.</b> The Flooded Depths gain remix overlays — longer holds, more feints, drowned-light LUT. Amphibian-Husk corruption is everywhere; the “slow” deepens."},
-  {n:4, name:"Vayu", theme:"Air", sc:"#a9e6f0",
-   note:"<b>Vayu ascendant.</b> The Heights gain speed overlays — longer chains, more darts and angle-switches, a pale white-out LUT. Tempo becomes the enemy's weapon."},
-  {n:5, name:"Agni", theme:"Fire", sc:"#ff7a2f",
-   note:"<b>Agni ascendant — terminal.</b> The Sealed Core at full relentlessness; burn pressure peaks and chains barely stop. This cycle transforms into the true-ending sequence: the mind-gone protagonist walks out a Husk."}
+  {n:"TUTORIAL", name:"Tutorial", theme:"no element", sc:"#b9c2d0",
+   note:"<b>Base identities, no overlay.</b> Above the facility proper, <b>under her mentor</b> — the purifier who performed her Kavach Rite. Its job is the <i>fiction</i> (the Rite, the leak, the rumor) plus Shroud/mani literacy; the defense verbs are all-in from minute one, so there is no verb drip-feed. <b>⚠ It no longer ends at a “first beast's heart” — that pickup is cut.</b> She is already deathless when the game starts."},
+  {n:"ANY ORDER", name:"Bhu", theme:"Earth", sc:"#c8a86b",
+   note:"<b>The mountain-shrine.</b> A rocky, overgrown growth-and-body wing — monumental specimen vats in carved devotional housings, toppled jars, fungal slopes, emerald veins converging on the threshold. Its <b>burial terraces</b> are where the division that spent centuries failing to cure death did its interring, and where its own staff went into the ground. <b>Bhu has its own bespoke family</b> (Garland, Mourner and Deadfall husks + the Reliquary boss; revised 2026-08-07 once the animation pack removed the moveset-animation cost). Designs: “1i Last Rite - Bhu Mani Husks”. Teaches <b>tempo &amp; economy</b>: four incompatible rhythms in one Enemy Phase."},
+  {n:"ANY ORDER", name:"Jal", theme:"Water", sc:"#3aa0ff",
+   note:"<b>The stepwell.</b> A monumental sunken baoli descending in tiers — blood &amp; fluids, a single terraced cascade whose purification story is told in the <i>vessels</i> (caked and crusted up top, near-pristine at the bottom), never in the fluid. Amphibian-Husk staff; longer holds, more feints. Teaches <b>patience</b> — the “slow” is the enemy's tempo, and panic-parries die here. <b>⚠ Sanity fraying must be felt by the SECOND wing played, whichever it is</b> (“1j” §3.1 — this note used to name Jal, which free order made unsafe)."},
+  {n:"ANY ORDER", name:"Vayu", theme:"Air", sc:"#a9e6f0",
+   note:"<b>The hollow tower.</b> Tall, slender, pierced stone lattice — breath &amp; spirit rendered as yogic anatomy: nadi channels spiralling in a double helix, chakra lotus-rings, bellows-lungs, sealed bell-jars that look empty and aren't. Longer chains, darts and angle-switches. Teaches <b>speed &amp; tracking</b>; tempo becomes the enemy's weapon. The late lore layer lands around here — the Accord inscription that names the Mani Kalpa."},
+  {n:"ANY ORDER", name:"Agni", theme:"Fire", sc:"#ff7a2f",
+   note:"<b>The temple courtyard.</b> Carved devotional stone around a dead stepped fire-altar; deepstambha lamp-towers where every extinguished cup was one patient's life. Reptile-Husk staff at full relentlessness; burn pressure peaks and chains barely stop. <b>⚠ 2026-08-12: no longer terminal.</b> It is the most intense wing, but order is free — it grants a seal like the others and can be played first, so its difficulty must come from <code>strataCleared</code>, not from being Agni."},
+  {n:"TERMINAL", name:"The Sanctum", theme:"no element — terminal", sc:"#b9a0d0",
+   note:"<b>The sealed sanctum, under the shikhara — opened by all four seals.</b> In line of sight from the entrance the entire game: the prize always on screen. Where the four elemental functions were combined into the immortality-medicine. <b>Ends at the heart: the lead researcher who first tested it on themselves</b> — the one being who already won the prize she's chasing. Beyond that fight, the fork: <b>Take it</b> (deathless, mind-gone — the tragic true ending) or <b>Renounce it</b> (walk out mortal, mind intact). How scarred she is decides what the choice costs. <b>⚠ Interior not yet designed</b> (“1l” §6)."}
 ];
 
 /* ============================================================
@@ -785,12 +790,12 @@ function applyFilter(){
   document.getElementById("empty").style.display = anyVisible ? "none" : "block";
 }
 
-/* ---- Rebirth stepper ---- */
+/* ---- Descent stepper (was the rebirth stepper — restructured 2026-08-11) ---- */
 function renderStepper(){
   const s = document.getElementById("stepper");
   s.innerHTML = REBIRTH.map((r,i)=>`
     <div class="step${i===activeStep?" active":""}" data-i="${i}" style="--sc:${r.sc}">
-      <div class="sn">DESCENT ${r.n}</div>
+      <div class="sn">${r.n}</div>
       <div class="sname">${r.name}</div>
       <div class="stheme">${r.theme}</div>
     </div>`).join("");

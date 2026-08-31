@@ -35,7 +35,7 @@
 
 **Prototype behaviour (done):** a real-character 1v1 duel (extensible to #-vs-#): fighters alternate turns, each auto-selects a random moveset attack + an enemy target, plays the attack anim, and applies damage at the **Hit** frame; the player defends by timing **RMB parry / LMB dodge** against the boss's live animation-frame windows; `DebugCombatHUD` shows both HP bars and the colour-coded current attack window. Characters (Purifier, CinderScale) are rigged Humanoid with grounded Mixamo anims; consolidated single-file FBX (`Purifier_Full.fbx`, `CinderScale_Full.fbx`) exist as portable character assets.
 
-**Still to build (blueprint items not yet real):** the reaction→economy resolver (parry currently only negates the swing; purge/counter unbuilt), camera director / smart action-cam, purge meter + purification finisher, run/rebirth spine, sanity/narration, ranking/gauntlet, the guardian roster, the asmdef split + `BGamer.*` extraction, and any automated tests.
+**Still to build (blueprint items not yet real):** the reaction→economy resolver (parry currently only negates the swing; purge/counter unbuilt), camera director / smart action-cam, purge meter + purification finisher, run/descent spine, sanity/narration, ranking/gauntlet, the guardian roster, the asmdef split + `BGamer.*` extraction, and any automated tests.
 
 ---
 
@@ -80,7 +80,7 @@ Assets/
     BGamer.CombatReactive/ BGamer.CombatReactive.Editor/
     LastRite.Game/         LastRite.UI/   LastRite.Editor/
     Tests/
-  Data/                (SO assets: Attacks/ Movesets/ Guardians/ Descent/ RebirthTiers/ Narration/ Ranking/ Shots/ Audio/)
+  Data/                (SO assets: Attacks/ Movesets/ Guardians/ Descent/ Strata/ Narration/ Ranking/ Shots/ Audio/)   ⚠ was RebirthTiers/ — 2026-08-11
   Settings/            (URP, Input Actions, mixers)
 ```
 
@@ -123,7 +123,7 @@ Template per system: **Job · Seam (the abstraction + where it sits) · Game 1 c
 ### 2.6 Save system
 - **Job:** save-safe by construction.
 - **Seam:** `ISaveService` (slots, JSON, version field + migration hook) + `ISaveable` registry (CaptureState/RestoreState, stable string keys). Content referenced **by string ID only** — never asset refs in saves.
-- **Game 1:** two files per slot — `RunSave` (tier index, room index, cleared encounters, RNG seed) + `MetaSave` (best ranks, lore unlocked, techniques, gauntlet scores, true-ending flags) + settings. Checkpoint at room boundaries; death respawns at duel start regardless (diegetic).
+- **Game 1:** two files per slot — `RunSave` (tier index, room index, cleared encounters, RNG seed) + `MetaSave` (best ranks, lore unlocked, techniques, gauntlet scores, true-ending flags) + settings. Checkpoint at room boundaries; death respawns at duel start regardless (diegetic). **⚠ 2026-08-09:** `RunSave` += mani reserve · Shroud element + integrity · fraying; `MetaSave` += scars · kalpa index · endings seen ([[1j Last Rite - Shroud, Mani & Sanity]]).
 - **Later:** the LS registers stash/reputation/etc. as more `ISaveable`s; the mechanism never changes.
 
 ### 2.7 Data conventions (Def/Instance + catalogs)
@@ -149,7 +149,7 @@ Template per system: **Job · Seam (the abstraction + where it sits) · Game 1 c
 - **Audio:** `IAudioService` — one-shots by ID (SO table), music layers, **mixer snapshots** (the sanity director's main lever). Unity mixer; no FMOD at this scope.
 - **RNG:** `IRngService`, named seeded streams (`run`, `remix`, `presentation`). Remix selection is seeded per run → deterministic, replay-fair, and procgen-thread-friendly later.
 - **Pooling:** generic pool for VFX/projectiles/floating text.
-- **Scenes:** `ISceneLoader` (async + fade). Scene list: `Boot` (persistent), `Title`, `Stratum_01/02/03`. Rebirth = reload Stratum_01 with the next `RebirthTierDef` applied.
+- **Scenes:** `ISceneLoader` (async + fade). Scene list: `Boot` (persistent), `Title`, **`Stratum_00` (tutorial) + `Stratum_01/02/03/04`**. **⚠ 2026-08-11: "Rebirth = reload Stratum_01 with the next `RebirthTierDef` applied" is CUT** — the re-descent loop is gone (D2). A stratum transition **loads the next stratum**; the only full reload left is husking out → Kalpa N+1.
 
 ---
 
@@ -173,8 +173,8 @@ RemixOverlayDef: per-rebirth deltas — add/remove strings, reweight, timing
   multipliers (CLAMPED by fairness floors), new feint branches
 ```
 - **Seam:** content is 100% data; *new behaviors* (a new attack verb — e.g. a grab, a shockwave ring) plug in via a **behavior registry** (`behaviorId → IAttackBehavior` strategy). Data covers the expected space; the registry absorbs the unexpected.
-- **The acceptance test:** *a new guardian ships with zero new C#* unless it introduces a genuinely new verb. The ~6 guardians + ~5 lessers are pure data + animation work.
-- **Later:** these same `AttackDef`s/`GuardianDef`s become the LS named-Husk mini-bosses — re-bound into LS encounters, not re-authored. Remix overlays are exactly the "remixed movesets per rebirth" from D2.
+- **The acceptance test:** *a new guardian ships with zero new C#* unless it introduces a genuinely new verb. The **13 bespoke enemies (4 bosses + 9 guardians) + 6 regulars** are pure data + animation work. *(⚠ Two known new-verb exceptions, 2026-08-07: the Reliquary Husk's **Rite of Return** needs scheduler work to re-insert a dead fighter into the rotation, and the player's **transform-attack** needs a moveset-swap step.)*
+- **Later:** these same `AttackDef`s/`GuardianDef`s become the LS named-Husk mini-bosses — re-bound into LS encounters, not re-authored. Remix overlays were exactly the "remixed movesets per rebirth" from D2. **⚠ 2026-08-11: D2's re-descent loop is cut** ([[1k Last Rite - Lore Bible]] §6) — the overlay *machinery* survives and is still worth having, but its consumers are now **per-stratum authoring** and **the Chaos Descent**, not a rebirth ladder.
 
 ### 3.2 Timeline runner + reaction resolver (the truth)
 - **Job:** run `AttackTimeline` on the sim clock: Telegraph → Commit → Impact(t_I) → Recovery. Grade reactions **pure-functionally**: timeline × timestamped input attempts → outcome.
@@ -195,7 +195,7 @@ RemixOverlayDef: per-rebirth deltas — add/remove strings, reweight, timing
 - **Projectiles:** minimal travel-time sim + deflect state, pooled. (LS lock: never hitscan — same tech.)
 
 ### 3.5 Animation rule (production-critical)
-**Data is truth: animation playback rate is fitted to the timeline, never vice-versa.** Remix timing-multipliers tighten a telegraph by scaling the anim — no re-authoring per rebirth tier. Telegraph cues (color flash + SFX at telegraph-start) come from the timeline, so fairness floors are enforceable in data.
+**Data is truth: animation playback rate is fitted to the timeline, never vice-versa.** Remix timing-multipliers tighten a telegraph by scaling the anim — no re-authoring per stratum *(or per Chaos-Descent roll; "per rebirth tier" is stale — 2026-08-11)*. Telegraph cues (color flash + SFX at telegraph-start) come from the timeline, so fairness floors are enforceable in data.
 
 ---
 
@@ -211,18 +211,26 @@ RemixOverlayDef: per-rebirth deltas — add/remove strings, reweight, timing
 - The LS will NOT take purge — it maps the same outcomes to AP/crit/Mani. Purge staying host-side is what makes that a re-skin instead of a rewrite.
 
 ### 4.3 Run / rebirth director (the roguelike spine)
-- **Data:** `DescentDef` = ordered `RoomDef`s (encounters, warp-flag groups, lore spots, heart chamber). `RebirthTierDef` = **one SO per loop** holding: URP volume profile + global shader params (the palette-shift-as-HUD), remix overlay set, narration variant set, ruin warp flags, audio snapshot, escalation knobs, **`maniTheme` (None / Bhu / Jal / Vayu / Agni — the cycle's element, LOCKED 2026-06-11)**, `isTerminal` (the final tier routes to the true-ending sequence).
+- **Data:** `DescentDef` = ordered `RoomDef`s (encounters, lore spots, fallen-purifier beats, heart chamber). **`StratumDef`** *(⚠ renamed from `RebirthTierDef` — 2026-08-11)* = **one SO per stratum** holding: URP volume profile + global shader params (the palette-shift-as-HUD), its **enemy set**, narration variant set, audio snapshot, escalation knobs, **`maniTheme` (None / Bhu / Jal / Vayu / Agni — the stratum's element, LOCKED 2026-06-11)**, ~~`isTerminal`~~ **(⚠ VOID 2026-08-12 — see below)**. *(Was "one SO per loop … the cycle's element … routes to the true-ending sequence"; the loop is cut, D2. The remix-overlay field survives for the Chaos Descent, not for a rebirth ladder.)*
+
+> **⚠ 2026-08-12 — FREE STRATUM ORDER kills `isTerminal`.** The four strata are now playable in **any order** ([[1k Last Rite - Lore Bible]] §6, [[1l Last Rite - World & Environment Bible]] §1.7/§2.2). No stratum is last, so no `StratumDef` can carry terminality. **Terminality moves to the sanctum, gated by seals:**
+> - **`StratumDef` gains `sealGranted`** (the key/seal this wing yields on clear). **`isTerminal` is removed.**
+> - **RunDirector holds the seal set**, not an index. The **sanctum `RoomDef` is gated on all four seals held**; clearing it routes to the heart + ending fork (Take / Renounce). Save = the seal set, not a stratum ordinal.
+> - **`DescentDef` stops being a single ordered `RoomDef` list.** It becomes **spine + four independently-enterable wing branches + the gated sanctum** — closer to a hub than a corridor. This is the one real structural change; everything else is a field edit.
+> - **⚠ Difficulty must key off `strataCleared`, not `stratumIndex`** — any wing can be first, so a per-stratum authored ladder would hand a first-time player the hardest wing. Recommended and **open pending gray-box**: [[1d Last Rite - Reaction & Feints Spec]] §3, [[1l Last Rite - World & Environment Bible]] §6 item 8.
+> - **Unchanged:** `maniTheme`, the enemy set, LUT/volume profile, narration set, audio snapshot, the remix-overlay field, and the whole fairness law below. The element is still an overlay; the wings are still authored places.
 - **Seam:** the whole D2 loop ("full re-descent, remixed") is **data overlays applied at rebirth** — adding tier 6 or rebalancing tier 3 touches zero code. RunDirector publishes `RebirthStarted/RoomEntered/EncounterCleared`; save = its memento.
-- **D1:** heart pickup #1 = the inciting rebirth — a scripted beat in the heart chamber's `RoomDef`.
-- **Elemental spine (LOCKED 2026-06-11):** tiers = `None → Bhu → Jal → Vayu → Agni` (Agni = `isTerminal`). The element is an **overlay** — the tier's `RemixOverlayDef`s carry the element's attack flavor onto the base guardians (corruption flavor, never a re-skin). **Fairness law (enforced by the §5 validator):** element overlays may alter only *guardian* attack data + presentation — they never emit player-side status (no slow/freeze/push on the player; keeps D7 fairness-sacred inside a stationary duel).
-- **Chaos Descent (v1-stretch / first content update, NOT core v1):** post-true-ending unlockable — RunDirector takes a runtime-assembled `DescentDef` + a randomly-selected element theme + seeded remix overlays (the `remix` RNG stream). Randomized *selection* of authored content, zero procgen, no new system — the bridge to the eventual full-procgen Endless mode.
+- **D1: ⚠ CUT 2026-08-11.** Was *"heart pickup #1 = the inciting rebirth — a scripted beat in the heart chamber's `RoomDef`."* **There is no heart pickup and no inciting rebirth** — the Kavach Rite already made her deathless before the game starts, so death-retry needs no in-world trigger and the heart chamber hosts the **final encounter + ending fork** instead ([[1k Last Rite - Lore Bible]] §4/§8).
+- **Elemental spine (LOCKED 2026-06-11; ⚠ ORDER FREED 2026-08-12):** the set is `None` (tutorial) + `{Bhu, Jal, Vayu, Agni}` — **an unordered set, not a ladder.** *(Was `None → Bhu → Jal → Vayu → Agni` with `Agni = isTerminal`.)* The tutorial is still first; the four wings are entered in any order and each grants a `sealGranted`; the sanctum is gated on all four. The element is an **overlay** — the tier's `RemixOverlayDef`s carry the element's attack flavor onto the base guardians (corruption flavor, never a re-skin). **Fairness law (enforced by the §5 validator):** element overlays may alter only *guardian* attack data + presentation — they never emit player-side status (no slow/freeze/push on the player; keeps D7 fairness-sacred inside a stationary duel).
+- **Chaos Descent — ⚠ PROMOTED to CORE v1 (2026-08-09; this line said "v1-stretch / first content update, NOT core v1"):** unlocked at **the first ending reached** — Take it, Renounce it or Husk out *(⚠ 2026-08-11: three endings, not "post-true-ending")*. RunDirector takes a runtime-assembled `DescentDef` + **mixed per-encounter element assignment** + seeded remix overlays (the `remix` RNG stream). It is also **the only place the descent repeats**, now that the re-descent loop is cut. Randomized *selection* of authored content, zero procgen, no new system — the bridge to the eventual full-procgen Endless mode.
 
 ### 4.4 Explore mode (deliberately thin)
 Third-person walk (CharacterController), interactables (lore, doors, the heart), `Shot.Walk`. **No stealth, no loot, no sprint-jump platforming** — it's the breath between duels and the narration/sanity canvas. (LS explore is a different, richer system; nothing here pretends to be it.)
 
 ### 4.5 Sanity & narration (presentation-only, structurally)
-- `SanityDirector`: maps rebirth tier + scripted beats → post-volume weights, audio snapshots, hallucination prefabs (pooled, cosmetic). `NarrationService`: line tables keyed by trigger ID with **per-tier degradation variants** (the D2 "narration degrades" lever).
+- `SanityDirector`: maps **stratum + fraying/scar state** + scripted beats → post-volume weights, audio snapshots, hallucination prefabs (pooled, cosmetic). `NarrationService`: line tables keyed by trigger ID with **per-stratum degradation variants** (the "narration degrades" lever). *(Was "rebirth tier" / "per-tier" — 2026-08-11.)*
 - **The fairness guarantee is architectural:** both are pure event *subscribers*. They cannot write to the sim — there is no API surface for it. Telegraphs stay readable at every sanity level by construction, honoring "fairness is sacred" (D7).
+- **⚠ 2026-08-09 — contract extended, guarantee unchanged.** Sanity gains two additional *fair* output lanes: **sensory narrowing** (mixer/volume + post weights scaling with **fraying**, with the enemy/telegraph channels exempt by construction) and a **HUD-unreliability driver** (targets `LastRite.UI` *abstract* widgets only — diegetic reads and shrine screens exempt; a "steady HUD" accessibility toggle pins it). Still subscriber-only, still no sim API. **Scarring, the death countdown and the kalpa reset live in the run director + saves — not here.** True cue-corruption exists only inside the opt-in "embrace the hallucination" toggle (post-playtest). Spec: [[1j Last Rite - Shroud, Mani & Sanity]] §3.
 
 ### 4.6 Ranking & gauntlet
 - `MetricsRecorder` (per-encounter event subscriber: hits taken, time, style events) → `RankResolver(RankingDef)` → grade → UI + MetaSave. Style weights are data.
@@ -239,7 +247,7 @@ Third-person walk (CharacterController), interactables (lore, doors, the heart),
 ---
 
 ## 6. What we deliberately do NOT build (the guardrail list)
-No grid substrate (Game 2) · no inventory/factions/vendor/Mani economy (Game 3+/LS) · no Encounter-Arena scene transition (duels in-place) · no Command-pattern combat actions (returns in Game 2's tactical layer) · no DI container/ECS/Addressables/localization-framework/netcode · no behavior-tree AI (string-scheduler + policy knobs is the honest scope) · no stamina, no skill tree (locked design).
+No grid substrate (Game 2) · no inventory/factions/vendor/Mani economy (Game 3+/LS) · no Encounter-Arena scene transition (duels in-place) · no Command-pattern combat actions (returns in Game 2's tactical layer) · no DI container/ECS/Addressables/localization-framework/netcode · no behavior-tree AI (string-scheduler + policy knobs is the honest scope) · no stamina, no skill tree (locked design). *(⚠ 2026-08-09: the Shroud's defensive mani reserve — one scalar + an element tag — is a meter, not the LS Mani economy; the guardrail stands. [[1j Last Rite - Shroud, Mani & Sanity]] §2.)*
 
 ---
 
@@ -249,7 +257,7 @@ No grid substrate (Game 2) · no inventory/factions/vendor/Mani economy (Game 3+
 3. **Player FSM** (strike/parry/dodge/counter) + debug HUD + purge bar.
 4. **Tune until the answer is yes:** telegraph → push-in → parry → hitstop → counter. **Exit criterion: "you immediately want to do it again."** This validates the portfolio's combat identity (the reframed Game-1 milestone per D4).
 
-Then M1: real guardian #1 + finisher + ranking → M2: descent spine + rebirth tiers → M3: content fill (6+5) → M4: gauntlet/lore/polish. (Real task breakdown happens at scaffold.)
+Then M1: real guardian #1 + finisher + ranking → M2: descent spine + strata → M3: content fill → M4: gauntlet/lore/polish. (Real task breakdown happens at scaffold.)
 
 ---
 

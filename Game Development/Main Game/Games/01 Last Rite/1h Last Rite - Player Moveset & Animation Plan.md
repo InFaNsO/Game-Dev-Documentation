@@ -1,6 +1,6 @@
 # Game 1 "Last Rite" — Player Moveset & Animation Plan
 
-> **The execution plan for the player's weapons and the pack-based combat animation pipeline.** Companion to [[1 Parry Combat - Last Rite]] (§"D6 amendment — the Rite Blade & Mani Surge"), [[1b Last Rite - Art Bible]] §5.4, [[1d Last Rite - Reaction & Feints Spec]] (clip-event timing + QTE/AP combos) and [[1f Last Rite - Combat Iteration Log]]. Enemy movesets for the Bhu family live in [[1i Last Rite - Bhu Mani Husks]].
+> **The execution plan for the player's weapons and the pack-based combat animation pipeline.** Companion to [[1 Parry Combat - Last Rite]] (§"D6 amendment — the player's weapons"), [[1b Last Rite - Art Bible]] §5.4, [[1d Last Rite - Reaction & Feints Spec]] (clip-event timing + QTE/AP combos) and [[1f Last Rite - Combat Iteration Log]]. Enemy movesets for the Bhu family live in [[1i Last Rite - Bhu Mani Husks]].
 >
 > **⚠ REVISED 2026-08-07 — §1, §2, §4 and §5 were rewritten.** The single one-handed Rite Blade became **two transforming trick weapons**; the guardian assignment table was replaced wholesale; two factual errors about the pack were corrected. The superseded text is recorded in [[1f Last Rite - Combat Iteration Log]].
 >
@@ -10,7 +10,11 @@
 
 ## 1. The weapons — two transforming trick weapons
 
-The player carries **two armaments, each with two forms**. Bloodborne's trick-weapon model: variety comes from transformation, not from weapon count. Each form is a complete pack moveset, so two weapons yield **four distinct movesets** for four owned animation sets.
+The player's armaments are **transforming trick weapons, each with two forms**. Bloodborne's model: variety comes from transformation, not weapon count. Each form is a complete pack moveset, so two weapons yield **four distinct movesets** for four owned animation sets.
+
+> **⚠ Acquisition (2026-08-07): the player starts with the RITE BLADE ONLY**, and unlocks its attacks progressively as they level rather than receiving all 8 at once. **The Pyre Censer is deferred** — it is fully designed and its sets are reserved, but when and how it enters the game is an open question. A second armament is purely additive through the `MovesetDef`/`SOAttackDef` layer, so deferring it costs nothing. **This means M2's vertical slice only needs the Katana and Halberd sets.**
+>
+> **⚠ No Mani-based player attacks.** The Mani Surge and the whole elemental player layer are **cut from Game 1 scope** — no elemental absorption, no signature elemental attack, no elemental trails, no Mani meter. Elements are enemy-side only; **Purge is the player's only meter.**
 
 ### 1.1 The Rite Blade · *Samskara* — Katana ↔ Halberd
 
@@ -83,7 +87,9 @@ It lives entirely on the **player's turn**, so it never competes with the enemy-
 
 ## 4. Player moveset — 8 attacks per weapon
 
-**The structure (locked 2026-08-07):** every form carries **2 light + 2 heavy** attacks. Two forms per weapon = **8 attacks per weapon**; two weapons = **16 player attacks** total. Lights cost **1 AP**, heavies cost **2 AP**, per the QTE/AP system in [[1d Last Rite - Reaction & Feints Spec]] §6b.
+**The structure (locked 2026-08-07):** every form carries **2 light + 2 heavy** attacks. Two forms per weapon = **8 attacks per weapon**; two weapons = **16 player attacks** at full build-out. Lights cost **1 AP**, heavies cost **2 AP**, per the QTE/AP system in [[1d Last Rite - Reaction & Feints Spec]] §6b.
+
+**These 16 are the full ceiling, not the starting kit.** The player begins with the Rite Blade and a subset of its attacks, unlocking the rest by level; the Pyre Censer's 8 arrive later still (§1). Unlock pacing and the starting four are open — see §6.
 
 ![[Player Final Ref All sides.jpg]]
 
@@ -140,7 +146,7 @@ Every bespoke enemy gets a **distinct pack set** so movesets read as visually di
 | **MireCrown** *the Drowned Regent* | Jal · boss | **Greatsword** | Slow heavy horizontal arcs = Crown Sweep; regal weight |
 | **GaleTalon** *the Hollow Gale* | Vayu · boss | **Combat** (unarmed) | Talons, not weapons — punches and kicks sell the dive kit |
 | **Reliquary Husk** *Dhatugarbha* | Bhu · boss | **Magic** | `Magic Heal 01/02` land exactly on Consecrate and Rite of Return |
-| **CinderScale** *the First Guardian* | Agni · miniboss | **Sword and Shield** | Closest to the player's blade language for the tutorial mirror |
+| ~~**CinderScale**~~ *the First Guardian* | Agni · miniboss | **— parked —** | **⚠ Prototype only (2026-08-07)** — built as a combat test enemy, not shipped content. Model may be reused; weapon set unassigned. **Sword and Shield is free.** |
 | **SearCoil** *the Molten Fang* | Agni · miniboss | **Axe** | Brutal one-handed chops read as the coil lash |
 | **BogHerald** *the Liturgist* | Jal · miniboss | **Pickaxe** | Long haft, heavy held overheads — reskin as a ritual crozier |
 | **SiltWeaver** *the Silt-Dancer* | Jal · miniboss | **Dual Swords** | Two blades double the afterimages for the ghost→real echo cuts |
@@ -177,3 +183,5 @@ Every bespoke enemy gets a **distinct pack set** so movesets read as visually di
 ## 6. Open / playtest-open (I10)
 
 Final clip picks per slot (best-linking is an Animator-graph judgement) · all cross-fade durations · whether the transform-attack costs 1 or 2 AP · whether `Attack Double` chains replace or supplement single weak steps for QTE doubles · the custom perfect-parry deflect's exact timing (must honor the 130 ms Perfect reference window) · whether the boss 5+5 shape holds or trims to 4+4 after the first boss is playable.
+
+**Acquisition & progression (opened 2026-08-07):** which of the Rite Blade's 8 the player starts with · how attacks unlock against level, and whether "level" is even the right gate for a game whose stated progression is *mastery* · when and how the Pyre Censer is acquired · whether the transform itself is available from the start or is the first unlock.

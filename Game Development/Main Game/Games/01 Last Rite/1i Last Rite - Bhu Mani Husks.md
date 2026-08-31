@@ -10,13 +10,24 @@
 
 ## 1. The family
 
-Three husks and a boss. They were people caught by the Bleed near raw Bhu deposits: the earth tried to bury them — entombed them in clay, moss, wood and stone around the corrupted shard — but **the rite was never finished, so they walk.** Each one is a failed burial. Killing one completes its funeral.
+Three husks and a boss.
+
+> **⚠ ORIGIN CORRECTED 2026-08-11 — [[1k Last Rite - Lore Bible]] §3.** They were **not** "people caught by the Bleed near raw Bhu deposits." They are **this facility's own staff**, turned by the engineered immortality-medicine that hollowed everyone inside — *concentrated* Husks, worse than anything the raw Breach ever made. The Bhu stratum is the facility's **burial terraces**, where a mani-medicine division that spent centuries failing to cure death did its interring.
+
+> **⚠ PLACE SPECIFIED 2026-08-12 — [[1l Last Rite - World & Environment Bible]] §3.1.** The Bhu wing is now designed: a **rocky, overgrown mountain-shrine** whose medical domain is **growth & the physical body** — monumental specimen-vats in carved devotional housings, clusters of toppled smaller jars, pale fungal growth, emerald veins spreading across the rock toward the threshold crystal.
+>
+> **This does not retract the burial terraces — it explains them.** Per the three-layer register ([[1k Last Rite - Lore Bible]] §3): **the architecture is temple, the function is growth-medicine, and the funerary grammar is the residue** of what happened when the function failed. The terraces are where this wing's own staff were interred; the vats are what they were doing right up until they became the things being interred. **That is exactly why this family reads as failed funerals** — Garland, Mourner, Deadfall and the Reliquary are the *result* of a growth lab, laid out with rites, on the terraces of the building that killed them. The wing's approach-shows-the-function rule (§2.4 rule 4) means the player walks past the vats on the way in, then fights what came out of them.
+
+The Bhu-wing staff went down saturated in earth-mani, and the ground took them: **entombed in clay, moss, wood and stone around their own gem** — but **the rite was never finished, so they walk.** Each one is a failed burial. Killing one completes its funeral.
+
+*(Everything below this line — silhouettes, adornment, movesets, tempos — is unchanged. The origin swap costs no art and no design: a facility that buried its dead in its own earth produces exactly the same creatures.)*
 
 ### 1.1 Shared DNA
 
 - **Something is always missing.** A sealed pot for a head, a veil with nothing behind it, a splintered hollow, no head at all. The body is a container with nobody inside — that is the "husk" read at a glance.
 - **The shard is always visible.** A corrupted Bhu Mani lodged somewhere vital, glowing warm **amber**, with ochre mani-veins spreading from it like root filaments.
-- **The gem is the telegraph.** Slow attack → slow deep pulses; fast attack → rapid flicker; post-attack exposure → the gem dims. One shared readability language across the family. Honours the fairness law in [[1 Parry Combat - Last Rite]] — the gem never obscures a telegraph, it *is* one.
+- **⚠ The gem is the deathlessness itself (CANONIZED 2026-08-11).** It is not decoration or a drop table — **it is the core of the husk's endless life, and tearing it out IS the kill**: the body crumbles instantly to dust, centuries overdue. That is the purification finisher, and it is why "lodged somewhere vital" is a design requirement rather than a styling note. See [[1k Last Rite - Lore Bible]] §5 and [[1j Last Rite - Shroud, Mani & Sanity]] §2.
+- **The gem is the telegraph.** Slow attack → slow deep pulses; fast attack → rapid flicker; post-attack exposure → the gem dims. One shared readability language across the family. Honours the fairness law in [[1 Parry Combat - Last Rite]] — the gem never obscures a telegraph, it *is* one. **It therefore carries three jobs at once: the tell, the kill target, and the loot.**
 - **Funerary adornment marks rank:** marigold garland → mourning veil → blood-red leaf crown → full vestments and a halo.
 - **Silhouette spectrum:** squat → stooped → lanky → perfectly upright. Readable at combat distance under the unlit + black-outline treatment.
 
@@ -76,7 +87,7 @@ A squat, potbellied thing built like a cracked funeral urn given legs — sun-dr
 
 A tall figure stooped like someone standing at a grave in the rain. Its entire front is a **veil of hanging moss, votive threads and white mourning flowers** falling from crown to shins — no face, only curtain. Beneath: a hollow ribcage of woven banyan roots, and inside that hollow the Bhu Mani hangs on root-strands like **a censer on chains, swinging as it walks.** Walk behind it and it is **concave — a front-only shell, like a discarded mask.**
 
-**Combat identity — rhythm corruption.** His attacks *hang*: unusually long commits, so the hit lands later than the telegraph implies. He punishes muscle memory rather than bad reading, which also makes him the natural carrier for the Jal cycle overlay ("the slow is the enemy's tempo").
+**Combat identity — rhythm corruption.** His attacks *hang*: unusually long commits, so the hit lands later than the telegraph implies. He punishes muscle memory rather than bad reading, which also makes him the tempo the **Jal stratum** is written against ("the slow is the enemy's tempo").
 
 ![[Bhu - 02 Mourner Reference.jpg]]
 
@@ -128,7 +139,7 @@ Bone-white bleached driftwood wrung into a human shape — the grain visibly spi
 
 ![[Bhu - Reliquary (Boss) Concept.jpg]]
 
-The deliberate outlier: where its kin are broken and hunched, this one is **serene, symmetrical and statue-still** — an Accord-era ritualist the earth entombed in polished black temple basalt, every crack repaired with gold inlay like a restored idol. It has **no head**: the neck opens into a blooming lotus crown of stone petals cradling the bare Bhu Mani. Its chest is a **shrine niche** holding a row of oil lamps that ignite one by one as it escalates. Rising from its back on gold supports: a **broken stone halo**, a third of the ring missing.
+The deliberate outlier: where its kin are broken and hunched, this one is **serene, symmetrical and statue-still** — **the wing's rites-officer**, the Accord ritualist who consecrated this facility's dead and was entombed by them in turn, sealed in polished black temple basalt, every crack repaired with gold inlay like a restored idol. *(⚠ 2026-08-11: was "an Accord-era ritualist the earth entombed" — now specifically **facility staff**, per [[1k Last Rite - Lore Bible]] §3. It gains a reason to be here and a reason to keep raising the others: it never stopped doing its job.)* It has **no head**: the neck opens into a blooming lotus crown of stone petals cradling the bare Bhu Mani. Its chest is a **shrine niche** holding a row of oil lamps that ignite one by one as it escalates. Rising from its back on gold supports: a **broken stone halo**, a third of the ring missing.
 
 **Combat identity — the force multiplier.** It barely fights. Without positioning, support means **turn economy and window manipulation** — it inflates everyone else's chains and undoes your kills. It never fights alone by choice, and killing it makes the whole encounter audibly relax.
 
@@ -169,7 +180,9 @@ Without positioning, an encounter is **one continuous rhythm the player must hol
 
 **Every husk carries one counter-lever, so mastery is legible.** Parry Bellring Lunge and the whole team loses a turn. Dodge Veil Embrace and the Mourner is Exposed. Kill the Reliquary and every chain shortens. Watch for blunt quills and the Deadfall's next turn is weak. None are hidden.
 
-**These four are the base tempos the Mani rebirth cycles remix.** The Jal overlay (delayed, feint-heavy) pushes everyone toward Mourner behaviour; the Agni overlay (fastest, most relentless) toward Deadfall. Designing the base set as four distinct tempos is what makes those overlays feel like a re-learn rather than a stat bump.
+**These four are the base tempos the rest of the game is written against.** The Jal stratum (delayed, feint-heavy) pushes everyone toward Mourner behaviour; the Agni stratum (fastest, most relentless) toward Deadfall. Designing the base set as four distinct tempos is what makes each later stratum feel like a **re-learn** rather than a stat bump — the "each stratum re-teaches the fight" law in [[1k Last Rite - Lore Bible]] §6.
+
+> **⚠ 2026-08-11 — read this as *strata*, not *rebirth cycles*.** These tempos were originally the base layer that ~5 elemental re-descents would remix. The re-descent loop is cut ([[1 Parry Combat - Last Rite]] D2), so the Jal/Vayu/Agni versions are **their own families in their own places**, not overlays repainted onto these four. The overlay *vocabulary* still describes what each element does to a tempo — it now describes a neighbour rather than a repaint, and the Chaos Descent is where remixing actually happens ([[1j Last Rite - Shroud, Mani & Sanity]] §5).
 
 ---
 

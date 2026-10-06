@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Road to Leonida — 69-day content calendar</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F0A24; --surface:#1A1238; --surface-2:#241A4A; --line:#3A2E6A;
+    --text:#F5EFFF; --muted:#A99BD1;
+    --fact:#35E1D0; --char:#FF5FB1; --map:#FFA34D; --rumor:#B58CFF; --comm:#FFE45C; --launch:#FFFFFF;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--text);font-family:Archivo,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  body{padding:20px 16px 120px}
+  .wrap{max-width:1180px;margin:0 auto}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:auto 1fr;gap:20px 32px;align-items:end;margin-bottom:22px}
+  .big{font-family:'Archivo Black',Archivo,sans-serif;font-size:clamp(84px,16vw,168px);line-height:.85;letter-spacing:-.02em;color:var(--char)}
+  .hero h1{font-family:'Archivo Black',Archivo,sans-serif;font-size:clamp(22px,3vw,34px);margin:0 0 8px;line-height:1.05}
+  .hero p{margin:0;color:var(--muted);font-size:15px;max-width:52ch;line-height:1.5}
+  .stats{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:14px;color:var(--muted)}
+  .stats b{color:var(--text);font-weight:700}
+
+  /* filters */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 18px}
+  .chip{border:1px solid var(--line);background:var(--surface);color:var(--text);border-radius:999px;padding:7px 14px;font:500 13px Archivo,sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px}
+  .chip .dot{width:9px;height:9px;border-radius:50%;background:var(--c)}
+  .chip[aria-pressed="true"]{background:var(--c);color:#14092B;border-color:var(--c)}
+  .chip[aria-pressed="true"] .dot{background:#14092B}
+  .chip:focus-visible,.cell:focus-visible,button:focus-visible{outline:2px solid var(--comm);outline-offset:2px}
+
+  /* grid */
+  .dow{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;color:var(--muted);font-size:12px;padding:0 2px 6px}
+  .grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+  .cell{--c:var(--fact);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 10px 10px;min-height:118px;text-align:left;color:var(--text);cursor:pointer;display:flex;flex-direction:column;gap:6px;position:relative;font-family:inherit}
+  .cell .date{font-size:11.5px;color:var(--muted)}
+  .cell .n{font-family:'Archivo Black',Archivo,sans-serif;font-size:38px;line-height:1;color:var(--c);letter-spacing:-.02em}
+  .cell .t{font-size:12.5px;line-height:1.3;color:var(--text)}
+  .cell.done{background:var(--surface-2)}
+  .cell.done .n{color:var(--muted)}
+  .cell.done::after{content:"posted";position:absolute;top:9px;right:10px;font-size:10px;color:var(--comm)}
+  .cell.today{border-color:var(--comm);box-shadow:0 0 0 1px var(--comm) inset}
+  .cell.dim{opacity:.22;pointer-events:none}
+  .cell.empty{visibility:hidden}
+  .cell.launch{--c:var(--launch);background:linear-gradient(160deg,#2A1A5E,#4A1B62)}
+
+  /* drawer */
+  .scrim{position:fixed;inset:0;background:rgba(6,3,20,.6);opacity:0;pointer-events:none;transition:opacity .2s}
+  .scrim.open{opacity:1;pointer-events:auto}
+  .drawer{position:fixed;top:0;right:0;height:100%;width:min(460px,100%);background:var(--surface);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s;overflow:auto;padding:22px 22px 40px}
+  .drawer.open{transform:none}
+  .drawer .close{position:absolute;top:14px;right:14px;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:18px}
+  .drawer .kicker{font-size:13px;color:var(--muted);margin-bottom:6px}
+  .drawer .num{font-family:'Archivo Black',Archivo,sans-serif;font-size:96px;line-height:.9;letter-spacing:-.03em;color:var(--c);margin:0}
+  .drawer .num small{font-family:Archivo;font-size:16px;letter-spacing:0;color:var(--muted);margin-left:8px}
+  .drawer h2{font-size:22px;line-height:1.2;margin:18px 0 8px}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .tag{font-size:12px;border-radius:6px;padding:4px 9px;border:1px solid var(--line);color:var(--muted)}
+  .tag.cat{background:var(--c);color:#14092B;border-color:var(--c);font-weight:700}
+  .drawer h3{font-size:13px;color:var(--muted);font-weight:500;margin:18px 0 6px}
+  .drawer ol{margin:0;padding-left:20px;line-height:1.55;font-size:15px}
+  .drawer ol li{margin-bottom:6px}
+  .drawer .bait{background:var(--bg);border-radius:8px;padding:12px 14px;font-size:14.5px;line-height:1.5}
+  .actions{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+  .btn{border:1px solid var(--line);background:var(--surface-2);color:var(--text);border-radius:8px;padding:11px 16px;font:500 14px Archivo,sans-serif;cursor:pointer}
+  .btn.primary{background:var(--c);color:#14092B;border-color:var(--c);font-weight:700}
+  .note{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5}
+
+  @media (max-width:760px){
+    body{padding:16px 12px 100px}
+    .hero{grid-template-columns:1fr;gap:6px}
+    .dow{display:none}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .cell.empty{display:none}
+    .cell{min-height:104px}
+    .cell .n{font-size:32px}
+    .drawer{width:100%;top:auto;bottom:0;height:88%;border-left:0;border-top:1px solid var(--line);border-radius:16px 16px 0 0;transform:translateY(100%)}
+    .drawer.open{transform:none}
+    .drawer .num{font-size:72px}
+  }
+  @media (prefers-reduced-motion:reduce){.drawer,.scrim{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <div class="big" id="heroNum">68</div>
+    <div>
+      <h1>Road to Leonida</h1>
+      <p>One Short a day, same template, same beat. Only the number and the drop change. Saturday 12 September through launch day, Thursday 19 November.</p>
+      <div class="stats">
+        <span><b id="heroLabel">days to go</b></span>
+        <span>Series day <b id="seriesDay">–</b> of 69</span>
+        <span>Posted <b id="postedCount">0</b> / 69</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="filters" id="filters"></div>
+  <div class="dow"><span>Sat</span><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span></div>
+  <div class="grid" id="grid"></div>
+  <p class="note">Tap a day for the hook, three script beats, comment bait, and a copy button. Confirmed facts are tagged; rumors are tagged so the script can say "reportedly".</p>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <button class="close" id="closeBtn" aria-label="Close">×</button>
+  <div class="kicker" id="dKicker"></div>
+  <p class="num" id="dNum"></p>
+  <h2 id="dTitle"></h2>
+  <div class="tags"><span class="tag cat" id="dCat"></span><span class="tag" id="dStatus"></span></div>
+  <h3>Script beats (≈30s)</h3>
+  <ol id="dBeats"></ol>
+  <h3>Comment bait</h3>
+  <div class="bait" id="dBait"></div>
+  <div class="actions">
+    <button class="btn primary" id="copyBtn">Copy script</button>
+    <button class="btn" id="doneBtn">Mark as posted</button>
+  </div>
+  <p class="note" id="dNote"></p>
+</aside>
+
+<script>
+const CATS = {
+  hype:{label:"Hype & rumors",color:"var(--rumor)"},
+  fact:{label:"Lesser-known fact",color:"var(--fact)"},
+  char:{label:"Character",color:"var(--char)"},
+  map:{label:"Map & places",color:"var(--map)"},
+  comm:{label:"Ask the audience",color:"var(--comm)"},
+  launch:{label:"Launch",color:"var(--launch)"}
+};
+
+// Weekly rhythm: Sat hype · Sun fact · Mon character · Tue map · Wed fact · Thu rumor · Fri audience
+const DAYS = [
+ {c:"hype",s:"Series intro",t:"68 days. Every day, one drop.",b:["68 days until GTA VI. From today I'm posting one Short a day until launch.","Not the stuff everyone knows — the lesser-known facts, the map, the cast, and the rumors worth arguing about.","Follow so you don't miss a single day. Tomorrow: the fact people get wrong about Lucia."],bait:"What do you want covered first: map, characters, or rumors?"},
+ {c:"fact",s:"Confirmed",t:"Lucia isn't the first female protagonist. Sort of.",b:["Everyone says Lucia is the first playable woman in GTA. That's true for the 3D games.","But the original 1997 GTA let you pick female characters from the start.","So she's the first in modern GTA, and the first ever to lead the story. Big difference."],bait:"Did you know the 1997 one had female characters? Be honest."},
+ {c:"char",s:"Confirmed (Rockstar bio)",t:"Jason Duval: the guy who wants an easy life.",b:["Jason grew up around grifters and crooks, then did a stint in the Army to escape it.","It didn't work. He ended up in the Leonida Keys running product for a drug smuggler called Brian Heder.","Rockstar's own line: he wants an easy life, but things just keep getting harder. Then he meets Lucia."],bait:"Army guy turned smuggler — better or worse start than Michael in GTA V?"},
+ {c:"map",s:"Confirmed",t:"It's not just Vice City. It's a whole state.",b:["GTA VI is set in Leonida, Rockstar's version of Florida — and Vice City is just one region.","Six named regions so far: Vice City, the Leonida Keys, Grassrivers, Mount Kalaga, Port Gellhorn, and Ambrosia.","That's beaches, swamps, islands, mountains and a port town, all in one map."],bait:"Which region are you heading to first?"},
+ {c:"fact",s:"Confirmed",t:"Trailer 1 leaked, so Rockstar dropped it a day early.",b:["Trailer 1 was scheduled for December 5th 2023. It leaked online the night before.","Rockstar just released it early on the spot.","It hit around 93 million views in 24 hours — a YouTube record for a non-music video at the time."],bait:"Where were you when trailer 1 dropped?"},
+ {c:"hype",s:"Confirmed pricing",t:"The $200 rumor was fake. Here's the real price.",b:["For months the internet swore GTA VI would cost 100, even 200 dollars.","Reality: Standard is 79.99, Ultimate is 99.99. Pre-orders opened June 25th.","Still 10 dollars above the usual 70 — GTA VI is only the second big game to launch at 80."],bait:"Is 80 dollars fair for this game? Yes or no in the comments."},
+ {c:"comm",s:"Poll",t:"Jason or Lucia — who are you playing first?",b:["62 days out. Quick one today.","You get both protagonists. But you'll pick one to open with.","Jason, the Keys smuggler — or Lucia, fresh out of prison? Comment your pick."],bait:"Jason or Lucia? Wrong answers get pinned."},
+
+ {c:"hype",s:"Speculation",t:"We still haven't seen real gameplay.",b:["61 days out and think about it: two trailers, an extended look — but still no raw, uncut gameplay.","Rockstar did the same before GTA V: the big gameplay reveal came late.","Prediction: a gameplay video lands in the next few weeks. Screenshot this."],bait:"When does the gameplay video drop? Give me a date."},
+ {c:"fact",s:"Confirmed",t:"The biggest leak in gaming history came from a hotel room.",b:["In 2022, 90+ videos of unfinished GTA VI leaked online.","The hacker was a teenager who reportedly did it from a hotel room using a phone and an Amazon Fire Stick.","He was later convicted. Rockstar said it didn't disrupt development — but the whole world saw Vice City early."],bait:"Did you watch the 2022 leak clips? No judgement."},
+ {c:"char",s:"Confirmed (Rockstar bio)",t:"Lucia's story starts in prison.",b:["Rockstar's bio: Lucia's father taught her to fight as soon as she could walk, and life has been swinging at her ever since.","Fighting for her family is what landed her in the Leonida Penitentiary.","That's why trailer 1 opens with her in orange. She's not starting at the bottom — she's starting below it."],bait:"What do you think she went to prison for?"},
+ {c:"map",s:"Confirmed",t:"The Leonida Keys are where Jason lives.",b:["The Keys are Rockstar's Florida Keys — island chains, boat yards, the works.","Jason's starting apartment is here, and so is Brian Heder's boat yard where he works.","This is the game's opening playground before Vice City proper."],bait:"Boats or cars — which do you want more of?"},
+ {c:"fact",s:"Confirmed",t:"It's been 20 years since we last saw Vice City.",b:["Vice City the game was 2002. Vice City Stories on PSP was 2006.","That's the last time we set foot there — two full decades ago.","The neon is back, but this time it's modern day, not the 80s."],bait:"80s Vice City or modern Vice City?"},
+ {c:"hype",s:"Rumor",t:"NPCs might remember what you did to them.",b:["One of the most repeated rumors: NPCs with memory.","Steal someone's car, cause chaos in their neighbourhood — they reportedly recognise you next time.","Not confirmed by Rockstar. But if it's real, Vice City gets personal."],bait:"Would you play nicer if NPCs held grudges?"},
+ {c:"comm",s:"Ask",t:"One GTA V feature that must come back.",b:["55 days. Your turn.","Heists, three-protagonist switching, the stock market, the phone — what's non-negotiable?","Comment the one feature GTA VI cannot ship without."],bait:"Name the one thing. Most-liked answer gets its own video."},
+
+ {c:"hype",s:"Reported, unconfirmed",t:"Reportedly the most expensive game ever made.",b:["Estimates put GTA VI's budget somewhere between one and two billion dollars.","That would make it the most expensive video game ever produced.","Rockstar has never confirmed a number. But GTA V made a billion dollars in three days, so they can afford the bet."],bait:"Will it make a billion in 3 days again? Faster?"},
+ {c:"fact",s:"Confirmed",t:"The trailers revived two old songs.",b:["Trailer 1 used Tom Petty's Love Is a Long Road — a 1989 track that exploded in streams overnight.","Trailer 2 used Hot Together by The Pointer Sisters.","Rockstar picks songs like a movie studio picks a title card."],bait:"Which trailer song hits harder?"},
+ {c:"char",s:"Confirmed (Rockstar bio)",t:"Boobie Ike: the Vice City legend.",b:["Boobie turned his street reputation into a real empire: a strip club, real estate, and a recording studio.","All smiles until it's time to talk business.","Right now his big project is Only Raw Records with Dre'Quan Priest. Every GTA has a kingmaker — this looks like him."],bait:"Boobie Ike: ally or the guy who sets you up?"},
+ {c:"map",s:"Confirmed (screenshots)",t:"Vice City neighbourhoods we've already seen.",b:["Ocean Beach — the neon strip. Little Cuba. The Vice City Port.","There's even a flea market, and a personal garage at Shore Court comes with the pre-order.","Rockstar has been quietly showing the city one district at a time."],bait:"Which district do you want a full tour of?"},
+ {c:"fact",s:"Confirmed",t:"50 days. And two delays to get here.",b:["Halfway-ish. Here's the delay story.","First target: fall 2025. Then a hard date, May 26th 2026. Then pushed again to November 19th.","Take-Two has repeated that November holds. The wait is almost over."],bait:"Did the delays make you more hyped or less?"},
+ {c:"hype",s:"Rumor",t:"Shop prices could change based on what you do.",b:["Another big rumor: a living economy.","Prices in shops reportedly shift with your actions, missions, and in-game inflation.","Rob enough places and Vice City might start charging you more. Unconfirmed, but very Rockstar."],bait:"Good idea or annoying? Tell me."},
+ {c:"comm",s:"Poll",t:"Predict the Metacritic score.",b:["48 days. Prediction time.","GTA V sits at 97. Red Dead 2 at 97.","Comment your exact Metacritic prediction for GTA VI. I'll pin the closest one on launch week."],bait:"Exact number only. Closest guess wins a pin."},
+
+ {c:"hype",s:"Confirmed",t:"Pre-load starts November 12th.",b:["47 days out. Mark this: digital pre-load opens November 12th, one week before launch.","Then it's a rolling midnight launch — the game unlocks at 12am your local time on the 19th.","No waiting for a global timer. Midnight is midnight."],bait:"Midnight launch or sleeping first?"},
+ {c:"fact",s:"Confirmed",t:"GTA V made a billion dollars in three days. At $60.",b:["GTA V launched in 2013 at 60 dollars and hit a billion in 72 hours — a record at the time.","It's now sold over 200 million copies.","GTA VI launches at 80. Do the maths on that opening weekend."],bait:"How fast does GTA VI hit a billion? Hours or days?"},
+ {c:"char",s:"Confirmed (Rockstar bio)",t:"Cal Hampton: the conspiracy guy.",b:["Cal is Jason's friend — happiest at home with a beer, private browser tabs, and a radio tuned to Coast Guard chatter.","Rockstar's tagline for him: what if everything on the internet was true?","Every GTA needs a Lester. Cal might be it — with more paranoia."],bait:"Cal is the Lester of GTA VI. Agree?"},
+ {c:"map",s:"Confirmed",t:"Grassrivers is the Everglades.",b:["Grassrivers is Rockstar's Everglades: swamps, sawgrass, airboats and gators.","Trailer 1 showed the mud fest and swamp culture straight out of Florida.","Expect wildlife, backroads and the kind of towns where everyone owns a boat."],bait:"Airboat chases: yes or yes?"},
+ {c:"fact",s:"Confirmed",t:"Jason's tattoo tells his backstory.",b:["Look closely at Jason in the trailers — there's a paratrooper tattoo.","It matches Rockstar's bio: he served in the Army before drifting into the Keys drug trade.","Rockstar hid his history on his skin before they ever wrote it down."],bait:"What other details did you spot in the trailers?"},
+ {c:"hype",s:"Rumor",t:"Police that learn your escape routes.",b:["Rumor: cops that adapt to your playstyle.","Use the same escape route twice and future chases reportedly get harder.","Unconfirmed. But Red Dead 2 already had smarter law systems, so it's not far-fetched."],bait:"Would smarter cops make the game better or just annoying?"},
+ {c:"comm",s:"Ask",t:"Which real Florida moment belongs in the game?",b:["41 days. Florida man energy today.","Trailer 1 was built on real viral Florida clips — the guy with the gator, the mud fest.","Comment the real Florida headline you need to see recreated in Leonida."],bait:"Best Florida headline wins. Keep it clean-ish."},
+
+ {c:"hype",s:"Confirmed",t:"40 days. What Ultimate Edition actually adds.",b:["Ultimate is 20 dollars more than Standard. Here's what's in it.","Extra shops, missions, vehicles, weapons and outfits — including two side missions you can't get otherwise.","You can upgrade from Standard later, so no pressure to decide today."],bait:"Standard or Ultimate? What are you buying?"},
+ {c:"fact",s:"Confirmed",t:"The pre-order bonus is a '55 sedan and a garage.",b:["Every pre-order gets the Vintage Vice City Pack.","A 1955 Vapid Stanier, a personal garage at Shore Court near Ocean Beach, plus retro outfits and hairstyles for Jason and Lucia.","A throwback to when the neon burned brightest, in Rockstar's words."],bait:"Retro car in a modern city — cool or cringe?"},
+ {c:"char",s:"Confirmed (Rockstar bio)",t:"Dre'Quan Priest: dancers are his A&Rs.",b:["Dre'Quan dealt on the streets to survive, but music was always the goal.","He runs Only Raw Records, signed the rap duo Real Dimez, and books acts into Boobie's strip club.","His actual quote: dancers are like my A&Rs. More hustler than gangster."],bait:"Is the music industry storyline a good idea for GTA?"},
+ {c:"map",s:"Confirmed regions, details thin",t:"Port Gellhorn and Mount Kalaga: the mystery regions.",b:["Two confirmed regions Rockstar has barely shown.","Port Gellhorn — a port town on the coast. Mount Kalaga — a mountain and park area, which is wild for a Florida map.","If Leonida has real elevation, that's a first for a GTA set in the South."],bait:"What do you think is hiding in Mount Kalaga?"},
+ {c:"fact",s:"Confirmed (trailer 2)",t:"The game has its own social media.",b:["Trailer 2 shows in-game social feeds — fake posts, viral clips, influencers.","Characters like Real Dimez literally built their careers on it.","GTA V parodied TV. GTA VI is parodying your phone."],bait:"Which app do you think they're roasting hardest?"},
+ {c:"hype",s:"Rumor",t:"Your body changes like San Andreas.",b:["Rumor: Jason and Lucia's bodies change with how you play.","Overeat and you gain weight. Train and you build muscle — just like CJ in San Andreas.","Not confirmed. But fans have wanted this back for 20 years."],bait:"Do you want the San Andreas gym system back?"},
+ {c:"comm",s:"Ask",t:"First thing you do in Leonida.",b:["34 days. Simple question.","The game loads. You're in. What's the very first thing you do?","Steal a boat, hit the beach, find the highest point, cause a 5-star? Comment it."],bait:"First move in Leonida. Go."},
+
+ {c:"hype",s:"Confirmed (Take-Two claim)",t:"Trailer 2 did 475 million views in 24 hours.",b:["33 days. Trailer 1 broke records. Trailer 2 destroyed them.","Take-Two says trailer 2 hit 475 million views across platforms in its first 24 hours.","Biggest video launch in history — and it wasn't even gameplay."],bait:"How many times have you watched trailer 2?"},
+ {c:"fact",s:"Confirmed",t:"Rockstar only admitted the game existed in 2022.",b:["Fans spent years asking. Rockstar said nothing.","Then in February 2022, one line on the Rockstar Newswire: active development is well underway.","Trailer 1 came 22 months later. Rockstar doesn't announce — it confirms."],bait:"How long did you wait for that one sentence?"},
+ {c:"char",s:"Confirmed (Rockstar bio)",t:"Real Dimez: viral videos, viral hooks.",b:["Bae-Luxe and Roxy — friends since high school who turned shaking down dealers into rap tracks and a social media empire.","An early hit with local rapper DWNPLY blew them up. Five years and a lot of trouble later, they're signed to Only Raw Records.","Rockstar's tagline: viral videos, viral hooks."],bait:"Are Real Dimez going to have real tracks on the radio?"},
+ {c:"map",s:"Confirmed region, details thin",t:"30 days. Ambrosia — the region nobody's talking about.",b:["Of the six regions, Ambrosia is the quietest.","Confirmed by Rockstar, barely shown — likely inland Florida: farmland, industry, small towns.","Every GTA has a Sandy Shores. This might be it."],bait:"What's your theory on Ambrosia?"},
+ {c:"fact",s:"Confirmed (Rockstar)",t:"Trailer 2 was captured entirely on a PS5.",b:["No PC. No cinematic tricks. Rockstar said trailer 2 was captured on a PlayStation 5.","That's the visual bar for the base console — not a target render.","Which explains why some people refused to believe it."],bait:"Did you believe it was real console footage?"},
+ {c:"hype",s:"Speculation",t:"No PC version yet. Here's the pattern.",b:["28 days out — and still no PC date. PC players, don't panic.","GTA IV came to PC 7 months after console. GTA V took 18 months. Red Dead 2 took a year.","My prediction: PC in late 2027. Take it or leave it."],bait:"PC players: waiting, or buying a console?"},
+ {c:"comm",s:"Poll",t:"Will it delay again? Yes or no.",b:["27 days. The question everyone's scared to ask.","Take-Two reaffirmed November 19th in August. Pre-orders are live. Pre-load is scheduled.","Vote: does it hold, or does it slip a third time?"],bait:"Holds or slips? One word."},
+
+ {c:"hype",s:"Confirmed",t:"The cover art tells you the whole story.",b:["Rockstar teased the cover in June — Jason and Lucia, together, front and centre.","No solo hero. No gang. A couple.","Every GTA cover is a mood board for the game. This one says: two people against the world."],bait:"Best GTA cover ever — VI, V, or Vice City?"},
+ {c:"fact",s:"Confirmed",t:"The Leonida Penitentiary is Lucia's first scene.",b:["Trailer 1's opening shot is Lucia in prison orange at the Leonida Penitentiary.","GTA V started you mid-heist. Red Dead 2 started you in a blizzard.","GTA VI starts you locked up. That's the tone."],bait:"Prison break opening, or is she released?"},
+ {c:"char",s:"Confirmed (Rockstar bio)",t:"Raul Bautista: the heist guy.",b:["Raul is a seasoned bank robber — confidence, charm, cunning — always recruiting talent for the biggest scores.","Rockstar warns his recklessness raises the stakes with every job.","If GTA VI has heists, they run through him."],bait:"Which GTA heist does Raul have to top?"},
+ {c:"map",s:"Leak, unverified",t:"The leaked map has three counties.",b:["In August, a map reportedly from a dev build leaked.","It shows Vice Dale County around Vice City, Kelly County in the Everglades, and Leonard County up north — with a prison.","Unverified by Rockstar. But it matches everything shown so far."],bait:"Real leak or fan-made? Your call."},
+ {c:"fact",s:"Confirmed (Ultimate Edition)",t:"Leonida's nickname is the Goodtime State.",b:["Florida is the Sunshine State. Leonida is the Goodtime State.","It's on the Ultimate Edition's Goodtime Gear apparel — Rockstar built a whole state identity.","Even the merch inside the game has lore."],bait:"What's Vice City's fake tourism slogan? Comment yours."},
+ {c:"hype",s:"Rumor",t:"Animals might fight for you.",b:["Rumor: wildlife that isn't decoration.","Some animals reportedly attack enemies or alert you to hidden loot.","Unconfirmed — but Red Dead 2's animal AI already exists. Gators in Grassrivers would be terrifying."],bait:"Pet gator: yes or absolutely yes?"},
+ {c:"comm",s:"Ask",t:"Rate the trailers out of 10.",b:["20 days. Honest ratings only.","Trailer 1: the reveal. Trailer 2: the story. The extended look: the details.","Comment your score for each. I'll average them next week."],bait:"Three numbers, out of 10. Go."},
+
+ {c:"hype",s:"Confirmed (trailer 1)",t:"Halloween special: trailer 1 was built on real Florida news.",b:["19 days. Happy Halloween from the scariest state in America.","Trailer 1 recreated real viral Florida clips — the guy with the gator by the pool, the mud fest, the hair-raising mugshots.","Rockstar didn't invent Leonida. They just watched the news."],bait:"Scariest thing in Florida: gators, hurricanes, or people?"},
+ {c:"fact",s:"Confirmed",t:"Only two editions. That's new for Rockstar.",b:["GTA V had Special and Collector's editions. Red Dead 2 had three tiers.","GTA VI has exactly two: Standard and Ultimate. One pre-order bonus for both.","Rockstar simplified everything except the map."],bait:"Do you miss the physical collector's edition?"},
+ {c:"char",s:"Confirmed (Rockstar bio)",t:"Brian Heder and Lori: the boat yard couple.",b:["Brian is a smuggler from the golden age of the Keys. Still moves product through his boat yard, still lets others take the risk.","He's Jason's boss and landlord.","Lori is his third wife — and she's shown handling a pistol and an assault rifle. Don't underestimate her."],bait:"Brian or Lori — who's actually in charge?"},
+ {c:"map",s:"Confirmed",t:"Ocean Beach and Shore Court.",b:["Ocean Beach is the neon strip — the postcard Vice City.","Shore Court is a stone's throw away — that's where your pre-order garage sits.","Expect this to be the most-screenshotted corner of the game."],bait:"Beach apartment or Keys apartment?"},
+ {c:"fact",s:"Confirmed",t:"The longest gap between GTAs ever.",b:["GTA V: September 2013. GTA VI: November 2026.","Thirteen years — the longest wait between mainline GTAs in history.","The previous record? Five years, between IV and V."],bait:"How old were you when GTA V came out?"},
+ {c:"hype",s:"Speculation",t:"Online probably launches later. Here's why.",b:["14 days. GTA Online didn't launch with GTA V — it came two weeks later.","Rockstar hasn't detailed GTA VI's online plans yet.","Prediction: story first, online weeks or months after. Play the campaign."],bait:"Story first or straight to Online?"},
+ {c:"comm",s:"Poll",t:"Which character betrays Jason and Lucia?",b:["13 days. Betrayal is a GTA tradition.","Boobie, Dre'Quan, Raul, Brian, Cal — someone's turning.","Vote in the comments. No spoilers if you know something."],bait:"Name the traitor. I'll revisit this after launch."},
+
+ {c:"hype",s:"Confirmed",t:"12 days. The Bonnie and Clyde problem.",b:["GTA has never had a couple as co-protagonists before.","Rockstar's own bio says meeting Lucia could be the best or the worst thing to ever happen to Jason.","Every previous GTA was one man's rise. This one's a relationship."],bait:"Does the couple story make it or break it?"},
+ {c:"fact",s:"Reported",t:"You'll need an SSD. And a lot of it.",b:["Console versions require SSD installation — no external hard drives.","The file size hasn't been announced, but reports point to it being enormous.","Pre-load is on the 12th for a reason. Clear space now."],bait:"How much storage are you deleting for this?"},
+ {c:"char",s:"Speculation",t:"10 days. Who's actually voicing Lucia?",b:["Rockstar has confirmed zero voice actors. None.","Fans have matched Lucia's voice and face to actor Manni L. Perez. Jason's is guessed too.","Rockstar kept GTA V's cast quiet until close to launch. Same playbook."],bait:"Should Rockstar reveal the cast before launch?"},
+ {c:"map",s:"Speculation",t:"Mount Kalaga — a mountain in Florida?",b:["Real Florida's highest point is 345 feet. It's basically flat.","Yet Rockstar confirmed a region called Mount Kalaga.","Leonida is Florida with the geography bent — expect actual hills, hiking, and views."],bait:"Do you want Mount Chiliad-style mysteries on Kalaga?"},
+ {c:"fact",s:"Confirmed (Ultimate Edition)",t:"You can restore abandoned classic cars.",b:["Ultimate Edition includes a Classic Car Collection.","An eccentric collector called Wyman commissions you to track down and restore abandoned project cars across Leonida.","Rockstar quietly built a car-hunting side game."],bait:"First classic you're restoring?"},
+ {c:"hype",s:"Confirmed",t:"Pre-load day. Download it now.",b:["7 days. Digital pre-load opens today.","Get it downloaded so you're not fighting the servers on Wednesday night.","One week. Seven Shorts left."],bait:"Pre-loaded? Screenshot proof in the comments."},
+ {c:"comm",s:"Ask",t:"Are you taking the 19th off? Be honest.",b:["6 days out. Confession time.","Sick day, holiday, or straight-up quitting?","Comment your excuse. Best one gets pinned."],bait:"Your excuse for the 19th. Make it good."},
+
+ {c:"hype",s:"Rumor",t:"The Switch 2 rumor.",b:["5 days. Rockstar confirmed PS5 and Xbox Series only. No PC, no PS4.","But a Nintendo Switch 2 port keeps getting rumored.","Not confirmed by anyone official. Filing this under 'we'll see'."],bait:"Would you play GTA VI on a handheld?"},
+ {c:"fact",s:"Confirmed (Ultimate Edition)",t:"Meet Macca the Gator.",b:["Macca the Gator is a mascot from a hit TV show inside the game.","His face is on the Goodtime Gear apparel in the Ultimate Edition.","Rockstar built a fictional celebrity for a fictional state. Lore inside lore."],bait:"Macca merch in real life — would you buy it?"},
+ {c:"char",s:"Confirmed (Rockstar bio)",t:"3 days. Jason and Lucia, together.",b:["Rockstar's line: meeting Lucia could be the best or worst thing to ever happen to Jason.","Trust is the whole story. Two criminals who need each other and can't fully trust each other.","In 3 days we find out which way it goes."],bait:"Do they make it to the end together? Yes or no."},
+ {c:"map",s:"Confirmed",t:"2 days. The full state of Leonida, recapped.",b:["Vice City — neon, beaches, the port. The Keys — islands and boat yards.","Grassrivers — swamps and gators. Port Gellhorn — the coast. Mount Kalaga — hills. Ambrosia — the interior.","One state. Two protagonists. Two days."],bait:"Final answer: where do you go first?"},
+ {c:"hype",s:"Confirmed",t:"Launch eve. Midnight is midnight.",b:["1 day. GTA VI unlocks at 12am local time — rolling by region.","Pre-load done? Storage cleared? Snacks ready?","69 days of countdown. Tomorrow, the number hits zero."],bait:"Staying up? Comment your time zone."},
+ {c:"launch",s:"Launch day",t:"0. It's here.",b:["Day zero. Grand Theft Auto VI is out.","69 days, 69 Shorts, and you're still here — thank you.","First impressions video is coming. Go play."],bait:"Rate your first hour out of 10. First-impressions video drops tonight."}
+];
+
+const START = new Date(2026,8,12); // 12 Sep 2026 (Sat)
+const LAUNCH = new Date(2026,10,19);
+const MS = 86400000;
+const dayOf = (d) => Math.round((LAUNCH - d)/MS);
+DAYS.forEach((d,i)=>{ d.date = new Date(START.getTime()+i*MS); d.n = dayOf(d.date); d.i = i; });
+
+const fmt = d => d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
+const posted = new Set();
+let activeCats = new Set(Object.keys(CATS));
+let current = null;
+
+async function loadPosted(){
+  try{ const r = await window.storage.get('gta6-posted', false); JSON.parse(r.value).forEach(i=>posted.add(i)); }catch(e){}
+}
+async function savePosted(){
+  try{ await window.storage.set('gta6-posted', JSON.stringify([...posted]), false); }catch(e){}
+}
+
+function renderFilters(){
+  const el = document.getElementById('filters'); el.innerHTML='';
+  for(const [k,v] of Object.entries(CATS)){
+    if(k==='launch') continue;
+    const b=document.createElement('button'); b.className='chip'; b.style.setProperty('--c',v.color);
+    b.setAttribute('aria-pressed', activeCats.has(k)); b.innerHTML=`<span class="dot"></span>${v.label}`;
+    b.onclick=()=>{ if(activeCats.has(k)){activeCats.delete(k)}else{activeCats.add(k)} renderFilters(); renderGrid(); };
+    el.appendChild(b);
+  }
+}
+
+function renderGrid(){
+  const g=document.getElementById('grid'); g.innerHTML='';
+  const today=new Date(); today.setHours(0,0,0,0);
+  DAYS.forEach(d=>{
+    const b=document.createElement('button'); b.className='cell';
+    b.style.setProperty('--c',CATS[d.c].color);
+    if(d.c==='launch') b.classList.add('launch');
+    if(posted.has(d.i)) b.classList.add('done');
+    if(d.date.getTime()===today.getTime()) b.classList.add('today');
+    if(!activeCats.has(d.c) && d.c!=='launch') b.classList.add('dim');
+    b.innerHTML=`<span class="date">${fmt(d.date)}</span><span class="n">${d.n}</span><span class="t">${d.t}</span>`;
+    b.onclick=()=>openDay(d);
+    g.appendChild(b);
+  });
+  // pad last row so the week grid stays aligned
+  const pad=(7-(DAYS.length%7))%7;
+  for(let i=0;i<pad;i++){const e=document.createElement('div');e.className='cell empty';g.appendChild(e);}
+  document.getElementById('postedCount').textContent=posted.size;
+}
+
+function renderHero(){
+  const today=new Date(); today.setHours(0,0,0,0);
+  const n=dayOf(today);
+  const hn=document.getElementById('heroNum'), hl=document.getElementById('heroLabel');
+  if(n>0){hn.textContent=n; hl.textContent=n===1?'day to go':'days to go';}
+  else if(n===0){hn.textContent='0'; hl.textContent='launch day';}
+  else {hn.textContent='out'; hl.textContent=`released ${-n} day${-n===1?'':'s'} ago`;}
+  const sd=Math.round((today-START)/MS)+1;
+  document.getElementById('seriesDay').textContent = sd<1?'not started':(sd>69?'done':sd);
+}
+
+function openDay(d){
+  current=d;
+  const dr=document.getElementById('drawer'); dr.style.setProperty('--c',CATS[d.c].color);
+  document.getElementById('dKicker').textContent=`${fmt(d.date)} · series day ${d.i+1} of 69`;
+  document.getElementById('dNum').innerHTML=`${d.n}<small>${d.n===1?'day to go':d.n===0?'launch day':'days to go'}</small>`;
+  document.getElementById('dTitle').textContent=d.t;
+  document.getElementById('dCat').textContent=CATS[d.c].label;
+  document.getElementById('dStatus').textContent=d.s;
+  document.getElementById('dBeats').innerHTML=d.b.map(x=>`<li>${x}</li>`).join('');
+  document.getElementById('dBait').textContent=d.bait;
+  document.getElementById('doneBtn').textContent=posted.has(d.i)?'Mark as not posted':'Mark as posted';
+  document.getElementById('dNote').textContent = d.s.toLowerCase().includes('rumor')||d.s.toLowerCase().includes('leak')||d.s.toLowerCase().includes('speculation')||d.s.toLowerCase().includes('reported')
+    ? 'This one is unconfirmed — keep "reportedly" or "rumor" in the voiceover so you don\'t get corrected in the comments.'
+    : '';
+  dr.classList.add('open'); dr.setAttribute('aria-hidden','false');
+  document.getElementById('scrim').classList.add('open');
+  document.getElementById('closeBtn').focus();
+}
+function closeDay(){
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawer').setAttribute('aria-hidden','true');
+  document.getElementById('scrim').classList.remove('open');
+}
+
+document.getElementById('closeBtn').onclick=closeDay;
+document.getElementById('scrim').onclick=closeDay;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDay();});
+document.getElementById('doneBtn').onclick=async()=>{
+  if(!current) return;
+  posted.has(current.i)?posted.delete(current.i):posted.add(current.i);
+  await savePosted(); renderGrid(); openDay(current);
+};
+document.getElementById('copyBtn').onclick=async()=>{
+  if(!current) return;
+  const txt=`${current.n===0?'LAUNCH DAY':current.n+' DAYS TO GTA VI'} — ${fmt(current.date)}\n${current.t}\n\n`+current.b.map((x,i)=>`${i+1}. ${x}`).join('\n')+`\n\nCTA: ${current.bait}\nStatus: ${current.s}`;
+  const btn=document.getElementById('copyBtn');
+  try{ await navigator.clipboard.writeText(txt); btn.textContent='Copied'; }
+  catch(e){ btn.textContent='Copy failed — select text manually'; }
+  setTimeout(()=>btn.textContent='Copy script',1600);
+};
+
+(async()=>{ await loadPosted(); renderFilters(); renderHero(); renderGrid(); })();
+</script>
+</body>
+</html>

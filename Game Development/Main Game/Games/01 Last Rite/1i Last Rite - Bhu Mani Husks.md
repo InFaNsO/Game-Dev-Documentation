@@ -48,6 +48,21 @@ Per [[1h Last Rite - Player Moveset & Animation Plan]] §5.1 — husks carry **2
 
 **Specials are particle systems, not animations.** The body motion is a generic pack clip; the VFX carries the identity. Each is depicted on that enemy's weapon-and-moves sheet below.
 
+### 1.4 Husk passives (⚠ NEW 2026-10-11)
+
+Until now no Husk had a passive. **Each family now carries one** — the habit that outlived the person inside — and purifying three of that family teaches her the same passive as an **Echo** ([[1p Last Rite - Echoes]]). You fight it first, then you wear it.
+
+**Laws:** one passive per family, carried by every variant · **it shows on the body** (gem pulse or brightness, adornment, a visible stack — the gem is already the telegraph, §1.1) · it may change the Husk's tempo, chain length or economy pressure, **never a window's width, a telegraph or a real cue** · it debuts in a solo fight.
+
+| Family | Passive (on the Husk) | Reads as | Her Echo |
+|---|---|---|---|
+| **Garland** · *the Metronome* | **Gravedigger's Rhythm** — each consecutive hit it lands unparried deals +10% (max +30%); a parry resets it | the kiln-gem brightens per stack | Gravedigger's Rhythm |
+| **Mourner** · *the Off-Beat* | **Long Vigil** — each time it is dodged, its next attack hangs longer (max 2 stacks) | the censer-gem's swing slows | Long Vigil |
+| **Deadfall** · *the Liar* | **Splinter Crown** — each feint the player bites on adds a leaf; at 3 leaves its next string is one attack longer; holding through a feint strips a leaf | the blood-red leaf crown grows | Seen Through |
+| **Reliquary** · *the Multiplier* (boss) | **Consecration** — its existing identity (§5): everyone else's chains run longer while it lives | its halo and staff | Consecration |
+
+Player-side effects, costs and all numbers live in [[1p Last Rite - Echoes]] §7.2 (playtest-open).
+
 ---
 
 ## 2. Garland Husk · *Asthikumbha* — the Metronome

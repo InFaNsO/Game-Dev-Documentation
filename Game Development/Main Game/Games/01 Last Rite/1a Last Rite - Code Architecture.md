@@ -392,7 +392,7 @@ Three corollaries:
 
 1. **Mechanics below, economies above.** The reactive layer (timelines, windows, outcomes) is portfolio tech. What an outcome *pays out* (purge here; AP + crit + Mani-drop in the LS) is host-game policy. `BGamer.CombatReactive` emits **outcomes**; each game maps outcomes → its own economy.
 2. **Data is the truth; presentation is a skin.** Combat runs as a pure-C# sim on a millisecond clock. Animation, VFX, camera, UI, audio *mirror* the sim via events and never feed back into it. (Same philosophy as the automation pillar's "sim = source of truth, VFX = cosmetic skin.")
-3. **No speculative seams.** No grid substrate (Game 2 adds it), no inventory/factions/Mani economy (Game 3+/LS), no DI container, no ECS, no Addressables in v1 (a catalog seam keeps the door open), no localization framework (string-ID-keyed text keeps the door open). If no future game swaps it, it's concrete.
+3. **No speculative seams.** No grid substrate (Game 2 adds it), no inventory/factions/Mani economy (Game 3+/LS) *(⚠ 2026-10-11: Game 1 now has the defensive mani economy and one learned-passive list — Echoes, [[1p Last Rite - Echoes]]; factions, vendors and a general item inventory stay Game 3+/LS)*, no DI container, no ECS, no Addressables in v1 (a catalog seam keeps the door open), no localization framework (string-ID-keyed text keeps the door open). If no future game swaps it, it's concrete.
 
 ---
 
@@ -470,7 +470,7 @@ Template per system: **Job · Seam (the abstraction + where it sits) · Game 1 c
 ### 2.6 Save system
 - **Job:** save-safe by construction.
 - **Seam:** `ISaveService` (slots, JSON, version field + migration hook) + `ISaveable` registry (CaptureState/RestoreState, stable string keys). Content referenced **by string ID only** — never asset refs in saves.
-- **Game 1:** two files per slot — `RunSave` (tier index, room index, cleared encounters, RNG seed) + `MetaSave` (best ranks, lore unlocked, techniques, gauntlet scores, true-ending flags) + settings. Checkpoint at room boundaries; death respawns at duel start regardless (diegetic). **⚠ 2026-08-09:** `RunSave` += mani reserve · Shroud element + integrity · fraying; `MetaSave` += scars · kalpa index · endings seen ([[1j Last Rite - Shroud, Mani & Sanity]]).
+- **Game 1:** two files per slot — `RunSave` (tier index, room index, cleared encounters, RNG seed) + `MetaSave` (best ranks, lore unlocked, techniques, gauntlet scores, true-ending flags) + settings. Checkpoint at room boundaries; death respawns at duel start regardless (diegetic). **⚠ 2026-08-09:** `RunSave` += mani reserve · Shroud element + integrity · fraying; `MetaSave` += scars · kalpa index · endings seen ([[1j Last Rite - Shroud, Mani & Sanity]]). **⚠ 2026-10-11:** `RunSave` += bound Echo ids; `MetaSave` += remembered Echo ids + per-family purify tallies ([[1p Last Rite - Echoes]] §10). **No progress save system exists in code yet** — only `GameSystem`'s two settings in PlayerPrefs.
 - **Later:** the LS registers stash/reputation/etc. as more `ISaveable`s; the mechanism never changes.
 
 ### 2.7 Data conventions (Def/Instance + catalogs)
@@ -583,6 +583,11 @@ Third-person walk (CharacterController), interactables (lore, doors, the heart),
 - `MetricsRecorder` (per-encounter event subscriber: hits taken, time, style events) → `RankResolver(RankingDef)` → grade → UI + MetaSave. Style weights are data.
 - **The Rite gauntlet** = a `DescentDef` variant (all guardians, one healthbar, score) — reuses the entire run pipeline; near-free by construction, as the concept promised.
 
+### 4.7 Echoes (⚠ NEW 2026-10-11 — learned passives on the mani budget)
+- Host-game policy, so it lives in `LastRite`: `SOEchoDef` (both the Husk-side and player-side effects of one Echo) · `SOEchoEffect` subclasses per trigger kind (a new Echo is a new asset, not a new script) · `EchoLoadout` on the player · `HuskEcho` on enemy prefabs · `EchoLedger` (remembered set + purify tallies → MetaSave).
+- `BGamer.Combat` gains only generic hooks and never learns what an Echo is: `IDamageStep` (already planned for `AshformMult` / `PurgedMult`), an AP-grant command, a feint-resolved state event, an attack tag for hanging attacks, a chain-length hook. Procs are Cues; "Echo remembered" goes through a `CueChannel`.
+- Full spec: [[1p Last Rite - Echoes]] §10.
+
 ---
 
 ## 5. Editor & tests (fairness as tooling)
@@ -594,7 +599,7 @@ Third-person walk (CharacterController), interactables (lore, doors, the heart),
 ---
 
 ## 6. What we deliberately do NOT build (the guardrail list)
-No grid substrate (Game 2) · no inventory/factions/vendor/Mani economy (Game 3+/LS) · no Encounter-Arena scene transition (duels in-place) · no Command-pattern combat actions (returns in Game 2's tactical layer) · no DI container/ECS/Addressables/localization-framework/netcode · no behavior-tree AI (string-scheduler + policy knobs is the honest scope) · no stamina, no skill tree (locked design). *(⚠ 2026-08-09: the Shroud's defensive mani reserve — one scalar + an element tag — is a meter, not the LS Mani economy; the guardrail stands. [[1j Last Rite - Shroud, Mani & Sanity]] §2.)*
+No grid substrate (Game 2) · no inventory/factions/vendor/Mani economy (Game 3+/LS) · no Encounter-Arena scene transition (duels in-place) · no Command-pattern combat actions (returns in Game 2's tactical layer) · no DI container/ECS/Addressables/localization-framework/netcode · no behavior-tree AI (string-scheduler + policy knobs is the honest scope) · no stamina, no skill tree (locked design). *(⚠ 2026-08-09: the Shroud's defensive mani reserve — one scalar + an element tag — is a meter, not the LS Mani economy; the guardrail stands. [[1j Last Rite - Shroud, Mani & Sanity]] §2.)* *(⚠ 2026-10-11: **Echoes** — a flat list of learned passives bound with mani — are the one exception to "no inventory". They are not a skill tree and add no meter; the rest of the guardrail stands. [[1p Last Rite - Echoes]] §6/§10.)*
 
 ---
 

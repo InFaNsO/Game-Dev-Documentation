@@ -14,6 +14,26 @@ The early specs (`1a`/`1c`, written pre-code in June 2026) describe a design the
 
 ---
 
+## 2026-10-11 — **Echoes: a build layer, paid for in mani**
+
+*The developer asked whether Last Rite had anything like Expedition 33's Pictos / Lumina. It had nothing — and the docs had ruled it out. New canon: [[1p Last Rite - Echoes]].*
+
+- **Was:** no player build layer. *"The reserve is one scalar + an element tag (no inventory)"* (the 2026-08-09 entry below), and [[1a Last Rite - Code Architecture]] §0 / §6: *"no inventory/factions/Mani economy (Game 3+/LS)"*. Husks had no passives.
+- **Now, four developer decisions:**
+  1. **Echoes** — passives bound with mani, as many as she can afford. **Mani is carried (drops on death), bound (safe, returned on release) or burned (Shroud repair — gone).** Healing burns it, so **every heal is paid for out of the build.** Binding happens only at shrines.
+  2. **Husks gain passives.** One per family; purify three of a family and she remembers its Echo. Bosses teach theirs on the first kill.
+  3. **Echoes ship at launch, across all four wings** (~20–24).
+  4. **Name: Echo · *Smriti*** ("that which is remembered"). Rejected names are logged in [[1p Last Rite - Echoes]] §1.
+- **Why:** it turns the thesis into a choice the player makes at every shrine — *the healing IS the disease*. It adds replay through the kalpa carry-over (remembered Echoes persist; the mani budget resets) without becoming a roguelite grind. And Husk passives add depth on the enemy side, where the game already puts it.
+- **Guardrails kept:** no Echo touches windows, telegraphs or cues · offense only through existing payouts (AP, Purge, counters) — **Purge is still the only offensive meter** · no free healing · a flat list, not a skill tree · elements stay enemy-side.
+- **Also defined:** [[1j Last Rite - Shroud, Mani & Sanity]] §3.2's undefined "over-leaning on gem buffs" = **binding past the Brink**. Built as a plain cap until the sanity/scars launch decision.
+- **⚠ Costs to watch:**
+  - **The death spiral** — a struggling player heals more, binds less, and struggles more. Softened by bound mani surviving death and a free Rite allowance; checked at gray-box.
+  - **Schedule** — the mani economy, shrines and progress saves are not built yet (2026-10-11), and Vayu/Agni enemies don't exist yet, against a Nov 2 review build.
+- **Specced now:** [[1p Last Rite - Echoes]] (new) · [[1j Last Rite - Shroud, Mani & Sanity]] (header, §2, §3.2, §4, §7, §8.3) · [[1a Last Rite - Code Architecture]] (§0, §2 saves, §4.7 new, §6) · [[1i Last Rite - Bhu Mani Husks]] (§1.4 new) · [[1e Last Rite - Build Roadmap]] (definition of done, M3, M4).
+
+---
+
 ## 2026-08-12 — **The environment is locked; the strata order is FREED**
 
 *The place the game happens in gets designed for the first time, and it changes the shape of the run. New canon: [[1l Last Rite - World & Environment Bible]] (authoritative for architecture, layout, environment colour and environment motion).*

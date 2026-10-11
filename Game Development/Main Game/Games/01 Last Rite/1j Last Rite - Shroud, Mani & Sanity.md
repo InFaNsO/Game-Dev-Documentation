@@ -5,6 +5,8 @@
 > **Two developer decisions anchor this doc (2026-08-09):** (1) the 08-07 elemental cut is **narrowed, not reversed** — mani returns player-side as **defense only**: no attacks, no offensive meter; **Purge stays the only offensive meter**, AP the only offense input. (2) Sanity keeps the fairness firewall in combat — **combat information never lies by default**; true cue-corruption lives only behind the opt-in **"embrace the hallucination"** toggle, tuned/enforced after playtesting.
 >
 > Numbers are reference values, **ALL playtest-open**, per portfolio discipline.
+>
+> **⚠ 2026-10-11 — Echoes.** Mani gains a third use: besides healing, it can be **bound** into **Echoes**, passives learned from the Husks, shipping at launch ([[1p Last Rite - Echoes]]). §2, §3.2, §4, §7 and §8.3 are amended below.
 
 ---
 
@@ -64,13 +66,14 @@ Shroud integrity IS the health readout, rendered on her model (mirrored in HUD):
 
 ## 2. The mani defense economy (the 08-07 cut, narrowed)
 
-**Scope guard first — what this is NOT (the cut's spirit stands):** no Mani-based attacks, no elemental player offense, no absorption, no Surge, no elemental trails, **no offensive Mani meter — Purge remains the player's only offensive meter**, AP the only offense input. Elements never touch the player's *reaction windows* (fairness firewall untouched). The mani reserve is **one scalar + one element tag** — a resource, not an inventory (the [[1a Last Rite - Code Architecture]] §6 guardrail holds).
+**Scope guard first — what this is NOT (the cut's spirit stands):** no Mani-based attacks, no elemental player offense, no absorption, no Surge, no elemental trails, **no offensive Mani meter — Purge remains the player's only offensive meter**, AP the only offense input. Elements never touch the player's *reaction windows* (fairness firewall untouched). The mani reserve is **one scalar + one element tag** — a resource, not an inventory (the [[1a Last Rite - Code Architecture]] §6 guardrail holds). **⚠ AMENDED 2026-10-11:** the reserve itself stays one scalar + an element tag, but mani can now also be **bound** into **Echoes** — a flat list of learned passives, the one inventory-like structure Game 1 has ([[1p Last Rite - Echoes]]). Echoes add no attack and no meter; offense Echoes only change what AP, Purge and counters already pay out, so this scope guard stands.
 
 - **⚠ Source — the gem IS the kill (CANONIZED 2026-08-11).** Mani is not loot that falls out of a corpse: **the mani-gem lodged in each Husk is the core of its deathlessness, and tearing it out is the killing blow.** The body crumbles instantly to dust, centuries overdue — a mercy, a last rite. Mechanically this is the **purification finisher** (the D5-amendment killing blow), so the harvest costs no new verb, no new input, and no new animation slot. Fiction: [[1k Last Rite - Lore Bible]] §5.
 - **Drops:** each Husk yields mani of **its element**; some yield **raw** (element-neutral) mani. (Diegetic anchor: the gem is visible on every enemy and doubles as its telegraph — [[1i Last Rite - Bhu Mani Husks]] §1.1.)
 - **Raw mani heals MORE** (pure, unspecialized). **Elemental mani heals less** but re-weaves the Shroud **in that element's color**: an elemental **resist** + a paired **weakness** (reference pairs, playtest-open: **Agni ↔ Jal**, **Bhu ↔ Vayu**). Choosing your color is a read-the-descent gamble, never a strict upgrade — this inversion is what keeps raw mani from becoming vendor trash.
 - **Field patch vs re-vest:** in the field, spending reserve **patches** the Shroud (partial, costs **fraying** §3.1 — the soft cap on mid-fight chugging). At **shrines / room checkpoints**, **re-vesting** fully restores the Shroud and is the **only place to switch element** — the re-consecration beat.
 - **Element = defense loadout.** Swapping vestments IS swapping element. The element axis returns to Game 1 *defensively* — visible on her body, never in her attacks.
+- **⚠ NEW 2026-10-11 — mani's third use: binding.** Mani is **carried** (drops on death), **bound** into Echoes (safe on death, returned in full on release) or **burned** on Shroud repair (gone for the kalpa). Binding happens only at shrines, beside the re-vest. **Every heal is paid for out of the build** — [[1p Last Rite - Echoes]] §3.
 
 ---
 
@@ -96,7 +99,7 @@ Mirrors the two-layer health: **fraying** (recoverable, in-the-moment pressure) 
 
 - **⚠ Greed triggers (NEW — the ratchet):** three acts carve scars —
   1. **taking body damage** (she is out of Shroud and eating hits with the woman underneath),
-  2. **over-leaning on gem buffs** (riding the harvest instead of the read),
+  2. **over-leaning on gem buffs** (riding the harvest instead of the read) — **⚠ defined 2026-10-11: binding Echoes past the Brink** ([[1p Last Rite - Echoes]] §3.3; a plain cap until scars ship),
   3. **pushing sanity past threshold** (spending fraying below a floor to keep the §3.1 buff up).
   These are the *chosen* costs — they fire on greedy play that succeeded, which is exactly what a death counter can't see. **Thresholds, weights, and whether all three ship are gray-box work** (§8.3); the design requirement is that a player who never gets greedy can finish **with zero scars**, and that a player who leans on all three brushes the brink without ever dying.
 - **Every Nth death permanently blackens one notch** (reference: **N = 3**, pool ≈ **10** — sized so a mid player *brushes* the brink late in Kalpa 1; playtest-open). **This stands** — dying is a mistake, greed is a decision, and the design charges for both.
@@ -126,9 +129,9 @@ Mirrors the two-layer health: **fraying** (recoverable, in-the-moment pressure) 
 
 ## 4. Death economy & the kalpa loop
 
-- **Any death:** respawn at duel start (diegetic, unchanged) · the scar countdown ticks · **unconverted mani reserve drops where you fell — one retrieval**, Souls-style (worn Shroud is never lost).
+- **Any death:** respawn at duel start (diegetic, unchanged) · the scar countdown ticks · **unconverted mani reserve drops where you fell — one retrieval**, Souls-style (worn Shroud is never lost). *(⚠ 2026-10-11: mani bound into Echoes counts as converted — never lost — [[1p Last Rite - Echoes]] §3.1.)*
 - The earlier "Shroud-death vs Ashform-death" two-penalty draft is **replaced** by this unified rule + the countdown.
-- **Husk-out → Kalpa N+1:** campaign resets to the top of the dive. **Carry-forward = weapon/attack unlocks, codex/lore, shortcut knowledge** — light meta, not a roguelite grind. Scars reset with the kalpa.
+- **Husk-out → Kalpa N+1:** campaign resets to the top of the dive. **Carry-forward = weapon/attack unlocks, codex/lore, shortcut knowledge** — light meta, not a roguelite grind. Scars reset with the kalpa. **⚠ 2026-10-11: + remembered Echoes and purify tallies; bound and carried mani and the Rite allowance reset** — she starts Kalpa N+1 remembering more than she can afford ([[1p Last Rite - Echoes]] §3.4).
 - **Why a full reset is right at this scope:** the locked core is ~3–5hr; a Sifu-shaped reset at that length is mastery pressure, not content-deletion. Kalpa 2+ replays compress toward score-attack length (~1.5–2hr) — the campaign is designed for the clean run; deaths inflate a first run on their own (~4–5hr).
 - **⚠ 2026-08-11 — the kalpa reset is now the campaign's ONLY repeat structure.** With the re-descent loop cut (D2), husking out is the one thing that sends the player back to the top. That raises its weight: it is no longer one reset among five authored cycles, it is *the* reset. Two consequences to watch at gray-box — (1) **scar tuning is now the sole pacing control on run length**, and (2) the shortcut-knowledge carry-forward matters more, since a Kalpa 2 player re-walks strata they have already cleared rather than a remixed variant.
 
@@ -174,7 +177,7 @@ Mirrors the two-layer health: **fraying** (recoverable, in-the-moment pressure) 
 - **One mesh, one rig:** only Vested is modeled; states 2–4 = a **dissolve mask driven by Shroud integrity** + an **emissive mark layer** (marks = their own texture set: albedo + emissive mask; element hue + blaze intensity = material params — one shader property drives both element color and health intensity). The body beneath is modeled/textured (final-state bindings). Full art law: [[1b Last Rite - Art Bible]] §9.
 - **No cloth sim** — form-fitting by design (the ablation grammar was chosen partly to dodge the cloth/hair tearing tax).
 - **Damage steps:** `AshformMult` (counter/ultimate amp) + element resist/weakness both ride the existing `IDamageStep` chain — no new architecture.
-- **Saves:** `RunSave` += mani reserve · Shroud element + integrity · fraying; `MetaSave` += scars · kalpa index · endings seen ([[1a Last Rite - Code Architecture]] §2.6 note).
+- **Saves:** `RunSave` += mani reserve · Shroud element + integrity · fraying; `MetaSave` += scars · kalpa index · endings seen ([[1a Last Rite - Code Architecture]] §2.6 note). **⚠ 2026-10-11:** `RunSave` += bound Echo ids; `MetaSave` += remembered Echo ids + per-family purify tallies ([[1p Last Rite - Echoes]] §10). No progress save system exists in code yet.
 - **SanityDirector** extends with narrowing (mixer/volume + post weights ∝ fraying, enemy/telegraph channels exempt) + a HUD-unreliability driver targeting `LastRite.UI` *abstract* widgets only — still subscriber-only ([[1a Last Rite - Code Architecture]] §4.5 note).
 - **Enemy-side ablation (stretch, proposed):** guardians char/flake as they take damage — same shader family at smaller scale; free readability + world consistency.
 - **Concept sheets:** the 2026-08-09 ablation studies (4-panel Vested→Ashform + element recolors) currently live only in the design-session chat — **TODO (dev): file them into the concept-art store and mark the chosen sheet.** Production translation is **onto the chibi rig** — the sheets define material/state grammar, never proportions ([[1b Last Rite - Art Bible]] §9).
@@ -215,6 +218,7 @@ Mirrors the two-layer health: **fraying** (recoverable, in-the-moment pressure) 
 - **⚠ NEW (2026-08-11) — the greed-scar triggers:** thresholds and weights for body damage · gem-buff leaning · sanity-floor pushes (§3.2), **re-tuned jointly with death-N and the scar pool** now that two sources feed one pool.
 - **⚠ NEW (2026-08-11) — the fraying buff magnitudes:** how much damage and elemental resistance fraying buys (§3.1), and the guardrail that keeps "stay frayed" from becoming strictly optimal.
 - **⚠ NEW (2026-08-11) — what scars cost at the fork:** how scar count prices the Take/Renounce choice (§3.3) — narrowed options, harsher epilogue, or a scaled final encounter.
+- **⚠ NEW (2026-10-11) — Echoes:** learn count, costs, the Rite allowance, the Brink (`Cap` vs `ScarTrigger` — follows the sanity/scars launch decision), and whether binding past the Brink speeds the endless sanity timer — [[1p Last Rite - Echoes]] §12.
 - Ashform multiplier · resist/weakness magnitudes · the element opposition pairs.
 - Boss relics as *Take-it*-ending material — and whether the Husk-ending→endless epilogue ships.
 - **Hallucination toggle:** final status after the ON/OFF playtest (stays opt-in · becomes default · earns a reward · cut). Its craft rule is already binding (§3.4).
